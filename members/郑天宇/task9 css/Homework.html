@@ -6,7 +6,11 @@
   </head>
   <!-- 写一个 btn 的class， 任何 a，span,div,button 添加此class后后变成如下按钮的样式(鼠标hover背景色#c14d21, 鼠标按下背景色#e25f31) -->
   <style media="screen">
-    div.btn{
+  a,button,span,div{
+    margin: 0;
+    padding: 0;
+  }
+    .btn{
       width: 50px;
       height: 30px;
       border: 1px solid ;
@@ -14,13 +18,21 @@
       text-align: center;
       font-size: 20px;
       border-radius: 6px;
+      display: inline-block;
 
     }
+    /*a.btn{
+      width: 50px;
+      height: 30px;
+      border: solid 1px  ;
+      background-color: #ff9933;
+      display: block;
+    }*/
   </style>
   <body>
     <a href="#" class="btn">a</a>
     <span class="btn">span</span>
     <div class="btn">div</div>
-    <button class="btn">button</button>
+    <button class="btn"></button>
   </body>
 </html>
