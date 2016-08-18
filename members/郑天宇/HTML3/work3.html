@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>work3</title>
+</head>
+<!--表头是蓝色，表行是白色。 当鼠标放置到表行时背景色变为淡灰色 -->
+<style media="screen">
+    table {
+      border-collapse: collapse;
+
+    }
+
+    table tr th {
+        background-color: rgb(36, 182, 214);
+        width: 500px;
+        height: 50px;
+        border: solid 1px #ccc;
+    }
+
+    table tr td {
+        background-color: #fff;
+        width: 500px;
+        height: 50px;
+        text-align: center;
+        border: 1px solid #ccc
+
+    }
+
+    table tr:hover {
+        background-color: #ccc;
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+            <th>
+                姓名
+            </th>
+            <th>
+                性别
+            </th>
+        </tr>
+        <tr>
+            <td>
+                小明
+            </td>
+            <td>
+                男
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小花
+            </td>
+            <td>
+                女
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
