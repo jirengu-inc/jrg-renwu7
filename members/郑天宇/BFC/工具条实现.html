@@ -3,47 +3,103 @@
 
 <head>
     <meta charset="utf-8">
-    <title>工具条</title>
+    <title>工具条实现</title>
 </head>
 <style media="screen">
-  html,body,ul,li{
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    body,
+    html,
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
 
-  }
-  .father{
-    display: inline-block;
-  }
-  .son{
-    display: inline;
-  }
+    .nav {
+        width: 900px;
+        height: 40px;
+        background-color: #eee;
+        margin: 0 auto;
+    }
+
+    .nav li {
+        float: left;
+        line-height: 40px;
+        position: relative;
+        padding: 0 15px;
+    }
+
+    .nav li:hover {
+        background-color: #eee;
+    }
+
+    .child {
+
+        display: none;
+    }
+
+    .nav li:hover .child {
+        display: block;
+        position: absolute;
+        border: 1px solid #ccc;
+        top: 40px;
+        
+    }
+
+    .child>li {
+        padding: 0 5px;
+    }
+
+    .child>li:hover {
+        background: #ccc;
+    }
 </style>
 
 <body>
-    <div class="containt">
-        <div class="nav">
-            <ul class="father">
-                <li>前端  </li>
-                    <ul class="son">
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </ul>
 
-                <li>服务端
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </ul>
-                </li>
-                <li>前端工具</li>
-                <li>HTML</li>
-                <li>NODE</li>
+    <ul class="nav">
+        <li><a href="#">前端</a>
+            <ul class="child">
+                <a href="#">
+                    <li>css</li>
+                </a>
+                <a href="#">
+                    <li>js</li>
+                </a>
             </ul>
-        </div>
-    </div>
+        </li>
+        <li><a href="#">服务端</a>
+            <ul class="child">
+                <a href="#">
+                    <li>php</li>
+                </a>
+                <a href="#">
+                    <li>java</li>
+                </a>
+            </ul>
+        </li>
+        <li><a href="#">前端工具</a>
+            <ul class="child">
+                <a href="#">
+                    <li>atom</li>
+                </a>
+                <a href="#">
+                    <li>webstorm</li>
+                </a>
+            </ul>
+        </li>
+        <a href="#">
+            <li>HTML</li>
+        </a>
+        <a href="#">
+            <li>NODE</li>
+        </a>
+    </ul>
+
 </body>
 
 </html>
