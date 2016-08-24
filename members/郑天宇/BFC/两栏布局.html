@@ -6,10 +6,12 @@
     <title>两栏布局</title>
 </head>
 <style>
-body,html{
-  margin: 0;
-  padding: 0;
-}
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+    }
+
     #header {
         background: red;
         height: 60px;
@@ -18,7 +20,6 @@ body,html{
     #content {
         height: 100px;
         background: #eee;
-
     }
 
     #footer {
@@ -27,16 +28,19 @@ body,html{
     }
 
     .aside {
-      float: left;
-      height: 100px;
-      width: 200px;
-
+        float: left;
+        height: 100px;
+        width: 200px;
+        margin: 0;
     }
-    .main{
-      overflow: hidden;
-      background-color: pink;
-      width: auto;
-      height: 100px;;
+
+    .main {
+        overflow: hidden;
+        background-color: pink;
+        width: auto;
+        height: 100px;
+        margin: 0;
+
     }
 </style>
 
@@ -45,10 +49,8 @@ body,html{
     <div id="content">
         <div class="aside">aside</div>
         <div class="main">
-            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...
-              我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...
-                我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...
-                  我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...
+            我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main... 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main... 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main
+            我是main... 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main 我是main...
         </div>
     </div>
     <div id="footer">
