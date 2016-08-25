@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task10-1</title>
+    <style type="text/css" rel="stylesheet">
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: "Microsoft YaHei UI",sans-serif;
+        }
+        .header,footer{
+            background: #333;
+            color: #fff;
+        }
+        .ct {
+            width:900px ;
+            margin: 0 auto;
+        }
+        a{
+            color: #fff;
+            text-decoration: none;
+        }
+    /*head****************************************************************
+    **********************************************************************/
+        .header{
+            height: 50px;
+        }
+        .header img{
+            float: left;
+            height: 40px;
+        }
+        .header ul{
+            float: right;
+            list-style-type: none;
+        }
+        .header ul li{
+            float:left;
+            margin-left: 10px;
+
+        }
+        .header ul a{
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 15px 0 15px;
+        }
+        .header ul a:hover{
+            color: #000;
+            background: #fff;
+        }
+        /*main****************************************************************
+        **********************************************************************/
+        .main{
+            margin-top: 10px;
+        }
+        .aside,.middle{
+            background: #eee;
+            color: #666;
+        }
+        .aside{
+            margin-right: 10px;
+            float: left;
+            width: 200px;
+            min-height: 500px;
+        }
+        .middle{
+            float: left;
+            width: 690px;
+        }
+        .middle .text{
+            margin-bottom: 10px;
+            margin-left: 10px;
+
+        }
+        .middle .text h2{
+            margin:20px 10px 20px 0;
+        }
+
+        /*foot****************************************************************
+        **********************************************************************/
+        footer{
+            clear: both;
+            height: 40px;
+            line-height: 40px;
+        }
+        footer a{
+            font-size: 14px;
+            padding-left:5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <nav class="ct">
+            <a href="http://www.jirengu.com/"><img src="image/logo-tiny.png"></a>
+            <ul>
+                <li><a href="#">技能</a></li>
+                <li><a href="#">经历</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="ct main">
+        <div class="aside"></div>
+        <div class="middle">
+            <div class="text">
+                <h2>我的作品</h2>
+                <p>生活很美好</p>
+                <p>心情很不错</p>
+                <p>代码写得很漂亮</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <nav class="ct">
+            <a href="http://www.jirengu.com/">饥人谷</a>
+            <a href="http://jscode.me/">JSCODE</a>
+            <a href="http://js.jirengu.com/?html,output">JSBIN</a>
+        </nav>
+    </footer>
+</body>
+</html>

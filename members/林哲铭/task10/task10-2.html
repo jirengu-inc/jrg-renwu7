@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task10-2</title>
+    <style type="text/css">
+        .box{
+            width:200px;
+            height: 100px;
+            border: 1px solid #ddd;
+            margin-bottom: 50px;
+        }
+        .gray-triangle{
+            position: relative;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border: 10px solid;
+            border-color:transparent transparent #aaa transparent;
+        }
+        .s2,.s3{
+            position:relative;
+        }
+        .red-triangle{
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: solid 10px;
+            border-color: #f00 #f00 transparent transparent;
+            right: 0;
+        }
+        .white-triangle{
+            position: absolute;
+            top:-20px;
+            left:20px;
+            width: 0;
+            height: 0;
+            border: 10px solid;
+            border-color:transparent transparent #aaa transparent;
+        }
+        .baffe{
+            position: absolute;
+            top:-19px;
+            left:20px;
+            width: 0;
+            height: 0;
+            border: 10px solid;
+            border-color:transparent transparent #fff transparent;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="gray-triangle"></div>
+    <div class="box s1"></div>
+    <div class="box s2">
+        <div class="red-triangle"></div>
+    </div>
+    <div class="box s3">
+        <div class="white-triangle"></div>
+        <div class="baffe"></div>
+    </div>
+</body>
+</html>
