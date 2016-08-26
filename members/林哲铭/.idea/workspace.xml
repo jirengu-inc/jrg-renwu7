@@ -21,21 +21,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="task11.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/task11/task11.html">
+      <file leaf-file-name="task12-4.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/task12/task12-4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+            <state relative-caret-position="628">
+              <caret line="62" column="7" selection-start-line="5" selection-start-column="3" selection-end-line="62" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task11-2.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/task11/task11-2.html">
+      <file leaf-file-name="task12-5.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/task12/task12-5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1150">
-              <caret line="46" column="88" selection-start-line="46" selection-start-column="88" selection-end-line="46" selection-end-column="88" />
+            <state relative-caret-position="1375">
+              <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -63,6 +63,11 @@
         <option value="$PROJECT_DIR$/task10/task10-1.html" />
         <option value="$PROJECT_DIR$/task11/task11.html" />
         <option value="$PROJECT_DIR$/task11/task11-2.html" />
+        <option value="$PROJECT_DIR$/task12/task12-1.html" />
+        <option value="$PROJECT_DIR$/task12/task12-2.html" />
+        <option value="$PROJECT_DIR$/task12/task12-3.html" />
+        <option value="$PROJECT_DIR$/task12/task12-4.html" />
+        <option value="$PROJECT_DIR$/task12/task12-5.html" />
       </list>
     </option>
   </component>
@@ -73,10 +78,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1050" />
+    <option name="x" value="586" />
+    <option name="y" value="192" />
+    <option name="width" value="1114" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -103,8 +108,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -123,22 +126,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="林哲铭" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="林哲铭" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="task11" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -223,17 +214,18 @@
       <workItem from="1472095058196" duration="991000" />
       <workItem from="1472114970431" duration="10169000" />
       <workItem from="1472180435099" duration="3486000" />
+      <workItem from="1472196710843" duration="5453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34984000" />
+    <option name="totallyTimeSpent" value="40437000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="586" y="192" width="1114" height="878" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14270833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -267,7 +259,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/task10/task10-1.html">
+    <entry file="file://$PROJECT_DIR$/task11/task11.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task11/task11-2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -275,11 +275,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/task10/task10-1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/task10/task10-2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1250">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -287,7 +293,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -414,7 +419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -422,7 +426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1250">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -430,22 +433,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="779">
           <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task11/task11.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/task11/task11.html" />
     <entry file="file://$PROJECT_DIR$/task11/task11-2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
+        <state relative-caret-position="800">
           <caret line="46" column="88" selection-start-line="46" selection-start-column="88" selection-end-line="46" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task12/task12-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task12/task12-1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task12/task12-3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task12/task12-4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="62" column="7" selection-start-line="5" selection-start-column="3" selection-end-line="62" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task12/task12-5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1375">
+          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
           <folding />
         </state>
       </provider>
