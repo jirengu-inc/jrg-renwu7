@@ -1,0 +1,97 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font: 14px/1.5 "Microsoft YaHei","微软雅黑",sans-serif;
+  color: #656565;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+ul, li{
+  list-style: none;
+}
+.container{
+  width: 900px;
+  margin: 0 auto;
+}
+
+/*头部*/
+#header{
+  height: 50px;
+  background: #333;
+}
+#header .logo img{
+  height: 40px;
+  float: left;
+}
+#header .nav{
+  float: right;
+}
+#header .nav li{
+  float: left;
+  margin-right: 15px;
+}
+#header .nav a{
+
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+  display: block;
+}
+#header .nav a:hover{
+  background-color: #fff;
+  color: #333;
+}
+/*头部*/
+
+/*内容左区块*/
+#content{
+  margin-top: 10px;
+}
+/*#content:after{
+		content: '';
+		display: table;
+		clear: both;
+}*/
+#content .aside{
+  width: 200px;
+  height: 800px;
+  background-color: #eee;
+  float: left;
+}
+/*内容左区块*/
+
+
+/*内容主区块*/
+#content .main{
+  margin-left: 210px;
+  background-color: #eee;
+  padding: 20px 10px;
+}
+#content .main h1{
+  padding: 20px 0;
+}
+/*内容主区块*/
+
+
+/*页脚部分*/
+#footer{
+  height: 40px;
+  background-color: #333;
+  clear: both;
+}
+#footer li{
+  display: inline-block;
+  margin-left: 10px;
+}
+#footer li a{
+  font-size: 16px;
+  display: inline-block;
+  line-height: 40px;
+  cursor: pointer;
+}
+/*页脚部分*/
