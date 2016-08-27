@@ -14,7 +14,6 @@ html,ul,li,a{
 }
 .contain{
     display:inline-block;
-    padding:0 10px;
 }
 .contain > li{
     float:left;
