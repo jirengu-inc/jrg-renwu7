@@ -1,94 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="description" content="display:none、visibility:hidden、opacity:0的区别" />
     <meta charset="utf-8">
-    <title>两栏布局</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>两栏布局1</title>
     <style>
-        *{
+        /**** 第一部分，重置公共默认样式*****/
+        /*重置默认样式*/
+        body,ul,li,p,h1,h2,h3,h4,h5,h6{
             margin: 0;
             padding: 0;
-            font-family: "微软雅黑";
-            color: #000;
         }
         a{
+            color: #333;
             text-decoration: none;
         }
-        li{
+        ul,li{
             list-style: none;
         }
-        .nav{
-            margin: 5px;
+
+        /**** 第二部分，设置当前页面公共样式*****/
+
+        body{
+            font: 14px/1.5 "Microsoft YaHei","微软雅黑",sans-serif;
+            color: #656565;
         }
-        .bar{
-            background: #CBCBCB;
+
+        /*让页面上的内容都居中,宽度固定在900px 以内*/
+        .container{
+            width: 900px;
+            margin: 0 auto;
         }
-        .bar:after{
-            content: "";
+
+
+        /***** 第三部分, 写页面功能区块 *****/
+
+        /*头部*/
+        #header{
+            height: 50px;
+            background: #333;
+        }
+        #header .logo img{
+            height: 40px;
+        }
+        #header .nav{
+            float: right;
+        }
+        #header .nav > li{
+            float: left;
+            margin-right: 15px;
+        }
+        #header .nav a{
             display: block;
+            font-size: 16px;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 10px;
+            color: #fff;
+        }
+        #header .nav a:hover{
+            background-color: #fff;
+            color: #333;
+        }
+
+        /*侧边栏*/
+
+        #content{
+            margin-top: 10px;
+        }
+        #content:after{
+            content: '';
+            display: table;
             clear: both;
         }
-        .bar>li{
+
+        #content .aside{
             float: left;
-            padding: 5px 10px;
-            position: relative;
+            width: 200px;
+            min-height: 500px;
+            background-color: #eee;
         }
-        .bar>li .child{
-            display: none;
-            border: 1px solid #cbcbcb;
-            background: #fff;
+
+
+
+        /*主区块*/
+
+        #content .main{
+            margin-left: 210px;
+            padding: 20px 10px;
+            background-color: #eee;
         }
-        .bar>li:hover{
-            background: #AAA;
+        #content .main h1{
+            margin: 20px 0;
         }
-        .bar>li:hover .child{
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 30px;
+
+        /*尾部*/
+        #footer{
+            background-color: #333;
+            padding: 10px 0;
         }
-        .bar>li:hover .child>li{
-            padding: 5px 0;
+        #footer:after{
+            content: '';
+            display: table;
+            clear: both;
         }
-        .child>li:hover{
-            background: #cbcbcb;
+        #footer li{
+            float: left;
+            margin-left: 10px;
         }
+        #footer a{
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>
-    <div class="nav">
-        <ul class="bar">
-            <li>
-                <a href="javascript:;">前端</a>
-                <ul class="child">
-                    <li><a href="javascript:;">JavaScript</a></li>
-                    <li><a href="javascript:;">CSS</a></li>
-                    <li><a href="javascript:;">HTML</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;">服务端</a>
-                <ul class="child">
-                    <li><a href="javascript:;">Node</a></li>
-                    <li><a href="javascript:;">PHP</a></li>
-                    <li><a href="javascript:;">Java</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;">前端工具</a>
-                <ul class="child">
-                    <li><a href="javascript:;">Sublime</a></li>
-                    <li><a href="javascript:;">Webstorm</a></li>
-                    <li><a href="javascript:;">Git</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;">HTML</a>
-            </li>
-            <li>
-                <a href="javascript:;">NODE</a>
-            </li>
+<div id="header">
+    <div class="container">
+        <a class="logo" href="#"><img src="http://cdn.jirengu.com/public/logo-tiny.png" alt=""></a>
+        <ul class="nav">
+            <li><a href="">技能</a></li>
+            <li><a href="">经历</a></li>
+            <li><a href="">作品</a></li>
+            <li><a href="">关于</a></li>
         </ul>
     </div>
+</div>
+<div id="content">
+    <div class="container">
+        <div class="aside">
+
+        </div>
+
+        <div class="main">
+            <h1>我的作品</h1>
+            <p>生活很美好</p>
+            <p>心情不错</p>
+            <p>代码写的很漂亮</p>
+        </div>
+    </div>
+
+</div>
+<div id="footer">
+    <div class="container">
+        <ul>
+            <li><a href="http://jirengu.com">饥人谷</a></li>
+            <li><a href="http://jscode.me">JSCODE</a></li>
+            <li><a href="http://js.jirengu.com">JSBIN</a></li>
+        </ul>
+    </div>
+
+</div>
+
 </body>
 </html>
