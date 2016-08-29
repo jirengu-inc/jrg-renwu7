@@ -1,0 +1,148 @@
+/*********************************init*****************************************/
+/*********************************init****************************************/
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Microsoft YaHei UI", sans-serif;
+    font-size: 14px;
+}
+html,body{
+    height: 100%;
+}
+a{
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+}
+li{
+    list-style-type: none;
+}
+h1{
+    font-size: 3em;
+}
+h2{
+    font-size: 22px;
+}
+h4{
+    margin: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+hr{
+    width: 100%;
+}
+ul{
+    float: left;
+}
+
+/**************************************public class************************************/
+/**************************************public class************************************/
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+.padding-wraps{
+    padding: 80px;
+}
+.padding-wraps2{
+    padding: 50px;
+}
+.text-center{
+    text-align: center;
+}
+.bt1{
+    padding: 10px;
+    background: #fff;
+    color: #333;
+}
+.bt2{
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 5px 15px;
+}
+.clear:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.margin-bottom{
+    margin-bottom: 30px;
+}
+/**************************************header************************************/
+/**************************************header************************************/
+#header:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+#header ul,#header img{
+    float: left;
+}
+#header .nav,#header .bigger-nav{
+    display: inline-block;
+    padding: 20px;
+    float: left;
+    position: relative;
+}
+#header .nav:hover{
+    background: #ccc;
+}
+#header .nav:hover a{
+    color: #fff;
+}
+#header .parent:hover .child{
+    display: block;
+}
+#header a{
+    font-size: 16px;
+}
+#header .child{
+    display: none;
+    background:#fff;
+    position: absolute;
+    top: 100%;
+    left:0;
+}
+#header .nav .child a{
+    color: #333;
+    font-size: 16px;
+    display: block;
+    padding: 20px;
+}
+/**************************************main************************************/
+/**************************************main************************************/
+.extra{
+    background: #b84d45;
+    color: #fff;
+}
+.extra p{
+    font-size: 20px;
+    margin: 20px 0;
+}
+.title{
+    background: #eee;
+    color: #999;
+    margin: 20px 0;
+    padding: 10px;
+}
+.title p,.title a{
+    font-size: 16px;
+    display: inline;
+    margin: 10px;
+}
+.image-block{
+    margin: 15px;
+    float:left;
+    border:solid 1px #ccc;
+}
+.image-block p{
+    margin-bottom: 20px;
+}
+/**************************************footer************************************/
+/**************************************footer************************************/
+#footer span{
+    color: pink;
+}
+
