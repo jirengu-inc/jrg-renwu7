@@ -50,17 +50,16 @@ ul{
 .text-center{
     text-align: center;
 }
-.bt1{
-    padding: 10px;
+.bt1,.bt2{
+    padding: 5px 15px;
     background: #fff;
     color: #333;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
 }
 .bt2{
     display: inline-block;
     margin-bottom: 20px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    padding: 5px 15px;
 }
 .clear:after{
     content: "";
@@ -111,6 +110,12 @@ ul{
     display: block;
     padding: 20px;
 }
+#header .nav .child a:hover{
+    background: #ccc;
+    color: #fff;
+}
+
+
 /**************************************main************************************/
 /**************************************main************************************/
 .extra{

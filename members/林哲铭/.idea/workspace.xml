@@ -24,10 +24,9 @@
       <file leaf-file-name="task15-1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task15/task15-1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="75" column="53" selection-start-line="75" selection-start-column="53" selection-end-line="75" selection-end-column="53" />
+            <state relative-caret-position="450">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding>
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
@@ -37,8 +36,8 @@
       <file leaf-file-name="task15-1.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task15/task15-1.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="70" column="24" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+            <state relative-caret-position="300">
+              <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -74,8 +73,8 @@
         <option value="$PROJECT_DIR$/task12/task12-5.html" />
         <option value="$PROJECT_DIR$/task14/task14.html" />
         <option value="$PROJECT_DIR$/task14/task14.css" />
-        <option value="$PROJECT_DIR$/task15/task15-1.css" />
         <option value="$PROJECT_DIR$/task15/task15-1.html" />
+        <option value="$PROJECT_DIR$/task15/task15-1.css" />
       </list>
     </option>
   </component>
@@ -86,8 +85,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="520" />
-    <option name="y" value="177" />
+    <option name="x" value="651" />
+    <option name="y" value="167" />
     <option name="width" value="1293" />
     <option name="height" value="878" />
   </component>
@@ -220,15 +219,15 @@
       <workItem from="1472258057407" duration="4240000" />
       <workItem from="1472304554313" duration="8535000" />
       <workItem from="1472384503369" duration="15600000" />
-      <workItem from="1472431910458" duration="11561000" />
+      <workItem from="1472431910458" duration="12500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80974000" />
+    <option name="totallyTimeSpent" value="81913000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="520" y="177" width="1293" height="878" extended-state="1" />
+    <frame x="651" y="167" width="1293" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21490195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -583,10 +582,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task15/task15-1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="75" column="53" selection-start-line="75" selection-start-column="53" selection-end-line="75" selection-end-column="53" />
+        <state relative-caret-position="450">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -594,8 +592,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task15/task15-1.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="70" column="24" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+        <state relative-caret-position="300">
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
           <folding />
         </state>
       </provider>
