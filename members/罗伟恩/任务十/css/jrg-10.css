@@ -1,0 +1,83 @@
+/*第一部分，重置公共默认样式*/
+body,p,ul,li,h1,h2,h3,h4,h5{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* 第二部分，设置当前页面公共样式*/
+body{
+    font-family: "微软雅黑";
+    color: #656565;
+}
+/*让页面上的内容都居中,宽度固定在1200px 以内*/
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+/***** 第三部分, 写页面功能区块 *****/
+.header{
+    height: 59px;
+    background-color: #333;
+    margin-bottom: 15px;
+}
+.logo{
+    width: 216px;
+    height: 59px;
+    background: url(../images/JRG.png) no-repeat;
+    float: left;
+    margin-left: -10px;
+}
+.nav{
+    float: right;
+}
+.nav li{
+    width: 50px;
+    height: 59px;
+    float: right;
+    line-height: 59px;
+    margin-right: 50px;
+}
+.nav li a, .footer .copyRight a{
+    color: #fff;
+    font-size: 20px;
+}
+.content::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.sidebar{
+    width: 260px;
+    height: 640px;
+    background: #EEE;
+    float: left;
+    margin-right: 15px;
+}
+.main{
+    background: #EEE;
+    margin-left: 275px;
+    padding: 100px 15px;
+}
+.main h1{
+    color: #656565;
+    margin-bottom: 20px;
+}
+.main p{
+    color: #676767;
+}
+.footer{
+    height: 59px;
+    background-color: #333;
+    clear: both;
+    line-height: 59px;
+    text-align: center  ;
+}
+.footer .copyRight li{
+    width: 90px;
+    float: left;
+}

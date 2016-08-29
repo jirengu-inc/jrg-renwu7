@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>三横杠</title>
+    <style>
+
+        .cat:before{
+            content: "";
+            display: block;
+            height: 6px;
+            width: 30px;
+            border-top: 4px solid #eee;
+        }
+        .cat:after{
+            content: "";
+            display: block;
+            width: 30px;
+            height: 6px;
+            border-bottom: 4px solid #eee;
+            border-top: 4px solid #eee;
+        }
+
+    </style>
+</head>
+<body>
+    <span class="cat"></span>
+</body>
+</html>

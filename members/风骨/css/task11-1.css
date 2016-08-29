@@ -1,0 +1,40 @@
+html,ul,li,a{
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration:none;
+    font-size:20px;
+    font-family:"Microsoft YaHei";
+    color:#000;
+}
+#header{
+    height:40px;
+    line-height:40px;
+    background:#eee;
+}
+.contain{
+    display:inline-block;
+}
+.contain > li{
+    float:left;
+    display:inline-block;
+    position:relative;
+    padding:0 10px;
+}
+.contain > li:hover{
+    background:#ccc;
+}
+.contain >li .ct{
+    display:none;
+    background:#fff;
+    position:absolute;
+    top:100%;
+    left:0;
+    border:1px solid #eee;
+}
+.contain > li:hover .ct{
+    display:block;
+}
+.contain > li .ct li:hover{
+    background:#eee;
+}

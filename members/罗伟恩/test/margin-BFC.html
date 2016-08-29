@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="display:none、visibility:hidden、opacity:0的区别" />
+    <meta charset="utf-8">
+    <title>饥人谷：display:none、visibility:hidden、opacity:0的区别</title>
+    <style>
+        .box1, .box2, .box5{
+            width: 100px;
+            height: 100px;
+        }
+        .box1{
+            background: red;
+            margin-bottom: 20px;
+            /*display: inline-block;  inline-block是特例，对兄弟和父子或者自身都可以消除margin*/
+        }
+        .box2{
+            background: yellow;
+            margin: 20px 0;
+        }
+        .ct1, .ct2{
+            /*overflow: hidden;*/
+            /*padding: 1px;*/
+            /*border: 1px solid transparent;*/
+        }/*记住BFC只管儿子不管外面*/
+        .box3{
+            background: blue;
+            margin: 60px 0;/*自身的上下margin发生折叠*/
+            /*padding: 1px;*/
+            /*border: 1px solid transparent;*/
+            /*overflow: hidden;*/
+            /*display: inline-block;*/
+        }
+        .box5{
+            background: orange;
+            margin: 20px 0;
+        }
+        .box4{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            margin-top: 40px;
+            /*border: 1px solid transparent;*/
+            /*padding: 1px;*/
+            /*overflow: hidden;*/
+            /*display:inline-block;*/
+        }
+    </style>
+</head>
+<body>
+<div class="ct1">
+    <div class="box1"></div>
+</div>
+<div class="ct1">
+    <div class="box2"></div>
+</div>
+<div class="box4">
+    <div class="box5">shit</div>
+</div>
+<div class="box3"></div>
+<span>自身的上下margin发生折叠</span>
+</body>
+</html>
