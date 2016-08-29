@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>代码作业1</title>
+  </head>
+  <!-- 使用CSS Sprite 把如下6张图标图片合并成一张图片，做出如下效果, 当 hover 时背景变色 -->
+  <style media="screen">
+  div{
+    margin: 0;
+    padding: 0;
+  }
+    .ct{
+      width: 70px;
+      height: 35px;
+
+      text-align: right;
+      display: table-cell;
+      vertical-align: middle;
+
+    }
+     .speedup{
+        background: url(result.png) no-repeat 0 0;
+    }
+     .speedup:hover{
+         background: url(result.png) no-repeat 0 -135px;
+         color: rgb(140, 36, 213);
+     }
+  .play{
+        background: url(result.png) no-repeat 0 -43px;
+    }
+    .play:hover{
+       background: url(result.png) no-repeat 0 -184px;
+       color: rgb(140, 36, 213);
+
+    }
+    .stop{
+      background: url(result.png) no-repeat 0 -91px;
+
+    }
+    .stop:hover{
+      background: url(result.png) no-repeat 0 -228px;
+      color: rgb(140, 36, 213);
+    }
+  </style>
+  <body>
+    <div class="ct speedup">
+      快进
+    </div>
+    <div class="ct play">
+      播放
+    </div>
+    <div class="ct stop">
+      停止
+    </div>
+
+
+  </body>
+</html>
