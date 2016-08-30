@@ -8,12 +8,16 @@
 <style media="screen">
     body,
     html,
+<<<<<<< HEAD
     ul,
+=======
+>>>>>>> 35605649884cba7d36924500604b8dea1dbe18e4
     li {
         margin: 0;
         padding: 0;
         list-style: none;
     }
+<<<<<<< HEAD
     a{
       text-decoration: none;
       color: black;
@@ -48,6 +52,42 @@
         border: 1px solid #ccc;
         top: 40px;
         
+=======
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .nav {
+        height: 30px;
+        width: 700px;
+        background: #999;
+        margin: 0 auto;
+    }
+
+    .nav>li {
+        float: left;
+        margin: 10px;
+        position: relative;
+  
+    }
+
+    .nav>li:hover {
+        background: #a9a9a9
+    }
+
+    .child {
+        display: none;
+    }
+
+    .nav>li:hover .child {
+        display: block;
+        border: 1px solid red;
+        top: 30px;
+        left: 0;
+        position: absolute;
+>>>>>>> 35605649884cba7d36924500604b8dea1dbe18e4
     }
 
     .child>li {
@@ -55,11 +95,16 @@
     }
 
     .child>li:hover {
+<<<<<<< HEAD
         background: #ccc;
+=======
+        background: #cbcbcb
+>>>>>>> 35605649884cba7d36924500604b8dea1dbe18e4
     }
 </style>
 
 <body>
+<<<<<<< HEAD
 
     <ul class="nav">
         <li><a href="#">前端</a>
@@ -100,6 +145,31 @@
         </a>
     </ul>
 
+=======
+    <ul class="nav">
+        <li> <a href="#">前端</a>
+            <ul class="child">
+                <li><a href="#">JS</a> </li>
+                <li> <a href="#">CSS</a> </li>
+            </ul>
+        </li>
+        <li><a href="#">服务端</a>
+            <ul class="child">
+                <li><a href="#">PHP</a> </li>
+                <li><a href="#">JAVA</a> </li>
+            </ul>
+        </li>
+        <li><a href="#">前端工具</a>
+            <ul class="child">
+                <li> <a href="#">ATOM</a> </li>
+                <li> <a href="#">SUBLINE</a> </li>
+                <li> <a href="#">WEBSTORM</a> </li>
+            </ul>
+        </li>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">NODE</a></li>
+    </ul>
+>>>>>>> 35605649884cba7d36924500604b8dea1dbe18e4
 </body>
 
 </html>

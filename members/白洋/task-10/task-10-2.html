@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
 <body>
-    
+    <style>
+        .kuang{
+            position: relative;
+            height: 150px;
+            width: 300px;
+            /*border: 1px red solid;*/
+        }
+        .cont{
+            height: 100px;
+            width: 200px;
+            border:1px #ccc solid;
+            position: absolute;
+            top:20px;
+            left: 20px;
+            }
+        .sj{
+            height: 1px;
+            width: 1px;
+
+        }
+        .sj-1{
+            position: absolute;
+            left:25px;
+            border-bottom:20px #ccc solid ;
+            border-left: 20px #fff solid;
+            border-right: 20px #fff solid;
+
+        }
+        .sj-2{
+            position: absolute;
+            left: 200px;
+            top:20px;;
+            border-bottom: 20px #fff solid;
+            border-right: 20px red solid;
+        }
+        .sj-3{
+            position: absolute;
+            left:25px;
+            border-bottom:20px #ccc solid ;
+            border-left: 20px #fff solid;
+            border-right: 20px #fff solid;
+
+        }
+        .sj-3:after{
+            position: absolute;
+            z-index: 1;
+            top :5px;
+            left:-17px;
+            border-bottom:17px #fff  solid ;
+            border-left: 17px transparent solid;
+            border-right: 17px transparent solid;
+            content: '';
+
+        }
+    </style>
+    <div class="kuang">
+        <div class="sj sj-1"></div>
+        <div class="cont"></div>
+    </div>
+    <div class="kuang">
+        <div class="sj sj-2"></div>
+        <div class="cont"></div>
+    </div>
+    <div class="kuang">
+        <div class="sj sj-3"></div>
+        <div class="cont"></div>
+    </div>
+
 </body>
 </html>

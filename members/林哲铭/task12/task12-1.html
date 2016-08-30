@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task12-1</title>
+    <style type="text/css">
+        *{
+           padding: 0;
+            margin: 0;
+        }
+        .wraps{
+            width: 1280px;
+            background: #ccc;
+            margin: 20px auto;
+        }
+        .wraps:after{
+            content:"";
+            clear: both;
+            display: block;
+        }
+        .box{
+            float: left;
+            background: green;
+            width: 400px;
+            height: 200px;
+            margin-top: 20px;
+        }
+        .bottom{
+            margin-bottom:20px ;
+        }
+        .middle,.right{
+            margin-left: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wraps">
+        <div class="box top left">1</div>
+        <div class="box top middle">2</div>
+        <div class="box top right">3</div>
+        <div class="box bottom left">4</div>
+        <div class="box bottom middle">5</div>
+        <div class="box bottom right">6</div>
+    </div>
+</body>
+</html>

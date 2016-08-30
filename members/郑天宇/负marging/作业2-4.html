@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>2-1</title>
+</head>
+<style media="screen">
+    #header {
+        height: 30px;
+        background: #666;
+    }
+
+    #content {
+        height: 500px;
+    }
+
+    #content:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+
+
+    .main {
+        height: 500px;
+        width: 100%;
+        float: left;
+    }
+
+    .extra {
+        width: 200px;
+        height: 300px;
+        background: green;
+        float: left;
+        margin-left: -200px;
+    }
+
+    .inner {
+        margin-right: 200px;
+        background: pink;
+        height: 100%;
+
+
+    }
+
+    #footer {
+        height: 30px;
+        background: #666;
+    }
+</style>
+
+<body>
+    <div class="" id="header">
+        头部
+    </div>
+    <div class="" id="content">
+
+        <div class="main">  <!-- 注意：主内容一定放在左右边栏上面 -->
+            <div class="inner">
+                主内容
+            </div>
+        </div>
+
+
+        <div class="extra">右边栏</div>
+    </div>
+    <div class="" id="footer">底部</div>
+
+</body>
+
+</html>
