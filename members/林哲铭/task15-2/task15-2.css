@@ -192,17 +192,18 @@ input,textarea:focus{
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
+
 #about .timeline{
     position: relative;
 }
 #about .timeline:before{
     position: absolute;
     left: 50%;
-    top:0;
-    bottom:0;
+    top:10px;
+    bottom:10px;
     content: "";
-    width: 2px;
-    color: #000;
+    border:1px solid #ccc;
 
 }
 #about .timeline>li{
@@ -225,9 +226,10 @@ input,textarea:focus{
 }
 #about img{
     margin-top:-82px;
-    margin-left: -135px;
+    margin-left: -130px;
     border: 7px solid #ccc;
 }
+
 
 #team img{
     margin: 20px auto;
