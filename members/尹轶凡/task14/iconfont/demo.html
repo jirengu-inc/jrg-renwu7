@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>IconFont</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="iconfont.css">
+</head>
+<body>
+    <div class="main">
+        <h1>IconFont 图标</h1>
+        <ul class="icon_lists clear">
+            
+                <li>
+                <i class="icon iconfont">&#xe61e;</i>
+                    <div class="name">html</div>
+                    <div class="code">&amp;#xe61e;</div>
+                    <div class="fontclass">.html</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe844;</i>
+                    <div class="name">css</div>
+                    <div class="code">&amp;#xe844;</div>
+                    <div class="fontclass">.css</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe608;</i>
+                    <div class="name">javascript</div>
+                    <div class="code">&amp;#xe608;</div>
+                    <div class="fontclass">.javascript</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe61d;</i>
+                    <div class="name"> 博客</div>
+                    <div class="code">&amp;#xe61d;</div>
+                    <div class="fontclass">.boke</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe838;</i>
+                    <div class="name">邮箱</div>
+                    <div class="code">&amp;#xe838;</div>
+                    <div class="fontclass">.svg17</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe640;</i>
+                    <div class="name">电话</div>
+                    <div class="code">&amp;#xe640;</div>
+                    <div class="fontclass">.phone</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe735;</i>
+                    <div class="name">github</div>
+                    <div class="code">&amp;#xe735;</div>
+                    <div class="fontclass">.github</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe7aa;</i>
+                    <div class="name">项目</div>
+                    <div class="code">&amp;#xe7aa;</div>
+                    <div class="fontclass">.xiangmu</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe60a;</i>
+                    <div class="name">荣誉</div>
+                    <div class="code">&amp;#xe60a;</div>
+                    <div class="fontclass">.rongyu</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe61f;</i>
+                    <div class="name">简历</div>
+                    <div class="code">&amp;#xe61f;</div>
+                    <div class="fontclass">.jianli</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe63b;</i>
+                    <div class="name">工作经历</div>
+                    <div class="code">&amp;#xe63b;</div>
+                    <div class="fontclass">.gongzuojingli</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe690;</i>
+                    <div class="name">photoshop</div>
+                    <div class="code">&amp;#xe690;</div>
+                    <div class="fontclass">.photoshop</div>
+                </li>
+            
+        </ul>
+
+
+        <div class="helps">
+            第一步：使用font-face声明字体
+            <pre>
+@font-face {font-family: 'iconfont';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff') format('woff'), /* chrome、firefox */
+    url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+</pre>
+第二步：定义使用iconfont的样式
+            <pre>
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+</pre>
+第三步：挑选相应图标并获取字体编码，应用于页面
+<pre>
+&lt;i class="iconfont"&gt;&amp;#x33;&lt;/i&gt;
+</pre>
+        </div>
+
+    </div>
+</body>
+</html>
