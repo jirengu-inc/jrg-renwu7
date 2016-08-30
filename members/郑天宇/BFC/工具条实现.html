@@ -3,16 +3,56 @@
 
 <head>
     <meta charset="utf-8">
-    <title>工具条</title>
+    <title>工具条实现</title>
 </head>
 <style media="screen">
     body,
     html,
+<<<<<<< HEAD
+    ul,
+=======
+>>>>>>> 35605649884cba7d36924500604b8dea1dbe18e4
     li {
         margin: 0;
         padding: 0;
         list-style: none;
     }
+<<<<<<< HEAD
+    a{
+      text-decoration: none;
+      color: black;
+    }
+
+    .nav {
+        width: 900px;
+        height: 40px;
+        background-color: #eee;
+        margin: 0 auto;
+    }
+
+    .nav li {
+        float: left;
+        line-height: 40px;
+        position: relative;
+        padding: 0 15px;
+    }
+
+    .nav li:hover {
+        background-color: #eee;
+    }
+
+    .child {
+
+        display: none;
+    }
+
+    .nav li:hover .child {
+        display: block;
+        position: absolute;
+        border: 1px solid #ccc;
+        top: 40px;
+        
+=======
 
     a {
         text-decoration: none;
@@ -47,6 +87,7 @@
         top: 30px;
         left: 0;
         position: absolute;
+>>>>>>> 35605649884cba7d36924500604b8dea1dbe18e4
     }
 
     .child>li {
@@ -54,11 +95,57 @@
     }
 
     .child>li:hover {
+<<<<<<< HEAD
+        background: #ccc;
+=======
         background: #cbcbcb
+>>>>>>> 35605649884cba7d36924500604b8dea1dbe18e4
     }
 </style>
 
 <body>
+<<<<<<< HEAD
+
+    <ul class="nav">
+        <li><a href="#">前端</a>
+            <ul class="child">
+                <a href="#">
+                    <li>css</li>
+                </a>
+                <a href="#">
+                    <li>js</li>
+                </a>
+            </ul>
+        </li>
+        <li><a href="#">服务端</a>
+            <ul class="child">
+                <a href="#">
+                    <li>php</li>
+                </a>
+                <a href="#">
+                    <li>java</li>
+                </a>
+            </ul>
+        </li>
+        <li><a href="#">前端工具</a>
+            <ul class="child">
+                <a href="#">
+                    <li>atom</li>
+                </a>
+                <a href="#">
+                    <li>webstorm</li>
+                </a>
+            </ul>
+        </li>
+        <a href="#">
+            <li>HTML</li>
+        </a>
+        <a href="#">
+            <li>NODE</li>
+        </a>
+    </ul>
+
+=======
     <ul class="nav">
         <li> <a href="#">前端</a>
             <ul class="child">
@@ -82,6 +169,7 @@
         <li><a href="#">HTML</a></li>
         <li><a href="#">NODE</a></li>
     </ul>
+>>>>>>> 35605649884cba7d36924500604b8dea1dbe18e4
 </body>
 
 </html>

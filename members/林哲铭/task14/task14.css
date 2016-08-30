@@ -1,0 +1,164 @@
+/*********************************init*****************************************/
+/*********************************init****************************************/
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Microsoft YaHei UI", sans-serif;
+    font-size: 14px;
+}
+html,body{
+    height: 100%;
+}
+a{
+    text-decoration: none;
+    color: #0af;
+    font-size: 14px;
+}
+li{
+    list-style-type: none;
+}
+h1{
+    font-size: 4.5em;
+}
+h2{
+    margin:20px 0;
+    font-size: 30px;
+}
+h4{
+    margin: 15px;
+    font-size: 16px;
+}
+p{
+    margin-bottom: 20px;
+}
+hr{
+    width: 100%;
+}
+ul{
+    float: left;
+}
+/**************************************public class************************************/
+/**************************************public class************************************/
+.clear{
+    clear:both;
+    margin-top: 10px;
+}
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+.table{
+    display: table;
+    height: 100%;
+}
+.text-center{
+    text-align: center;
+}
+.padding-wraps{
+    padding: 80px;
+}
+.virtical-center{
+    display: table-cell;
+    vertical-align: middle;
+}
+.inline-block{
+    display: inline-block;
+}
+.box2{
+    padding: 30px 0;
+}
+.box2:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.bt1{
+    color: #fff;
+    background: #999;
+    padding: 10px;
+}
+.bt2 {
+    color: #000;
+    font-size: 14px;
+    padding: 14px 10px;
+    background: #fff;
+}
+.bt3 {
+    color: #000;
+    font-size: 14px;
+    padding: 14px 30px;
+    background: #fff;
+}
+.bt4{
+    color: #000;
+    font-size: 14px;
+    padding: 14px 20px;
+    background: #04f;
+}
+/**************************************header************************************/
+/**************************************header************************************/
+#header{
+    width: 100%;
+    height: 100%;
+    background: url("image/bg.jpg");
+    background-size:cover;
+}
+#header p,#heade a{
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+/**************************************main************************************/
+/**************************************main************************************/
+#title p,#title a{
+    margin-top: 20px;
+    font-size: 22px;
+}
+#service{
+    background: #06f;
+    color: #fff;
+}
+#service .box1{
+    width:100px;
+    margin: 0 auto;
+}
+#service .box2 ul li{
+    display: inline-block;
+    margin-left: 45px;
+}
+#service .box2 i{
+    font-size: 120px;
+}
+#extra{
+    padding: 250px 0;
+    background: url("image/callout.jpg");
+    background-size: cover;
+    color: #fff;
+}
+#projects .image{
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#more{
+    background: #06f;
+    color: #fff;
+}
+/**************************************footer************************************/
+/**************************************footer************************************/
+#footer .small-container{
+    width: 200px;
+    margin: 0 auto;
+}
+.small-container:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+#footer li{
+    display: inline-block;
+    padding: 0 10px;
+}
+#footer li i{
+    font-size: 40px;
+}

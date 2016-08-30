@@ -1,0 +1,115 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+    html,body,ul,li{
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      font-family: "微软雅黑";
+    }
+    li{
+      list-style-type: none;
+    }
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+    .pc{
+      height: 40px;
+      background: #ccc;
+      line-height: 40px;
+    }
+    .father>li{
+      float: left;
+      padding:0 20px;
+      position: relative;
+    }
+    .father>li:hover{
+      background-color: #bbb;
+    }
+    .child-a{
+      position: absolute;
+      left:0;
+      top:100%;
+      display: none;
+      border: 1px solid #ccc;
+    }
+    li:hover .child-a{
+      display: block;
+    }
+    .child-a>li{
+        padding: 0 20px;
+      }
+
+    .child-a>li:hover{
+      background: #bbb;
+    }
+    .child-b{
+      position: absolute;
+      left:0;
+      top:100%;
+      border: 1px solid #ccc;
+       display: none;
+      }
+    li:hover .child-b{
+      display: block;
+    }
+    .child-b>li{
+      padding: 0 20px;
+    }
+    .child-b>li:hover{
+      background: #bbb;
+    }
+    .child-c{
+      position: absolute;
+      left:0;
+      top:100%;
+    border: 1px solid #ccc;
+    display: none;
+    }
+    li:hover .child-c{
+      display: block;
+    }
+    .child-c>li{
+      padding: 0 10px;
+    }
+    .child-c>li:hover{
+      background: #bbb;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="pc">
+      <ul class="father">
+        <li><a href="#">前端</a>
+          <ul class="child-a">
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">HTML</a></li>
+          </ul>
+        </li>
+        <li><a href="#">服务端</a>
+          <ul class="child-b">
+            <li><a href="#">NODE</a></li>
+            <li><a href="#">PHP</a></li>
+            <li><a href="#">JAVA</a></li>
+          </ul>
+        </li>
+        <li><a href="#">前端工具</a>
+          <ul class="child-c">
+            <li><a href="#">Sublimt</a></li>
+            <li><a href="#">WebStrom</a></li>
+            <li><a href="#">Git</a></li>
+          </ul>
+        </li>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">NODE</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

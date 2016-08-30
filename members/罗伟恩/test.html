@@ -1,92 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js
-"></script>
     <meta charset="utf-8">
-    <title>Hover 效果</title>
+    <title>饥人谷：固定宽度居中</title>
     <style>
-        a{
-            text-decoration: none;
-            color: #333;
-        }
-        ul,li{
-            list-style: none;
+        body,html,ul,li{
             margin: 0;
             padding: 0;
         }
-        .ct{
+        li{
+            list-style: none;
+        }
+        .layout{
+            width: 900px;
+            margin: 0 auto;
+        }
+        #content{
+            margin-top: 30px;
+        }
+
+        #content{
+            padding: 10px;
+            background: #eee;
+        }
+        #content .main{
+            margin-top: 10px;
+            padding: 10px 0;
             background: #ccc;
         }
-        .ct:after{
-            content: ' ';
+        #content .panels{
+            margin-left: -20px;   /*父亲设置负边距，让元素上去*/
+        }
+        #content .panels:after{  /*清除浮动，让父亲撑开高度*/
+            content: '';
             display: block;
             clear: both;
         }
-        .ct > li{
-            float: left;
-            padding: 5px 10px;
-            position: relative;
-        }
-        .ct > li.hover{
-            background: #aaa;
-        }
-        .ct .child{
-            position: absolute;
-            left: 0;
-            top: 26px;
-            display: none;
-            border: 1px solid #ccc;
-        }
-        .ct>li.hover .child{
-            display: block;
-        }
-        .ct .child > li{
-            padding: 5px;
-        }
-        .ct .child > li:hover{
-            background: #ccc;
+        #content .panels > li{
+            float: left;    /*子元素浮动*/
+            margin-left: 20px;   /*只设置左margin 即可*/
+            margin-top: 10px;
+            width: 286px;       /* 286 = (900-20*2)/3 */
+            height: 80px;
+            background: #004210;
         }
 
     </style>
 </head>
 <body>
-<ul class="ct">
-    <li>
-        <a href="">前端</a>
-        <ul class="child">
-            <li><a href="">JavaScript</a></li>
-            <li><a href="">CSS</a></li>
-            <li><a href="">HTML</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="">服务端</a>
-        <ul class="child">
-            <li><a href="">Node</a></li>
-            <li><a href="">PHP</a></li>
-            <li><a href="">Java</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="">前端工具</a>
-        <ul class="child">
-            <li><a href="">Sublime</a></li>
-            <li><a href="">WebStrom</a></li>
-            <li><a href="">Git</a></li>
-        </ul>
-    </li>
-    <li><a href="">HTML</a></li>
-    <li><a href="">NODE</a></li>
-</ul>
 
-<script>
-    $('.ct>li').on('mouseenter', function(){
-        $(this).addClass('hover');
-    })
-            .on('mouseleave', function(){
-                $(this).removeClass('hover');
-            });
-</script>
+<div id="content" class="layout">
+    <div class="main">
+        <ul class="panels">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
