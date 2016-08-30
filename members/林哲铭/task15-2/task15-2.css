@@ -212,8 +212,6 @@ input,textarea:focus{
     margin-bottom: 120px;
 }
 #about .timeline>li .timeline-image{
-    width: 130px;
-    height: 130px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -224,12 +222,26 @@ input,textarea:focus{
     margin:0 140px;
     line-height: 1.5em;
 }
-#about img{
-    margin-top:-82px;
-    margin-left: -130px;
+#about img,#about .end-cricle{
+    margin-top:-85px;
+    margin-left: -82px;
     border: 7px solid #ccc;
 }
-
+#about .end-cricle{
+    width: 150px;
+    height: 150px;
+    background:#fed136;
+    color: #fff;
+}
+#about .end-cricle-font{
+    width: 100px;
+    height: 100px;
+    margin: 40px 25px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Microsoft YaHei UI", sans-serif;
+}
 
 #team img{
     margin: 20px auto;
