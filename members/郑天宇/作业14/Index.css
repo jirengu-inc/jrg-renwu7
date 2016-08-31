@@ -12,6 +12,11 @@ body, html {
 a {
     text-decoration: none;
 }
+.clearfix{
+  content: "";
+  display: block;
+  clear: both;
+}
 #header {
     width: 100%;
     height: 100%;

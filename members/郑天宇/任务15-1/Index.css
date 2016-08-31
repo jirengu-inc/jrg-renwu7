@@ -1,18 +1,138 @@
-body,html,ul,li{
-  margin: 0;
-  padding: 0;
+body, html, ul, li, a,h1,h4 {
+    margin: 0;
+    padding: 0;
+    font-family: Microsoft YaHei;
+    box-sizing: border-box;
 }
-li{
-list-style: none;
+li {
+    list-style: none;
 }
-
-
-.middle{
-  width: 1000px;
-  margin: 0 auto;
+a {
+    text-decoration: none;
+    color: inherit;
 }
-
-.nav li{
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.middle {
+    width: 1000px;
+    margin: 0 auto;
+}
+.nav {
+    font-family: Microsoft YaHei;
+    color: #aaa;
+}
+.nav-parent {
   float: left;
-  padding-right: 20px;
+  position: relative;
+}
+.nav-parent a {
+    
+    float: left;
+}
+.nav .nav-parent>li {
+    float: left;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 10px;
+    position: relative;
+}
+.nav .nav-child {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+.nav .nav-child li{
+    line-height: 1px;
+    padding: 20px;
+    border-bottom: 1px dashed #ccc;
+}
+.nav-child li:last-child{
+  border: none;
+}
+.nav-parent li:hover .nav-child {
+    display: block;
+
+}
+#header .ad {
+    background: #BA544D;
+}
+#header .ad h1 {
+    color: white;
+    font-size: 50px;
+    padding-top: 30px;
+}
+#header .ad p {
+    color: white;
+    font-size: 25px;
+}
+#header .ad p:nth-child(3) {
+    padding-bottom: 40px;
+}
+#content .content-nav p {
+    display: inline-block;
+    float: left;
+}
+#content p a {
+    color: #BA544D;
+}
+
+#content .Myproduction{
+  float: left;
+
+
+}
+
+#content .Myproduction li{
+  float: left;
+  display: inline-block;
+  margin-right:  33px;
+
+  border: 1px solid #aaa;
+  margin-top: 20px;
+  text-align: center;
+
+
+}
+#content .Myproduction li:nth-child(3){
+  margin-right: -33px;
+}
+#content .Myproduction li:nth-child(6){
+  margin-right: -33px;
+}
+#content .Myproduction li img{
+  width: 300px;
+  height: 200px;
+}
+#content .Myproduction li a{
+  display: inline-block;
+  padding:1px 5px;
+  border: 1px solid #aaa;
+  color: #666;
+  line-height: 25px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+
+}
+
+#footer{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: #BA544D;
+  text-align: center;
+  color: white;
+  padding: 24px 0;
+
+}
+
+#footer a{
+  padding: 1px 5px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+
 }
