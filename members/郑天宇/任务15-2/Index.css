@@ -1,0 +1,98 @@
+body, html, ul, li, h1, h4 {
+    padding: 0;
+    margin: 0;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+li {
+    list-style: none;
+}
+.middle {
+    width: 1140px;
+    margin: 0 auto;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#header {
+    height: 100%;
+    background: url(img/header-bg.jpg) no-repeat;
+    background-size: cover;
+}
+#header .nav {
+    background: black;
+    color: white;
+    font-family: Impact;
+    padding: 30px;
+}
+#header .nav .nav-bar li {
+    float: right;
+    margin-left: 50px;
+    font-size: 18px;
+}
+#header .nav .nav-bar li:hover {
+    color: yellow;
+}
+#header .nav .nav-icon {
+    float: left;
+    font-size: 25px;
+    color: yellow;
+}
+#header .head-ad {
+    text-align: center;
+}
+#header .head-ad h4 {
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 25px;
+    background-color: #D4A70D;
+    color: white;
+    display: inline-block;
+    margin-top: 230px;
+}
+#header .head-ad h1 {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 75px;
+    margin-bottom: 50px;
+    background-color: #D4A70D;
+    color: white;
+    display: inline-block;
+}
+#header .head-ad a {
+    display: inline-block;
+    height: 65px;
+    width: 220px;
+    background: #FED136;
+    color: white;
+    line-height: 65px;
+    border-radius: 3px;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+.words-big {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 40px;
+}
+.words-small {
+    font-size: 16px;
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: none;
+    font-style: italic;
+    font-weight: 400;
+}
