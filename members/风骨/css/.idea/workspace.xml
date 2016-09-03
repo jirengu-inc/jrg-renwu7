@@ -34,8 +34,8 @@
       <file leaf-file-name="task14.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../task14.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+            <state relative-caret-position="363">
+              <caret line="118" column="14" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -44,8 +44,8 @@
       <file leaf-file-name="task14.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task14.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+            <state relative-caret-position="468">
+              <caret line="199" column="1" selection-start-line="199" selection-start-column="1" selection-end-line="199" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -72,8 +72,8 @@
         <option value="$PROJECT_DIR$/task12-4.css" />
         <option value="$PROJECT_DIR$/../task12-5.html" />
         <option value="$PROJECT_DIR$/task12-5.css" />
-        <option value="$PROJECT_DIR$/task14.css" />
         <option value="$PROJECT_DIR$/../task14.html" />
+        <option value="$PROJECT_DIR$/task14.css" />
       </list>
     </option>
   </component>
@@ -83,8 +83,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="170" />
-    <option name="y" value="136" />
+    <option name="x" value="151" />
+    <option name="y" value="105" />
     <option name="width" value="907" />
     <option name="height" value="632" />
   </component>
@@ -160,15 +160,15 @@
       <workItem from="1472462740779" duration="342000" />
       <workItem from="1472544206010" duration="293000" />
       <workItem from="1472550247452" duration="149000" />
-      <workItem from="1472888645248" duration="2948000" />
+      <workItem from="1472888645248" duration="19565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8661000" />
+    <option name="totallyTimeSpent" value="25278000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="170" y="136" width="907" height="632" extended-state="0" />
+    <frame x="151" y="105" width="907" height="632" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12568909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -326,16 +326,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task14.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        <state relative-caret-position="468">
+          <caret line="199" column="1" selection-start-line="199" selection-start-column="1" selection-end-line="199" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../task14.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        <state relative-caret-position="363">
+          <caret line="118" column="14" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
           <folding />
         </state>
       </provider>
