@@ -1,0 +1,421 @@
+/************************页面公共样式*******************************/
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.layout{
+    width: 1200px;
+    margin: 0 auto;
+}
+.layout1{
+    width: 960px;
+    margin: 0 auto;
+}
+.sub-title{
+    font-family: Arial;
+    font-size: 40px;
+    color: #333;
+}
+.sub-pro{
+    font-family: Arial;
+    font-size: 16px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 44px;
+}
+/***********************头部导航栏样式*******************************/
+#header{
+    text-align: center;
+    height: 100%;
+    background: url(../images/header-bg.jpg);
+    background-size: cover;
+}
+#header .nav{
+    background: rgba(34,34,34,0.7);
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    width: 100%;
+}
+#header .nav .bar .bar-right{
+    float: right;
+    padding: 0 14px;
+}
+#header .nav .bar li:first-of-type{
+    float: left;
+}
+#header .nav .bar li{
+    height: 70px;
+    line-height: 70px;
+}
+#header .nav .bar .bar-right:hover a{
+    color: #FED136;
+    text-decoration: none;
+}
+#header .nav .bar .bar-right>a{
+    color: #FFF;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+#header .nav li:first-of-type a{
+    color: #FED136;
+    font-family:  "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    font-size: 30px;
+    text-decoration: none;
+}
+/************************头部内容样式************************************************/
+#header .welcome{
+    padding-top: 320px;
+}
+#header .welcome h1{
+    color: #FFF;
+    font: italic 45px/1 Arial;
+}
+#header .welcome p{
+    color: #FFF;
+    font: bold 75px/1 Arial;
+    margin: 30px 0 40px 0;
+}
+#header .welcome .btn1{
+    border-radius: 4px;
+    display: block;
+    width: 220px;
+    height: 60px;
+    line-height: 60px;
+    background: #FED136;
+    color: #FFF;
+    font-size: 20px;
+    font-family: Arial;
+    margin: 0 auto;
+    text-decoration: none;
+}
+#header .welcome .btn1:hover{
+    background: #FEC503;
+}
+/*************************主版块SERVICES样式**************************************************/
+#content{
+    text-align: center;
+}
+#content .services{
+    padding: 140px 0;
+}
+#content .services .icon>li{
+    width: 370px;
+    float: left;
+    padding: 0 15px;
+    text-align: center;
+}
+#content .services .icon>li h3{
+    font: bold 18px/1 Arial;
+}
+#content .services .icon>li p{
+    font: 15px/1.5 Arial;
+    color: #777;
+    margin-top: 20px;
+}
+/**************************主版块PORFOLIO样式************************************/
+.profolio{
+    background: #F7F7F7;
+    padding: 140px 0;
+}
+.profolio .pic li{
+    float: left;
+    width: 360px;
+    height: 360px;
+    background: #fff;
+    margin: 15px;
+    position: relative;
+}
+.profolio .pic li h3{
+    color: #333;
+    font: bold 16px/1.5 Arial;
+}
+.profolio .pic li p{
+    color: #777;
+    font: italic 16px/1.5 Arial;
+}
+.profolio .pic li .btn2 .box{
+    display: block;
+    width:360px;
+    height: 260px;
+    background: rgba(254,209,54,0.9);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    display: none;
+}
+.box:before{
+    content: "";
+    display: block;
+    width: 30px;
+    border: 5px solid #fff;
+    border-radius: 3px;
+    position: absolute;
+    left: 180px;
+    top: 130px;
+    margin-left: -15px;
+}
+.box:after{
+    content: "";
+    display: block;
+    height: 30px;
+    border: 5px solid #fff;
+    border-radius: 3px;
+    position: absolute;
+    left: 180px;
+    top: 130px;
+    margin-top: -15px;
+}
+.profolio .pic .btn2:hover .box{
+    display: block;
+}
+/*****************************主版块ABOUT样式*******************************/
+.about{
+    padding: 140px 0;
+}
+.chain h3{
+    font: bold 18px/1.5 Arial;
+    color: #333;
+}
+.chain p{
+    font: 14px/1.5 Arial;
+    color: #777;
+}
+.chain .chain2, .chain .chain3, .chain .chain4{
+    margin-top: -40px;
+}
+.chain1,.chain3{
+    width: 360px;
+    text-align: right;
+
+}
+.chain1:after, .chain3:after{
+    content: "";
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    border: 10px solid #F1F1F1;
+    border-radius: 50%;
+    background-size: contain;
+    position: relative;
+    top: -160px;
+    left: 210px;
+}
+.chain1:after{
+    background: url("../images/about/1.jpg");
+}
+.chain3:after{
+    background: url("../images/about/3.jpg");
+}
+.chain2,.chain4{
+    width: 360px;
+    text-align: left;
+    position: relative;
+    left: 600px;
+}
+.chain2:after,.chain4:after{
+    content: "";
+    display: inline-block   ;
+    width: 160px;
+    height: 160px;
+    border: 10px solid #F1F1F1;
+    border-radius: 50%;
+    background-size: contain;
+    position: relative;
+    top: -160px;
+    left: -210px;
+}
+.chain2:after{
+    background: url("../images/about/2.jpg");
+}
+.chain4:after{
+    background: url("../images/about/4.jpg");
+}
+.chain2:before,.chain4:before{
+    content: "";
+    display: inline-block;
+    height: 140px;
+    border: 1px solid #F1F1F1;
+    margin: -180px 0 0 -120px;
+}
+.chain3:before{
+    content: "";
+    display: inline-block;
+    height: 140px;
+    border: 1px solid #F1F1F1;
+    margin: -180px -120px 0 0;
+}
+.chain5{
+    content: "";
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    border: 10px solid #F1F1F1;
+    border-radius: 50%;
+    background: #FED136;
+    position: relative;
+    top: -30px;
+    text-align: center;
+}
+.chain5:before{
+    content: "";
+    display: inline-block;
+    height: 140px;
+    border: 1px solid #F1F1F1;
+    margin-top: -160px;
+    position: relative;
+    top: -20px;
+}
+.chain5 p{
+    color: #fff;
+    font-size: 24px;
+}
+/***************************主版块TEAM样式***********************************/
+.team{
+    background: #F7F7F7;
+    padding: 140px 0;
+}
+.team .photo1,.team .photo2,.team .photo3{
+    display: inline-block;
+    width: 230px;
+    height: 230px;
+    border: 5px solid #FFF;
+    border-radius: 50%;
+}
+.team .photo1{
+    background: url("../images/team/5.jpg");
+}
+.team .photo2{
+    background: url("../images/team/6.jpg");
+}
+.team .photo3{
+    background: url("../images/team/7.jpg");
+}
+.intro{
+    margin-left: 120px;
+}
+.intro li{
+    float: left;
+    padding-left: 150px;
+}
+.intro li h4{
+    font: bold 18px/1 Arial;
+    color: #333;
+}
+.intro li p{
+    font:  14px/1 Arial;
+    color: #777;
+    margin-top: -20px;
+}
+.intro .child{
+    padding: 0 36px;
+}
+.intro .child li{
+    padding: 0 5px;
+}
+.intro .child li .fonticon:hover{
+    color: #FED136;
+    cursor: pointer;
+}
+.last-word{
+    width: 800px;
+    margin: 40px auto 0 auto;
+    font-family: Arial;
+    color: #777;
+}
+/**************************主版块LOGO样式******************************/
+.logos li{
+    float: left;
+    padding: 60px 50px;
+}
+/************************底部CONTACT样式*************************************/
+.contact{
+    background: url("../images/map-image.png");
+    background-color: #222;
+    padding: 140px 0;
+    text-align: center;
+}
+.contact h2{
+    color: #fff;
+}
+.txt-left,.txt-right{
+    float:left;
+}
+.txt-left>input{
+    display: block;
+    width: 500px;
+    height: 60px;
+    margin: 20px 30px 0 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 20px;
+    font: bold 16px/1 Arial;
+    line-height: 65px;
+}
+.txt-left>input:focus{
+    outline: none;
+}
+.txt-right>textarea{
+    display: block;
+    width: 500px;
+    height: 180px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    font: bold 16px/1 Arial;
+}
+.txt-right>textarea:focus{
+    outline: none;
+}
+.btn3{
+    padding: 20px 40px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: Arial;
+    color: #fff;
+    background: #FED136;
+    border-color: #FED136;
+    margin-top: 20px;
+}
+.btn3:focus{
+    outline: none;
+}
+.btn3:hover{
+    cursor: pointer;
+    background: #fec503;
+    border-color: #f6bf01;
+}
+/**********************底部COPYRIGHT样式*************************/
+.copyright,.way,.privacy{
+    width: 400px;
+    float: left;
+    text-align: center;
+    padding: 10px 0;
+    height: 100px;
+    line-height: 100px;
+
+}
+.way li{
+    display: inline-block;
+}
+.way li>i:hover{
+    color: #FED136;
+    cursor: pointer;
+}
+.copyright{
+    font-family: Arial;
+}
+.privacy a {
+    font-family: Arial;
+    color: #FED136;
+    text-decoration: none;
+}
+
+.privacy a:hover{
+    text-decoration: underline;
+}

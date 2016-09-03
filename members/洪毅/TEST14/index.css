@@ -1,0 +1,242 @@
+html, body, p, a, h1, h2, h3, h4, ul, li {
+    margin: 0px;
+    padding: 0px;
+}
+html, body {
+    height: 100%;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+p{
+  text-align: center;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+}
+div{
+  display: block;
+}
+#header {
+    background-image: url(img/bg.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+#header .box-mid {
+    display: table;
+    width: 960px;
+    margin: 0 auto;
+    height: 100%;
+}
+#header .box-inside {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+#header h1 {
+    display: block;
+    font-size: 4.5em;
+}
+#header p {
+    display: block;
+    font-size: 24px;
+    margin: 20px 0 20px 0;
+}
+#header .btn1 {
+  display: inline-block;
+    color: #fff;
+    padding: 10px;
+    background: #bbb;
+}
+#header .btn1:hover{
+  background: black;
+}
+#content .words{
+  margin: 40px 0 40px 0;
+}
+#content .words h3{
+  display: block;
+  text-align: center;
+margin: 10px 0 10px 0;
+font-size: 28px;
+}
+#content .words p{
+  font-size: 20px;
+}
+#content .words a{
+  color: #87ceeb;
+}
+#content .services{
+  background: #337ab7;
+  padding: 50px 0;
+}
+#content .container{
+width: 960px;
+margin: 0 auto;
+text-align: center;
+}
+#content .services h2{
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+}
+#content .services hr{
+  max-width: 100px;
+  color: #fff;
+}
+#content .services .clearfix{
+      display: block;
+}
+#content .services li{
+  float: left;
+width: 240px;
+padding-top: 20px;
+}
+#content .services .clearfix:after{
+  content:'';
+  display: block;
+  clear: both;
+}
+#content .services img{
+  width: 60px;
+  height: 60px;
+  border:20px solid #fff;
+  border-radius: 30%;
+  background: #fff;
+}
+#content .services h4{
+  display: block;
+  margin: 10px 0 10px 0;
+  color: #fff;
+}
+#content .services p{
+  display: block;
+  margin-bottom: 10px;
+  color: #fff;
+}
+#content .services a{
+  display: inline-block;
+  padding: 10px;
+  background: #fff;
+}
+#content .services a:hover{
+  background: #bbb;
+}
+#content .text{
+  background-image: url(img/callout.jpg);
+  background-size: cover;
+  height: 650px;
+}
+#content .container h1{
+  color: #fff;
+  font-size: 79px;
+  padding-top:310px;
+}
+#content .work{
+  padding:50px 0;
+}
+#content .work h2{
+  display: block;
+  text-align: center;
+  color: #000;
+  font-size: 25px;
+}
+#content .work hr{
+  max-width: 100px;
+  color: #ccc;
+}
+#content .work .clearfix{
+margin-right: -30px;
+    }
+
+
+#content .work .clearfix:after{
+  content:'';
+  display: block;
+  clear: both;
+}
+#content .work li{
+  float: left;
+  margin-bottom: 30px;
+  margin-right: 30px;
+}
+#content .work img{
+  width: 465px;
+  height: 305px;
+}
+#content .work .btn1 {
+  display: inline-block;
+    color: #fff;
+    padding: 10px;
+    background: #bbb;
+}
+#content .work .btn1:hover{
+  background: black;
+}
+#content .call-to-action{
+  background: #337ab7;
+  padding: 50px 0;
+}
+#content .call-to-action p{
+  color: #fff;
+  font-size: 24px;
+}
+#content .call-to-action .btn1 {
+  display: inline-block;
+    color: #000;
+    padding: 10px;
+    background: #fff;
+    margin-top: 10px;
+}
+#content .call-to-action .btn1:hover{
+  background: black;
+  color: #fff;
+}
+#content .call-to-action .btn2 {
+  display: inline-block;
+    color: #fff;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+}
+#content .call-to-action .btn2:hover{
+  background: black;
+  color: #fff;
+}
+#footer{
+  padding: 100px 0;
+}
+#footer .container{
+  display: table;
+width: 960px;
+margin: 0 auto;
+height: 100%;
+text-align: center;
+}
+#footer .contact-inco{
+  text-align: center;
+}
+#footer .contact-inco li{
+  display: inline-block;
+}
+#footer .inco{
+  width:10px;
+  height: 10px;
+}
+#footer .contact-inco img{
+  width: 60px;
+  height: 60px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+#footer hr{
+  max-width: 100px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
