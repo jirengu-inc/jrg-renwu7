@@ -10,29 +10,33 @@
 </head>
 <body>
     <div id="header">
-        <div class="nav">
-            <ul class="bar layout clearfix">
-                <li><a href="javascript:;">Start Bootstrap</a></li>
-                <li class="bar-right"><a href="javascript:;">CONTACT</a></li>
-                <li class="bar-right"><a href="javascript:;">TEAM</a></li>
-                <li class="bar-right"><a href="javascript:;">ABOUT</a></li>
-                <li class="bar-right"><a href="javascript:;">PORFOLIO</a></li>
-                <li class="bar-right"><a href="javascript:;">SERVICES</a></li>
-            </ul>
+        <div class="nav clearfix">
+            <div class="layout">
+                <div class="nav-logo"><a href="javascript:;">Start Bootstrap</a></div>
+                <ul class="nav-txt" clearfix"><!--可以将左右两边分为两个div包裹-->
+                    <li><a href="javascript:;">SERVICES</a></li>
+                    <li><a href="javascript:;">PORFOLIO</a></li>
+                    <li><a href="javascript:;">ABOUT</a></li>
+                    <li><a href="javascript:;">TEAM</a></li>
+                    <li><a href="javascript:;">CONTACT</a></li>
+                </ul>
+            </div>
         </div>
         <div class="welcome">
-            <h1>Welcome To Our Studio!</h1>
-            <p>IT'S NICE TO MEET YOU</p>
-            <a class="btn1" href="javascript:;">TELL ME MORE</a>
+            <div class="layout">
+                <h1>Welcome To Our Studio!</h1>
+                <p>IT'S NICE TO MEET YOU</p>
+                <a class="btn1" href="javascript:;">TELL ME MORE</a>
+            </div>
         </div>
     </div>
     <div id="content">
         <div class="services layout">
             <h2 class="sub-title">SERVICES</h2>
             <p class="sub-pro">Lorem ipsum dolor sit amet consectetur.</p>
-            <ul class="icon clearfix">
+            <ul class="features clearfix"><!--这里的class名一定要语义化 可以写features-->
                 <li>
-                    <i class="iconfont">&#xe62e;</i>
+                    <i class="iconfont">&#xe62e;</i><!--不可点的class名字写成fa fa-cart-->
                     <h3>E-Commerce</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </li>
@@ -52,8 +56,8 @@
             <div class="layout">
                 <h2 class="sub-title">PORTFOLIO</h2>
                 <p class="sub-pro">Lorem ipsum dolor sit amet consectetur.</p>
-                <ul class="pic clearfix">
-                    <li>
+                <ul class="pic clearfix"><!--这里可以叫timeline-->
+                    <li><!--这里可以叫event-left-->
                         <a class="btn2" href="images/portfolio/roundicons-free.png" target="_blank">
                             <span class="box"></span>
                             <img src="images/portfolio/roundicons.png" width="360px" alt="pic">
@@ -61,7 +65,7 @@
                         <h3>Round Icons</h3>
                         <p>Graphic Design</p>
                     </li>
-                    <li>
+                    <li><!--这里就是event-right-->
                         <a class="btn2" href="images/portfolio/startup-framework-preview.png" target="_blank">
                             <span class="box"></span>
                             <img src="images/portfolio/startup-framework.png" width="360px" alt="pic">
@@ -105,38 +109,57 @@
             </div>
         </div>
         <div class="about">
-            <div class="layout1">
+            <div class="layout">
                 <h2 class="sub-title">ABOUT</h2>
                 <p class="sub-pro">Lorem ipsum dolor sit amet consectetur.</p>
-                <ul class="chain">
-                    <li class="chain1">
-                        <h3>2009-2011</h3>
-                        <h3>Our Humble Beginnings</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </li>
-                    <li class="chain2">
-                        <h3>MARCH 2011</h3>
-                        <h3>An Agency is Born</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </li>
-                    <li class="chain3">
-                        <h3>DECEMBER 2012</h3>
-                        <h3>Transition to Full Service</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </li>
-                    <li class="chain4">
-                        <h3>JULY 2014</h3>
-                        <h3>Phase Two Expansion</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </li>
-                    <li class="chain5">
-                        <p>BE PART<br>
-                            OF OUR<br>
-                            STORY!</p>
-                    </li>
-                </ul>
+                <div class="chain clearfix">
+                    <div class="event left clearfix">
+                        <div class="avater avater1"></div>
+                        <div class="left-txt">
+                            <h3>2009-2011</h3>
+                            <h3>Our Humble Beginnings</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        </div>
+                    </div>
+                    <div class="link"></div>
+                    <div class="event right clearfix">
+                        <div class="avater avater2"></div>
+                        <div class="right-txt">
+                            <h3>MARCH 2011</h3>
+                            <h3>An Agency is Born</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        </div>
+                    </div>
+                    <div class="link"></div>
+                    <div class="event left clearfix">
+                        <div class="avater avater3"></div>
+                        <div class="left-txt">
+                            <h3>DECEMBER 2012</h3>
+                            <h3>Transition to Full Service</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        </div>
+                    </div>
+                    <div class="link"></div>
+                    <div class="event right clearfix">
+                        <div class="avater avater4"></div>
+                        <div class="right-txt">
+                            <h3>JULY 2014</h3>
+                            <h3>Phase Two Expansion</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        </div>
+                    </div>
+                    <div class="link"></div>
+                    <div class="event last">
+                        <div class="avater avater5">
+                            <p>BE PART<br>
+                                OF OUR<br>
+                                STORY!</p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div><!--这里不会，一开始就走错路了，自己弄得很乱-->
+        </div>
         <div class="team">
             <h2 class="sub-title">OUR AMAZING TEAM</h2>
             <p class="sub-pro">Lorem ipsum dolor sit amet consectetur.</p>

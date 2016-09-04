@@ -8,10 +8,7 @@
     width: 1200px;
     margin: 0 auto;
 }
-.layout1{
-    width: 960px;
-    margin: 0 auto;
-}
+
 .sub-title{
     font-family: Arial;
     font-size: 40px;
@@ -38,29 +35,32 @@
     top: 0;
     width: 100%;
 }
-#header .nav .bar .bar-right{
+#header .nav .nav-txt{
     float: right;
+}
+#header .nav .nav-txt li{
+    float: left;
     padding: 0 14px;
 }
-#header .nav .bar li:first-of-type{
+#header .nav-logo{
     float: left;
 }
-#header .nav .bar li{
+#header .nav .nav-txt li, #header .nav-logo{
     height: 70px;
     line-height: 70px;
 }
-#header .nav .bar .bar-right:hover a{
+#header .nav .nav-txt li:hover a{
     color: #FED136;
     text-decoration: none;
 }
-#header .nav .bar .bar-right>a{
+#header .nav .nav-txt li>a{
     color: #FFF;
     font-family: Arial;
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
 }
-#header .nav li:first-of-type a{
+#header .nav-logo a{
     color: #FED136;
     font-family:  "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
     font-size: 30px;
@@ -81,7 +81,7 @@
 }
 #header .welcome .btn1{
     border-radius: 4px;
-    display: block;
+    display: inline-block;/*用inline-block的话就用text-align:center;居中就行了*/
     width: 220px;
     height: 60px;
     line-height: 60px;
@@ -89,7 +89,6 @@
     color: #FFF;
     font-size: 20px;
     font-family: Arial;
-    margin: 0 auto;
     text-decoration: none;
 }
 #header .welcome .btn1:hover{
@@ -102,16 +101,17 @@
 #content .services{
     padding: 140px 0;
 }
-#content .services .icon>li{
-    width: 370px;
+#content .services .features>li{
+    width: 33.3%;
+    box-sizing: border-box;/*用怪异盒子的话最好通篇统一用，不然会很乱*/
     float: left;
     padding: 0 15px;
     text-align: center;
 }
-#content .services .icon>li h3{
+#content .services .features>li h3{
     font: bold 18px/1 Arial;
 }
-#content .services .icon>li p{
+#content .services .features>li p{
     font: 15px/1.5 Arial;
     color: #777;
     margin-top: 20px;
@@ -176,107 +176,82 @@
 .about{
     padding: 140px 0;
 }
-.chain h3{
+.chain .event h3{
     font: bold 18px/1.5 Arial;
     color: #333;
 }
-.chain p{
+.chain .event p{
     font: 14px/1.5 Arial;
     color: #777;
 }
-.chain .chain2, .chain .chain3, .chain .chain4{
-    margin-top: -40px;
-}
-.chain1,.chain3{
-    width: 360px;
-    text-align: right;
-
-}
-.chain1:after, .chain3:after{
-    content: "";
-    display: inline-block;
-    width: 160px;
-    height: 160px;
-    border: 10px solid #F1F1F1;
+.chain .event .avater{
+    width: 150px;
+    height: 150px;
+    border: 5px solid #F1F1F1;
     border-radius: 50%;
-    background-size: contain;
-    position: relative;
-    top: -160px;
-    left: 210px;
 }
-.chain1:after{
+.chain .event .avater1{
     background: url("../images/about/1.jpg");
 }
-.chain3:after{
-    background: url("../images/about/3.jpg");
-}
-.chain2,.chain4{
-    width: 360px;
-    text-align: left;
-    position: relative;
-    left: 600px;
-}
-.chain2:after,.chain4:after{
-    content: "";
-    display: inline-block   ;
-    width: 160px;
-    height: 160px;
-    border: 10px solid #F1F1F1;
-    border-radius: 50%;
-    background-size: contain;
-    position: relative;
-    top: -160px;
-    left: -210px;
-}
-.chain2:after{
+.chain .event .avater2{
     background: url("../images/about/2.jpg");
 }
-.chain4:after{
+.chain .event .avater3{
+    background: url("../images/about/3.jpg");
+}
+.chain .event .avater4{
     background: url("../images/about/4.jpg");
 }
-.chain2:before,.chain4:before{
-    content: "";
-    display: inline-block;
-    height: 140px;
-    border: 1px solid #F1F1F1;
-    margin: -180px 0 0 -120px;
+.chain .left{
+    float: left;
+    left: 0;
+    width: 680px;
+    margin-bottom: 100px;
 }
-.chain3:before{
-    content: "";
-    display: inline-block;
-    height: 140px;
-    border: 1px solid #F1F1F1;
-    margin: -180px -120px 0 0;
+.chain .left .left-txt{
+    text-align: right;
 }
-.chain5{
-    content: "";
-    display: inline-block;
-    width: 160px;
-    height: 160px;
-    border: 10px solid #F1F1F1;
-    border-radius: 50%;
+.chain .left .avater1, .chain .left .avater3{
+    float: right;
+    margin-left: 20px;
+}
+.chain .right{
+    float: right;
+    right: 0;
+    width: 680px;
+    margin-bottom: 100px;
+}
+.chain .right .right-txt{
+    text-align: left;
+}
+.chain .right .avater2, .chain .right .avater4{
+    float: left;
+    margin-right: 20px;
+}
+.chain .link{
+    height: 100px;
+    border: 1px solid #F1F1F1;
+    position: relative;
+    width: 0;
+    margin-bottom: 160px;
+    left: 50%;
+    top: 160px;/*这里加top值没关系，因为这三条线都是统一的就算后面继续加区块也是可以用的，只要相应的加个.link就好了*/
+}
+.chain .last .avater5{
+    margin: 0 auto;
     background: #FED136;
-    position: relative;
-    top: -30px;
-    text-align: center;
 }
-.chain5:before{
-    content: "";
-    display: inline-block;
-    height: 140px;
-    border: 1px solid #F1F1F1;
-    margin-top: -160px;
-    position: relative;
-    top: -20px;
-}
-.chain5 p{
+.chain .last .avater5 p{
+    padding-top: 20px;
+    font: bold 20px/1.5 Arial;
     color: #fff;
-    font-size: 24px;
 }
+
 /***************************主版块TEAM样式***********************************/
 .team{
     background: #F7F7F7;
     padding: 140px 0;
+    text-align: center;
 }
 .team .photo1,.team .photo2,.team .photo3{
     display: inline-block;
