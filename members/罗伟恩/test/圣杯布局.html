@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="display:none、visibility:hidden、opacity:0的区别" />
+    <meta charset="utf-8">
+    <title>圣杯布局</title>
+    <style>
+        #header, #footer{
+            height: 30px;
+            background: #ccc;
+        }
+        #content{
+            padding: 0 220px;
+            margin: 10px 0;
+        }
+        #content:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #aside1{
+            position: relative;
+            width: 200px;
+            background: red;
+            float: left;
+            margin-left: -100%;
+            left: -220px;
+        }
+        #aside2{
+            position: relative;
+            width: 200px;
+            background: yellow;
+            float: left;
+            margin-left: -200px;
+            left: 220px;
+        }
+        #main{
+            width: 100%;
+            background: blue;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div id="content">
+    <div id="main">
+        主板块
+        <br>主板块<br>主板块<br>主板块<br>主板块<br>主板块<br>主板块<br>主板块<br>主板块
+    </div>
+    <div id="aside1">
+        左边栏<br>左边栏<br>左边栏<br>左边栏<br>左边栏<br>左边栏<br>左边栏<br>左边栏<br>左边栏
+    </div>
+    <div id="aside2">
+        右边栏<br>右边栏<br>右边栏<br>右边栏<br>右边栏<br>右边栏<br>右边栏<br>右边栏<br>右边栏
+    </div>
+</div>
+<div id="footer"></div>
+</body>
+</html>

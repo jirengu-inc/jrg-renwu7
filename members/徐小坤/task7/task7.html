@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>form</title>
+</head>
+<body>
+  <form name="myform" action="save.php" method="get">
+    账号：
+    <input type="text" name="username" value="用户名" placeholder="用户名" maxlength="10" />
+    <br/>
+    密码：
+    <input type="password" name="password" value="123456" placeholder="密码" />
+    <br/>
+    性别：
+    <input type="radio" name="sex" value="male" checked />男
+    <input type="radio" name="sex" value="female" />女
+    <br/>
+    取向：
+    <input type="radio" name="like-sex" value="male" />男
+    <input type="radio" name="like-sex" value="female" checked />女
+    <br/>
+    爱好：
+    <input type="checkbox" name="DOTA" />DOTA
+    <input type="checkbox" name="pat" checked />宠物
+    <input type="checkbox" name="treval" />旅游
+    <br/>
+    评论：
+    <textarea name="comment" maxlength="100" placeholder="说几句吧......"></textarea>
+  </form>
+  电脑：
+  <select class="" name="computer">
+    <option value="accer">宏碁</option>
+    <option value="mac">苹果</option>
+    <option value="dell">戴尔</option>
+    <option value="lenover">联想</option>
+  </select>
+  <br/>
+  <input type="reset" value="重置">
+  <input type="submit" value="提交">
+</body>
+</html>
