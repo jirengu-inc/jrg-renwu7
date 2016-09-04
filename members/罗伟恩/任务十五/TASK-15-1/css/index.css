@@ -1,0 +1,172 @@
+/*插入字体图标*/
+@font-face {font-family: 'iconfont';
+    src: url('../font/iconfont.eot'); /* IE9*/
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:30px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: #666;
+    position: relative;
+    top: -12px;
+}
+.iconfont:hover{
+    color: #333;
+}
+/***************************************/
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.layout{
+    width: 1000px;
+    margin: 0 auto;
+}
+#header .header-nav{
+    padding: 5px 0;
+    border: 1px solid #CCC;
+}
+#header .bar1>li{
+    height: 30px;
+    float: left;
+    padding: 12px 8px 0 8px;
+}
+#header .bar1>li a .triangle{
+    margin-left: -3px;
+    display: inline-block;
+    border: 5px solid #666;
+    border-color: #666 transparent transparent transparent;
+}
+#header .bar1>li:hover .triangle{
+    border-color: #333 transparent transparent transparent;
+}
+#header .bar1>li a{
+    font-size: 15px;
+    color: #666;
+}
+#header .bar1>li:hover a{
+    color: #333;
+}
+#header .bar1 .child{
+    display: none;
+}
+#header .bar2{
+    position: relative;
+}
+#header .bar2:hover .child{
+    display: block;
+    border: 1px solid #CCC;
+    position: absolute;
+    background: #fff;
+    top: 47px;
+    left: 0;
+}
+#header .bar2:hover .child>li:hover{
+    background: #EEE;
+}
+#header .bar2:hover .child>li{
+    padding: 5px 8px;
+    border: 1px dashed #CCC;
+    border-color: #CCC transparent;
+}
+#header .bar2:hover .child>li:first-child{
+    border-color: transparent;
+}
+#header .bar2:hover .child>li:last-child{
+    border-color: transparent;
+}
+#header .banner{
+    background: #B84D45;
+    padding: 50px 0;
+}
+#header .banner h2{
+    color: #fff;
+}
+#header .banner p{
+    color: #fff;
+}
+/************************************************/
+#content{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+#content .content-nav{
+    background: #EEE;
+    margin-bottom: 30px;
+}
+#content .content-nav>span{
+    color: #666;
+    display: inline-block;
+    padding: 10px 0;
+}
+#content .content-nav>span a{
+    color: #B84D45;
+}
+.main .works{
+    margin-left: -41px;
+}
+.main .works>li{
+    padding: 2px;
+    font-family: Arial;
+    text-align: center;
+    width: 300px;
+    float: left;
+    margin-left: 41px;
+    border: 1px solid #CCC;
+    margin-bottom: 20px;
+}
+.main .works>li h3{
+    padding-top: 20px;
+}
+.main .works>li .btn1{
+    display: block;
+    width: 30px;
+    padding: 5px 8px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    color: #666;
+    margin: 10px auto 30px auto;
+}
+.main .works>li .btn1:hover{
+    color: #000;
+}
+/*****************底部样式**************************/
+#footer{
+
+}
+#footer .more{
+    background: #B84D45;
+    padding: 30px 0;
+    text-align: center;
+    color: #FFF;
+}
+#footer .more .btn1{
+    display: block;
+    width: 30px;
+    padding: 5px 8px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    color: #FFF;
+    margin: 10px auto 0 auto;
+}
+#footer hr{
+    margin: 30px auto;
+    height: 1px;
+    border: none;
+    background: #EEE;
+}
+#footer .copyright{
+    text-align: center;
+    margin-bottom: 30px;
+}
+#footer .copyright a{
+    color: #B84D45;
+}
