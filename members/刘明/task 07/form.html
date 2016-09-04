@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>form表单</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+	</head>
+	<body>
+		<form action="a.php" name="mydata" method="post">
+			<p>姓名：<input name="myname" type="text" placeholder="用户名"></p>
+			<p>密码：<input name="mypassword" type="password" placeholder="输入密码"></p>
+			<p>性别：<input name="mysex" type="radio" value="male" checked>男
+				<input name="mysex" type="radio" value="female">女</p>
+				<p>取向：<input name="mylove" type="radio" value="male">男
+			<input name="mylove" type="radio" value="female" checked>女</p>
+			<p>爱好：<input name="dota" type="checkbox">dota
+			<input name="travel" type="checkbox" checked>旅游
+		<input name="pet" type="checkbox" checked>宠物 </p>
+		<p>评论：<input type="textarea" name="mycomment" placeholder="ddd" maxlength="50" style="width:200px;height:100px"></p>
+		<p>我的CAR：<select name="mycar" >
+			<option value="volvo">volvo</option>
+			<option value="sabo" selected>萨博</option>
+			<option value="audi">奥迪</option>
+			<optipn value="bike">别克</optipn>
+		</select>
+		<input type="submit" value="提交">
+	</p>
+	<input type="hidden" name="copyright" value="liuming">
+</form>
+</body>
+</html>
