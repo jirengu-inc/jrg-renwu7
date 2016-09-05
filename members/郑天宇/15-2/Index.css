@@ -204,8 +204,8 @@ font-size: 30px;
   position: absolute;
   content: "";
   width: 2px;
-  background-color: #f1f1f1;
-  margin-left: -6.5px;
+  background-color: #aaa;
+  margin-left: 0.5px;
 
 }
 .about-projects .timeline-img{
