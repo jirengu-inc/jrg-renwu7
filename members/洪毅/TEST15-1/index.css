@@ -36,6 +36,9 @@ li{
 margin: 20px;
   color: rgb(157,157,157);
 }
+#header .topnav a{
+  color: rgb(157,157,157);
+}
 #main{
 }
 #main .title{
