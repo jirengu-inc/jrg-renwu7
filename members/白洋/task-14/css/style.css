@@ -103,5 +103,11 @@ body{
     color: aliceblue;
     font-size: 20px;
 }
+.the-third-skill-fonts>li>a{
+    text-decoration: none;
+    color: black;
+    background-color: aliceblue;
+    padding: 10px 40px ;
+}
 
 /*第3个-标题结束*/
