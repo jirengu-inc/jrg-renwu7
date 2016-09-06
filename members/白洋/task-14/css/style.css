@@ -102,6 +102,7 @@ body{
 .the-third-skill-fonts>li>p{
     color: aliceblue;
     font-size: 20px;
+    width: 90%;
 }
 .the-third-skill-fonts>li>a{
     text-decoration: none;
