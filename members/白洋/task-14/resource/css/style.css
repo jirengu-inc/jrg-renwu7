@@ -1,0 +1,64 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+#connect{
+    width: 100%;
+}
+/*第一-屏幕开始*/
+.the-first-screen-bg{
+    width: 100%;
+    height: 100vh;
+    background: url("/task-14/resource/img/bg.jpg");
+}
+.the-first-screen-connect{
+    text-align: center;
+
+    width: 960px;
+    height: 100vh;
+    /*border: black solid 1px;*/
+    margin: 0 auto;
+}
+.the-first-screen-center{
+    display: table-cell;
+    vertical-align: middle;
+    width: 960px;
+    height: 100vh;
+}
+.the-first-screen-center>h1{
+
+}
+.the-first-screen-center>p{
+
+}
+.the-first-screen-center>a{
+    text-decoration: none;
+    color: azure;
+    display: inline-block;
+    padding-left: 25px;
+    padding-right: 25px;
+    line-height: 50px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background:rgba(0,0,0,0.5);
+}
+.the-first-screen-center>a:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+/*第一-屏幕结束*/
+
+/*第二个-标题开始*/
+.the-second-title{
+
+}
+.the-second-title-connect{
+
+}
+.the-first-screen-center{
+
+}
+.the-first-screen-center>a{
+
+}
+/*第二个-标题结束*/

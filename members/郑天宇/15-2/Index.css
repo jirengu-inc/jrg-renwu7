@@ -43,8 +43,8 @@ a{
 }
 .nav .nav-bar li {
   float: right;
-padding: 16px;
-padding-top: 30px;
+  padding: 16px;
+  padding-top: 30px;
 }
 .nav .nav-bar li:hover{
 color: #fec513;
