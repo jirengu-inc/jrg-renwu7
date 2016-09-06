@@ -6,11 +6,12 @@ body{
 #connect{
     width: 100%;
 }
+
 /*第一-屏幕开始*/
 .the-first-screen-bg{
     width: 100%;
     height: 100vh;
-    background: url("/task-14/resource/img/bg.jpg");
+    background: url("resource/img/bg.jpg");
 }
 .the-first-screen-connect{
     text-align: center;
@@ -77,4 +78,30 @@ body{
 .the-third-skill-connect>h1{
     color: aliceblue;
 }
+.the-third-skill-fonts{
+    list-style: none;
+}
+.the-third-skill-fonts:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.the-third-skill-fonts>li{
+    float: left;
+    list-style: none;
+    width: 25%;
+}
+.the-third-skill-fonts>li>h1{
+    color: aliceblue;
+    font-size: 100px;
+}
+.the-third-skill-fonts>li>h5{
+    color: aliceblue;
+    font-size: 20px;
+}
+.the-third-skill-fonts>li>p{
+    color: aliceblue;
+    font-size: 20px;
+}
+
 /*第3个-标题结束*/
