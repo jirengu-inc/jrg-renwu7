@@ -14,7 +14,6 @@ body{
 }
 .the-first-screen-connect{
     text-align: center;
-
     width: 960px;
     height: 100vh;
     /*border: black solid 1px;*/
@@ -50,15 +49,32 @@ body{
 
 /*第二个-标题开始*/
 .the-second-title{
-
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 .the-second-title-connect{
-
+    width: 960px;
+    margin: 0 auto;
 }
-.the-first-screen-center{
-
+.the-second-title-center{
+    text-align: center;
 }
-.the-first-screen-center>a{
-
+.the-second-title-center>p>a{
+    text-decoration: none;
 }
 /*第二个-标题结束*/
+/*第3个-标题开始*/
+.the-third-skill{
+    background-color: dodgerblue;
+}
+.the-third-skill-connect{
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+.the-third-skill-connect>h1{
+    color: aliceblue;
+}
+/*第3个-标题结束*/
