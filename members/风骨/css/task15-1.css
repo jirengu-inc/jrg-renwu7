@@ -98,6 +98,7 @@ h1,h2,h3,h4,p{
     margin-right: 50px;
     margin-bottom: 20px;
     padding-bottom: 20px;
+    text-align: center;
 }
 .myworks-list img{
     width: 300px;
@@ -108,15 +109,13 @@ h1,h2,h3,h4,p{
 }
 .myworks-list h4 ,.myworks-list p {
     padding: 10px;
+    margin-bottom: 5px;
 }
 .myworks-list .btn{
     color: #000;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 5px;
-    position: relative;
-    left:50%;
-    margin-left: -20px;
 }
 .more-about-me {
     text-align: center;
