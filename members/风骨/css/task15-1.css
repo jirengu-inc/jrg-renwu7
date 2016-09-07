@@ -109,6 +109,7 @@ h1,h2,h3,h4,p{
 .myworks-list h4 ,.myworks-list p {
     padding: 10px;
     margin-bottom: 5px;
+    text-align: center;
 }
 .myworks-list .btn{
     color: #000;
