@@ -1,0 +1,246 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+#connect{
+    width: 100%;
+}
+
+/*第一-屏幕开始*/
+.the-first-screen-bg{
+    width: 100%;
+    height: 100vh;
+    background: url("../img/bg.jpg");
+}
+.the-first-screen-connect{
+    text-align: center;
+    width: 960px;
+    height: 100vh;
+    /*border: black solid 1px;*/
+    margin: 0 auto;
+}
+.the-first-screen-center{
+    display: table-cell;
+    vertical-align: middle;
+    width: 960px;
+    height: 100vh;
+}
+.the-first-screen-center>h1{
+
+}
+.the-first-screen-center>p{
+
+}
+.the-first-screen-center>a{
+    text-decoration: none;
+    color: azure;
+    display: inline-block;
+    padding-left: 25px;
+    padding-right: 25px;
+    line-height: 50px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background:rgba(0,0,0,0.5);
+}
+.the-first-screen-center>a:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+/*第一-屏幕结束*/
+
+/*第二个-标题开始*/
+.the-second-title{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.the-second-title-connect{
+    width: 960px;
+    margin: 0 auto;
+}
+.the-second-title-center{
+    text-align: center;
+}
+.the-second-title-center>p>a{
+    text-decoration: none;
+}
+/*第二个-标题结束*/
+/*第3个-标题开始*/
+.the-third-skill{
+    background-color: dodgerblue;
+}
+.the-third-skill-connect{
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+.the-third-skill-connect>h1{
+    color: aliceblue;
+}
+.the-third-skill-fonts{
+    list-style: none;
+}
+.the-third-skill-fonts:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.the-third-skill-fonts>li{
+    float: left;
+    list-style: none;
+    width: 25%;
+}
+.the-third-skill-fonts>li>h1{
+    color: aliceblue;
+    font-size: 100px;
+}
+.the-third-skill-fonts>li>h5{
+    color: aliceblue;
+    font-size: 20px;
+}
+.the-third-skill-fonts>li>p{
+    color: aliceblue;
+    font-size: 20px;
+    width: 90%;
+}
+.the-third-skill-fonts>li>a{
+    text-decoration: none;
+    color: black;
+    background-color: aliceblue;
+    padding: 10px 40px ;
+}
+
+/*第3个-标题结束*/
+
+/*第4个-一句话开始*/
+.the-fourth-sentence{
+    width: 100%;
+    height: 500px;
+    background:url("../img/callout.jpg");
+}
+.the-fourth-sentence-connect{
+    width: 960px;
+    margin: 0 auto;
+    height: 500px;
+}
+.the-fourth-sentence-center{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 960px;
+    height: 500px;
+}
+.the-fourth-sentence-center>h1{
+    color: aliceblue;
+    font-size: 50px;
+}
+/*第4个-一句话结束*/
+
+/*第5个-作品开始*/
+.fifth-works{}
+.fifth-works-connect{
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.fifth-works-title{
+    text-align: center;
+    padding: 50px 0;
+
+}
+.fifth-works-title>h1{}
+.fifth-works-title>h2{
+    color: #ccc;
+}
+.fifth-works-img{
+    list-style: none;
+}
+.fifth-works-img>li{
+    margin: 20px;
+    float: left;
+
+}
+.fifth-works-img>li>a>img{
+    width: 400px;
+    height: 250px;
+}
+.fifth-works-img:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.fifth-works-a{
+    padding: 5px 20px;
+    text-decoration: none;
+    color: aliceblue;
+    background-color: #707070;
+}
+.fifth-works-a:hover{
+    background-color: #565656;
+}
+/*第5个-作品结束*/
+
+
+/*第6个-我的信息开始*/
+.sixth-my-info{}
+.sixth-my-info-connect{
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+.sixth-my-info-title{
+    text-align: center;
+
+    background-color: #337ab7;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.sixth-my-info-title>h1{
+    color: aliceblue;
+}
+.sixth-my-info-title>a{
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+}
+.sixth-my-info-title-a1{
+    background-color:aliceblue;
+    color: black;
+}
+.sixth-my-info-title-a1:hover{
+    background-color: black;
+    color: #707070;
+}
+.sixth-my-info-title-a2{
+    background-color: black;
+    color: #707070;
+}
+.sixth-my-info-title-a2:hover{
+    background-color:aliceblue;
+    color: black;
+}
+.sixth-my-info-proc{
+    margin-top: 100px;
+}
+.sixth-my-info-proc>h1{
+    font-size: 21px;
+}
+.sixth-my-info-proc>h3{
+    color: #ccc;
+}
+.sixth-my-info-proc a{
+    color: #337ab7;
+}
+.sixth-my-info-proc>p>a{
+    font-size: 100px;
+    padding: 20px;
+}
+.sixth-my-info-proc>p>a:hover{
+    font-size: 100px;
+    padding: 20px;
+    color: #2f6fa7;
+}
+
+/*第6个-我的信息结束*/

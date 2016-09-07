@@ -1,0 +1,173 @@
+body,html,ul,li,a,p{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    box-sizing: border-box;
+}
+h1,h2,h3,h4,h5{
+    margin: 0;
+    padding: 0;
+}
+.layout{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.clear:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#header{
+    background: url(../img/header-bg-160905.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.logo{
+    float: left;
+}
+#header .navbar > li a{
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    float: right;
+    font-size: 18px;
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 30px;
+    color: #fff;
+}
+#header .navbar > li a:hover{
+    color: #fed136;
+}
+#header .logo{
+    display: inline-block;
+    font-size: 30px;
+    height: 50px;
+    line-height: 50px;
+    color: #fed136;
+    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    margin-top: 30px;
+}
+#header .layout ,#services .layout ,#portfolio .layout {
+    text-align: center;
+    overflow: auto;
+}
+#header .layout p {
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    line-height: 40px;
+    padding-top: 28%;
+    padding-bottom: 2%;
+    color: #fff;
+}
+#header .layout h2 {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-weight: 700;*/
+    font-size: 75px;
+    line-height: 75px;
+    color: #fff;
+}
+.layout .btn {
+    color: #fff;
+    background-color: #fed136;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 18px;
+    padding: 20px 40px;
+    display: inline-block;
+    margin-top: 50px;
+}
+.layout .btn:hover{
+    background-color: #fec503;
+}
+#header .navbar-top {
+    background: #000;
+    display:inline-block;
+    position: fixed;
+    width:100%;
+    top: 0;
+    left: 0;
+    margin-top: -20px;
+    z-index: 5;
+}
+#services {
+    background: rgb(255,255,255);
+    height: 100vh;
+}
+#services h2 ,#portfolio .layout h2 {
+    font-size: 40px;
+    margin-top: 10%;
+}
+#services .layout > h4 ,#portfolio .layout > h4 {
+    font-style: italic;
+}
+#services h4 , #portfolio h4 {
+    font-size: 16px;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 30px 0;
+}
+#services ul{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.fa-shopping-cart:before ,.fa-laptop:before ,.fa-lock:before{
+    color: #fff;
+    font-size: 60px;
+    z-index: 2;
+    line-height: 1.7;
+}
+.fa-shopping-cart:before {
+    content: "\f07a";
+}
+.fa-laptop:before {
+    content: "\f109";
+}
+.fa-lock:before {
+    content: "\f023";
+}
+#services .clear i{
+    display:inline-block;
+    border: 1px solid #fed136;
+    border-radius: 100px;
+    width:100px;
+    height: 100px;
+    background: #fed136;
+}
+#services .clear > li {
+    display: inline-block;
+    width: 33%;
+    padding: 5px;
+}
+#services .clear  li p {
+    color: #777;
+}
+
+            /*portfolio*/
+
+#portfolio {
+    background: #f7f7f7;
+}
+.portfolio-list {
+    background: red;
+    font-size: 0;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+.portfolio-list li{
+    /*border: 1px solid #fed136;*/
+    display: inline-block;
+    float: left;
+    width: 30%;
+    position: relative;
+    left: 2%;
+    margin: 2% 1%;
+    z-index: 1;
+}
+.portfolio-list li img{
+    width: 100%;
+}
