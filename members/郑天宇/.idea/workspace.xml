@@ -83,11 +83,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/任务18/2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="286">
+              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="js.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/19/js.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="24" column="32" selection-start-line="8" selection-start-column="2" selection-end-line="24" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -108,6 +118,7 @@
         <option value="$PROJECT_DIR$/任务18/js.html" />
         <option value="$PROJECT_DIR$/任务18/问答题.html" />
         <option value="$PROJECT_DIR$/任务18/2.html" />
+        <option value="$PROJECT_DIR$/19/js.html" />
       </list>
     </option>
   </component>
@@ -177,7 +188,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="任务18" />
+              <option name="myItemId" value="19" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -247,6 +258,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="41512abb-cfd0-412c-b993-ea3b81860945" name="Default" comment="" />
@@ -254,12 +268,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1473129516494</updated>
-      <workItem from="1473129517812" duration="16614000" />
+      <workItem from="1473129517812" duration="29124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16614000" />
+    <option name="totallyTimeSpent" value="29124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -375,8 +389,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/任务18/2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="286">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/19/js.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="24" column="32" selection-start-line="8" selection-start-column="2" selection-end-line="24" selection-end-column="32" />
           <folding />
         </state>
       </provider>

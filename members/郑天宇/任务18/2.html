@@ -6,40 +6,34 @@
 </head>
 <body>
 <script>
-    //5
-
-    var obj={
-        className: 'open menu'
-    }
-    function addClass(obj,cls) {
-       var clsarr=obj.className.split(' ');
-        for(var i=0;i<clsarr.length;i++){
-            if (cls===clsarr[i]){
-                return false;
+    function filter(arr, fn) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+            if (!fn(arr[i])) { //abc(arr[i])  // true fasle
+                arr.splice(i, 1);
             }
         }
-        return obj.className+=' '+cls;
     }
 
-    function  removeClass(obj,cls) {
-        var clsarr = obj.className.split(' ');
-        for (var i = 0; i < clsarr.length; i++) {
-            if (cls === clsarr[i]) {
-                clsarr.splice(i,1);
-                i--;
+    //过滤出数字
+    filter(arr, function(val) {
+        return typeof val === 'number';
+    })
 
-            }
+    //过滤出正数
+    filter(arr, function(val) {
+        return typeof val === 'number' && val > 0;
+    })
 
-           obj.className=clsarr.join(' ');
-        }
-    }
+    //过滤出字符串
+    filter(arr, function(val) {
+        return typeof val === 'string';
+    })
 
-    function camelize(str) {
-        var arr=str.split('-');
-        console.log(str);
+    var arr=[1,'a',-1,123];
 
+    arr = filter(arr, function(val) { return  typeof val === "number" && val > 0 });
 
-    }
+   
 </script>
 
 </body>
