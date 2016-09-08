@@ -230,6 +230,7 @@ h1,h2,h3,h4,h5{
     display: inline-block;
     width: 170px;
     height: 170px;
+    line-height: 170px;
     border-radius: 100px;
     position: relative;
     left: -88px;
@@ -269,8 +270,8 @@ h1,h2,h3,h4,h5{
     font-size: 18px;
 }
 #about .layout .bgcolor h4 {
-    margin: 50px;
-    line-height: 26px;
+    margin: 40px;
+    line-height: 30px;
 }
             /*team*/
 
