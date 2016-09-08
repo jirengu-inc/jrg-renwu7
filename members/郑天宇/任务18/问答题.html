@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作题</title>
+</head>
+<body>
+<script>
+    //1
+    var arr=[1,2,3,4,5];
+    function push(array,a) {
+        array.splice(array.length,1,a);
+        console.log(array);
+    }
+
+    function pop(array) {
+        array.splice(array.length-1,1);
+        console.log(array);
+    }
+    function shift(array) {
+        array.splice(0,1);
+        console.log(array);
+    }
+
+    function unshift(array,a) {
+        array.splice(0,0,a);
+        console.log(array);
+    }
+    //2
+    var prod = {
+        name: '女装',
+        styles: ['短款', '冬季', '春装']
+    };
+    function getTpl(data){
+        var htmls=[];
+        htmls.push('<dl class="product">');
+        htmls.push('<dt>'+prod.styles.name+'</dt>');
+        for(var i=0;i<prod.styles.length;i++){
+            htmls.push('<dd>'+prod.styles[i]+'</dd>');
+        }
+        htmls.push('</dl>');
+
+        console.log(htmls.join(''))
+        return htmls.join('');
+
+    };
+        var result = getTpl(prod);  //result为下面的字符串
+        //3
+    function find(array,val) {
+
+       if(array.indexOf){
+           return array.indexOf(val);
+       }
+       for(var i=0;i<array.length;i++){
+           if (val==array[i]){
+               return 1;
+           }
+       }
+        return -1;
+
+    }
+        var arr=["test", 2, 1.5, false];
+
+    //4
+    function filterNumeric(array) {
+        var newarr=[];
+        var f=0;
+        for(var i=0;i<array.length;i++){
+            if(typeof (array[i])=="number"){
+                    newarr[f]=array[i];
+                        f++;
+            }
+        }
+        return newarr;
+
+    }
+    arr1 = ["a", "b", 1, 3, 5, "b", 2];
+    newarr = filterNumeric(arr1);
+
+
+
+
+</script>
+</body>
+</html>
