@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var re = /#[0-9a-zA-z]{6}/g;
+
+    var subj = "color: #112121; background-color: #AA00ef; width: 12px; bad-colors: f#fddee #fd2 "
+
+    alert( subj.match(re) )  // #121212,#AA00ef
+
+</script>
+</body>
+</html>
