@@ -1,0 +1,149 @@
+/*通用样式*/
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font: 14px/1.5 'Microsoft YaHei',arial,tahoma,\5b8b\4f53,sans-serif;
+}
+li{
+  list-style: none;
+}
+h1{
+  font-size: 40px;
+}
+p{
+  font-size: 16px;
+}
+a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #717171;
+}
+a:hover{
+  color: #464646
+}
+.container{
+  width: 1000px;
+  margin: 0 auto;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.btn{
+  display: inline-block;
+  padding: 4px 10px;
+  background: #eee;
+  border-radius: 3px;
+}
+.btn:hover{
+  background: #ccc;
+}
+/*通用样式*/
+
+
+/*头部区域*/
+#header .nav-logo{
+  float: left;
+  font-size: 30px;
+  line-height: 50px;
+}
+#header .nav-item{
+  float: left;
+  margin-left: 20px;
+}
+#header .nav-item>li{
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+  position: relative;
+}
+#header .nav-item .nav-child{
+  display: none;
+}
+#header .nav-item>li:hover .nav-child{
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #eee;
+}
+#header .nav-child>li{
+  line-height: 1;
+  padding: 10px 5px;
+  border-bottom: 1px solid #eee;
+}
+#header .nav-child>li:last-child{
+  border: none;
+}
+#header .nav-child>li:hover{
+  background: #eee;
+}
+/*头部区域*/
+
+
+/*主体内容区域*/
+#content .content-head{
+  background: #b84d45;
+  color: #fff;
+  padding: 30px 0;
+}
+#content .content-nav{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background: #eee;
+}
+#content .content-nav ul{
+  padding: 10px;
+}
+#content .content-nav li{
+  float: left;
+}
+#content .content-nav i{
+  font-size: 16px;
+  padding: 0 10px;
+  color: #717171;
+}
+#content .content-main{
+  margin-left: -35px;
+  text-align: center;
+}
+#content .content-main>li{
+  float: left;
+  margin-left: 35px;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  padding: 4px;
+  border-radius: 5px;
+}
+#content .content-main li a{
+  margin: 10px 0 20px 0;
+}
+#content .content-main img{
+  width: 300px;
+  height: 200px;
+}
+#content .content-main h2{
+  padding: 10px 0;
+}
+#content .content-head .center{
+  text-align: center;
+}
+#content .content-head .center a{
+  margin-top: 15px
+}
+/*主体内容区域*/
+
+
+/*尾部*/
+#footer p{
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin: 30px 0;
+  padding-top: 30px;
+}
+/*尾部*/
