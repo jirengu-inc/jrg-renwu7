@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-3</title>
+</head>
+<body>
+    <ul class="ct">
+        <li data-img="image/1.jpg">鼠标放置查看图片1</li>
+        <li data-img="image/2.jpg">鼠标放置查看图片2</li>
+        <li data-img="image/3.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+        var ct = document.querySelector(".ct");
+        var img = document.createElement("img");
+        var preview = document.querySelector(".img-preview")
+
+        //the first method：
+        /*for(var i = 0; i < ct.children.length; i++){
+            ct.children[i].addEventListener("mouseenter",function (e) {
+                img.src = e.target.getAttribute("data-img");
+                preview.appendChild(img);
+            })
+        }*/
+
+        //the second method：
+        ct.addEventListener("mousemove",function (e) {
+            img.src = e.target.getAttribute("data-img");
+            preview.appendChild(img);
+        })
+    </script>
+</body>
+</html>
