@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="tool" content="leanote-desktop-app">
+<title>L16 js基础</title>
+<style>
+.tab{font-size:12px; margin-bottom: 10px;}
+.tab a{cursor:pointer;cursor:pointer;display:inline-block;margin-right:10px;color:#000}#tab-html{color:#ccc}
+
+.content-container .content-html{visibility: hidden;}
+.content-container.html .content-markdown{display:none}
+.content-container.html .content-html{display:block; visibility: visible;}
+.content-container.html #tab-markdown{color:#ccc}
+.content-container.html #tab-html{color:#000}
+.content-markdown {overflow: auto;}
+textarea {display: none;}
+
+*{font-family:"lucida grande","lucida sans unicode",lucida,helvetica,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
+
+body {
+  margin: 0;
+}
+
+/*公用文字样式*/
+h1{font-size:30px}h2{font-size:24px}h3{font-size:18px}h4{font-size:14px}
+.note-container{
+    width:850px; 
+    margin:auto;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 10px #eee;
+}
+#title {
+  margin: 0;
+}
+table {
+    margin-bottom: 16px;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+}
+table th {
+    font-weight: bold;
+}
+
+table tr {
+    background-color: none;
+    border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+    background-color: rgb(247, 247, 249);
+}
+.mce-item-table, .mce-item-table td, .mce-item-table th, .mce-item-table caption {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  padding: 6px 13px;
+}
+blockquote {
+  border-left-width:10px;
+  background-color:rgba(128,128,128,0.05);
+  border-top-right-radius:5px;
+  border-bottom-right-radius:5px;
+  padding:15px 20px;
+  border-left:5px solid rgba(128,128,128,0.075);
+}
+blockquote p {
+  margin-bottom:1.1em;
+  font-size:1em;
+  line-height:1.45
+}
+blockquote ul:last-child,blockquote ol:last-child {
+  margin-bottom:0
+}
+pre {
+  padding: 18px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 3px;
+  display: block;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  white-space: nowrap;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+.footnote {
+  vertical-align: top;
+  position: relative;
+  top: -0.5em;
+  font-size: .8em;
+}
+
+hr {
+  margin:2em 0
+}
+img {
+  max-width:100%;
+  display: block;
+  margin: auto;
+}
+pre {
+  word-break:break-word
+}
+p,pre,pre.prettyprint,blockquote {
+  margin:0 0 1.1em
+}
+hr {
+  margin:2em 0
+}
+img {
+  max-width:100%
+}
+.sequence-diagram,.flow-chart {
+  text-align:center;
+  margin-bottom:1.1em
+}
+.sequence-diagram text,.flow-chart text {
+  font-size:15px !important;
+  font-family:"Source Sans Pro",sans-serif !important
+}
+.sequence-diagram [fill="#ffffff"],.flow-chart [fill="#ffffff"] {
+  fill:#f6f6f6
+}
+.sequence-diagram [stroke="#000000"],.flow-chart [stroke="#000000"] {
+  stroke:#3f3f3f
+}
+.sequence-diagram text[stroke="#000000"],.flow-chart text[stroke="#000000"] {
+  stroke:none
+}
+.sequence-diagram [fill="#000"],.flow-chart [fill="#000"],.sequence-diagram [fill="#000000"],.flow-chart [fill="#000000"],.sequence-diagram [fill="black"],.flow-chart [fill="black"] {
+  fill:#3f3f3f
+}
+ul,ol {
+  margin-bottom:1.1em
+}
+ul ul,ol ul,ul ol,ol ol {
+  margin-bottom:1.1em
+}
+kbd {
+  padding:.1em .6em;
+  border:1px solid rgba(63,63,63,0.25);
+  -webkit-box-shadow:0 1px 0 rgba(63,63,63,0.25);
+  box-shadow:0 1px 0 rgba(63,63,63,0.25);
+  font-size:.7em;
+  font-family:sans-serif;
+  background-color:#fff;
+  color:#333;
+  border-radius:3px;
+  display:inline-block;
+  margin:0 .1em;
+  white-space:nowrap
+}
+.toc ul {
+  list-style-type:none;
+  margin-bottom:15px
+}
+.m-todo-item {
+  list-style: none;
+}
+</style>
+<!-- 该css供自定义样式 -->
+<link href="../leanote-markdown.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="note-container">
+		<h1 class="title" id="leanote-title">L16 js基础</h1>
+		<div class="content-container html" id="content-container">
+			<!-- 切换 -->
+			<div class="tab"><a id="tab-markdown">Markdown</a><a id="tab-html">HTML</a></div>
+			<textarea id="leanote-content-markdown">## 问答题
+### 1.CSS和JS在网页中的放置顺序是怎样的？
+1. CSS: <head> <link rel="stylesheet" href="css文件"> </head>
+2. JS: 放在html后面,</body>之前
+
+
+### 2.解释白屏和FOUC
+> 使用 link 标签将样式表放在顶部
+
+白屏问题
+
+如果把样式放在底部,对于IE浏览器,在某些场景下(新窗口打开,刷新等)页面会出现白屏,而不是内容逐步展现
+如果使用 @import 标签,即使 CSS 放入 link, 并且放在头部,也可能出现白屏
+
+FOUC (Flash of Unstyled Content) 无样式内容闪烁
+
+如果把样式放在底部,对于IE浏览器,在某些场景下(点击链接,输入URL,使用书签进入等),会出现 FOUC 现象(逐步加载无样式的内容,等CSS加载后页面突然展现样式).对于 Firefox 会一直表现出 FOUC .
+
+->对于图片和CSS:在加载时会并发加载(如一个域名下同时加载两个文件). 但在加载 JavaScript时:会禁用并发,并且阻止其他内容的下载. 所以把 JavaScript 放入页面顶部也会导致 白屏 现象.
+> 将JS放在底部
+
+脚本会阻塞后面内容的呈现 
+脚本会阻塞其后组件的下载 
+
+样式放后面: 要么白屏 要么无样式内容闪烁
+js 是 一个个的加载的,不会并发加载,js放顶部也会白屏,加载时间长
+
+
+### 3.async和defer的作用是什么？有什么区别
+  加载异步
+1. `<script async src="script.js"></script>`
+2. `<script defer src="script.js"></script>`
+> defer: 有顺序,脚本延迟到文档解析和显示完后执行
+> async: 不保证顺序,js加载的时候不影响后面的元素加载
+
+> > 理解: defer 串联     - - -      async 并联
+
+### 4.简述网页的渲染机制
+1. 解析html标签,构建DOM树
+2. 解析css标签,构建CSSOM树
+3. 把DOM和CSSOM组合成渲染树(render tree)
+4. 在渲染树的基础上布局,计算每个节点的几何结构
+5. 把每个节点绘制展示在屏幕上(painting)
+[参考:浏览器的工作原理](http://taligarsiel.com/Projects/howbrowserswork1.htm)
+
+读取html -- 加载外部标签样式(浏览器二次请求) --综合解析后在进行绘制展示
+
+### 5.JavaScript 定义了几种数据类型?哪些是简单类型?哪些是复杂类型?
+1.  6种数据类型
+  - 数值 number :整数和小数
+  - 字符串 string :字符组成的文本
+  - 布尔 boolean :true / false 两个特定值
+  - null :空, 即:此处应该有一个值,但目前为空
+  - undefined :未定义或不存在, 即:没有任何值
+  - 对象 object :数组,各种值组成的集合
+        > object 又分为:
+        > 1. 狭义的对象（object）
+        > 2. 数组（array）
+        > 3. 函数（function） (处理数据的方法)
+
+2. 简单类型: number & string & boolean 
+3. 复杂类型: 一切皆对象 object
+4. 特殊类型: null & undefined
+
+
+### 6.NaN、undefined、null分别代表什么?
+1. NaN: not a number;  NaN≠任何值  且:NaN≠NaN 
+2. undefined: 未定义,空,没有任何值
+3. null: 空,此处应该有一个值,但目前为空
+
+### 7.typeof和instanceof的作用和区别?
+1. typeof: 返回一个值的数据类型
+    > typeof 123; // "number"
+    > typeof "123"; // "string"
+    > typeof false; // "boolean"
+    > 定义一个函数: function f(){}
+      typeof f;  // "function"
+    > typeof undefined; // "undefined"
+    > **除上述以外**都返回 object
+        typeof window // "object"
+        typeof {} // "object"
+        typeof [] // "object"
+        `typeof null // "object"`(历史原因,特殊记忆)
+
+
+2. instanceof :
+    由于空数组([])类型为object,null也是object,对象也是object,typeof 无法区分,可用instanceof区分
+> var a = {};
+> var b = [];
+> var c = null;
+> 如下:
+> a instanceof Array // false
+> b instanceof Array // true
+> c instanceof Array // false
+
+
+## 代码题
+###1. 完成如下代码判断一个变量是否是数字、字符串、布尔、函数
+<pre>function isNumber(el){
+    if (typeof el == 'number'){
+        return true;
+    }else{
+        return false;
+    }
+}
+function isString(el){
+    if (typeof el == 'string'){
+        return true;
+    }else{
+        return false;
+    }
+}
+function isBoolean(el){
+    if (typeof el == 'boolean'){
+        return true;
+    }else{
+        return false;
+    }
+}
+function isFunction(el){
+    if (typeof el == 'function'){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+var a = 2,
+    b = "jirengu",
+    c = false;
+alert( isNumber(a) );  //true
+alert( isString(a) );  //false
+alert( isString(b) );  //true
+alert( isBoolean(c) ); //true
+alert( isFunction(a)); //false
+alert( isFunction( isNumber ) ); //true</pre>
+
+###2. 以下代码的输出结果是?（难度**）
+<pre>
+console.log(1+1); // 2 都是number会做加法运算
+console.log("2"+"4"); //24 都是string会做拼接
+console.log(2+"4");  //24 有一个string和一个number时会将number转为string然后拼接在一起
+console.log(+new Date()); //1473690373645 ,用new Date()参与计算会自动转换为从1970.1.1到现在的时间的毫秒数
+console.log(+"4"); //4 ,在只有一个字符串参数的时候会尝试将其转换为数字
+</pre>
+
+
+###3. 以下代码的输出结果是? （难度***）
+<pre>
+var a = 1;
+a+++a;
+3  // a=a+1  +a
+typeof a+2;
+number2 // (typeof 2) +2 ->number2
+</pre>
+
+###4.遍历数组，把数组里的打印数组每一项的平方 （难度**）
+<pre>
+if (arr= [3,4,5]){
+    for (k in arr){
+        console.log(arr[k]*arr[k]);
+    }    
+}
+
+9
+16
+25
+</pre>
+
+###5.遍历 JSON, 打印里面的值 （难度**）
+<pre>
+var obj = {
+  name: 'hunger',
+  sex: 'male',
+  age: 28
+}
+
+for (var k in obj){
+    console.log(obj[k])
+}
+
+hunger
+male
+28
+</pre>
+
+###6.下面代码的输出是? 为什么 （难度***）
+<pre>
+console.log(a); //undefined 变量提升-->js的工作方式是先提取所有声明, 这里先提取 var a ,所以console.log(a)为undefined
+var a = 1;
+console.log(a);// 1  提取声明后逐步进行
+console.log(b);//b is not defined
+</pre>
+eg:
+<img src="./img/l16-js-bianliangtishegn.png" alt=""></textarea>
+			<!-- markdown -->
+			<pre class="content-markdown">## 问答题
+### 1.CSS和JS在网页中的放置顺序是怎样的？
+1. CSS: <head> <link rel="stylesheet" href="css文件"> </head>
+2. JS: 放在html后面,</body>之前
+
+
+### 2.解释白屏和FOUC
+> 使用 link 标签将样式表放在顶部
+
+白屏问题
+
+如果把样式放在底部,对于IE浏览器,在某些场景下(新窗口打开,刷新等)页面会出现白屏,而不是内容逐步展现
+如果使用 @import 标签,即使 CSS 放入 link, 并且放在头部,也可能出现白屏
+
+FOUC (Flash of Unstyled Content) 无样式内容闪烁
+
+如果把样式放在底部,对于IE浏览器,在某些场景下(点击链接,输入URL,使用书签进入等),会出现 FOUC 现象(逐步加载无样式的内容,等CSS加载后页面突然展现样式).对于 Firefox 会一直表现出 FOUC .
+
+->对于图片和CSS:在加载时会并发加载(如一个域名下同时加载两个文件). 但在加载 JavaScript时:会禁用并发,并且阻止其他内容的下载. 所以把 JavaScript 放入页面顶部也会导致 白屏 现象.
+> 将JS放在底部
+
+脚本会阻塞后面内容的呈现 
+脚本会阻塞其后组件的下载 
+
+样式放后面: 要么白屏 要么无样式内容闪烁
+js 是 一个个的加载的,不会并发加载,js放顶部也会白屏,加载时间长
+
+
+### 3.async和defer的作用是什么？有什么区别
+  加载异步
+1. `<script async src="script.js"></script>`
+2. `<script defer src="script.js"></script>`
+> defer: 有顺序,脚本延迟到文档解析和显示完后执行
+> async: 不保证顺序,js加载的时候不影响后面的元素加载
+
+> > 理解: defer 串联     - - -      async 并联
+
+### 4.简述网页的渲染机制
+1. 解析html标签,构建DOM树
+2. 解析css标签,构建CSSOM树
+3. 把DOM和CSSOM组合成渲染树(render tree)
+4. 在渲染树的基础上布局,计算每个节点的几何结构
+5. 把每个节点绘制展示在屏幕上(painting)
+[参考:浏览器的工作原理](http://taligarsiel.com/Projects/howbrowserswork1.htm)
+
+读取html -- 加载外部标签样式(浏览器二次请求) --综合解析后在进行绘制展示
+
+### 5.JavaScript 定义了几种数据类型?哪些是简单类型?哪些是复杂类型?
+1.  6种数据类型
+  - 数值 number :整数和小数
+  - 字符串 string :字符组成的文本
+  - 布尔 boolean :true / false 两个特定值
+  - null :空, 即:此处应该有一个值,但目前为空
+  - undefined :未定义或不存在, 即:没有任何值
+  - 对象 object :数组,各种值组成的集合
+        > object 又分为:
+        > 1. 狭义的对象（object）
+        > 2. 数组（array）
+        > 3. 函数（function） (处理数据的方法)
+
+2. 简单类型: number & string & boolean 
+3. 复杂类型: 一切皆对象 object
+4. 特殊类型: null & undefined
+
+
+### 6.NaN、undefined、null分别代表什么?
+1. NaN: not a number;  NaN≠任何值  且:NaN≠NaN 
+2. undefined: 未定义,空,没有任何值
+3. null: 空,此处应该有一个值,但目前为空
+
+### 7.typeof和instanceof的作用和区别?
+1. typeof: 返回一个值的数据类型
+    > typeof 123; // "number"
+    > typeof "123"; // "string"
+    > typeof false; // "boolean"
+    > 定义一个函数: function f(){}
+      typeof f;  // "function"
+    > typeof undefined; // "undefined"
+    > **除上述以外**都返回 object
+        typeof window // "object"
+        typeof {} // "object"
+        typeof [] // "object"
+        `typeof null // "object"`(历史原因,特殊记忆)
+
+
+2. instanceof :
+    由于空数组([])类型为object,null也是object,对象也是object,typeof 无法区分,可用instanceof区分
+> var a = {};
+> var b = [];
+> var c = null;
+> 如下:
+> a instanceof Array // false
+> b instanceof Array // true
+> c instanceof Array // false
+
+
+## 代码题
+###1. 完成如下代码判断一个变量是否是数字、字符串、布尔、函数
+<pre>function isNumber(el){
+    if (typeof el == 'number'){
+        return true;
+    }else{
+        return false;
+    }
+}
+function isString(el){
+    if (typeof el == 'string'){
+        return true;
+    }else{
+        return false;
+    }
+}
+function isBoolean(el){
+    if (typeof el == 'boolean'){
+        return true;
+    }else{
+        return false;
+    }
+}
+function isFunction(el){
+    if (typeof el == 'function'){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+var a = 2,
+    b = "jirengu",
+    c = false;
+alert( isNumber(a) );  //true
+alert( isString(a) );  //false
+alert( isString(b) );  //true
+alert( isBoolean(c) ); //true
+alert( isFunction(a)); //false
+alert( isFunction( isNumber ) ); //true</pre>
+
+###2. 以下代码的输出结果是?（难度**）
+<pre>
+console.log(1+1); // 2 都是number会做加法运算
+console.log("2"+"4"); //24 都是string会做拼接
+console.log(2+"4");  //24 有一个string和一个number时会将number转为string然后拼接在一起
+console.log(+new Date()); //1473690373645 ,用new Date()参与计算会自动转换为从1970.1.1到现在的时间的毫秒数
+console.log(+"4"); //4 ,在只有一个字符串参数的时候会尝试将其转换为数字
+</pre>
+
+
+###3. 以下代码的输出结果是? （难度***）
+<pre>
+var a = 1;
+a+++a;
+3  // a=a+1  +a
+typeof a+2;
+number2 // (typeof 2) +2 ->number2
+</pre>
+
+###4.遍历数组，把数组里的打印数组每一项的平方 （难度**）
+<pre>
+if (arr= [3,4,5]){
+    for (k in arr){
+        console.log(arr[k]*arr[k]);
+    }    
+}
+
+9
+16
+25
+</pre>
+
+###5.遍历 JSON, 打印里面的值 （难度**）
+<pre>
+var obj = {
+  name: 'hunger',
+  sex: 'male',
+  age: 28
+}
+
+for (var k in obj){
+    console.log(obj[k])
+}
+
+hunger
+male
+28
+</pre>
+
+###6.下面代码的输出是? 为什么 （难度***）
+<pre>
+console.log(a); //undefined 变量提升-->js的工作方式是先提取所有声明, 这里先提取 var a ,所以console.log(a)为undefined
+var a = 1;
+console.log(a);// 1  提取声明后逐步进行
+console.log(b);//b is not defined
+</pre>
+eg:
+<img src="./img/l16-js-bianliangtishegn.png" alt=""></pre>
+			<!-- html -->
+			<div class="content-html" id="leanote-content-html"></div>
+		</div>
+	</div>
+
+<!-- 该js供其它处理 -->
+<script src="../leanote-markdown.js"></script>
+<script src="http://leanote.github.io/markdown-to-html/markdown-to-html.min.js"></script>
+<script>
+function init() {
+	markdownToHtml(document.getElementById('leanote-content-markdown').value, document.getElementById('leanote-content-html'), function(html) {
+		// 解析后执行
+		if(window.markdownParsed) {
+			window.markdownParsed(html);
+		}
+	});
+	var $m = document.getElementById('tab-markdown');
+	var $h = document.getElementById('tab-html');
+	var $cc = document.getElementById('content-container');
+	function toggleToHtml(isToHtml) {
+		$cc.className = isToHtml ? 'content-container html' : 'content-container';
+	}
+	$m.addEventListener('click', function() {
+		toggleToHtml(false);
+	});
+	$h.addEventListener('click', function() {
+		toggleToHtml(true);
+	});
+}
+
+// 如果不要自动解析html, notParseMarkdown在leanote-markdown.js中定义
+if(!window.notParseMarkdown) {
+	init();
+}
+</script>
+</body>
+</html>
