@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<<<<<<< HEAD
     <div>
         <p id="p1">sssss</p>;
         <p id="p2">aaaaa</p>;
@@ -15,5 +16,32 @@
         document.body.appendChild(newdiv);
     </script>
 
+=======
+<ul class="ct">
+    <li class="items">1<span><img src="1.png" alt=""></span></li>
+    <li class="items">3<span><img src="2.png" alt=""></span></li>
+    <li class="items">2<span><img src="3.png" alt=""></span></li>
+    <li class="items">4<span><img src="4.png" alt=""></span></li>
+</ul>
+<script>
+    var item=document.querySelectorAll('.items');
+    var arr=[];
+    for(var i=0;i<item.length;i++){
+       arr.push(item[i]);
+    }
+    arr.sort(function (a, b) {
+        return parseInt(a.children[0].innerText)-parseInt(b.children[0].innerText);
+
+    });
+    render();
+    function render() {
+        for(var i=0 ;i<arr.length;i++){
+            document.querySelectorAll('.ct').appendChild(arr[i]);
+        }
+    }
+
+
+</script>
+>>>>>>> 84e65f2abef0ee60e890e0fa8f3cc086def56584
 </body>
 </html>

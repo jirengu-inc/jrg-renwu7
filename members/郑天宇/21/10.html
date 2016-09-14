@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var re = /<[\w+].*?>/g;
+
+    var str = '<> <a href="/"> <input type="radio" checked> <b>'
+    console.log(str.match(re)); // '<a href="/">', '<input type="radio" checked>', '<b>'
+</script>
+</body>
+</html>
