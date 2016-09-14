@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>写一个函数，计算setTimeout平均</title>
+</head>
+<body>
+
+<script>
+    var begin,over,total,average,i=0;
+    function time() {
+        
+        var start=new Date().getTime();
+        var end;
+        var i=0;
+
+        var clock=setTimeout(function () {
+            ++i;
+            if (i==10){
+                clearTimeout(clock);
+
+            end=new Date().getTime();
+            console.log((end-start)/i);
+            }
+            clock=setTimeout(arguments.callee,0);
+
+
+
+        },0);
+
+    }
+    time();
+</script>
+</body>
+</html>
