@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>百度一下，你就知道</title>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			font-size:12px;
+			font-family: Arial;
+			color:#000;
+			overflow: hidden;
+		}
+		@media (max-width:1024px){
+			body{
+				min-width: 940px;
+			}
+		}
+		.clearfix{
+			clear:both;
+		}
+		.navbar{
+			margin-top:15px;
+			float: right;
+			margin-right:20px;
+		}
+		.navbar a{
+			display: inline-block;
+			/*padding:5px 6px;*/
+			margin-left:20px;
+			text-align: center;
+		}
+		a.navbar-item{
+			font-size:13px;
+			font-weight: bold;
+			color:#333;
+			margin-left: 15px;
+		}
+		a.navbar-login,a.navbar-setting{
+			color:#333;
+			font-size: 13px;
+		}
+		a.navbar-item:hover,a.navbar-login:hover,a.navbar-setting:hover{
+			color: #00c;
+		}
+		.navbar-more{
+			padding:5px 6px;
+			color:#fff;
+		    background: #38f;
+		    text-decoration:none;
+		}
+		.main{
+			margin-top:10%;
+		}
+		.main-logo{
+			text-align: center;
+		}
+		.main-logo img{
+			cursor:pointer;
+		}
+		.main-searchbar{
+			width:641px;
+			height:20px;
+			margin:22px auto 0;
+			/*background:#ccc;*/
+		}
+		.search-write{
+			display:inline-block;
+			position: relative;
+			width:539px;
+			height:35px;
+			border:1px solid #b6b6b6;
+		    border-color: #b8b8b8 transparent #ccc #b8b8b8;
+		}
+		.search-write:hover{
+			border-color: #999 transparent #b3b3b3 #999;
+		}
+		.writebar{
+			width:500px;
+			outline:none;
+			padding:0;
+			border:none;
+		    font: 16px/35px arial;
+			margin-left:7px;
+			/*border:1px solid;*/
+		}
+		.camera{
+			position:absolute;
+			top:10px;
+			right:6px;
+			width:18px;
+			height:18px;
+			background:url(images/camera.png) 0 0 no-repeat;
+			cursor:pointer;
+		}
+		.camera:hover{
+			background-position:0 -20px;
+		}
+		/*.search-btn{
+			width:100px;
+			height:35px;
+		}*/
+		.search-btn input{
+			width: 100px;
+		    height: 37px;
+		    color: white;
+		    font-size: 15px;
+		    letter-spacing: 1px;
+		    background: #3385ff;
+		    border-bottom: 1px solid #2d78f4;
+		    outline: medium;
+		    -webkit-appearance: none;
+		    -webkit-border-radius: 0;
+		    cursor: pointer;
+		    border:0;
+		    margin-left: -3px;
+		}
+	</style>
+	<body>	
+		<div class="navbar">
+			<a href="#" class="navbar-item">糯米</a>
+			<a href="#" class="navbar-item">新闻</a>
+			<a href="#" class="navbar-item">hao123</a>
+			<a href="#" class="navbar-item">地图</a>
+			<a href="#" class="navbar-item">视频</a>
+			<a href="#" class="navbar-item">贴吧</a>
+			<a href="#" class="navbar-login">登录</a>
+			<a href="#" class="navbar-setting">设置</a>
+			<a href="#" class="navbar-more">更多产品</a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="main">
+			<div class="main-logo">
+				<img src="images/logo.gif" alt="">
+			</div>
+			<div class="main-searchbar">
+				<span class="search-write">
+					<input type="text" class="writebar">
+					<div class="camera"></div>
+				</span>
+				<span class="search-btn">
+					<input type="submit" value="百度一下">
+				</span>
+			</div>
+		</div>
+	</body>
+</html>
