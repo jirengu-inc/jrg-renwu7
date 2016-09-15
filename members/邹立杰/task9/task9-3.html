@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS三角形</title>
+	</head>
+	<style>
+		.delta{
+			width:0;
+			height:0;
+			border:20px solid transparent;
+			margin-top: 5px;
+		}
+		.delta-all{
+/*			border-top-color:red;
+			border-right-color:black;
+			border-bottom-color:blue;
+			border-left-color:yellow;*/
+			border-color:red black blue yellow;
+		}
+		.delta-top{
+			border-top-color:red;
+		}
+		.delta-right{
+			border-right-color:black;
+		}
+		.delta-bottom{
+			border-bottom-color:blue;
+		}
+		.delta-left{
+			border-left-color:yellow;
+		}
+		.delta-rb{
+			border-right-color:red;
+			border-bottom-color:red;
+		}
+		.delta-lb{
+			border-left-color:blue;
+			border-bottom-color:blue;
+		}
+	</style>
+	<body>
+		<div class="delta delta-all"></div>
+		<div class="delta delta-top"></div>
+		<div class="delta delta-right"></div>
+		<div class="delta delta-bottom"></div>
+		<div class="delta delta-left"></div>
+		<div class="delta delta-rb"></div>
+		<div class="delta delta-lb"></div>
+		<div class="delta delta-top delta-left"></div>
+	</body>
+</html>
