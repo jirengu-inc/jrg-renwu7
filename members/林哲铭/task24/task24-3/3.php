@@ -1,4 +1,5 @@
 <?php
+	header("Content-type: "); 
 	$username = $_GET['un'];
 	$password1 = $_GET['psw1'];
 	$password2 = $_GET['psw2'];
