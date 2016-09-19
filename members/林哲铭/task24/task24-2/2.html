@@ -43,13 +43,11 @@
     </ul>
     <a href="#" class="btn">加载更多</a>
     <script>
-        //封装添加函数
         function append(parent,tagname,innerHTML) {
             var temp = document.createElement(tagname);
             temp.innerHTML = innerHTML;
             parent.appendChild(temp);
         }
-        //封装AJAX函数
         function ajax(opts){
             var xmlhttp;
             if (window.XMLHttpRequest){
@@ -82,16 +80,15 @@
                 xmlhttp.send(datastr);
             }
         }
-
         var container = document.getElementById("container");
-        var onload = false;                                        //设定一个锁变量
+        var onload = false;
         var start = 3;
         var len = 5;
         document.querySelector(".btn").addEventListener("click",function () {
             if(onload){
                 return;
             }
-            onload = true;                                         //上锁
+            onload = true;
             ajax({
                 url:"2.php",
                 type:"get",
@@ -107,7 +104,7 @@
                         text = '<a href="#">内容' + num + '</a>';
                         append(container,"li",text);
                     }
-                    onload = false;                               //解锁
+                    onload = false;
                     start = ret;
                 },
                 error:function () {
