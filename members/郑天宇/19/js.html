@@ -6,24 +6,7 @@
 </head>
 <body>
 <script>
-    var json={'name':'郑天宇','hobby':['soccer','computer'],
-        'address':{'country':'中国','city':'Jinan'},
-        'age':24}
-
-    function jsoncopy(json) {
-        var arr=[];
-        for(var key in json){
-            if(typeof (json[key])=="object"){
-                arr[key]=jsoncopy(json[key]);
-            }else
-            {
-                arr[key]=json[key];
-            }
-        }
-        return arr;
-    }
-    console.log(jsoncopy(json));
-
+   var a=new RegExp("das");
 
 
 </script>

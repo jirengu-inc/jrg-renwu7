@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    table,td{
+      border: 1px solid #D3D3D3;
+      border-collapse: collapse;
+    }
+    table{
+      width: 100%;
+      text-align: center;
+    }
+    thead{
+      font-weight: 700;
+      background-color: #22AAAA;
+    }
+    tbody{
+      background-color: #fff;
+    }
+    tr{
+      height: 50px;
+    }
+    .turnGray:hover{
+      background-color: #eee;
+    }
+
+  </style>
+</head>
+<body>
+<!--写一个如下表格
+表头是蓝色，表行是白色。 当鼠标放置到表行时背景色变为淡灰色-->
+  <table>
+    <thead>
+      <tr>
+        <td>姓名</td>
+        <td>性别</td>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="turnGray">
+          <td>小明</td>
+          <td>男</td>
+        </tr>
+        <tr class="turnGray">
+          <td>小花</td>
+          <td>女</td>
+        </tr>
+    </tbody>
+  </table>
+</body>
+</html>

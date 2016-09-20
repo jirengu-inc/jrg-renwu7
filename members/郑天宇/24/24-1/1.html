@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <button id="btn">点击我</button>
+    <div id="result"></div>
+    <script>
+        function ajax(opts) {
+            var xml;
+            if (window.XMLHttpRequest) { //IE7+,chrome,Safari,Opera,Firefox
+                xml = new XMLHttpRequest();
+            } else {
+                xml = new AcitveXObject("Microsoft.XMLHTTP"); //IE5,IE6
+            }
+
+            xml.onreadystatechange = function() {
+                if (xml.readyState == 4 && xml.status == 200) {
+
+                    var json = JSON.parse(xml.responseText);
+                    opts.success(json);
+                } else if (xml.status == 404) {
+
+                    opts.error();
+                }
+            }; //是否传输正常
+            var str = '';
+            for (var key in opts.data) {
+                str += key + '=' + opts.data[key] + '&';
+            }
+            str = str.substr(0, str.length - 1); //将get类型数据准备好
+            if (opts.type === 'get') {
+                xml.open(opts.type, opts.url + '?' + str, true);
+                xml.send();
+            }
+
+            if (opts.type === 'post') {
+                xml.open(opts.type, opts.url, true);
+                xhl.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xml.send(str);
+            }
+
+        }
+        document.querySelector('#btn').addEventListener('click', function() {
+
+            ajax({
+                type: 'get', // 类型， post 或者 get,
+                url: 'getData.php', //接口地址
+                data: {
+                    username: 'xiaoming',
+                    password: 'abcd1234'
+                },
+                success: function(ret) {
+                    console.log(ret); // {status: 0}
+                    var result = document.querySelector('#result');
+                    result.innerText = '用户名：' + ret.username + '\|' + '密码：' + ret.password;
+                },
+                error: function() {
+                    console.log('出错了')
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task7</title>
+    <style>
+        /*     textarea{
+              resize: none;
+            }
+             */
+    </style>
+</head>
+<body>
+<!-- 这个表单有点恶俗，请注意23行 -->
+<form action="XXX.php" method="post">
+    <label for="username">姓名:</label> <input type="text" placeholder="用户名" class="username" id="username">
+    <br>
+    <label for="password">密码:</label> <input type="password" id="password" placeholder="密码">
+    <br>
+    <label for="gender">性别:</label> <input type="radio" checked="checked" name="gender" id="gender" value="male"> 男 <input
+        type="radio" name="gender" value="female"> 女
+    <br>
+    <label for="sex">取向:</label> <input type="radio" name="sex" value="male"> 男 <input type="radio" checked="checked" name="sex"
+                                                                          id="sex" value="female"> 女
+    <br>
+    <label for="habit">爱好:</label>
+    <input name="habit" type="checkbox" value="dota"> dota
+    <input name="habit" type="checkbox" checked="checked" id="habit" value="旅游"> 旅游
+    <input name="habit" type="checkbox" checked="checked" value="宠物"> 宠物
+    <br>
+    <label for="comment">评论:</label> <textarea name="comment" cols="30" rows="10" id="comment"></textarea>
+    <br>
+    <label for="car">我的car:</label>
+    <select name="car" id="car">
+        <option value="萨博" selected="selected">萨博</option>
+        <option value="卡宴">卡宴</option>
+        <option value="自由侠">自由侠</option>
+    </select>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

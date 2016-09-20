@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-5</title>
+    <link rel="stylesheet" href="icon/iconfont.css">
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+            font-family: "Microsoft YaHei UI";
+            color: #333;
+        }
+        a{
+            text-decoration: none;
+            color: #333;
+        }
+        .hide{
+            display: none;
+        }
+        .btn{
+            background: #fff;
+            padding: 5px 10px;
+            border: #999 solid 1px;
+            border-radius: 2px;
+        }
+        .cover{
+            background: #ccc;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0.5;
+
+        }
+        .container{
+            background: #fff;
+            width: 400px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+        .clear {
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .top{
+            height: 50px;
+            line-height: 50px;
+            font-weight: bold;
+            border-bottom: #999 1px solid;
+        }
+        .container-title{
+            float: left;
+            padding:0 20px;
+        }
+        .fork{
+            display:inline-block;
+            float: right;
+            padding:0 20px;
+        }
+        .middle{
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .middle p{
+            padding: 10px;
+        }
+        .footer ul{
+            float: right;
+        }
+        .footer ul li{
+            list-style-type: none;
+            float: left;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="btn">点我</button>
+    <div class="cover hide"></div>
+    <div class="container hide">
+        <div class="top clear">
+            <div class="container-title">这是标题</div>
+            <a class="fork close" href="#"><i class="icon iconfont">&#xe6a6;</i></a>
+        </div>
+        <div class="middle">
+            <p>我是内容</p>
+            <p>我是内容</p>
+        </div>
+        <div class="footer clear">
+            <ul class="clear">
+                <li><a href="#" class="close">取消</a></li>
+                <li><a href="#" class="confirm">确定</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function addClass(el, cls) {
+            var re = new RegExp('(\\s|^)' + cls + '(\\s|$)', 'g');
+            if (!re.test(el.className)) {
+                el.className += " " + cls;
+            }
+        }
+        function removeClass(el,cls) {
+            var re = new RegExp('(\\s|^)' + cls + '(\\s|$)','g');
+            if ( re.test(el.className)){
+                el.className = el.className.replace((" " + cls)||(cls + " ") ,"");
+            }
+        }
+        function hasClass(el,cls) {
+            var re = new RegExp(('(\\s|^)' + cls + '(\\s|$)'), "g");
+            return re.test(el.className);
+        }
+
+        var btn = document.querySelector(".btn");
+        var container = document.querySelector(".container");
+        var cover = document.querySelector(".cover");
+
+        btn.addEventListener("click",function () {
+            removeClass(container,"hide");
+            removeClass(cover,"hide");
+        });
+
+        container.addEventListener("click",function(e){
+            if (hasClass(e.target,"close")){
+                addClass(container,"hide");
+                addClass(cover,"hide");
+            }
+        });
+        cover.addEventListener("click",function () {
+            addClass(container,"hide");
+            addClass(cover,"hide");
+        })
+    </script>
+</body>
+</html>

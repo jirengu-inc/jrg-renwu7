@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<style>
+		*{padding:0;margin:0;}
+		div{
+			width: 200px;
+			height: 120px;
+			border: 1px solid #aaa;
+			margin: 30px;
+			position: relative;
+		}
+		.triangle{
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			position: absolute;
+		}
+		.upTip{
+			border-bottom-color: #aaa;
+			left: 5px;
+			top: -20px;
+		}
+		.rightTip{
+			border-width: 20px 0 20px 20px;
+			border-top-color: hsl(0,100%,50%);
+			right: -1px;
+			top: -1px;
+		}
+		.whiteTri:after{
+			content:"";
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			position: absolute;
+			border-bottom-color: #fff;
+			left: -10px;
+			top: -8px;
+		}
+	</style>
+</head>
+<body>
+	<div class="up"><span class="triangle upTip"></span></div>
+	<div class="middle"><span class="triangle rightTip"></span></div>
+	<div class="down"><span class="triangle upTip whiteTri"></span></div>
+</body>
+</html>

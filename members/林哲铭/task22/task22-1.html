@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-1</title>
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端6班</li>
+    </ul>
+
+    <script>
+        var ct = document.querySelectorAll(".ct");
+        var liarr = ct[0].getElementsByTagName("li");
+        for(var i = 0; i < liarr.length; i++){
+            liarr[i].addEventListener("click",function () {
+                console.log(this.innerText);
+            })
+        }
+
+       // 法二：事件代理
+       /* var ct = document.querySelector(".ct");
+        ct.addEventListener("click",function (e){
+            if (e.target.tagName.toLowerCase() === "li") {
+            console.log(e.target.innerText);
+            }
+        });*/
+    </script>
+</body>
+</html>
