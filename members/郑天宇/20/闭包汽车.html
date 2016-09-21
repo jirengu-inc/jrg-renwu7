@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包汽车</title>
+</head>
+<body>
+    <script>
+        function Car() {
+            var speed;
+            var status='stop';
+            function setSpeed(a) {
+                return speed=a;
+            }
+            function getSpeed() {
+                return speed;
+            }
+
+            function accelerate(a) {
+                return speed+=a;
+            }
+            function decelerate(a) {
+                speed-=a;
+                if(speed<0){
+                    speed=0;
+                    return speed;
+                }else {
+                    return speed;
+                }
+
+            }
+
+            function getStatus() {
+                if(speed!=0){
+                    return status='running'
+                }else {
+                    return status;
+                }
+
+            }
+
+            return {
+                setspeed:setSpeed,
+                getspeed:getSpeed,
+                    accelerate:accelerate,
+                    decelerate:decelerate,
+                    getStatus:getStatus
+
+
+            }
+
+        }
+        var car=Car();
+
+    </script>
+
+</body>
+</html>
