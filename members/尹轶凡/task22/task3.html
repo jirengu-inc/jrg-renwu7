@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <ul class="ct">
+        <li data-img="http://img3.duitang.com/uploads/item/201311/10/20131110100511_TRd2n.jpeg">鼠标放置查看图片1</li>
+        <li data-img="http://img3.duitang.com/uploads/item/201207/08/20120708201504_ehehG.jpeg">鼠标放置查看图片2</li>
+        <li data-img="http://img3.duitang.com/uploads/item/201403/08/20140308172541_By8cA.jpeg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+
+        // var ct=document.querySelector(".ct"),
+        //     arrli=ct.querySelectorAll("li"),
+        //     preview=document.querySelector(".img-preview");
+        //
+        // for(var i=0;i<arrli.length;i++){
+        //   arrli[i].addEventListener("mouseenter",function(e){
+        //     var imgaddress=e.target.getAttribute("data-img");
+        //    preview.innerHTML='<img src = "'+imgaddress+'">'
+        //  })
+        // }
+
+
+
+            var ct=document.querySelector('.ct'),
+                Preview=document.querySelector('.img-preview'),
+                imgp=document.createElement('img');
+
+                ct.addEventListener('mouseover',function(e){
+                  var imgaddress = e.target.getAttribute('data-img');
+                  imgp.setAttribute('src',imgaddress);
+                  Preview.appendChild(imgp);
+                })
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
