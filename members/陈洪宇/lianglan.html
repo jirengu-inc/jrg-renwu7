@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            body,
+        ul,
+        li,
+        p,
+        h1,
+        h2 {
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font: 14px/1.5 "microsoft yahei", sans-serif;
+            color: #656565;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        #header {
+            height: 50px;
+            background: #333;
+        }
+
+        #header .logo img {
+            height: 40px;
+        }
+
+        #header .nav {
+            float: right;
+            margin-right: 10px;
+        }
+
+        #header .nav li {
+            float: left;
+        }
+
+        #header .nav a {
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 10px;
+        }
+
+        #header .nav a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        #content {
+            margin-top: 10px;
+        }
+
+        .aside {
+            background-color: #eee;
+            width: 200px;
+            min-height: 600px;
+            float: left;
+        }
+
+        #content:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .main {
+            margin-left: 210px;
+            background-color: #eee;
+            padding: 20px 10px;
+        }
+
+        #footer {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        #footer:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        #footer li {
+            float: left;
+            margin-left: 10px;
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="../img/logo-tiny.png" alt="">
+            </a>
+
+
+            <div class="nav">
+                <li><a href="#">技能</a></li>
+                <li><a href="#">经历</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">关于</a></li>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="container">
+            <div class="aside"></div>
+            <div class="main">
+                <h1>123456</h1>
+                <p>
+                    456466
+                </p>
+                <p>
+                    4645646
+                </p>
+                <p>131213</p>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <ul>
+                <li><a href="#">饥人谷</a></li>
+                <li><a href="#">JSCODE</a></li>
+                <li><a href="#">JSBIN</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
