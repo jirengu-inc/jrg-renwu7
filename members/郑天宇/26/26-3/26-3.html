@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>26-3</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+  </head>
+  <style>
+  body,html,li,ul{
+    margin: 0;
+    padding: 0;
+  }
+    li{
+      list-style: none;
+
+    }
+    .tag{
+      width: 100%;
+      height: 30px;
+      border: 1px solid #aaa;
+      margin-top: 10px;;
+      border-radius: 20px;
+      text-align: center;
+      line-height: 30px;
+    }
+    .btn{
+      text-decoration: none;
+      display: inline-block;
+      color: inherit;
+      border: 1px solid red;
+      width: 100px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+
+
+    }
+    #load-more{
+      margin: 10px auto;
+      display: block;
+    }
+    .hover{
+      background-color: green;
+    }
+
+  </style>
+  <body>
+    <ul id="ct">
+      <li class="tag">内容1</li>
+        <li class="tag">内容2</li>
+    </ul>
+    <a id="load-more" class="btn" href="#">加载更多</a>
+  <script type="text/javascript">
+    $('#ct').on('mouseenter','.tag',function(){
+
+      $(this).addClass('hover')
+    });
+    
+    $('#ct').on('mouseleave','.tag',function(){
+      $(this).removeClass('hover');
+    });
+        var cur=2;
+        var len=3;
+      $('#load-more').on('click',function (e) {
+        e.preventDefault();
+          $.ajax({
+            url: 'pre.php',
+            method: 'GET',
+            data:{
+            start: cur, len=3;
+          }
+          success: function (json) {
+              onsucess(json);
+          }
+          error: function (json) {
+            onerror(json);
+          }
+        }
+      });
+      function onsucess(json){
+        if (json.status===1){
+          return append(json.data);
+          cur+=3;
+        }else {
+          alert('数据传输失败');
+        }
+      }
+      function onerror(json){
+        if (json.status!=1){
+          alert('出错了')
+        }
+      }
+      function append(arr){
+        for(var i=0;i<arr.length;i++ ){
+          $('#ct').append('<li>'+arr[i]+'</li>')
+        }
+      }
+
+  </script>
+  </body>
+</html>
