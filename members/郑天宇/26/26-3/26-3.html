@@ -60,39 +60,41 @@
       $(this).removeClass('hover');
     });
         var cur=2;
-        var len=3;
+
       $('#load-more').on('click',function (e) {
         e.preventDefault();
           $.ajax({
             url: 'pre.php',
-            method: 'GET',
+            method: 'get',
+            dataType: 'json',
             data:{
-            start: cur, len=3;
-          }
+              start: 2,
+              len:6
+          },
           success: function (json) {
               onsucess(json);
+          },
+          error: function(){
+            onerror();
           }
-          error: function (json) {
-            onerror(json);
-          }
-        }
+        })
       });
       function onsucess(json){
-        if (json.status===1){
+        if (json.status==1){
           return append(json.data);
           cur+=3;
         }else {
           alert('数据传输失败');
         }
       }
-      function onerror(json){
-        if (json.status!=1){
-          alert('出错了')
-        }
+      function onerror(){
+
+          alert('出错了');
+
       }
       function append(arr){
         for(var i=0;i<arr.length;i++ ){
-          $('#ct').append('<li>'+arr[i]+'</li>')
+          $('#ct').append('<li>'+arr[i]+'</li>');
         }
       }
 
