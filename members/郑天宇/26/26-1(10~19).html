@@ -5,6 +5,10 @@
     <title>26-1(10~19)</title>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
     <style>
+        html,body,div{
+            margin: 0;
+            padding: 0;
+        }
         .active{
             display: none;
         }
@@ -18,12 +22,231 @@
             background: #7a3828;
 
         }
+        .ct{
+            width: 100px;
+            height:100px;
+            border:1px solid;
+            margin: 10px;
+            padding: 20px;
+        }
+        .scrollbox{
+            width:140px;
+            height:140px;
+            border:1px solid;
+            overflow: scroll;
+        }
     </style>
 </head>
 <body>
 <div class="box">
-    
+    <p >获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)</p>
+    <div class="ct">
+
+    </div>
+    <button class="btn1">获取宽度，高度</button>
+    <button class="btn1">点击放大</button>
+
 </div>
+
+
+
+
+<div class="box">
+    <p>获取窗口滚动条垂直滚动距离</p>
+    <div class="scrollbox">
+        <p>dadadasddddddddddddddd
+            dddddddddddddddddd
+            dddddddddddddddddddd
+            dddddddddddddddddddddddd
+            dddddddddddddddddddd
+            dddddddddddddddddddddd
+            dddddddddddddddddddd
+            dddddddddddddddddddd
+            dddddddddddddddddddd
+            dddddddddddddddddddd
+            dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+            dddddddddddddddddddd
+            dddddddddddddddddddd
+
+        </p>
+    </div>
+
+    <button class="btn2">获取位置</button>
+    <div class="scroll">
+    </div>
+    </div>
+
+    <div class="box">
+        <p>获取$node 到根节点水平、垂直偏移距离</p>
+        <button class="btn3">点击获取</button>
+        <div class="pre">
+            
+        </div>
+    </div>
+<div class="box">
+    <p>修改$node 的样式，字体颜色设置红色，字体大小设置14px</p>
+    <div class="changecss">
+        我要变了！！
+        <button class="btn4">点击我改变样式</button>
+    </div>
+</div>
+    <div class="box">
+        <p>遍历节点，把每个节点里面的文本内容重复一遍</p>
+
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+
+        <button class="btn5">点击获取</button>
+        <div class="ct2"></div>
+
+    </div>
+<div class="box">
+    <p>从$ct3 里查找 class 为 .item的子元素</p>
+    <div class="ct3">
+        <ul>
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+            <li class="item">4</li>
+            <li class="item">5</li>
+        </ul>
+    </div>
+    <button class="btn6">点击查找</button>
+    <div class="res"></div>
+</div>
+<div class="box">
+    <p>获取$ct4 里面的所有孩子</p>
+    <div class="ct4">
+        <div>1
+            <p>2
+                <p>3</p>
+            </p>
+        </div>
+        <div>
+            4
+        </div>
+    </div>
+    <button class="btn7">点击获取</button>
+    <div class="abc"></div>
+</div>
+<div class="box">
+    <p>对于$node，向上找到 class 为’.ct’的父亲，在从该父亲找到’.panel’的孩子</p>
+
+    <div class="ct5">
+        <div class="panel">
+            我是panel
+        </div>
+        <div class="find">
+            <button class="btn8">我找panel</button>
+        </div>
+
+    </div>
+
+</div>
+<div class="box">
+    <p>获取选择元素的数量</p>
+    <div class="a">
+        <ul class="choose">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <p>获取当前元素在兄弟中的排行</p>
+    <ul class="parent">
+        <li class="sons">1</li>
+        <li class="sons">2</li>
+        <li class="sons">3</li>
+        <li class="sons">4</li>
+        <li class="sons">5</li>
+        <li class="sons">6</li>
+    </ul>
+    <div class="b"></div>
+</div>
+
+<script>
+    $('.btn1').eq(0).on('click',function () {
+        var width = $('.ct').width();
+        var height = $('.ct').height();
+        var innerwidth = $('.ct').innerWidth();
+        var innerheight = $('.ct').innerHeight();
+        var outerwidth = $('.ct').outerWidth(true);
+        var outerheight = $('.ct').outerHeight(true);
+
+        $('.box').eq(0).append(function () {
+            var result='';
+            result+="<p>不包括内边距"+width+"   "+height+"</p>";
+            result+="<p>包括内边距"+innerwidth+"   "+innerheight+"</p>";
+            result+="<p>包括内边距外边距和border"+outerwidth+"   "+outerheight+"</p>";
+            return result;
+        })
+    });
+    var i=100;
+    $('.btn1').eq(1).on('click',function () {
+
+        i=i+50;
+        $('.ct').width(i);
+         $('.ct').height(i);
+    })
+
+    $('.btn2').on('click',function () {
+        var sc=$('.scrollbox').scrollTop();
+        var sc2=$('.scrollbox').scrollLeft();
+
+        $('.scroll').html('<p>水平距离为：'+sc2+'</p>'+'<p>垂直距离：'+sc+'</p>');
+    })
+
+    $('.btn3').on('click',function () {
+        var sc=$('.box').eq(2).offset().top;
+        var sc2=$('.box').eq(2).offset().left;
+        $('.pre').html('<p>垂直距离:'+sc+'</p>'+'<p>水平距离：'+sc2+'</p>')
+    })
+
+    $('.btn4').on('click',function () {
+        $('.changecss').css({
+            'color':'red',
+            'font-size':'20px'
+
+        })
+    })
+    
+    $('.btn5').on('click',function () {
+        $('li').each(function (index) {
+            $('.ct2').append("<p>"+index+":"+$(this).text()+"</p>")
+        })
+    })
+
+    $('.btn6').on('click',function () {
+       $('.res').append($('.ct3').find('.item').clone());
+
+    });
+    
+    $('.btn7').on('click',function () {
+        $('.abc').append($('.ct4').children().clone());
+    });
+    $('.btn8').on('click',function () {
+        $('.ct5').append($('.find').parent().find('.panel').clone());
+    })
+
+    $('.a').on('mouseenter',function () {
+        $('.a').append($('.choose').children().length);
+    });
+
+    $('.sons').on('click',function () {
+        $('.b').append($(this).index());
+    })
+
+</script>
 
 </body>
 </html>

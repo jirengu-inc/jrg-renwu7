@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isNumber(el) {
+            return typeof(el);
+        }
+
+        function isString(el) {
+            return typeof(el);
+        }
+
+        function isBoolean(el) {
+            return typeof(el);
+        }
+
+        function isFunction(el) {
+            return typeof(el);
+        }
+
+        var a = 2,
+            b = "jirengu",
+            c = false;
+        alert("number is " + isNumber(a)); //true
+        alert("string is" + isString(a)); //false
+        alert(" 第二个 string is" + isString(b)); //true
+        alert("boolean is" + isBoolean(c)); //true
+        alert("function is" + isFunction(a)); //false
+        alert("第二个function is" + isFunction(isNumber)); //true
+    </script>
+</body>
+
+</html>
