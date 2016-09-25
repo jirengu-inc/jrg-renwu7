@@ -13,7 +13,7 @@ function ajax(opts){
 	for(var key in opts.data){
 		strdata+=key+"="+opts.data[key]+"&";
 	}
-	stradata=strdata.substr(0,()strdata.length-1);
+	stradata=strdata.substr(0,strdata.length-1);
 	if(opts.type==="get"){
 		xmlhttp.open("get",opts.url+"?"+strdata,true);
 		xmlhttp.send();
@@ -34,6 +34,8 @@ document.querySelector('#btn').addEventListener('click', function(){
         },
         success: function(ret){
             console.log(ret);       // {status: 0}
+		var mydiv=document.querySelector("#mydiv");
+		mydiv.innerHTML="用户名 "+ret.username+"密码"+ret.password;
         },
         error: function(){
            console.log('出错了')
