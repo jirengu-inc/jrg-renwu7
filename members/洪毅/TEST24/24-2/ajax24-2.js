@@ -24,19 +24,33 @@ function ajax(opts) {
         xmlhttp.send(strdata);
     }
 }
+var container = document.getElementById("list");
+var onload = false;
+var start = 3;
+var len = 2;
 document.querySelector('#btn').addEventListener('click', function() {
+    if (onload) {
+        return;
+    }
+    onload = true;
     ajax({
-        url: 'getData.php', //接口地址
-        type: 'get', // 类型， post 或者 get,
-        data: {
-            username: 'xiaoming',
-            password: 'abcd1234'
-        },
-        success: function(ret) {
-            console.log(ret);
-            var mydiv = document.querySelector('#mydiv');
-            mydiv.innerHTML = '用户名：' + ret.username + " <br/> " + '密码：' + ret.password;
-        },
+            url: '24-2.php', //接口地址
+            type: 'get', // 类型， post 或者 get,
+            data: {
+                "start": start,
+                "len": len
+            },
+            success: function(ret) {
+                for (var i = 0; i < len; i++) {
+                    var num = start + i;
+                    text = "内容" + num;
+                    var newli = document.createElement("li");
+                    newli.innerText = text;
+                    container.appendChild(newli);
+                }
+                onload = false;
+                start = ret;
+            },
         error: function() {
             console.log('出错了');
         }

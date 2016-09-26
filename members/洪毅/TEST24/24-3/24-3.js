@@ -24,21 +24,3 @@ function ajax(opts) {
         xmlhttp.send(strdata);
     }
 }
-document.querySelector('#btn').addEventListener('click', function() {
-    ajax({
-        url: 'getData.php', //接口地址
-        type: 'get', // 类型， post 或者 get,
-        data: {
-            username: 'xiaoming',
-            password: 'abcd1234'
-        },
-        success: function(ret) {
-            console.log(ret);
-            var mydiv = document.querySelector('#mydiv');
-            mydiv.innerHTML = '用户名：' + ret.username + " <br/> " + '密码：' + ret.password;
-        },
-        error: function() {
-            console.log('出错了');
-        }
-    })
-});
