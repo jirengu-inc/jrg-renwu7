@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+        body,
+        ul,
+        li,
+        p,
+        h1,
+        h2 {
+            padding: 0;
+            margin: 0
+        }
+
+        body {
+            font: 16px "微软雅黑";
+            color: black;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .bar {
+            height: 40px;
+            background: #ccc
+        }
+
+        .bar>li {
+            float: left;
+            padding: 0 10px;
+            line-height: 40px;
+            position: relative;
+        }
+        .bar>ul:after{
+          content: '';
+          display: block;
+          clear: both;
+        }
+
+        .bar>li:hover {
+            background: #eee;
+        }
+
+        .dropmenu {
+          display: none;
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            padding: 4px;
+
+
+        }
+
+        .bar>li:hover .dropmenu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="bar">
+        <li>
+            <a href="">前端</a>
+            <ul class="dropmenu">
+                <li>javascript</li>
+                <li>html</li>
+                <li>css</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">服务端</a>
+            <ul class="dropmenu">
+                <li>Node</li>
+                <li>php</li>
+                <li>java</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">前端工具</a>
+            <ul class="dropmenu">
+                <li>sbulime</li>
+                <li>webstorme</li>
+                <li>git</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">HTML</a>
+        </li>
+        <li>
+            <a href="">NODE</a>
+        </li>
+        <ul>
+</body>
+
+</html>
