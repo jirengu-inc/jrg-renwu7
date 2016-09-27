@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-09-22 19:27:45
+ * @version $Id$
+ */
+h3{
+    background-color: rgb(52,53,46);
+    color: white;
+    width: 100px;
+    text-align: center;
+    padding: 2px;
+}
+img{
+    width: 20px;
+    height: 20px;
+}
+
+ol{
+    list-style: none;
+}
+
+dd{
+    float: left;
+}
