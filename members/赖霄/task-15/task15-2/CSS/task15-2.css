@@ -1,0 +1,421 @@
+/*** 重置默认样式 ***/
+html, body, p, ul, li, h5, input, textarea {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    color: #333;
+    font: 14px/1.5 "Roboto Slab", "Helvetica Neue", "microsoft yahei", "Helvetica", sans-serif;
+}
+
+/***设置公共样式***/
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.text-center, h1, h2, h4, h5, h6, a, p, span, li {
+    text-align: center;
+}
+
+input, textarea {
+    color: #bbb;
+    font-family: Montserrat;
+}
+
+.btn-rectangle {
+    display: inline-block;
+    width: 221px;
+    height: 67px;
+    line-height: 67px;
+    font-size: 18px;
+    color: #fff;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #FED136;
+    border-radius: 5px;
+}
+
+.btn-rectangle:hover {
+    background-color: #FEC503;
+}
+
+h2 {
+    font-size: 40px;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h5 {
+    margin-top: 1em;
+    font-size: 18px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+a:link {
+    color: #fff;
+}
+
+a:visited {
+    color: #fff;
+}
+
+#team .contact a, #footer ul a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #000;
+    border-radius: 100%;
+}
+
+#team .contact a.iconfont:hover, #footer ul a.iconfont:hover {
+    background-color: #FED136;
+}
+
+/***设置页面功能区块***/
+/**通栏导航**/
+.fullrow {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #222;
+    z-index: 1000;
+}
+
+.fullrow .fl {
+    padding: 20px;
+    color: #FEC503;
+    font-size: 20px;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+
+.nav li {
+    float: left;
+    padding: 10px 0;
+}
+
+.nav a {
+    display: block;
+    padding: 15px;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/**头部**/
+#header {
+    background: url(../imgs/header-bg.jpg) no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/*头部内容*/
+#header .wrapper {
+    margin-top: 250px;
+    margin-bottom: 200px;
+    color: #fff;
+}
+
+#header h2 {
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+}
+
+#header h1 {
+    font-size: 70px;
+}
+
+/**主题内容部分**/
+/*服务*/
+#services {
+    padding: 100px 0;
+}
+
+#services ul {
+    margin-top: 60px;
+    margin-left: -18px;
+    margin-right: -18px;
+}
+
+#services li {
+    float: left;
+    margin: 0 20px;
+    text-align: center;
+}
+
+#services span {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 60px;
+    color: #fff;
+    background-color: #FED136;
+    border-radius: 100%;
+}
+
+/*作品集*/
+#portfolio {
+    padding: 100px 0;
+    background-color: #F7F7F7;
+}
+
+#portfolio p {
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+}
+
+#portfolio ul {
+    margin: 50px 0;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+#portfolio li {
+    float: left;
+    margin: 15px;
+}
+
+#portfolio img {
+    width: 360px;
+    height: 260px;
+}
+
+#portfolio a {
+    position: relative;
+    display: block;
+}
+
+#portfolio a:hover > .yellow-plusSign {
+    opacity: 1;
+}
+
+#portfolio .yellow-plusSign {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    height: 260px;
+    background-color: rgba(254, 209, 54, .9);
+    opacity: 0;
+}
+
+#portfolio .yellow-plusSign i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -25px;
+    color: #fff;
+    font-size: 60px;
+}
+
+/*关于我们*/
+#about {
+    padding: 100px 0;
+}
+
+#about h2 + p {
+    font-family: "Droid Serif";
+    font-style: italic;
+}
+
+#about .timeline {
+    margin-top: 50px;
+    position: relative;
+}
+
+#about .timeline:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    content: "";
+    left: 50%;
+    margin-left: -1px;
+    width: 2px;
+    background-color: #f1f1f1;
+}
+
+#about .timeline li {
+    margin: 10px 0 100px;
+    position: relative;
+}
+
+#about .timeline .pic {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -85px;
+}
+
+#about .timeline .roundness {
+    height: 170px;
+    width: 170px;
+    border: 7px solid #f1f1f1;
+    border-radius: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#about .timeline .history {
+    float: left;
+    width: 40%;
+    text-align: right;
+}
+
+#about .timeline .fr-tl {
+    float: right;
+    text-align: left;
+}
+
+.yellow {
+    background-color: #FED136;
+}
+
+#about .timeline h4 {
+    margin-top: 40px;
+    color: #fff;
+    font-size: 18px;
+}
+
+#about .timeline .lastli {
+    height: 170px;
+    margin-bottom: 50px;
+}
+
+/*团队*/
+#team {
+    padding: 100px 0;
+    background-color: #F7F7F7;
+}
+
+#team .team-mate {
+    margin: 30px 0;
+}
+
+#team .team-mate > li {
+    float: left;
+    margin: 20px 75px;
+}
+
+#team img {
+    width: 230px;
+    height: 230px;
+    border-radius: 100%;
+}
+
+#team .contact > li {
+    display: inline-block;
+    margin: 5px;
+}
+
+/*客户*/
+#content .customers {
+    padding: 50px 0;
+}
+
+#content .customers li {
+    display: inline-block;
+    margin: 0 40px;
+}
+
+/*联系我们*/
+#contact {
+    padding: 100px;
+    color: #fff;
+    background: #222 url(../imgs/map-image.png) no-repeat center center;
+    background-size: cover;
+}
+
+#contact form {
+    margin: 80px 0;
+}
+
+#contact .wrapper {
+    width: 40%;
+    float: left;
+}
+
+#contact .wrapper input {
+    width: 553px;
+    height: 60px;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact textarea {
+    float: right;
+    width: 48%;
+    height: 16.5em;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact .lastinput {
+    margin: 20px 0;
+    border-width: 0;
+}
+
+/* 底部 */
+#footer {
+    padding: 50px 0;
+}
+
+#footer ul, #footer li, #footer span {
+    float: left;
+    margin: 0 10px;
+}
+
+#footer ul {
+    margin: 0 245px;
+}
+
+#footer span {
+    height: 40px;
+    line-height: 40px;
+}
+
+#footer span a {
+    margin-left: 10px;
+    color: #FED136;
+    font-family: "Montserrat";
+}
+
+#footer span a:hover {
+    color: #FEC503;
+    text-decoration: underline;
+}

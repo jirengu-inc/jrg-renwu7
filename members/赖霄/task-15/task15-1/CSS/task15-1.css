@@ -1,0 +1,154 @@
+/*
+* @Author: nineSean
+* @Date:   2016-09-25 23:27:48
+* @Last Modified by:   nineSean
+* @Last Modified time: 2016-09-26 00:46:18
+*/
+
+/*** 重置默认样式 ***/
+html,body,ul,li,ol,dl,p{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+a{text-decoration: none;}
+li{list-style: none;}
+a,li{text-align: center;}
+html,body{
+	width: 100%;
+	height: 100%;
+	font: 16px/1.2 "microsoft yahei","hervetica",sans-serif;
+}
+
+
+
+/*** 设置公共样式 ***/
+.container{
+	width: 1000px;
+	margin: 0 auto;
+}
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.text-center{
+	text-align: center;
+}
+a.see{
+	display: inline-block;
+	width: 46px;
+	height: 33px;
+	line-height: 33px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+a:link{color: rgba(0,0,0,.6)}
+a:hover{color: rgba(0,0,0,1);}
+a:visited{color: rgba(0,0,0,.6)}
+
+
+/***设置网页功能区块***/
+
+/**头部**/
+#header{
+  border: 1px solid #ccc;
+}
+#header .clearfix{
+  margin-left: -10px;
+}
+#header .clearfix>li{
+  float: left;
+  padding: 0 10px;
+  line-height: 3em;
+}
+#header li .rocket{
+  display: block;
+  padding-top: 8px;
+  font-size: 35px;
+  line-height: 1em;
+}
+#header .clearfix>li:last-of-type{
+  position: relative;
+}
+#header .droplist{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+#header .clearfix>li:hover .droplist{
+  display: block;
+}
+#header .droplist li{
+  padding: 0 10px;
+  margin-bottom: -1px;
+  font-size: 14px;
+  line-height: 2.5em;
+  border-bottom: 1px dashed #ccc;
+}
+#header .droplist li:hover{
+  background-color: #ccc;
+}
+/**主体内容部分**/
+/*个人简介*/
+#content .profile{
+  padding: 20px 0;
+  color: #fff;
+  background-color: #B84D45;
+}
+/*作品*/
+#content .show{
+  padding: 20px 0;
+}
+#content .show p,#content .show h3{
+  text-align: left;
+  text-indent: 1em;
+}
+#content .show .index-bar{
+  margin: 20px 0;
+  padding: 0 10px;
+  line-height: 2.5em;
+  background-color: #eee;
+  border-radius: 3px;
+}
+#content .index-bar a{
+  color: #B84D45;
+}
+#content .portfolio{
+  margin: 0 -28px;
+}
+#content .portfolio li{
+  float: left;
+  margin: 15px 25px;
+  padding-bottom: 10px;
+  border: 1px solid #ccc;
+}
+#content .portfolio img{
+  width: 300px;
+  height: 200px;
+}
+/*了解更多*/
+#content .knowmore{
+  color: #fff;
+  background-color: #B84D45;
+  overflow: hidden;
+}
+#content .knowmore a{
+  margin: 20px 0;
+  color: #fff;
+}
+
+/**底部**/
+#footer hr{
+  margin: 30px 0;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+}
+#footer p{
+  margin: 30px 0;
+}
