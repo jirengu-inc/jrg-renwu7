@@ -1,0 +1,13 @@
+span{
+  display: block;
+  margin-top: 20px;
+}
+p{
+  font-size: 10px;
+  color: #aaa;
+  margin-left: 70px;
+}
+#btn{
+  margin-top: 20px;
+  margin-left: 100px;
+}

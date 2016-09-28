@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"></mata>
+    <title>task26.2</title>
+    <style>
+
+      .btn{
+        border-radius: 4px;
+        width: 200px;
+        height: 80px;
+        font:25px 'Microsoft YaHei';
+        margin: 100px auto;
+        display: block;
+      }
+      .red{
+        background-color: red;
+      }
+      .blue{
+        background-color: blue;
+      }
+
+      .distance{
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        margin: 50px auto;
+        background-color: #eee;
+        font-size:40px;
+        font-family:'Microsoft YaHei';
+        position: fixed;
+        right: 0;
+        top: 100px;
+      }
+
+      .change{
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+        margin: 50px auto;
+        border: 2px solid #eee;
+        font-size:40px;
+        font-family:'Microsoft YaHei';
+      }
+      .tein{
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+        margin: 50px auto;
+        border: 2px solid #eee;
+        font-size:40px;
+        font-family:'Microsoft YaHei';
+        display: block;
+      }
+      .se{
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+        margin: 50px auto;
+        border: 2px solid #eee;
+        font-size:20px;
+        font-family:'Microsoft YaHei';
+        display: block;
+      margin-bottom: 0;
+      }
+      .nation{
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+        margin: 10px auto;
+        border: 2px solid #eee;
+        font-size:20px;
+        font-family:'Microsoft YaHei';
+        display: block;
+      }
+      .kong{
+        height: 500px;
+
+      }
+      span{
+        color: red;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <button class="btn" type="button" name="button">onclick 颜色红蓝转换</button>
+    <div class='distance'>
+      目前已离开页头
+      <span class="span1"><span>
+    </div>
+
+    <div class="change">
+      鼠标进入会变色
+    </div>
+
+    <form action="">
+      <input class='tein' type="text" placeholder="边框颜色改变，小写变大写">
+      <select class="se" name="国家">
+        <option value="美国" >美国</option>
+        <option value="中国">中国</option>
+        <option value="日本">日本</option>
+      </select>
+      <input class='nation' type="text" >
+    </form>
+    <div class="kong">
+
+    </div>
+    <div class="kong">
+
+    </div>
+
+
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script>
+    var $btn=$('.btn')
+    $btn.on('click',function(){
+      if($btn.hasClass('red')){
+      $btn.addClass('blue');
+      $btn.removeClass('red');
+    }else if($btn.hasClass('blue')){
+        $btn.removeClass('blue');
+        $btn.addClass('red');
+    }else{
+      $btn.addClass('red');
+    }
+  });
+  $(window).scroll(function(){
+    $('.span1').text( $(document).scrollTop()+"像素");
+
+  })
+
+  var $change = $('.change')
+  $change.hover(
+    function(){
+      $change.addClass('red');
+    },
+    function(){
+      $change.removeClass('red');
+    }
+  );
+
+  $('.tein').keyup(function(){
+    $(this).val($(this).val().toUpperCase());
+  })
+  $('.tein').focus(function(){
+    $(this).css('border','1px solid blue');
+  })
+  $('.tein').blur(function(){
+    $(this).css('border','1px solid #eee');
+  })
+
+  // <input class='nation' type="text" >
+  $('.se').on('change',function(){
+    $('.nation').val($(this).val())
+
+  })
+
+  </script>
+  </body>
+</html>
