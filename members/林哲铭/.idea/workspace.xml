@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="渐变轮播.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="渐变轮播.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task27/渐变轮播.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            <state relative-caret-position="-1735">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -51,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="全屏轮播.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="全屏轮播.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task27/全屏轮播.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="91" column="26" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+            <state relative-caret-position="750">
+              <caret line="159" column="29" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -115,8 +115,8 @@
         <option value="$PROJECT_DIR$/task27/task27.html" />
         <option value="$PROJECT_DIR$/task27/无缝轮播.html" />
         <option value="$PROJECT_DIR$/task27/多个渐变轮播.html" />
-        <option value="$PROJECT_DIR$/task27/全屏轮播.html" />
         <option value="$PROJECT_DIR$/task27/渐变轮播.html" />
+        <option value="$PROJECT_DIR$/task27/全屏轮播.html" />
       </list>
     </option>
   </component>
@@ -127,8 +127,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-115" />
-    <option name="y" value="248" />
+    <option name="x" value="241" />
+    <option name="y" value="224" />
     <option name="width" value="1924" />
     <option name="height" value="965" />
   </component>
@@ -327,15 +327,15 @@
       <workItem from="1474765133528" duration="19297000" />
       <workItem from="1474864414268" duration="8159000" />
       <workItem from="1474947844734" duration="13064000" />
-      <workItem from="1475022112419" duration="26315000" />
+      <workItem from="1475022112419" duration="27257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278838000" />
+    <option name="totallyTimeSpent" value="279780000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-115" y="248" width="1924" height="965" extended-state="0" />
+    <frame x="241" y="224" width="1924" height="965" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12329486" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -673,18 +673,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task27/全屏轮播.html">
+    <entry file="file://$PROJECT_DIR$/task27/渐变轮播.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="91" column="26" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+        <state relative-caret-position="-1735">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task27/渐变轮播.html">
+    <entry file="file://$PROJECT_DIR$/task27/全屏轮播.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        <state relative-caret-position="750">
+          <caret line="159" column="29" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="29" />
           <folding />
         </state>
       </provider>

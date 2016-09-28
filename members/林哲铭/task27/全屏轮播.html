@@ -128,6 +128,7 @@
         var curIdx =1;
 
         setImg(0);
+        setImg(1);
         $items.width(imgWidth);
         $ct.width(imgCount*imgWidth);
         $ct.prepend($items.last().clone());
@@ -156,7 +157,7 @@
         function play(index) {
             if(isAnimate) return;
             isAnimate = true;
-            setImg(curIdx);
+            setImg(curIdx+1);
             if( index == 0){
                 curIdx = imgCount-2;
             }else if(index == imgCount-1){
