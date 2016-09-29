@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task17</title>
+</head>
+<body>
+	<script>
+	// 8
+	 console.log(j);  // undefined
+	 console.log(i);  // undefined
+	 for (var i = 0; i < 10; i++) {
+	 	var j = 100;
+	 }
+	 console.log(i); // 10
+	 console.log(j); // 100
+	 /*
+		for只是流程控制语句，里面没有自身作用域，所以声明变量处于全局作用域中；
+		所以变量声明提前
+	 */
+	 // 9
+	 fn();
+	 var i = 10;
+	 var fn = 20;
+	 console.log(i);
+
+	 function fn() {
+	 	console.log(i);
+	 	var i = 99;
+	 	fn2();
+	 	console.log(i);
+
+	 	function fn2() {
+	 		i = 100;
+	 	}
+	 }
+	 // undefined 100 10
+	 /*
+		只有函数有自身的作用域，全局声明了 i fn （fn => function）,同名覆盖，寻找原则现在自身作用域中寻找，没有就往父级作用域寻找
+	 */
+	 //10 
+	 var say = 0;
+	 (function say(n) {
+	 	console.log(n);
+	 	if (n < 3) return;
+	 	say(n - 1);
+	 }(10));
+	 console.log(say);
+	 // 10 9 8 7 6 5 4 3 2 0
+	 /*
+      (function say(n) {
+	 	console.log(n);
+	 	if (n < 3) return;
+	 	say(n - 1);
+	 }(10)); 
+	 不管外面发生了任何事情，所以就在这里开始递归输出，不满足提交的时候结束立即执行函数，下面console就是正常的环境下输出0
+	 */
+	</script>
+</body>
+</html>
