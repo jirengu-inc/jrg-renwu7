@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>切割</title>
+</head>
+<body>
+	<script>
+		function camelize(str) {
+			var arr = str.split("-");
+			// console.log(arr);
+			for (var i = 1; i < arr.length; i++) {
+				var str = arr[i];
+				arr[i] = str.charAt(0).toUpperCase() + arr[i].substr(1);
+				str = arr.join("");
+			}
+			console.log(str);
+		}
+
+		function camelize2(str) {
+			var arr = str.split("-");
+			for (var i = 1; i < arr.length; i++) {
+				var otherArr = arr[i].split("");
+				otherArr[0] = otherArr[0].toUpperCase();
+				arr[i] = otherArr.join("");
+			}
+			str = arr.join("");
+			console.log(str);
+		}
+		camelize("background-color");
+		camelize2("background-color");
+		camelize("list-style-image");
+		camelize2("list-style-image");
+	</script>
+</body>
+</html>
