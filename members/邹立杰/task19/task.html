@@ -87,7 +87,17 @@
 		Runtime.end();
 		console.log(  Runtime.get() );
 		// 4
-		
+		function fn(n){
+			if(n === 1){
+				return 1;
+			}
+			if(n === 2){
+				return 2;
+			}
+			return fn(n-1)+fn(n-2);
+		}
+		console.log(fn(4));
+		// console.log(fn(200));  太大会卡死 
 		// 5
 		var obj ={
 			"name":"baixiaoji",
