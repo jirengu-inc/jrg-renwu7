@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>正则表达式</title>
+</head>
+<body>
+	<script>
+		// 1 
+		function trim(str) {
+			return str.replace(/^\s+ | \s+$/g, "");
+		}
+		var str = "  asdff  ddfff  dddddd   "
+		trim(str);
+		 // 2
+
+		function hasClass(el, cls) {
+			var reg = new RegExp("(\\s | ^)" + cls + "(\\b | $)", "g");
+			return reg.test(el.className);
+		}
+
+		function addClass(el, cls) {
+			if (!hasClass(el, cls)) {
+				return el.className + " " + cls;
+			}
+		}
+
+		function removeClass(el, cls) {
+			if (hasClass(el, cls)) {
+				var reg = new RegExp("(\\s | ^)" + cls + "(\\b | $)", "g");
+				return el.className.replace(reg, "")
+			}
+		}
+		//3 
+		function isEmail(str){
+			var reg = /^\S+@+\S+\.\S+$/g;
+			// console.log( reg.test(str) );
+			return reg.test(str);
+		}
+		isEmail("1041874421@qq.com")
+		isEmail("10@qq.c")
+
+		//4 
+		function isPhoneNum(str) {
+			var reg = /^(\+86)?\s*1[34578]\d{9}$/;
+			return reg.test(str);
+		}
+		isPhoneNum(18268854578);
+		 // 5
+
+		function isValidUsername(str) {
+			var reg = /^\w{6,20}$/;
+			return reg.test(str);
+		}
+		 // 6
+
+		 function isValidPassword(str){
+		 	if(str.length < 6 || str.length > 20){
+		 		return false;
+		 	}
+		 	if(/[^A-Za-z_0-9]/.test(str)){
+		 		return false;
+		 	}
+		 	if(/(^[A-Z]+$)|(^[a-z]+$)|(^\d+$)|(^_+$)/g.test(str)){
+		 		return false;
+		 	}
+		 	return true;
+		 }
+		 
+
+		 // 7
+		 var reg = /#[a-f0-9]{6}/ig;
+		 var subj = "color: #121212; background-color: #AA00ef; width: 12px; bad-colors: f#fddee #fd2 "
+		 console.log(subj.match(reg));
+
+		 // 8
+		 /*var str = 'hello  "hunger" , hello "world"';
+		 var pat =  /".*"/g;
+		 console.log( str.match(pat) );  
+		输出结果是： [""hunger" , hello "world""]
+		因为是谈贪婪匹配所有为尽可能多的匹配，所以就会匹配到最后的引号
+		 */
+		 var str = 'hello  "hunger" , hello "world"';
+		 var pat =  /".*?"/g;
+		 console.log( str.match(pat) );  
+
+		 //9
+		 var str2 = '.. <!-- My -- comment \n test --> ..  <!----> .. '
+		 var re = /<!--[\w\W]*?-->/g
+
+		 console.log( str2.match(re) ); 
+
+		 var str3 = '.. <!-- My -- comment \n test --> ..  <!----> .. '
+		 var re3 = /<!--[^>]*-->/g
+
+		 console.log( str3.match(re3) ); 
+
+		 //10 
+		 var re4 = /<[a-z].*?>/g;
+
+		 var str4 = '<> <a href="/"> <input type="radio" checked> <b>'
+		 console.log(  str4.match(re4) );
+
+		 var re5 = /<[^>]+>/g;
+
+		 var str5 = '<> <a href="/"> <input type="radio" checked> <b>'
+		 console.log(  str5.match(re5) );
+	</script>
+</body>
+</html>
