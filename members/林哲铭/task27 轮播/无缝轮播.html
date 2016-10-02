@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel{
+            position: relative;
+            width:480px;
+            height: 360px;
+            overflow: hidden;
+        }
+        .image-ct{
+            position: absolute;
+        }
+        .image-ct:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .image-ct li{
+            float: left;
+        }
+        .carousel img{
+            width: 480px;
+            height: 360px;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 25px;
+            color: #fff;
+            background: #4E443C;
+            border-radius: 50px;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8;
+        }
+        .arrow:hover{
+            opacity: 1;
+        }
+        .pre{
+            left: 10px;
+        }
+        .next{
+            right: 10px;
+        }
+        .bullet{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+        }
+        .bullet li{
+            display: inline-block;
+            width: 20px;
+            height: 6px;
+            background: #fff;
+            border-radius: 2px;
+            cursor:pointer;
+        }
+        .bullet .active{
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <ul class="image-ct">
+            <li data-id="0"><a href="#"><img src="image/1.jpg" alt="图1"/></a></li>
+            <li data-id="1"><a href="#"><img src="image/2.jpg" alt="图2"/></a></li>
+            <li data-id="2"><a href="#"><img src="image/3.jpg" alt="图3"/></a></li>
+            <li data-id="3"><a href="#"><img src="image/4.jpg" alt="图4"/></a></li>
+        </ul>
+        <a class="next arrow" href="#">></a>
+        <a class="pre arrow" href="#"><</a>
+        <ul class="bullet">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+         var $ct = $(".image-ct"),
+             $items = $ct.children(),
+             $next = $(".next"),
+             $pre = $(".pre"),
+             $bullet = $(".bullet");
+             imgWidth = $ct.find("img").width();
+             imgCount = $ct.find("img").length + 2;
+         var isAnimate = false;
+         var curIdx =1;
+         var clock;
+
+         $ct.prepend($items.eq($items.length-1).clone());
+         $ct.append($items.eq(0).clone());
+         $ct.width(imgWidth*imgCount);
+         $ct.css("left",-imgWidth);
+        $next.on("click",function () {
+            playNext();
+        });
+        $pre.on("click",function () {
+            playPre();
+        });
+        $bullet.on("click","li",function () {
+            var idx = $(this).index();
+            play(idx+1);
+        });
+         
+         play(curIdx);
+         autoPlay();
+         
+         
+        function setBullet() {
+            $bullet.children().removeClass("active")
+                              .eq(curIdx-1).addClass("active")
+        } 
+        function play(index) {
+            if(isAnimate) return;
+            isAnimate = true;
+            if( index == 0){
+                curIdx = imgCount-2;
+            }else if (index == imgCount-1){
+                curIdx = 1;
+            }else{
+                curIdx = index;
+            }
+            $ct.animate({left:-imgWidth*index},400,function () {
+                isAnimate = false;
+                $ct.css("left",-imgWidth*curIdx);
+            });
+            setBullet();
+        }
+        function autoPlay() {
+            clock = setInterval(function () {
+                        playNext();
+                    },4000);
+        }
+        function stopPlay() {
+            clearInterval(clock);
+        }
+        function playNext() {
+            play((curIdx + 1) % imgCount);
+        }
+        function playPre() {
+            play((imgCount+ curIdx - 1) % imgCount);
+        }
+    </script>
+</body>
+</html>

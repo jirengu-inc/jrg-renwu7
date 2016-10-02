@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排序</title>
+</head>
+<body>
+	<script>
+	var john = {
+		name: "John Smith",
+		age: 23
+	}
+	var mary = {
+		name: "Mary Key",
+		age: 18
+	}
+	var bob = {
+		name: "Bob-small",
+		age: 6
+	}
+	var people = [john, mary, bob]
+	ageSort(people) // [ bob, mary, john ]
+	// 自己的
+	// function ageSort(obj){
+	// 	var ageArr = [];
+	// 	// 导出年龄数组
+	// 	for(var i = 0;i<obj.length; i++){
+	// 		ageArr.push(obj[i].age)
+	// 	}
+	// 	// 年龄数组进行排序
+	// 	ageArr.sort(function(n,m){
+	// 		return n-m;
+	// 	});
+	// 	//  双重循环，来改变对象的位置
+	// 	for(var i = 0;i<ageArr.length; i++){   
+	// 		for(var j = 0;j<obj.length; j++){
+	// 			if(ageArr[i] === obj[j].age){
+	// 				var newbox = obj[i];  //用一个新变量接受对象，方便之后的交换
+	// 				obj[i] = obj[j];
+	// 				obj[j] = newbox;
+	// 			}
+	// 		}
+	// 	}
+	// 	console.log(obj);
+	// }
+	// 老师的
+	function ageSort(arr) {
+        arr.sort(function(p1, p2) {
+            return p1.age - p2.age
+        })
+    }
+	</script>
+</body>
+</html>

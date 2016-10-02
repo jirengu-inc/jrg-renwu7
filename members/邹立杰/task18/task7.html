@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组存储</title>
+</head>
+<body>
+	<script>
+		arr = ["a", "b"];
+		arr.push(function() {
+			alert(console.log('hello hunger valley'))
+		});
+		arr[arr.length - 1]() // 弹框 并console.log('hello hunger valley')
+		/*
+			数组里面什么都能存储，给数组存储了一个匿名函数，之后在调用这个函数
+			arr[arr.length - 1]() ==> (function(){XXXX})() 立即执行函数
+
+		*/
+	</script>
+</body>
+</html>

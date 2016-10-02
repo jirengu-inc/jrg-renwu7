@@ -46,7 +46,9 @@
             height: 10px;
             margin-left: -10px;
             margin-top: -10px;
+            color: #c7254e;
         }
+
         .playpre{
             position: absolute;
             top: 50%;
@@ -55,25 +57,27 @@
             height: 10px;
             margin-right: -10px;
             margin-top: -10px;
+            color: #c7254e;
         }
         .bullet{
             position: absolute;
-            top:100%;
+            top: 100%;
             left: 50%;
-            width: 100px;
+            width: 109px;
             height: 20px;
             margin-top: -30px;
-            margin-left: -100px;
+            margin-left: -57px;
         }
         .bullet li{
-            width: 25px;
-            height: 20px;
+            width: 17px;
+            height: 18px;
             background: white;
-            padding-left: 5px;
+            padding-left: 10px;
             display: inline-block;
         }
         .active{
             background: black;
+            color: #ff0000;
         }
 
     </style>
@@ -87,8 +91,8 @@
          <li data-img="2"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
      </ul>
 
-     <a href="#" class="playnext">> </a>
-     <a href="#" class="playpre"> < </a>
+     <a href="#" class="playnext playbgright">> </a>
+     <a href="#" class="playpre playbgleft"> < </a>
          <ul class="bullet">
              <li>1</li>
              <li>2</li>
@@ -99,7 +103,7 @@
  <script>
      var ct=$('.img-ct');
      var curid=0;
-     var imgCount=$('.curose').children().size();
+     var imgCount=$('.img-ct').children().size();
      var isAnimate=false;
      var items=ct.children();
      var dot=$('.bullet').children();

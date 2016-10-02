@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function randomNum(min,max){
+			var num = Math.floor(Math.random()*(max-min))+min;
+			console.log(num);
+		}
+		for (var i = 0; i< 10; i++) {
+			randomNum(10,20);
+		};
+		console.log("---------下面是14-------------");
+		//14
+		function randomNum2(min,max){
+			//1
+			//var num = Math.round(Math.random()*(max-min))+min;
+			// 2
+			var num = Math.floor(Math.random()*(max-min)+1)+min;
+			console.log(num);
+		}
+		for (var i = 0; i< 10; i++) {
+			randomNum2(10,20);
+		};
+		console.log("-----------下面是15-----------");
+		//15
+		function randomArr(len,min,max){
+			var arr =[];
+			for(var i = 0; i<len;i++){
+				var num = Math.round(Math.random()*(max-min))+min;
+				arr.push(num);
+			}
+			console.log(arr);
+		}
+		randomArr(2,10,20);
+		// 16
+		console.log("-----------下面是16-----------");
+		function getRandStr(len){
+		  var str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		  var randomStr = "";
+		  for(var i = 0; i<len;i++){
+		  	var num = Math.floor(Math.random()*str.length);
+		  	randomStr += str[num]
+		  }
+		  console.log(randomStr);
+		  return randomStr;
+		}
+		var str = getRandStr(10); 
+		var str2 = getRandStr(2); 
+	</script>
+</body>
+</html>

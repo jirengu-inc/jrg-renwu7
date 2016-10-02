@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤函数</title>
+</head>
+<body>
+	<script>
+		// 1
+		function isNumeric(el) {
+			return typeof el === 'string';
+		}
+		arr = ["a", 3, 4, true, -1, 2, "b"]
+		function filter(arr,func){
+			return arr.filter(func); // 仅仅使用数组的过滤，回调函数也外置
+		}
+		arr = filter(arr,isNumeric); // arr = [3,4,-1, 2],  过滤出数字
+		arr = filter(arr, function(val) {
+			return typeof val === "number" && val > 0
+		}); // arr = [3,4,2] 过滤出大于0的整数
+		
+	</script>
+</body>
+</html>
