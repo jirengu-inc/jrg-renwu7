@@ -1,0 +1,167 @@
+/* 全局设置 */
+
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Microsoft Yahei';
+    font-size: 14px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #666
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.layout {
+    width: 1000px;
+    margin: 0 auto;
+}
+/* header */
+
+.bar>li {
+    float: left;
+    padding: 15px 10px;
+    font-size: 18px;
+    position: relative;
+}
+
+#header {
+    border: 1px solid #ccc;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 5px solid black;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    display: inline-block;
+}
+
+.dropmenu {
+    border: 1px solid #ccc;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: white;
+    display: none;
+    color: #666;
+    position: absolute;
+    top: 100%;
+}
+
+.dropmenu li {
+    border-bottom: 1px dashed #666;
+}
+
+.dropmenu li:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.bar>li:hover .dropmenu {
+    display: block;
+}
+/* content */
+
+#content .introduction {
+    background: #b84d45;
+    padding: 30px 0;
+    color: #fff;
+}
+
+.title ul {
+    background: #eee;
+    border-radius: 4px;
+    margin-top: 40px;
+    padding: 10px 5px;
+}
+
+.title li {
+    display: inline-block;
+}
+
+.title a {
+    color: #b84d45
+}
+
+.work .picture {
+    display: block;
+    background: url(../img/1.jpg);
+    background-size: contain;
+    width: 300px;
+    height: 200px;
+}
+
+.work li {
+    float: left;
+    border: 1px solid #ccc;
+    margin-left: 45px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.work ul {
+    margin-left: -45px;
+}
+
+.work h2,
+.work p {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 5px 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    color: black;
+}
+
+.aboutme {
+    margin-top: 30px;
+    background: #b84d45;
+    padding: 30px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.aboutme .btn {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.aboutme p {
+    margin-top: 10px;
+}
+
+#footer {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    text-align: center;
+}
