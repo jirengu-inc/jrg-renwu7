@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task24-1</title>
+</head>
+<body>
+<input type="text" id="privateData">
+<button id="btn">求点我</button>
+<div id="show"></div>
+<script>
+    function ajax(opts){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                var json = JSON.parse(xmlhttp.responseText);
+                opts.success(json);
+            }
+            if(xmlhttp.readyState==4 && xmlhttp.status==404){
+                opts.error();
+            }
+        };
+        var dataStr = '';
+        for(var k in opts.data){
+            dataStr += k + '=' +opts.data[k] + '&';
+        }
+        dataStr = dataStr.substr(0,dataStr.length-1);
+        if(opts.type.toLowerCase() === 'post'){
+            xmlhttp.open(opts.type,opts.url,true);
+            xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlhttp.send(dataStr);
+        }
+        if(opts.type.toLowerCase()==='get'){
+            xmlhttp.open(opts.type,opts.url+'?'+dataStr,true);
+            xmlhttp.send();
+        }
+    }
+
+    document.querySelector('#btn').addEventListener('click', function(){
+        ajax({
+            url: 'task24-1.php',   //接口地址
+            type: 'get',               // 类型， post 或者 get,
+            data: {
+                username: document.getElementById("privateData").value,
+                password: "abcd1234"
+            },
+            success: function (ret){
+                dealWith(ret);
+                // {status: 0}
+            },
+            error: function(){
+                console.log('后台出错了')
+            }
+        })
+    });
+    function dealWith(ret){
+        console.log(ret);
+        var a='';
+        a += '<dt>账户：</dt>';
+        a += '<dd>'+ret.username+'</dd>';
+        a += '<dt>密码：</dt>';
+        a += '<dd>'+ret.password+'</dd>';
+        document.getElementById('show').innerHTML = a;
+    }
+
+</script>
+</body>
+</html>

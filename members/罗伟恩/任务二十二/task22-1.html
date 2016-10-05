@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-1</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<script>
+    //在控制台打印点击元素的内容
+    for(var i=0;i<$$('li').length;i++) {
+        addEventHandler($$('li')[i],'click',function(){
+            console.log(this.innerHTML);
+        })
+    }
+
+    //简单封装
+    function $$(els){
+        return document.querySelectorAll(els);
+    }
+    function addEventHandler(node,type,handler){
+        node.addEventListener(type,handler,false);
+    }
+</script>
+</body>
+</html>
