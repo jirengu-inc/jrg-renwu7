@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-3</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        .img-preview{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        .ct>li{
+            margin-bottom: 10px;
+            width: 200px;
+            height: 20px;
+            background: #B84D45;
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<ul class="ct">
+    <li data-img="1.jpg">鼠标放置查看图片1</li>
+    <li data-img="2.jpg">鼠标放置查看图片2</li>
+    <li data-img="3.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+<script>
+
+        for(var i=0;i<$$('li').length;i++){
+            addEventHandler($$('li')[i],'mouseenter',function(){
+                var imgNew = document.createElement('img');
+                var dataImg = this.getAttribute('data-img');
+                $('.img-preview').appendChild(imgNew);
+                imgNew.src = dataImg;
+            });
+        };
+    for(var i=0; i<$$('li').length;i++){
+        addEventHandler($$('li')[i],'mouseleave',function(){
+
+            if($('.img-preview').innerHTML!==''){
+                $('.img-preview').innerHTML = '';
+            }
+        })
+    }
+
+    //简单封装
+    function $(el){
+        return document.querySelector(el);
+    }
+    function $$(els){
+        return document.querySelectorAll(els);
+    }
+    function addEventHandler(node,type,handler){
+        node.addEventListener(type,handler,false);
+    }
+</script>
+</body>
+</html>
