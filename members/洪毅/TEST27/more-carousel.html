@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>more-carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .carousel {
+            position: relative;
+            width: 380px;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .ct {
+            position: absolute;
+        }
+
+        .ct img {
+            width: 380px;
+            height: 250px;
+        }
+
+        .ct:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+
+        .ct li {
+            float: left;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: -15px;
+            background: #fff;
+            text-align: center;
+            border-radius: 30px;
+            opacity: 0.8;
+        }
+
+        .arrow:hover {
+            opacity: 1;
+        }
+
+        .upward {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .little {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .little li {
+            width: 16px;
+            height: 4px;
+            border-radius: 2px;
+            background: #fff;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .little li.active {
+            background: #000;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="carousel carousel1">
+        <ul class="ct">
+            <li>
+                <a href="#"><img src="img/1.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/2.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/3.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/4.jpg" /></a>
+            </li>
+        </ul>
+        <a href="#" class="upward arrow">
+            <</a>
+                <a href="#" class="next arrow">></a>
+                <ul class="little">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+    </div>
+    <div class="carousel carousel2">
+        <ul class="ct">
+            <li>
+                <a href="#"><img src="img/1.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/2.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/3.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/4.jpg" /></a>
+            </li>
+        </ul>
+        <a href="#" class="upward arrow">
+            <</a>
+                <a href="#" class="next arrow">></a>
+                <ul class="little">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+    </div>
+    <div class="carousel carousel3">
+        <ul class="ct">
+            <li>
+                <a href="#"><img src="img/1.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/2.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/3.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/4.jpg" /></a>
+            </li>
+        </ul>
+        <a href="#" class="upward arrow">
+            <</a>
+                <a href="#" class="next arrow">></a>
+                <ul class="little">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+    <script>
+        function action(carousel) {
+            var $parent = $(carousel),
+                $ct = $parent.find('.ct'),
+                $items = $ct.children(),
+                $upward = $parent.find('.upward'),
+                $next = $parent.find('.next'),
+                $little = $parent.find('.little'),
+                imgWidth = $items.width(),
+                imgCount = $ct.children().size();
+
+            var curIdx = 0;
+            var isAnimate = false;
+
+            $next.on('click', function() {
+                playNext();
+            });
+            $upward.on('click', function() {
+                playUpw();
+            });
+            $little.find('li').on('click', function() {
+                var idx = $(this).index();
+                play(idx);
+            });
+            play(0);
+            autoPlay();
+
+            function playNext() {
+                play((curIdx + 1) % imgCount)
+            }
+
+            function playUpw() {
+                play((imgCount + curIdx - 1) % imgCount)
+            }
+
+            function play(idx) {
+                if (isAnimate) return;
+                isAnimate = true;
+                $items.eq(curIdx).fadeOut(300);
+                $items.eq(idx).fadeIn(300, function() {
+                    isAnimate = false;
+                });
+                curIdx = idx;
+                setLittle();
+            }
+
+            function setLittle() {
+                $little.children().removeClass('active').eq(curIdx).addClass('active');
+            }
+
+            function stopAuto() {
+                clearInterval(clock);
+            }
+
+            function autoPlay() {
+                clock = setInterval(function() {
+                    playNext();
+                }, 2000);
+            }
+        }
+        action('.carousel1');
+        action('.carousel2');
+        action('.carousel3');
+    </script>
+</body>
+
+</html>
