@@ -151,13 +151,14 @@
         $('.playnext').on('click',function () {
             playnext();
         });
-        
+
         $('.playpre').on('click',function () {
             playpre();
         });
 
         setBG(1);
-        
+        autoplay();
+
         function playnext(idx) {
             console.log('22')
             var idx= idx || 1;
@@ -174,7 +175,7 @@
                     setbullet();
                 })
             }
-            
+
         }
 
         function playpre(idx) {
@@ -182,7 +183,7 @@
 
             if(!isAnimate){
                 isAnimate=true;
-                
+
                 $imgct.animate({left:'+='+(imgwidth*idx)},function () {
                     curId=(imgCount+curId-idx)%imgCount;
                     if(curId===(imgCount-1)){
@@ -190,7 +191,7 @@
                     }
                     isAnimate=false;
                     setbullet();
-                    
+
                 })
             }
 
@@ -206,14 +207,20 @@
             $cover.css('background-image','url('+imgUrl+')');
             $node.data('bg-ready',true);
         }
-        
+
         function setbullet() {
 
             $('.bullet').children().removeClass('active')
                                 .eq(curId).addClass('active');
-            
+
         }
 
+
+        function autoplay() {
+            clock=setInterval(function () {
+                playnext();
+            },2000);
+        }
 
 
 
