@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loadmore</title>
+    <style>
+        ul,li,p,a{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        li{
+            list-style: none;
+            border: 1px solid #CCC;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            cursor: pointer;
+        }
+        #loadmore{
+            display: inline-block;
+            border: 1px solid #E27272;
+            border-radius: 3px;
+            padding: 10px;
+            color: #E27272;
+        }
+        .main{
+            text-align: center;
+        }
+        .bcgcolor{
+            background: #008000;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <ul id="ct">
+        <li>内容1</li>
+        <li>内容2</li>
+    </ul>
+    <a href="#" id="loadmore">加载更多</a>
+</div>
+<script>
+
+    function ajax(opts) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var json = JSON.parse(xmlhttp.responseText);
+                opts.success(json);
+            }
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 404) {
+                opts.error();
+            }
+        };
+        var dataStr = '';
+        for (var k in opts.data) {
+            dataStr += k + '=' + opts.data[k] + '&';
+        }
+        dataStr = dataStr.substr(0, dataStr.length - 1);
+        if(opts.type.toLowerCase() === 'post'){
+            xmlhttp.open('post',opts.url,true);
+            xmlhttp.setRequestHeader("Contenr-type","application/x-www-form-urlencoded");
+            xmlhttp.send(dataStr);
+        }
+        if(opts.type.toLowerCase() === 'get'){
+            xmlhttp.open('get',opts.url+'?'+dataStr,true);
+            xmlhttp.send();
+        }
+    }
+
+    var loadMore = document.querySelector('#loadmore');
+    var start = 3;
+    var length = 6;
+    var isLoading = false;//设置变量锁
+    loadMore.addEventListener('click',function(){
+        if(isLoading){
+            return;//在用户点击期间，若锁是true则直接return掉，证明上次响应没有结束
+        }
+        isLoading = true;//在请求前先上锁，保护机制；
+        ajax({
+        type: 'get',
+        url: 'task24-2.php',
+        data: {
+            srt: start,
+            len: length
+        },
+        success: function(ret){
+            dealWith(ret);
+            isLoading = false;//响应成功后解锁，这时候点击事件就不会return了
+        },
+        error: function(){
+            onError();
+        }
+    });
+    });
+
+    function dealWith(ret){
+        for(var i=start;i<ret;i++){
+            var newLi = document.createElement('li');
+            newLi.innerHTML = '内容'+i;
+            document.querySelector('#ct').appendChild(newLi);
+        }
+        start = ret;
+    }
+    function onError(){
+        alert('后台出错啦，获取不到数据');
+    }
+
+    /******************8用原生JS事件代理来完成对li的背景色填充****************/
+    function hasClass(el,cls){
+        var reg = RegExp('(\\s|^)'+cls+'(\\s|$)');
+        reg.test(el.className);
+    }
+    function addClass(el,cls){
+        if(!hasClass(el,cls)){
+            el.className += ' '+cls;
+        }
+    }
+    function removeClass(el,cls){
+        var reg = RegExp('(\\s|^)'+cls+'(\\s|$)');
+        tmp = el.className.replace(reg,'').replace(/\s{2,}/g,' ');
+        el.className = tmp;
+    }
+    document.querySelector('#ct').addEventListener('mouseover',function(e){
+        e.stopPropagation();
+        if(e.target == document.querySelector('#ct') ){
+            return;
+        }
+        addClass(e.target,'bcgcolor');
+    });
+    document.querySelector('#ct').addEventListener('mouseout',function(e){
+        e.stopPropagation();
+        removeClass(e.target,'bcgcolor');
+    });
+</script>
+</body>
+</html>

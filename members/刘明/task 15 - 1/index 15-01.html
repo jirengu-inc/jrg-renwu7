@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>index 15-01</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="triangle/ux_1475588238_0877752/iconfont.css" rel="stylesheet">
+<style>
+	html,body,div,ul,li,a,span,h1,h2,h3,h4,p{margin: 0;padding: 0;}
+	li{list-style: none;}
+	a{text-decoration: none;color: #666;font: 14px "微软雅黑";}
+	p{font: 14px "微软雅黑";}
+	.clearfix:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.layout{
+		width: 960px;
+		margin: 0 auto;
+	}
+	 /*header部分CSS*/
+    .nav{height: 39px;border-bottom: 1px solid #eee;margin: 24px auto;}
+	.nav>li{
+		float: left;
+		position: relative;
+	}
+	.nav>li>a{
+		display:block;
+		height: 40px;
+		padding:0 12px;
+		line-height: 40px;
+	}
+	.nav>li>a:hover{
+		color: #fff;
+        background: rgb(184,77,69);
+	}	
+	  .nav .icon{
+	  	color: #fff;
+	  	font-size: 12px;
+	  	padding-left: 6px;
+	  	line-height: 50px;
+	  }
+	   .selection{
+	   	  display: none;
+	   	  background: #fff;
+	   }
+	   	 .selection li{
+             padding: 10px;
+             line-height: 20px;
+	       }
+	   	   	 .selection li:hover {
+                   background: rgb(184,77,69);
+	           }
+	   	   	 .selection li:hover a {
+                   color: #fff;
+	           }	           
+	   .nav>li:hover .selection{
+	   	  display:block;
+	   	  border:1px solid #ccc;
+	   	  position: absolute;
+	   	  left: 1px;
+	   }	   
+    .nav>li h2{
+    	font:bold 22px arial;
+    	line-height: 40px;
+    	margin-right:20px;
+    	color:rgb(184,77,69) ;
+    }
+    .bg_red{
+    	height: 116px;
+    	background: rgb(184,77,69);
+    	padding-top: 30px;
+    	color: #fff;
+    }
+
+   /*首页我的作品*/
+ #main{margin-top:30px;}
+ .main_nav{
+ 	background: #eee;
+ 	margin-bottom: 30px;
+ 	text-indent: 10px;
+ }
+ .main_nav p{
+ 	line-height: 40px;
+ 	color: #666;
+ }
+  .main_nav span{
+  	color: rgb(184,77,69);
+  }
+
+  /*ul li 作品列表*/
+  #main ul li{
+  	float: left;
+  	width: 300px;
+  	margin-left: 10px;
+  	margin-top:20px;
+  	padding-bottom: 20px;
+  	border:1px solid #eee;
+  	text-align: center;
+  }
+  #main ul li h4,#main ul li p{
+  	margin-left: 12px;
+  	text-align: left;
+  }  
+      .checkout{
+      	text-align: center;
+      	font-size: 12px ;
+      	padding: 4px 8px;
+      	border:1px solid #ddd;
+      	border-radius: 4px;
+      }
+        #main ul li a:hover{
+        	color: #fff;
+        	background: rgb(184,77,69);
+        }
+ /*footer内容如下*/
+ #footer .download{
+    text-align: center;
+    line-height: 32px;
+   }  
+    .download a{
+    	color: #fff;
+    	font:14px arial;
+    }
+     .download a:hover{
+          color: rgb(184,77,69);
+          background: #fff;
+     	}
+  .ending{
+	border-top:1px solid #eee;
+	margin-top:30px;
+	text-align: center;
+    padding: 20px ;
+    font:10px arial;
+    color: #aaa;
+   }
+</style>
+</head>
+<body>
+    <div id="header">
+    	<ul class="nav clearfix layout">
+    	    <li><h2>Fred</h2></li>
+    		<li>
+    			<a href="#" class="active">我的作品<i class="icon iconfont">&#xe62d;</i></a>
+    			<ul class="selection">
+    				<li><a href="#">Leanote</a></li>
+    				<li><a href="#">Github</a></li>
+    				<li><a href="#">视频链接</a></li>
+    			</ul>
+    		</li>
+    		<li>
+    			<a href="#">博客<i class="icon iconfont">&#xe62d;</i></a>
+    			<ul class="selection">
+    				<li><a href="#">Leanote</a></li>
+    				<li><a href="#">微博</a></li>
+    			</ul>
+    		</li>   
+    		<li>
+    			<a href="#">项目<i class="icon iconfont">&#xe62d;</i></a>
+    			<ul class="selection">
+    				<li><a href="#">html+css</a></li>
+    				<li><a href="#">javascript</a></li>
+    				<li><a href="#">jquery</a></li>
+    			</ul>
+    		</li>
+    		<li>
+    			<a href="#">关于我<i class="icon iconfont">&#xe62d;</i></a>
+    			<ul class="selection">
+    				<li><a href="#">QQ</a></li>
+    				<li><a href="#">微信</a></li>
+    				<li><a href="#">Leanote</a></li>
+    			</ul>
+    		</li>    		    		 		
+    	</ul>
+    	<div class="bg_red">
+    		<div class="title01 layout">
+    			<h3>我的简介</h3>
+    			<p>既然选择前端，就必将面临一场漫漫的远行！COME ON!</p>
+    		</div>
+    	</div>
+    </div>
+    <div id="main">
+    	<div class="main_nav layout">
+    		<p><span>首页</span>&nbsp;/&nbsp;我的作品</p>
+    	</div>
+    	<ul class="layout clearfix">
+    		<li>
+    		   <img src="img/nice.png" alt="meet you" title="meet you">
+    		   <h4>Nice</h4>
+    		   <p>作品介绍</p>
+    		   <a href="#" class="checkout">查看</a>
+    		</li>
+    		<li>
+    		   <img src="img/nice.png" alt="meet you" title="meet you">
+    		   <h4>Nice</h4>
+    		   <p>作品介绍</p>
+    		   <a href="#" class="checkout">查看</a>
+    		</li>
+    		<li>
+    		   <img src="img/nice.png" alt="meet you" title="meet you">
+    		   <h4>Nice</h4>
+    		   <p>作品介绍</p>
+    		   <a href="#" class="checkout">查看</a>
+    		</li>
+    		<li>
+    		   <img src="img/nice.png" alt="meet you" title="meet you">
+    		   <h4>Nice</h4>
+    		   <p>作品介绍</p>
+    		   <a href="#" class="checkout">查看</a>
+    		</li>
+    		<li>
+    		   <img src="img/nice.png" alt="meet you" title="meet you">
+    		   <h4>Nice</h4>
+    		   <p>作品介绍</p>
+    		   <a href="#" class="checkout">查看</a>
+    		</li>
+    		<li>
+    		   <img src="img/nice.png" alt="meet you" title="meet you">
+    		   <h4>Nice</h4>
+    		   <p>作品介绍</p>
+    		   <a href="#" class="checkout">查看</a>
+    		</li>    		    		    		    		    		
+    	</ul>
+    </div>
+    <div id="footer" class="bg_red">
+    	<div class="layout download">
+    		<h3>想更详细了解我的资料？</h3>
+    		<p>下载我的简历吧！</p>
+    		<a href="#" class="checkout">下载</a>
+    	</div>
+    </div>
+    <div class="ending layout"><em>来自 Fred Liu (小明同学)</em></div>
+</body>
+</html>

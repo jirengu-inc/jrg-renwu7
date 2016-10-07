@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>tab选项</title>
+    <style>
+        ul,li,p{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        .container{
+            width: 609px;
+            height: 224px;
+            border: 1px solid #CCC;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .tabs>li{
+            cursor: pointer;
+            text-align: center;
+            width: 203px;
+            float: left;
+            padding: 10px 0;
+            border-right: 1px solid #CCC;
+            border-bottom: 1px solid #CCC;
+            margin-right: -1px;/*利用负margin即可*/
+        }
+
+        .panel{
+            display: none;
+        }
+        .container .tabs .active{
+            background: #f1f1f1;
+        }
+        .container .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="tabs clearfix">
+        <li class="tab1">职业规划</li>
+        <li class="tab2">兴趣爱好</li>
+        <li class="tab3">家庭情况</li>
+    </ul>
+    <div class="panel">哈哈走一步看一步</div>
+    <div class="panel">呵呵呵呵吃饭睡觉</div>
+    <div class="panel">嘿嘿不会告诉你的</div>
+</div>
+<script>
+    var Utils = {
+        hasClass: function(ele, cls){
+            return !!ele.className.match(new RegExp('\\b'+cls+'\\b'));
+        },
+        addClass:function(ele, cls){
+            if(ele.length && ele.length > 0){
+                for(var i=0; i<ele.length; i++){
+                    Utils.singleAddClass(ele[i], cls);
+                }
+            }else{
+                Utils.singleAddClass(ele, cls);
+            }
+        },
+
+        removeClass:function(ele, cls){
+            if(ele.length && ele.length > 0){
+                for(var i=0; i<ele.length; i++){
+                    Utils.singleRemoveClass(ele[i], cls);
+                }
+            }else{
+                Utils.singleRemoveClass(ele, cls);
+            }
+        },
+
+        singleAddClass: function(ele, cls){
+            if(Utils.hasClass(ele,cls)) return;
+            ele.className += ' ' + cls;
+        },
+
+        singleRemoveClass: function(ele, cls){
+            ele.className = ele.className.replace(new RegExp('\\b'+cls+'\\b', 'g'), '');
+        },
+        indexOf: function(el){
+            var parent = el.parentElement,
+                siblings = parent.children;
+            for(var i=0;i<siblings.length;i++){
+                if(el===siblings[i]) return i;
+            }
+            return -1;
+        }
+    };
+    var tabCt = document.querySelector('.tabs');
+    tabCt.addEventListener('click',function(e){
+        var target = e.target,
+            tabs = tabCt.children,
+            index = Utils.indexOf(target),
+            panels = document.querySelectorAll('.panel');
+        if(index>-1){
+            Utils.removeClass(tabs,'active');
+            Utils.addClass(target,'active');
+            Utils.removeClass(panels,'active');
+            Utils.addClass(panels[index],'active');
+        }
+
+    });
+</script>
+</body>
+</html>

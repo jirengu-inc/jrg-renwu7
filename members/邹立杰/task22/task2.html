@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>事件代理this</title>
+</head>
+<body>
+	<ul class="ct">
+	    <li data-img="1.jpg">鼠标放置查看图片1</li>
+	    <li data-img="2.jpg">鼠标放置查看图片2</li>
+	    <li data-img="3.jpg">鼠标放置查看图片3</li>
+	</ul>
+<div class="img-preview"></div>
+<script>
+	var ct = document.querySelector(".ct");
+	var box = document.querySelector(".img-preview");
+	var liArr = document.querySelectorAll(".ct li");
+	for(var i = 0; i<liArr.length; i++){
+		liArr[i].addEventListener("mouseenter",function(e){
+			var dataImg = this.getAttribute("data-img");
+			box.innerHTML = '<img src="'+dataImg+'">';
+		});
+	}
+</script>
+</body>
+</html>
