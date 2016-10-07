@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 3</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <style>
+        body,html,ul,li,div{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        body,html,.course,.img-ct{
+            width: 100%;
+            height: 100%;
+        }
+        .clearfix{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .course{
+            position: relative;
+            overflow: hidden;
+
+        }
+        .img-ct{
+            position: absolute;
+        }
+
+        .items{
+            position: absolute;
+            top:0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+
+        }
+        .cover{
+            position: relative;
+            float: left;
+            height: 100%;
+
+        }
+
+        .playnext{
+            right: 20px;
+        }
+        .playpre{
+            left:20px;
+        }
+        .arrow{
+            color: white;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #3D3E42;
+            border-radius: 30px;
+            top:50%;
+            margin-top: -30px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .bullet{
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -112px;
+        }
+        .bullet  li{
+
+            width: 50px;
+            height: 10px;
+            background: #eeeeee;
+            display: inline-block;
+            border-radius: 10px;
+
+        }
+        .bullet  li.active{
+            background: black;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="course">
+        <ul class="img-ct clearfix">
+            <li class="cover"><div class="items" data-id="0" data-bg-img="http://ww4.sinaimg.cn/mw690/006kvRjAgw1f8il9rile3j31kw0sgb2a.jpg"></div></li>
+            <li class="cover"><div class="items" data-id="1" data-bg-img="http://ww3.sinaimg.cn/mw690/006kvRjAgw1f8il9oc78bj31kw0sg4qq.jpg"></div></li>
+            <li class="cover"><div class="items" data-id="2" data-bg-img="http://ww2.sinaimg.cn/mw690/006kvRjAgw1f8il9lnfsdj31kw0sg1ky.jpg"></div></li>
+            <li class="cover"><div class="items" data-id="3" data-bg-img="http://ww2.sinaimg.cn/mw690/006kvRjAgw1f8il9isz2vj31kw0sgqv6.jpg"></div></li>
+        </ul>
+        <a class="playnext arrow" href="#"> ></a>
+        <a class="playpre arrow" href="#"> <</a>
+
+        <ul class="bullet">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var $imgct=$('.img-ct');
+        var $imgchild=$('.img-ct').children();
+        var $bullet=$('.bullet');
+        var curId=0;
+        var isAnimate=false;
+        var imgwidth=$(window).width();
+        var imgCount=$imgchild.size();
+        $('.bullet').find('li').on('click',function () {
+            var idx=$(this).index();
+            if(curId>idx){
+                playpre(curId-idx);
+            }
+            if(curId<idx){
+                playnext(idx-curId);
+            }
+
+            setbullet();
+        });
+        $imgct.append($imgchild.first().clone());
+
+        $imgct.prepend($imgchild.last().clone());
+        $imgct.find('.cover').css('width',imgwidth);
+
+        $imgct.find('.items').css('width',imgwidth);
+
+
+
+        var imgrealCount=$imgct.children().size();
+
+        $imgct.css({left:0-imgwidth,width:imgrealCount*imgwidth});
+        setbullet();
+
+
+
+
+        $('.playnext').on('click',function () {
+            playnext();
+        });
+        
+        $('.playpre').on('click',function () {
+            playpre();
+        });
+
+        setBG(1);
+        
+        function playnext(idx) {
+            console.log('22')
+            var idx= idx || 1;
+            if(!isAnimate){
+                isAnimate=true;
+                setBG(curId+2);
+                $imgct.animate({left:'-='+(imgwidth*idx)},function () {
+                    curId=(curId+idx)%imgCount;
+                    if (curId===0){
+                        $imgct.css({left: 0-imgwidth});
+                    }
+
+                    isAnimate=false;
+                    setbullet();
+                })
+            }
+            
+        }
+
+        function playpre(idx) {
+            var idx= idx || 1;
+
+            if(!isAnimate){
+                isAnimate=true;
+                
+                $imgct.animate({left:'+='+(imgwidth*idx)},function () {
+                    curId=(imgCount+curId-idx)%imgCount;
+                    if(curId===(imgCount-1)){
+                        $imgct.css({left:0-imgCount*imgwidth});
+                    }
+                    isAnimate=false;
+                    setbullet();
+                    
+                })
+            }
+
+        }
+
+        function setBG(idx) {
+            console.log('1');
+            var idx = idx || 0;
+            var $node=$imgct.children().eq(idx);
+            var $cover=$node.find('.items');
+            var imgUrl=$cover.attr('data-bg-img');
+            if($node.data('bg-ready')) return;
+            $cover.css('background-image','url('+imgUrl+')');
+            $node.data('bg-ready',true);
+        }
+        
+        function setbullet() {
+
+            $('.bullet').children().removeClass('active')
+                                .eq(curId).addClass('active');
+            
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
