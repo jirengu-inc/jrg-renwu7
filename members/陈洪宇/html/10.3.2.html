@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/10.8/iconfont.css">
+    <style>
+        body,
+        ul,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        a,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        html body {
+            font-family: 'Microsoft Yahei';
+            font-size: 62.5%;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .layout {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .center {
+            text-align: center;
+        }
+        /* header */
+        /* nav */
+
+        #header .nav {
+            background: #222222;
+        }
+
+        .nav li {
+            float: left;
+            padding: 20px;
+        }
+
+        .nav li a {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .nav li a:hover {
+            color: #FEC503;
+        }
+
+        .nav .list {
+            float: right;
+        }
+
+        .nav .logo {
+            float: left;
+            font-size: 20px;
+            color: #FEC503;
+            font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 70px;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        h4 {
+            font-size: 15px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #7a929b;
+        }
+        /* welcome */
+
+        .welcome {
+            background: url(../img/header-bg.jpg) center center;
+            background-size: cover;
+            padding: 200px 0;
+        }
+
+        #header h2 {
+            color: #fff;
+            margin: 40px;
+        }
+
+        #header h1 {
+            color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            color: #fff;
+            font-size: 20px;
+            background: #FEd136;
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+        .btn:hover {
+            background: #FEC503;
+        }
+
+        #header .btn {
+            margin: 30px;
+        }
+        /* content */
+        /* services */
+
+        .services h2 {
+            margin-top: 120px;
+        }
+
+        .services .layout>p {
+            color: #7a929b;
+        }
+
+        .services li {
+            float: left;
+            width: 30%;
+            margin-left: 30px;
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+
+        .services ul {
+            margin-left: -30px;
+        }
+
+        .services .iconfont {
+            font-size: 80px;
+            color: #fed136;
+        }
+
+        .services .list p {
+            margin-top: 20px;
+        }
+        /* portfolio */
+
+        .portfolio {
+            background: #f7f7f7;
+            border: 1px solid transparent;
+        }
+
+        .portfolio .layout>h2 {
+            margin-top: 120px;
+        }
+
+
+        .portfolio ul {
+            margin-top: 60px;
+            margin-left: -10px;
+            margin-bottom: 100px;
+        }
+
+        .portfolio ul h4 {
+            margin-top: 20px;
+        }
+
+        .portfolio li {
+          background: white;
+            float: left;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .portfolio li a {
+            position: relative;
+        }
+          .portfolio li p{
+            margin-bottom: 30px;
+          }
+
+        .box {
+            position: absolute;
+            background: rgba(254, 209, 54, 0.9);
+            opacity: 0;
+            width: 320px;
+            height: 260px;
+        }
+
+        .portfolio a:hover>.box {
+            opacity: 1;
+        }
+
+        .portfolio img {
+            width: 320px;
+            height: 260px;
+        }
+
+        .portfolio .iconfont {
+            color: white;
+            font-size: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -30px;
+            margin-top: -20px;
+        }
+        /* about */
+
+        .about{
+          margin-bottom: 120px;
+        }
+        .about .layout>h2{
+          margin-top: 100px;
+        }
+        .about .layout>p{
+          margin-top: 40px;
+          margin-bottom: 40px;
+        }
+
+        .about .list{
+          position: relative;
+          height: 1250px;
+        }
+        .about .list li{margin:100px;
+
+        }
+        .line{
+          top: 0;
+          bottom: 0;
+          position: absolute;
+          left: 50%;
+          background: #f1f1f1;
+          width: 2px;
+          margin-left: -1px;
+        }
+        .about .picture{
+          position: absolute;
+          left: 50%;
+          margin-left:-92px;
+        }
+        .about .picture img{
+
+          border: 7px solid #f1f1f1;
+          border-radius: 100%;
+          width: 170px;
+          height: 170px;
+
+        }
+        .about .picture .yellow-text{
+
+          background: #FEC503;
+          border: 7px solid #f1f1f1;
+          border-radius: 100%;
+          width: 170px;
+          height: 170px;
+
+
+        }
+        .yellow-text h4{
+          color: white;
+          font-size: 30px;
+        }
+
+        .about .text h4{margin-bottom:10px;}
+
+        .left{
+          float: left;
+          width: 40%;
+          text-align: right;
+          margin-left: -20px;
+        }
+        .right{
+          float: right;
+          width: 40%;
+          text-align: left;
+          margin-right: -20px;
+
+        }
+        /* team */
+        .team{
+          background: #f1f1f1;
+          border: 1px solid transparent;
+        }
+        .team .layout>h2{
+          margin-top: 100px;
+        }
+        .team .layout>.p1{
+          margin-bottom: 30px;
+        }
+        .p2{
+          margin-top: 30px;
+          margin-bottom: 100px;
+        }
+        .team img{
+          border: 7px solid #f1f1f1;
+          border-radius: 100%;
+        }
+        .team .iconfont{
+          float: left;
+          font-size: 40px;
+          margin: 10px;
+        }
+        .member>li{
+          width:33%;
+          float: left;
+        }
+        .team .icons{
+          display: inline-block;
+        }
+        /* ad */
+        .ad ul{
+          margin:50px 0;
+        }
+        .ad li{
+
+          float: left;
+          width: 25%;
+        }
+        /* contact */
+        .contact{
+          border: 1px solid transparent;
+          background: url(../img/map-image.png) center no-repeat;
+          background-color: black;
+        }
+        .contact .layout>h2{
+          margin-top: 100px;
+          color: white;
+        }
+        input{
+          display: block;
+        }
+        .inputbox input{
+          width:446px;
+          height: 60px;
+          margin: 10px 0;
+          padding: 3px;
+
+          border-radius: 5px;
+        }
+        .inputbox{
+          width: 50%
+        }
+        .inputbox2{
+          width: 45%;
+          height: 230px;
+          margin-top: 10px;
+        }
+        textarea{
+        width: 100%;
+          height: 188px;
+          border-radius: 5px;
+          padding: 20px;
+        }
+        .inputbox,.inputbox2{
+          float: left;
+        }
+        .contact .btn{
+          margin-bottom: 100px;
+        }
+        /* footer */
+        #footer .iconfont{
+          font-size: 40px;
+          float: left;
+          margin: 20px 20px;
+        }
+        #footer ul{
+          display: inline-block;
+        }
+        #footer span{
+          display: inline-block;
+          margin: 30px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header" class="center">
+        <div class="nav">
+            <div class="layout clearfix">
+                <a href="#" class="logo">Start boostrap</a>
+                <ul class="list clearfix">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="welcome">
+            <div class="layout">
+                <h2>Welcome To Our Studio!</h2>
+                <h1>IT'S NICE TO MEET YOU</h1>
+                <a href="#" class="btn">TELL ME MORE</a>
+            </div>
+        </div>
+    </div>
+    <div id="content" class="center">
+        <div class="services">
+            <div class="layout">
+                <h2>SERVICES</h2>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <ul class="list clearfix">
+                    <li>
+                        <div class="iconfont">&#xe604;</div>
+                        <h3>E-Commerce</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </li>
+                    <li>
+                        <div class="iconfont">&#xe601;</div>
+                        <h3>Responsive Design</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit</p>
+                    </li>
+                    <li>
+                        <div class="iconfont">&#xe605;</div>
+                        <h3>Web Security</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="portfolio">
+            <div class="layout">
+                <h2>PORTFOLIO</h2>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <ul class="clearfix">
+                    <li>
+                        <a href="#">
+                            <div class="box">
+                                <div class="iconfont">&#xe606;</div>
+                            </div>
+                            <img src="../img/roundicons.png" alt="" />
+                        </a>
+                        <h4>Round Icons</h4>
+                        <p>Graphic Design</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="box">
+                                <div class="iconfont">&#xe606;</div>
+                            </div>
+                            <img src="../img/roundicons.png" alt="" />
+                        </a>
+                        <h4>Round Icons</h4>
+                        <p>Graphic Design</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="box">
+                                <div class="iconfont">&#xe606;</div>
+                            </div>
+                            <img src="../img/roundicons.png" alt="" />
+                        </a>
+                        <h4>Round Icons</h4>
+                        <p>Graphic Design</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="box">
+                                <div class="iconfont">&#xe606;</div>
+                            </div>
+                            <img src="../img/roundicons.png" alt="" />
+                        </a>
+                        <h4>Round Icons</h4>
+                        <p>Graphic Design</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="box">
+                                <div class="iconfont">&#xe606;</div>
+                            </div>
+                            <img src="../img/roundicons.png" alt="" />
+                        </a>
+                        <h4>Round Icons</h4>
+                        <p>Graphic Design</p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="box">
+                                <div class="iconfont">&#xe606;</div>
+                            </div>
+                            <img src="../img/roundicons.png" alt="" />
+                        </a>
+                        <h4>Round Icons</h4>
+                        <p>Graphic Design</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="about">
+          <div class="layout">
+            <h2>ABOUT</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <ul class="list">
+              <div class="line"></div>
+              <li class=" clearfix">
+                <div class="text left">
+                <h4>2009-2011 <br>
+                    Our Humble Beginnings       </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+</p>
+                    </div>
+                    <div class="picture">
+                      <img src="../img/2.jpg" alt="">
+                    </div>
+              </li>
+              <li class=" clearfix">
+                <div class="text right">
+                <h4>2009-2011 <br>
+                    Our Humble Beginnings       </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+</p>
+                    </div>
+                    <div class="picture">
+                      <img src="../img/2.jpg" alt="">
+                    </div>
+              </li>
+              <li class=" clearfix">
+                <div class="text left">
+                <h4>2009-2011 <br>
+                    Our Humble Beginnings       </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+</p>
+                    </div>
+                    <div class="picture">
+                      <img src="../img/2.jpg" alt="">
+                    </div>
+              </li>
+
+              <li class=" clearfix">
+                <div class="text right">
+                <h4>2009-2011 <br>
+                    Our Humble Beginnings       </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+</p>
+                    </div>
+                    <div class="picture">
+                      <img src="../img/2.jpg" alt="">
+                    </div>
+              </li>
+              <li class=" clearfix">
+                    <div class="picture yellow">
+                      <div class="yellow-text">
+                        <h4>BE <br>PARTOF <br>OURSTORY!</h4>
+                      </div>
+                    </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="team">
+          <div class="layout">
+            <h2>OUR AMAZING TEAM</h2>
+            <p class="p1">Lorem ipsum dolor sit amet consectetur.</p>
+            <ul class="clearfix member">
+              <li >
+                <img src="../img/4534.jpg" alt="">
+                <h4>Kay Garland</h4>
+                <p>Lead Designer</p>
+                <ul class="clearfix icons">
+                  <li class="iconfont">&#xe600;</li>
+                  <li class="iconfont">&#xe602;</li>
+                  <li class="iconfont">&#xe603;</li>
+                </ul>
+              </li>
+              <li >
+                <img src="../img/4534.jpg" alt="">
+                <h4>Kay Garland</h4>
+                <p>Lead Designer</p>
+                <ul class="clearfix icons">
+                  <li class="iconfont">&#xe600;</li>
+                  <li class="iconfont">&#xe602;</li>
+                  <li class="iconfont">&#xe603;</li>
+                </ul>
+              </li>
+              <li >
+                <img src="../img/4534.jpg" alt="">
+                <h4>Kay Garland</h4>
+                <p>Lead Designer</p>
+                <ul class="clearfix icons">
+                  <li class="iconfont">&#xe600;</li>
+                  <li class="iconfont">&#xe602;</li>
+                  <li class="iconfont">&#xe603;</li>
+                </ul>
+              </li>
+            </ul>
+            <p class="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+          </div>
+        </div>
+        <div class="ad">
+          <div class="layout">
+            <ul class="clearfix">
+              <li>
+                <a href="#">
+                  <img src="../img/designmodo.jpg" alt="">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="../img/designmodo.jpg" alt="">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="../img/designmodo.jpg" alt="">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="../img/designmodo.jpg" alt="">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="contact">
+          <div class="layout">
+            <h2>CONTACT US</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <form class="" action="index.html" method="post">
+              <div class="inputboxs clearfix">
+              <div class="clearfix inputbox">
+              <input type="text" name="name" value="" placeholder="YOUR NAME*">
+            <input type="email" name="e-mail" value="" placeholder="YOUR EMAIL*">
+            <input type="tel" name="phone" value="" placeholder="YOUR PHONE*">
+            </div>
+            <div class="inputbox2">
+              <textarea name="message" rows="8" cols="40" placeholder="YOUR MESSAGE"></textarea>
+              </div>
+              </div>
+            <input  type="submit" name="name" value="SEND MESSAGES" class="btn">
+            </form>
+          </div>
+        </div>
+    </div>
+    <div id="footer">
+      <div class="layout center">
+        <span>Copyright © Your Website 2016</span>
+        <ul class="clearfix icon">
+          <li class="iconfont">&#xe603;</li>
+          <li class="iconfont">&#xe600;</li>
+          <li class="iconfont">&#xe602;</li>
+          <span>Privacy Policy</span>
+          <span>Terms of Use</span>
+
+        </ul>
+      </div>
+    </div>
+</body>
+
+</html>
