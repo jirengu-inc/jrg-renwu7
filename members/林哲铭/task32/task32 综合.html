@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>JS综合</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .wraps{
+            width: 960px;
+            margin: 10px auto;
+        }
+        .list{
+            position: relative;
+        }
+        .item{
+            position: absolute;
+            width: 260px;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin:10px;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        .item a{
+            display: block;
+        }
+        img{
+            width: 260px;
+        }
+        .news-title{
+            font-size: 18px;
+            font-weight: bold;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+        .news-text{
+            padding: 5px;
+            color: #999;
+            font-size: 13px;
+            line-height: 1.5em;
+        }
+        .load{
+            opacity: 0;
+        }
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wraps">
+        <ul class="list">
+            <li class="item" style=" display: none"></li>
+        </ul>
+        <div class="load">1</div>
+    </div>
+    <script>
+        var waterFall = (function () {
+            function _get() {
+                _getData();
+
+                function _getData() {
+                    $.ajax({
+                        url: 'http://platform.sina.com.cn/slide/album_tech',
+                        dataType: 'jsonp',
+                        method: 'get',
+                        jsonp: "jsoncallback",
+                        data: {
+                            app_key: '1271687855',
+                            num: perPageCount,
+                            page: curPage
+                        }
+                    }).done(function (ret) {
+                        (ret.status.code == 0) && _bind(ret);
+                    }).fail(function () {
+                        alert("出错咯。。。")
+                    })
+                }
+
+                function _bind(ret) {
+                    var $node = _render(ret);
+                    var deferreds = [];
+                    $node.find("img").each(function () {
+                        var def = $.Deferred();
+                        $(this).on("load",function () {
+                            def.resolve();
+                        });
+                        deferreds.push(def);
+                    });
+                    $.when.apply(null,deferreds).done(function () {
+                        _addWaterFall($node);
+                    });
+                    curPage++;
+                }
+
+                //渲染
+                function _render(ret) {
+                    var item = "";
+                    var data = ret.data;
+                    for (var i = 0; i < data.length; i++) {
+                        item += '<li class="item">' +
+                                '<a class="news-image" href = "' + data[i].url +'"><img src=' + data[i].img_url + ' alt="网速太差，图片无法加载"></a>' +
+                                '<div class="news-title">' + data[i].short_name + '</div>' +
+                                '<div class="news-text">' + data[i].short_intro + '</div>' +
+                                '</li>';
+                    }
+                    var $nodes = $(item);
+                    $(".list").append($nodes);
+                    return $nodes;
+                }
+
+                //瀑布流
+
+                function _addWaterFall($node) {
+                    $node.each(function () {
+                        var $cur = $(this);
+                        var index = 0,
+                                minHeight = colSumHeight[index];
+                        for(var j = 1;j < colSumHeight.length; j++){
+                            if(colSumHeight[j] < minHeight){
+                                index = j;
+                                minHeight = colSumHeight[j];
+                            }
+                        }
+                        $cur.css({
+                            top:minHeight,
+                            left:itemWidth*index,
+                            opacity:1
+                        });
+                        colSumHeight[index] += $cur.outerHeight(true);
+                        $(".list").height(Math.max.apply(null,colSumHeight));
+                    });
+                }
+            }
+
+            function isShow() {
+                var winHeight = $(window).height(),
+                        scrollTop = $(window).scrollTop(),
+                        loadTop = $(".load").offset().top;
+                return loadTop < winHeight + scrollTop;
+            }
+
+            var curPage = 1;
+            var perPageCount = 10;
+            var colSumHeight = [];
+            var clock;
+            var itemWidth = $(".item").outerWidth(true);
+            var colNum = Math.floor($(".wraps").width()/itemWidth);
+            for(var i = 0;i < colNum; i++){
+                colSumHeight.push(0);
+            }
+            $(window).on("scroll",function () {
+                clock && clearTimeout(clock);
+                clock = setTimeout(function () {
+                    isShow() && _get();
+                },300);
+            });
+            _get();
+            return {
+                init:_get
+            };
+        })();
+
+    </script>
+</body>
+</html>
+
+<!--
+思路：
+判断load是否在视野内 如果是-> 调用get()函数，get()函数分为三部分：
+     1、getData()通过JSONP获取数据;
+     2、render()把数据导入模板；
+     3、addWaterFall()对各元素进行瀑布流布局
+细节：通过调整opacity的值，配合transition 来美化。
+-->
