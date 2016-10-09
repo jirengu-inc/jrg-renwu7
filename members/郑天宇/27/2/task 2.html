@@ -72,8 +72,12 @@
             display: inline-block;
             width: 10px;
             height: 10px;
-            background: white;
+            background: #eeeeee;
             border-radius: 10px;
+        }
+
+        .bullet ul li.active{
+            background: #3f3f3f;
         }
     </style>
 
@@ -81,16 +85,16 @@
 <body>
     <div class="course">
         <ul class="img-ct clearfix">
-            <li><a href="#"><img src="http://beijingww.qianlong.com/mmsource/images/2008/03/28/bjwwlmgd080328014.jpg" alt=""></a></li>
-            <li><a href="#"><img src="http://image2.90e.com/image/1024x768/12764.jpg" alt=""></a></li>
-            <li><a href="#"><img src="http://www.1tong.com/uploads/wallpaper/anime/209-3-1920x1200.jpg" alt=""></a></li>
-            <li><a href="#"><img src="http://attach.bbs.miui.com/forum/201203/20/170226n5qcwdpusnjdsswy.jpg" alt=""></a></li>
+            <li data-id="0"><a href="#"><img src="http://beijingww.qianlong.com/mmsource/images/2008/03/28/bjwwlmgd080328014.jpg" alt=""></a></li>
+            <li data-id="1"><a href="#"><img src="http://image2.90e.com/image/1024x768/12764.jpg" alt=""></a></li>
+            <li data-id="2"><a href="#"><img src="http://www.1tong.com/uploads/wallpaper/anime/209-3-1920x1200.jpg" alt=""></a></li>
+            <li data-id="3"><a href="#"><img src="http://attach.bbs.miui.com/forum/201203/20/170226n5qcwdpusnjdsswy.jpg" alt=""></a></li>
         </ul>
         <a class="playnext playbg" href="#"> > </a>
-        <a class="palypre playbg" href="#"> < </a>
+        <a class="playpre playbg" href="#"> < </a>
         <div class="bullet">
         <ul>
-            <li></li>
+            <li class="active"></li>
             <li></li>
             <li></li>
             <li></li>
@@ -99,12 +103,19 @@
     </div>
     <script>
         var ct=$('.img-ct').children();
-        var clickwhich=$('.bullet').children().index();
-        var imgCount=ct.size();
-        var curId=1;
+        var imgct=$('.img-ct');
+        var clickwhich=$('.bullet').children();
+        var bulletnow=$('.bullet').children();
+        var imgCount=ct.length;
+        var curId=0;
         var isAnimate=false;
-        $('ct').prepend($('ct').first().clone());
-        $('ct').append($('ct').last().clone());
+        var imgwidth=ct.width();
+
+        imgct.append(ct.first().clone());
+        imgct.prepend(ct.last().clone());
+
+        var imgrealCount=$('.img-ct').children().length;
+        imgct.css({left:0-imgwidth, width:imgrealCount*imgwidth});
 
         $('.playnext').on('click',function () {
             playnext()
@@ -114,21 +125,61 @@
             playpre();
         });
 
+        $('.bullet').find('li').on('click',function () {
+            var idx=$(this).index();
+            if(idx>curId){
+                playnext(idx-curId);
+            }
+            if(idx<curId){
+                playpre(curId-idx);
+            }
 
-        function playnext() {
-            console.log('11')
-            if(!isAnimate) return;
-            isAnimate=true;
-            if((curId+1)%imgCount<5){
-                curId=(curId+1)%imgCount;
-                ct.eq(curId).css('left','-300px');
+            setbullet();
+        });
+
+
+        function playnext(idx) {
+            var idx = idx || 1;
+            if (!isAnimate) {
+                isAnimate = true;
+                imgct.animate({left: '-=' + (imgwidth * idx)}, function () {
+                    curId = (curId + idx) % imgCount;
+                    if (curId === 0) {
+                        imgct.css({left: 0 - imgwidth});
+                    }
+
+                    isAnimate = false;
+                    setbullet();
+
+                });
+
             }
-            if((curId+1)%imgCount==5){
-                curId=1;
-                ct.eq(curId).css('left','1200px');
-            }
-            isAnimate=false;
         }
+
+        function playpre(idx) {
+            var idx= idx || 1;
+
+            if(!isAnimate){
+                isAnimate=true;
+                imgct.animate({left:'+='+(imgwidth*idx)},function () {
+                    curId=(imgCount+curId-idx)%imgCount;
+                    if(curId===(imgCount-1)){
+                        imgct.css({left:0-imgCount*imgwidth});
+                    }
+                    isAnimate=false;
+                    setbullet();
+                })
+            }
+
+        }
+        
+        function setbullet() {
+            console.log('11')
+           clickwhich.find('li').removeClass('active')
+                                    .eq(curId).addClass('active');
+        }
+
+
     </script>
 </body>
 </html>
