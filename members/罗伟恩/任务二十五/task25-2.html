@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab选项</title>
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $('.tab1 .topNav .category').on('click',function(e){
+                var $cur = $(this),
+                    idx = $cur.index();
+                $cur.siblings().removeClass('active');
+                $cur.addClass('active');
+
+                $cur.parents('.tab1').find('.show-ct').removeClass('active');
+                $cur.parents('.tab1').find('.show-ct').eq(idx).addClass('active');
+            })
+            $('.item').hover(function(){
+                $(this).find('.cover').addClass('hover')
+            },function(){
+                $(this).find('.cover').removeClass('hover')
+            })
+        })
+    </script>
+    <style>
+        body{
+            font-size: 14px;
+            color: #666666;
+        }
+        a{
+            text-decoration: none;
+            color: #666666;
+        }
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .clearfix:after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        .tab1 .topNav{
+            border: 1px solid #CCC;
+            width: 188px;
+            border-radius: 4px;
+            margin-bottom: -1px;
+        }
+        .tab1 .topNav .category{
+            float: left;
+            padding: 10px 0;
+        }
+        .tab1 .topNav .category.active{
+            background: #CCC;
+
+        }
+        .tab1 .topNav .category.active a{
+            color: #c81623;
+        }
+        .tab1 .topNav .category>a{
+            color: #666666;
+            border-right: 1px solid #CCC;
+            padding: 0 10px
+        }
+        .tab1 .topNav .category:last-of-type>a{
+            border: none;
+        }
+        .show-ct{
+            box-sizing: border-box;
+            width: 702px;
+            height: 442px;
+            border: 1px solid #CCC;
+            display: none;
+        }
+        .show-ct.active{
+             display: block;
+        }
+        .show-ct .itemNav{
+            margin-right: -40px;
+            margin-top: -20px;
+        }
+        .show-ct .itemNav .item{
+            box-sizing: border-box;
+            width: 220px;
+            height: 210px;
+            border: 1px solid #CCC;
+            float: left;
+            margin: 20px 20px 0 0;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .show-ct .itemNav .item-ct{
+            padding: 10px 0 0 0;
+        }
+        .show-ct .itemNav .item-ct>p{
+            text-align: left;
+        }
+        .show-ct .itemNav .item-ct>p span:last-of-type{
+            color: #C81623;
+        }
+        .show-ct .itemNav .cover{
+            content: '';
+            display: none;
+            width: 218px;
+            height: 208px;
+            background-color: rgba(0,0,0,0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .show-ct .itemNav .cover.hover{
+            display: block;
+        }
+        .show-ct .itemNav .cover .btn{
+            color: #C81623;
+            display: block;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #C81623;
+            border-radius: 5px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin: -15px 0 0 -40px;
+            background: #FFF;
+        }
+    </style>
+</head>
+<body>
+<div class="tab1">
+    <div class="tab1-bar">
+        <ul class="topNav clearfix">
+            <li class="category active">
+                <a href="javascript:;">热门</a>
+            </li>
+            <li class="category">
+                <a href="javascript:;">珠宝首饰</a>
+            </li>
+            <li class="category">
+                <a href="#">奢侈品</a>
+            </li>
+        </ul>
+    </div>
+    <div class="show-ct active">
+        <ul class="itemNav">
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="show-ct">
+        <ul class="itemNav">
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="show-ct">
+        <ul class="itemNav">
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<br>
+<div class="tab1">
+    <div class="tab1-bar">
+        <ul class="topNav clearfix">
+            <li class="category active">
+                <a href="javascript:;">热门</a>
+            </li>
+            <li class="category">
+                <a href="javascript:;">珠宝首饰</a>
+            </li>
+            <li class="category">
+                <a href="javascript:;">奢侈品</a>
+            </li>
+        </ul>
+    </div>
+    <div class="show-ct active">
+        <ul class="itemNav">
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="show-ct">
+        <ul class="itemNav">
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="show-ct">
+        <ul class="itemNav">
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-ct">
+                    <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="ddd">
+                    <p>
+                        <span>什么鬼什么鬼什么鬼什么鬼</span><br><br>
+                        <span>$9999</span>
+                    </p>
+                </div>
+                <div class="cover">
+                    <a href="#" class="btn">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
