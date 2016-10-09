@@ -14,37 +14,41 @@
                 var $cur = $(this);
                 $cur.find('.cover').removeClass('active');
             })
+            var products = [
+                {
+                    img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                    name: '珂兰 黄金手 猴哥款',
+                    price: '￥405.00'
+                },{
+                    img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                    name: '珂兰 黄金转运珠 猴哥款',
+                    price: '￥100.00'
+                },{
+                    img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                    name: '珂兰 黄金手链 3D猴哥款',
+                    price: '￥45.00'
+                }
+            ];
+            function addLi(products){
+                var newLi = '';
+                for(var i=0; i<products.length;i++) {
+                    newLi += '<li class="item">';
+                    newLi += '<img src='+products[i].img+'>';
+                    newLi += '<div class="item-ct">';
+                    newLi += '<p class="name">' + products[i].name + '</p>';
+                    newLi += '<p class="price">' + products[i].price + '</p>';
+                    newLi += '</div>';
+                    newLi += '<div class="cover">';
+                    newLi += '<button class="btn">立即抢购</button>';
+                    newLi += '</div>';
+                    newLi += '</li>';
+                }
+                return newLi;
+            }
+
+
             $('.add').on('click',function(e){
-                var $newLi1 = '<li class="item">' +
-                        '<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">' +
-                        '<div class="item-ct">' +
-                        '<p class="name">珂兰 黄金手 猴哥款</p>' +
-                        '<p class="price">￥405.00</p>' +
-                        '</div>' +
-                         '<div class="cover">'+
-                         '<button class="btn">立即抢购</button>' + '</div>'+
-                        '</li>';
-                var $newLi2 = '<li class="item">' +
-                        '<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">' +
-                        '<div class="item-ct">' +
-                        '<p class="name">珂兰 黄金手 猴哥款</p>' +
-                        '<p class="price">￥100.00</p>' +
-                        '</div>' +
-                        '<div class="cover">'+
-                        '<button class="btn">立即抢购</button>' + '</div>'+
-                        '</li>';
-                var $newLi3 = '<li class="item">' +
-                        '<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">' +
-                        '<div class="item-ct">' +
-                        '<p class="name">珂兰 黄金手 猴哥款</p>' +
-                        '<p class="price">￥45.00</p>' +
-                        '</div>' +
-                        '<div class="cover">'+
-                        '<button class="btn">立即抢购</button>' + '</div>'+
-                        '</li>';
-                $('.jewellery').append($newLi1);
-                $('.jewellery').append($newLi2);
-                $('.jewellery').append($newLi3);
+                $('.jewellery').append(addLi(products));
             })
         })
     </script>
