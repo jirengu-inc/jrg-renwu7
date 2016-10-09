@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加载更多</title>
+</head>
+<style>
+	body,ul,li{
+		margin:0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration:none;
+		color:#333;
+	}
+	#ct{
+		margin-bottom:10px;
+	}
+	#ct li{
+		height:30px;
+		line-height: 30px;
+		margin-bottom:5px;
+		padding-left:15px;
+		color:#ccc;
+		border:1px solid #eee;
+		cursor: pointer;
+	}
+	#ct li:hover{
+		color:#fff;
+		background-color: blue;
+	}
+	.btnwrap{
+		text-align: center;
+	}
+	.btn{
+		color:#ccc;
+		padding:4px 8px;
+		border:1px solid #eee;
+		border-radius:3px;
+	}
+</style>
+<body>
+	<ul id="ct">
+		<li>内容1</li>
+		<li>内容2</li>
+	</ul>
+	<div class="btnwrap">
+		<a href="#" class="btn">加载更多</a>
+	</div>
+	<script>
+		function $$(str){
+			//var strSel = str.substring(1);
+			if(str[0] === "#"){
+				return document.querySelector(str);
+			}else if(str[0] === "."){
+				return document.querySelectorAll(str);
+			}else{
+				return document.querySelectorAll(str);
+			}
+		}
+		$$("#ct").addEventListener("click",function(){
+			console.log("45");
+		});
+		
+		$$(".btn")[0].addEventListener("click",function(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4 && xhr.status == 200){
+					var str = "<li>"+ xhr.responseText+"</li>";
+					$$("#ct").appendChild(str);
+				}
+			}
+			xhr.open("get","data.php",true);
+			xhr.send();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装AJAX</title>
+</head>
+<body>
+	<button id="btn">提交</button>
+	<script>
+		function ajax(opts){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						opts.success(xhr.responseText);
+					}else{
+						opts.error();
+					}
+				}
+			};
+			var dataStr = "";
+			for(var key in opts.data){
+				dataStr += key +"="+opts.data[key]+"&";
+			}
+			dataStr = dataStr.substring(0,dataStr.length-1);
+			if(opts.type.toLowerCase() === "post"){
+				xhr.open(opts.type,opts.url,true);
+				xhr.setRequestHeader("Content-type","application/xxx-form-urlencoded");
+				xhr.send(dataStr);
+			}else{
+				xhr.open(opts.type,opts.url+"?"+dataStr,true);
+				xhr.send();
+			}
+		}
+		document.querySelector("#btn").addEventListener("click",function(){
+			ajax({
+				url:"getData.php", 
+				type:"get",
+				data:{
+					username: "xiaoming",
+					password: "abc123456"
+				},
+				success:function(ret){
+					console.log(ret);   // {status:0}
+				},
+				error:function(){
+					console.log("出错了");
+				}
+			});
+		});
+	</script>
+</body>
+</html>
