@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 28-2</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        .header{
+            width: 900px;
+            height: 30px;
+            margin: 0 auto;
+            background: #cbcbcb;
+        }
+        .content{
+            min-height: 600px;
+            width: 900px;
+            margin: 20px auto;
+            background: #8a939b;
+        }
+        .aside{
+            height: 300px;
+            width: 50px;
+            background: #7a3828;
+            float: left;
+        }
+        .main{
+            width: 500px;
+            height: 400px;
+            overflow: auto;
+            background: #fed136;
+        }
+        .footer{
+            margin: 20px auto;
+            height: 50px;
+            width: 900px;
+            background: #0000ff;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="header">header1</div>
+    <div class="content">
+        <div class="aside">aside</div>
+        <div class="main">main</div>
+    </div>
+    <div class="footer">footer</div>
+
+    <div class="header">header2</div>
+    <div class="content">
+        <div class="aside">aside</div>
+        <div class="main">main</div>
+    </div>
+    <div class="footer">footer</div>
+
+
+    <div class="header">header3</div>
+    <div class="content">
+        <div class="aside">aside</div>
+        <div class="main">main</div>
+    </div>
+    <div class="footer">footer</div>
+
+    <script>
+        var $target=$('.header');
+        var $targetH=$target.height();
+        var $targetW=$target.width();
+        var offsettop=$target.eq(0).offset().top;
+        var offsettwo=$target.eq(1).offset().top-$target.eq(0).offset().top;
+        var offsetleft=$target.offset().left;
+        var scrolltop=$target.scrollTop();
+
+        $(window).on('scroll',function () {
+
+            if(scrolltop>=offsettop){
+                if(!isfixed()){
+                    setfixed();
+                }
+            }
+
+            else if(isfixed()){
+                unsetfixed()
+            }
+        });
+
+        function isfixed() {
+            return $target.data('data-fixed');
+        }
+        function setfixed() {
+            $target.data('data-fixed',true).css({
+                'position':'fixed',
+                'top':0,
+                'left':offsetleft,
+                'margin':0,
+                'z-Index':9999
+
+            });
+            //if(scrolltop>=offsettwo+offsettop)
+        }
+
+
+    </script>
+</body>
+</html>
