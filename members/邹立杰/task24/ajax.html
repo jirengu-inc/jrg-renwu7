@@ -27,7 +27,8 @@
 				xhr.open(opts.type,opts.url,true);
 				xhr.setRequestHeader("Content-type","application/xxx-form-urlencoded");
 				xhr.send(dataStr);
-			}else{
+			}
+			if(opts.type.toLowerCase() === "get"){
 				xhr.open(opts.type,opts.url+"?"+dataStr,true);
 				xhr.send();
 			}
