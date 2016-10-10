@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>注册</title>
+</head>
+<style>
+	body{
+		margin:20px;
+	}
+	.register-ct dt{
+		float:left;
+		width:85px;
+		height:25px;
+		line-height: 25px;
+	}
+	.register-ct dd{
+		margin-left:85px;
+	}
+	.register-ct dd input{
+		height:24px;
+		line-height: 24px;
+		padding-left: 8px;
+		border:1px solid #eee;
+		border-radius:3px;
+	}
+	.register-ct input.error{
+		border-color:red;
+	}
+	.msg{
+		color:#333;
+		font-size: 12px;
+		height:15px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+</style>
+<body>
+	<h3>注册</h3>
+	<form action="" id="register-form">
+		<dl class="register-ct">
+			<dt>用户名：</dt>
+			<dd><input id="username" name="username" type="text" placeholder="用户名（hunger被注册过）"></dd>
+			<dd class="msg">只能是字母、数字、下划线，3-10个字符</dd>
+			<dt>密码：</dt>
+			<dd><input type="password" name="password" class="password-input" placeholder="密码"></dd>
+			<dd class="msg">大小写字母、数字、下划线最后两种，6-15个字符</dd>
+			<dt>再输一次：</dt>
+			<dd><input type="password" name="password" class="password-input" placeholder="再输一次密码"></dd>
+			<dd class="msg"></dd>
+			<dd><button id="btn-submit">注册</button></dd>
+		</dl>
+	</form>
+	<script>
+		var uname = document.querySelector("#username");
+		function ajax(opts){
+			var xhr =  new XMLHttpRequest();
+			xhr.onreadystatechange = function (){
+				if(xhr.readyState == 4 && xhr.status == 200){
+					var json =JSON.parse(xhr.responseText)
+					opts.success();
+				}
+				if(xhr.readyState == 4 && xhr.status == 404){
+					opts.error();
+				}
+			}
+			var dataStr = "";
+			for(var key in opts.data){
+				dataStr += key +"="+opts.data[key]+"&";
+			}
+			dataStr = dataStr.substring(0,opts.data.length-1);
+			if(opts.type.toLowerCase() === "get"){
+				xhr.open(opts.type,opts.url +"?"+dataStr,true);
+				xhr.send();
+			}
+			if(opts.type.toLowerCase() === "post"){
+				xhr.open(opts.type,opts.url,true);
+				xhr.setRequestHeader("Content-type","application/xxx-form-urlencoded");
+				xhr.send(dataStr);
+			}
+		}
+		// 用户名验证
+		function isVaildName(){
+			return /[A-Za-z0-9_]{3,10}/.test(uname.value);
+		}
+	</script>
+</body>
+</html>
