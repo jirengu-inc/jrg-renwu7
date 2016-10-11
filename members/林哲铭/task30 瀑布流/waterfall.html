@@ -71,32 +71,29 @@
         var waterFall = (function () {
             function render() {
                 var windowWidth = $(window).width();
-                var nodeWidth = $(".box").outerWidth(true);
-                var colNum = parseInt(windowWidth/nodeWidth);
+                var itemWidth = $(".box").outerWidth(true);
+                var colNum = parseInt(windowWidth/itemWidth);
                 var $item =$(".box");
-                var arr = [];
-                for(var i = 0; i < colNum;i++){
-                    arr.push($item.eq(i).outerHeight(true));
-                    $item.eq(i).css({
-                        top: 0,
-                        left: nodeWidth*i
-                    });
+                var colSumHeight = [];
+                for(var i = 0;i < colNum; i++){
+                    colSumHeight.push(0);
                 }
-                for(var j = colNum;j < $item.length;j++){
-                    var min = arr[0],
-                            idx = 0;
-                    for(var k = 1; k < arr.length;k++){
-                        if(arr[k] < min){
-                            min = arr[k];
-                            idx = k;
+                $item.each(function () {
+                    var $cur = $(this);
+                    var index = 0,
+                            minHeight = colSumHeight[index];
+                    for(var j = 1;j < colSumHeight.length; j++){
+                        if(colSumHeight[j] < minHeight){
+                            index = j;
+                            minHeight = colSumHeight[j];
                         }
                     }
-                    $item.eq(j).css({
-                        top: arr[idx]+"px",
-                        left: nodeWidth*idx
+                    $cur.css({
+                        top:minHeight,
+                        left:itemWidth*index
                     });
-                    arr[idx] += $item.eq(j).outerHeight(true);
-                }
+                    colSumHeight[index] += $cur.outerHeight(true);
+                });
             }
             render();
             $(window).on("resize",function () {
