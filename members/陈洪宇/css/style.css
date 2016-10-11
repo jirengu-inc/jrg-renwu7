@@ -1,0 +1,236 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+body,
+ul,
+li,
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0
+}
+
+ul,
+li {
+    list-style: none
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    font-family: 'Microsoft Yahei';
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#header {
+    position: relative;
+    background: url(../img/bg.jpg )no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+#header .container{
+  height: 100%;
+  display: table;
+}
+#header .wrap{
+  display: table-cell;
+  vertical-align: middle;
+
+
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 25px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.btn1 {
+    display: block;
+    text-align: center;
+    width: 120px;
+    margin: 30px auto;
+    padding: 10px 10px;
+    color: white;
+    font-size: 16px;
+    background: #7a929b;
+    border-radius: 3px;
+}
+
+.btn1:hover {
+    background: black;
+    opacity: 0.6
+}
+
+.about {
+    height: 160px;
+    background: white
+}
+
+.about h2 {
+    margin-top: 40px;
+}
+
+.iconfont {
+    text-align: center;
+    font-size: 82px;
+    color: white;
+}
+
+.services {
+    background: #337ab7;
+}
+
+.services:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.services h2,
+.services h3 {
+    color: white;
+}
+
+.services .container {
+    border: 1px solid transparent;
+}
+
+.services .container>h2 {
+    width: 180px;
+    margin: 0 auto;
+    border-bottom: 3px solid white;
+    padding: 60px 0 20px;
+}
+
+.services li {
+    width: 25%;
+    float: left;
+}
+
+.services a {
+    color: black;
+    display: block;
+    text-align: center;
+    background: white;
+    opacity: 0.65;
+    border-radius: 4px;
+    margin: 10px auto 70px;
+    width: 80px;
+    padding: 10px 5px;
+}
+
+.picture {
+    background: url(../img/paragraph.jpg) no-repeat;
+    background-size: cover;
+    padding: 200px 0;
+}
+
+.mywork h2 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.mywork li {
+    margin: 10px 0px 10px 10px;
+    float: left;
+    height: 305px;
+    width: 470px;
+    background: url(../img/works-1.jpg);
+}
+
+.mywork ul:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.about2 {
+    background: #337ab7;
+    padding: 50px 0;
+}
+
+.about2 h3 {
+    color: white;
+}
+
+.btns {
+    text-align: center;
+}
+
+.btn2 {
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn3 {
+    display: inline-block;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+#footer {
+    padding: 100px 0;
+}
+
+#footer .container {
+    text-align: center
+}
+
+.communicate .iconfont {
+    font-size: 5px;
+    display: inline-block;
+    color: #337ab7;
+}
+
+.communicate-icon .iconfont {
+    font-size: 50px;
+    color: #337ab7;
+    margin: 10px;
+}
+
+.phone {
+    display: inline-block;
+}
+
+.mail {
+    display: inline-block;
+}
+
+.communicate-icon {
+    padding: 20px;
+}
+
+.ul {
+    border: 1px solid #eee;
+    max-width: 100px;
+    margin: 20px auto;
+}

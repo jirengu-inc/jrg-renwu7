@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task29-1</title>
+    <style type="text/css">
+    *{
+      font-family: 'Microsoft YaHei'
+    }
+      ul,li{
+        list-style: none;
+      }
+
+
+      .center{
+        margin: 0 auto;
+        width: 1000px;
+        text-align: center;
+      }
+      img{
+        margin: 25px;
+        width: 400px;
+        height: 260px;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="center">
+      <img src="" data-src="picture1.jpg" alt="">
+      <img src="" data-src="picture1.jpg" alt="">
+      <img src="" data-src="picture1.jpg" alt="">
+      <img src="" data-src="picture1.jpg" alt="">
+      <img src="" data-src="picture1.jpg" alt="">
+      <img src="" data-src="picture1.jpg" alt="">
+
+      <img src="" data-src="picture2.jpg" alt="">
+      <img src="" data-src="picture2.jpg" alt="">
+      <img src="" data-src="picture2.jpg" alt="">
+      <img src="" data-src="picture2.jpg" alt="">
+      <img src="" data-src="picture2.jpg" alt="">
+      <img src="" data-src="picture2.jpg" alt="">
+
+      <img src="" data-src="picture3.jpg" alt="">
+      <img src="" data-src="picture3.jpg" alt="">
+      <img src="" data-src="picture3.jpg" alt="">
+      <img src="" data-src="picture3.jpg" alt="">
+      <img src="" data-src="picture3.jpg" alt="">
+      <img src="" data-src="picture3.jpg" alt="">
+
+
+      <img src="" data-src="picture4.jpg" alt="">
+      <img src="" data-src="picture4.jpg" alt="">
+      <img src="" data-src="picture4.jpg" alt="">
+      <img src="" data-src="picture4.jpg" alt="">
+      <img src="" data-src="picture4.jpg" alt="">
+      <img src="" data-src="picture4.jpg" alt="">
+
+      <img src="" data-src="picture5.jpg" alt="">
+      <img src="" data-src="picture5.jpg" alt="">
+      <img src="" data-src="picture5.jpg" alt="">
+      <img src="" data-src="picture5.jpg" alt="">
+      <img src="" data-src="picture5.jpg" alt="">
+      <img src="" data-src="picture5.jpg" alt="">
+
+
+
+  </div>
+    <script src='http://code.jquery.com/jquery-latest.js'></script>
+    <script>
+
+    var clock;
+    $(window).on('scroll', function(){
+
+     if(clock){
+       clearTimeout(clock);
+     }
+     clock = setTimeout(function(){
+       checkShow();
+     }, 300);
+
+ 	});
+
+ 	checkShow();
+
+ 	function checkShow(){
+ 		$('.center img').each(function(){
+ 			var $cur = $(this);
+       if($cur.attr('isLoaded')){
+         return;
+       }
+       if(isShow($cur)){
+ 				showImg($cur);
+ 			}
+ 		});
+ 	}
+
+ 	function isShow($el){
+ 	  var scrollH = $(window).scrollTop(),
+ 	  	  winH = $(window).height(),
+ 	  	  top = $el.offset().top;
+
+   	  if(top < (winH + scrollH)){
+   	  	return true;
+   	  }else{
+   	  	return false;
+   	  }
+ 	}
+
+ 	function showImg($el){
+       $el.attr('src', $el.attr('data-src'));
+       $el.attr('isLoaded', true);
+ 	}
+
+    </script>
+  </body>
+</html>

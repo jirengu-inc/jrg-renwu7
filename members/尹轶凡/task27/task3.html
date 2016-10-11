@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task26-1</title>
+    <style>
+    *{
+      text-decoration: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .content{
+      position: relative;
+      width: 400px;
+      height:260px;
+      overflow: hidden;
+
+    }
+    .screen{
+      position: absolute;
+    }
+    .screen>li{
+      float: left;
+    }
+    .screen:after{
+      content: '';
+      clear: both;
+      display: block;
+    }
+    ul.bottombtn li{
+      width:14px;
+      height: 14px;
+      border-radius: 7px;
+      background-color: #fff;
+      display: inline-block;
+    }
+    .bottombtn:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .bottombtn{
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+
+
+    .leftbtn,.rightbtn{
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background: #999;
+      /*float: left;*/
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 40px;
+      display: inline-block;
+      color: #fff;
+      opacity: 0.7;
+    }
+
+    .leftbtn{
+      position: absolute;
+      left: 10px;
+      top:50%;
+      transform:translateY(-20px);
+    }
+    .leftbtn:hover{
+      opacity: 1;
+    }
+
+    .rightbtn{
+      position: absolute;
+      right: 10px;
+      top:50%;
+      transform:translateY(-20px);
+    }
+    .rightbtn:hover{
+      opacity: 1;
+    }
+    ul.bottombtn li.active{
+      background-color:#999;
+    }
+    /*.post{
+      margin: 20px auto;
+      width: 400px;
+    }*/
+
+
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <ul class='screen'>
+        <li><a href="#"><img src="picture1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="picture2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="picture3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="picture5.jpg" alt=""></a></li>
+      </ul>
+
+        <a href="#" class="leftbtn"> < </a>
+        <a href="#" class="rightbtn"> > </a>
+
+      <ul class="bottombtn">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+
+      var $content=$('.content'),
+          $screen=$('.screen'),
+          $item=$screen.children(),
+          $leftbtn=$('.leftbtn'),
+          $rightbtn=$('.rightbtn'),
+          $bottombtn=$('.bottombtn'),
+          imgCount=$screen.children().length,
+          imgWidth=$item.width();
+
+          $screen.prepend($item.last().clone());
+          $screen.append($item.first().clone());
+          imgRealCount=$screen.children().length;
+          $screen.css({left:0-imgWidth,width:imgRealCount*imgWidth});
+
+
+          var isanimate=false;
+          var curidx=0;
+
+          $leftbtn.on('click',function(){
+              playPre();
+          });
+
+          $rightbtn.on('click',function(){
+              playNext();
+          });
+
+          $bottombtn.find('li').on('click',function(){
+            var idx=$(this).index();
+              if(curidx>idx){
+                playPre(curidx-idx);
+              }else{
+                playNext(idx-curidx);
+              }
+          });
+
+
+          autoPlay();
+
+          function playNext(idx){
+            var idx=idx||1;
+            if(isanimate){
+              return;
+            }
+            isanimate=true;
+            $screen.animate({left:'-='+(imgWidth*idx)},function(){
+              curidx=(curidx+idx)%imgCount;
+              if(curidx===0){
+                  $screen.css({left:0-imgWidth});
+              }
+              isanimate=false;
+              setbottombtn();
+            })
+          };
+
+          function playPre(idx){
+            var idx=idx||1;
+            if(isanimate){
+              return;
+            }
+            isanimate=true;
+            $screen.animate({left:'+='+(imgWidth*idx)},function(){
+              curidx=(imgCount+curidx-idx)%imgCount;
+              if(curidx===(imgCount-1)){
+                $screen.css({left:0-imgWidth*imgCount});
+              }
+              isanimate=false;
+              setbottombtn();
+            })
+          };
+
+          function setbottombtn(){
+            $bottombtn.children().removeClass('active').eq(curidx).addClass('active');
+          }
+          function stopAuto(){
+            clearInterval(clock);
+          }
+          function autoPlay(){
+            clock=setInterval(function(){
+              playNext();
+            },2000)
+          }
+
+
+    </script>
+  </body>
+</html>

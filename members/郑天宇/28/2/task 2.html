@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>task 28-2</title>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<<<<<<< HEAD
     <script src="stickUp.min.js"></script>
+=======
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
     <style>
         .header{
             width: 900px;
@@ -13,13 +16,21 @@
             background: #cbcbcb;
         }
         .content{
+<<<<<<< HEAD
             min-height: 900px;
+=======
+            min-height: 600px;
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
             width: 900px;
             margin: 20px auto;
             background: #8a939b;
         }
         .aside{
+<<<<<<< HEAD
             height: 600px;
+=======
+            height: 300px;
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
             width: 50px;
             background: #7a3828;
             float: left;
@@ -37,6 +48,7 @@
             background: #0000ff;
 
         }
+<<<<<<< HEAD
         .nav{
             width: 900px;
             height: 60px;
@@ -48,13 +60,23 @@
     <!--<div class="nav">nav</div>-->
 
     <div class="header" >header1</div>
+=======
+    </style>
+</head>
+<body>
+    <div class="header">header1</div>
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
     <div class="content">
         <div class="aside">aside</div>
         <div class="main">main</div>
     </div>
     <div class="footer">footer</div>
 
+<<<<<<< HEAD
     <div class="header" >header2</div>
+=======
+    <div class="header">header2</div>
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
     <div class="content">
         <div class="aside">aside</div>
         <div class="main">main</div>
@@ -62,8 +84,12 @@
     <div class="footer">footer</div>
 
 
+<<<<<<< HEAD
 
     <div class="header" >header3</div>
+=======
+    <div class="header">header3</div>
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
     <div class="content">
         <div class="aside">aside</div>
         <div class="main">main</div>
@@ -71,6 +97,7 @@
     <div class="footer">footer</div>
 
     <script>
+<<<<<<< HEAD
         $('.header').each(function () {
         var $target=$(this);
         var $targetH=$target.height();
@@ -85,6 +112,18 @@
 
         $(window).on('scroll',function () {
             var scrolltop=$(this).scrollTop();
+=======
+        var $target=$('.header');
+        var $targetH=$target.height();
+        var $targetW=$target.width();
+        var offsettop=$target.eq(0).offset().top;
+        var offsettwo=$target.eq(1).offset().top-$target.eq(0).offset().top;
+        var offsetleft=$target.offset().left;
+        var scrolltop=$target.scrollTop();
+
+        $(window).on('scroll',function () {
+
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
             if(scrolltop>=offsettop){
                 if(!isfixed()){
                     setfixed();
@@ -97,6 +136,7 @@
         });
 
         function isfixed() {
+<<<<<<< HEAD
             return !!$target.data('data-fixed');
         }
         function setfixed() {
@@ -106,10 +146,20 @@
                 'top':0,
                 'left':offsetleft,
                 'width':$targetW,
+=======
+            return $target.data('data-fixed');
+        }
+        function setfixed() {
+            $target.data('data-fixed',true).css({
+                'position':'fixed',
+                'top':0,
+                'left':offsetleft,
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
                 'margin':0,
                 'z-Index':9999
 
             });
+<<<<<<< HEAD
             clone.show();
 
         }
@@ -139,6 +189,12 @@
 //
 //    })
 //})
+=======
+            //if(scrolltop>=offsettwo+offsettop)
+        }
+
+
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
     </script>
 </body>
 </html>
