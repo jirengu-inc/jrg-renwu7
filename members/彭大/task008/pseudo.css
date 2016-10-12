@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors pd (wqEscq@gmail.com)
+ * @date    2016-10-09 18:10:37
+ * @version $Id$
+ */
+a{
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:link{
+    color: black;
+}
+
+a:visited{
+    color: #ccc;
+}
+
+a:hover{
+    color:#00ff00;
+    text-decoration: underline;
+}
+
+a:active{
+    color:red;
+    text-decoration: none;
+}
+
+.first p:first-child{
+    color: red; 
+}
+
+.first i:first-of-type{
+    color: yellow;
+}
+
+.first a:first-of-type{
+    background-color: blue;
+}
+
+.item1:first-child{
+  color: red;
+}
+.item1:first-of-type{
+  background: blue;
+}
