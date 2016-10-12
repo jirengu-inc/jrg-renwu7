@@ -20,7 +20,7 @@
 		text-decoration:none;
 	}
 	.tab-model{
-		width:171px;
+		width:170px;
 		border:1px solid #ccc;
 		border-bottom: 0;
 		border-radius:3px 3px 0 0;
@@ -509,7 +509,16 @@
 	</div>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script>
-		
+		$(".tab-model>li").on("click",".tab-btn",function(e){
+			// console.log(this);
+			var $li = $(this).parents("li");
+			var $panel = $li.parent().next().children();
+			var index = $li.index();
+			console.log(index);
+			$li.addClass("active").siblings().removeClass("active");
+			$panel.eq(index).addClass("active").siblings().removeClass("active")
+			e.preventDefault();
+		})
 	</script>
 </body>
 </html>
