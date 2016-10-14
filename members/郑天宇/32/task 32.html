@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 32</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        html,body,div,ul,li{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .ct{
+            width: 900px;
+            margin: 0 auto;
+            border:1px solid;
+        }
+        .news{
+            width: 250px;
+            height: 300px;
+            border: 1px solid;
+            margin: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <div class="news">
+            <div class="pic"></div>
+            <div class="text"></div>
+        </div>
+    </div>
+
+    <script>
+        var $ct=$('.ct'),
+                $news=$('.news'),
+                clock;
+
+        $(window).on('scroll',function () {
+            if(clock){
+                clearTimeout(clock);
+            }
+            clock=setTimeout(function () {
+                if(isvisable()){
+                    checkshow();
+                }
+            });
+        });
+
+        function checkshow() {
+            if(ishow($el)){
+                load()
+            }
+        }
+
+        function ishow($el) {
+            var $el=$('.load'),
+                    $eloffsetH=$el.offset().height,
+                    windowH=$(window).height(),
+                    $elscroll=$(window).scrollHeight();
+            if($eloffsetH<windowH+$elscroll){
+                return true
+            }else return false;
+        }
+
+        var curpage=1,
+                pagecount=0;
+        
+        function load() {
+            $.ajax({
+                url:'http://platform.sina.com.cn/slide/album_tech',
+                datatype:'json',
+                data:{
+                    app_key:'1271687855',
+                    num:pagecount,
+                    page:curpage
+                },
+                success:function (ret) {
+                    onsuccess(ret)
+                },
+                error:function () {
+                    onerror()
+                }
+            })
+            
+        }
+
+        function onsuccess(ret) {
+        if(ret && ret.status && ret.status.code === "0"){
+            place(ret.data);
+        }
+
+        }
+
+        function onerror() {
+            alert('error');
+        }
+        
+        function palce(nodelist) {
+            var 
+        }
+        
+        function renderdata() {
+            
+        }
+        function water() {
+            
+        }
+
+
+    </script>
+
+</body>
+</html>
