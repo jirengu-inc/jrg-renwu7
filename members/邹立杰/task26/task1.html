@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery</title>
+</head>
+<style>
+	body,ul,li{
+		padding:0;
+		margin:0;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration:none;
+		color:#333;
+	}
+	.wrap{
+		width:800px;
+		margin:20px auto;
+	}
+	.ct{
+		overflow: hidden;
+		margin-bottom: 20px;
+	}
+	.item{
+		float: left;
+		margin-right: 10px;
+		width:40px;
+		height:40px;
+		border:1px solid #333;
+		border-radius: 3px;
+	}
+	.item.active{
+		background-color: #333;
+	}
+	.title{
+		color:#333;
+		font-size: 14px;
+		margin-bottom:10px;
+	}
+	.btn-group{
+		margin-bottom: 10px;
+	}
+	.btn{
+		display: inline-block;
+		padding:5px 10px;
+		border:1px solid #333;
+		border-radius:3px;
+	}
+</style>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<body>
+	<div class="wrap">
+	<ul class="ct">
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+	</ul>
+	<ul class="btn-ct">
+		<li class="title">可以点击这些按钮</li>
+		<li class="btn-group">
+			<a href="" class="btn btn-add">变色</a>
+			<a href="" class="btn btn-remove">恢复</a>
+			<a href="" class="btn btn-show">出现</a>
+			<a href="" class="btn btn-hiden">隐藏</a>
+		</li>
+		<script>
+			$(function(){
+				$(".btn-group").on("click",function(e){
+					e.preventDefault();
+					var $target = $(e.target);
+					if($target.hasClass("btn-add")){
+						$(".item").addClass("active");
+					};
+					if($target.hasClass("btn-remove")){
+						$(".item").removeClass("active");
+					};
+					if($target.hasClass("btn-show")){
+						$(".item").show();
+					};
+					if($target.hasClass("btn-hiden")){
+						$(".item").hide();
+					};
+				});
+			});
+		</script>
+	</ul>
+	</div>
+</body>
+</html>
