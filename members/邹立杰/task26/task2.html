@@ -91,6 +91,7 @@
 			})
 			$(".input").on("blur",function(){
 				$(this).removeClass("border-blue");
+				$(".car").before($("<p>请查看控制台</p>"))
 				console.log( $(this).val() );
 			});
 			$("#select").on("change",function(){
