@@ -24,9 +24,12 @@
 		overflow: hidden;
 		margin-bottom: 20px;
 	}
-	.item{
+	.ct li{
 		float: left;
+	}
+	.item{
 		margin-right: 10px;
+		padding-right: 10px;
 		width:40px;
 		height:40px;
 		border:1px solid #333;
@@ -49,33 +52,52 @@
 		border:1px solid #333;
 		border-radius:3px;
 	}
+	#img-ring{
+		border:1px solid #eee;
+		padding:5px;
+		margin:5px;
+	}
 </style>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+<script src="js/jquery.min.js"></script>
 <body>
 	<div class="wrap">
-	<ul class="ct">
+	<ul class="ct ct-empty">
+		<li >1</li>
 		<li class="item"></li>
 		<li class="item"></li>
 		<li class="item"></li>
+		<li >1</li>
 	</ul>
+
 	<ul class="btn-ct">
 		<li class="title">可以点击这些按钮</li>
 		<li class="btn-group">
 			<a href="" class="btn btn-add">变色</a>
-			<a href="" class="btn btn-remove">恢复</a>
+			<a href="" class="btn btn-recover">恢复</a>
+			<a href="" class="btn btn-recover-all">恢复原样</a>
 			<a href="" class="btn btn-show">出现</a>
 			<a href="" class="btn btn-hiden">隐藏</a>
+			<a href="" class="btn btn-add-first">头增加</a>
+			<a href="" class="btn btn-add-last">尾增加</a>
+			<a href="" class="btn btn-remove">删除</a>
+			<a href="" class="btn btn-empty">清空</a>
+			<a href="" class="btn btn-html">HTML</a>
 		</li>
 		<script>
 			$(function(){
+				var children = $(".ct").children().clone(true);
 				$(".btn-group").on("click",function(e){
 					e.preventDefault();
 					var $target = $(e.target);
 					if($target.hasClass("btn-add")){
 						$(".item").addClass("active");
 					};
-					if($target.hasClass("btn-remove")){
+					if($target.hasClass("btn-recover")){
 						$(".item").removeClass("active");
+					};
+					if($target.hasClass("btn-recover-all")){
+						$(".ct").append(children);
 					};
 					if($target.hasClass("btn-show")){
 						$(".item").show();
@@ -83,10 +105,72 @@
 					if($target.hasClass("btn-hiden")){
 						$(".item").hide();
 					};
+					if($target.hasClass("btn-add-first")){
+						var newLi = $("<li class='item'>1</li>")
+						$(".ct").children().eq(0).before(newLi)
+					};
+					if($target.hasClass("btn-add-last")){
+						var newLi = $("<li class='item'>2</li>")
+						$(".ct").append(newLi)
+					};
+					if($target.hasClass("btn-remove")){
+						$(".item").remove();
+					};
+					if($target.hasClass("btn-empty")){
+						$(".ct-empty").empty();
+					};
+					if($target.hasClass("btn-html")){
+						$(".ct-empty").html("<div class='btn'>按钮</div>");
+					};
 				});
 			});
 		</script>
 	</ul>
+	<img id="img-ring" title="ring" src="image/1.jpg" >
+	<p class="id-name">id:  <span></span></p>
+	<p class="title-name">title:  <span></span></p>
+	<p class="src-name">src:  <span></span></p>
+	<p class="data">data-src:  <span></span></p>
+	<p class="width">width(内容):  <span></span></p>
+	<p class="height">height(内容):<span></span></p>
+	<p class="border">border:  <span></span></p>
+	<p class="margin">margin:  <span></span></p>
+	<p class="padding">padding:  <span></span></p>
+	<ul class="btn-ct">
+		<li class="title">可以点击这些按钮</li>
+		<li class="btn-group">
+			<a href="" class="btn btn-gain">获取</a>
+			<a href="" class="btn btn-set">设置</a>
+			<a href="" class="btn btn-data">自定义属性</a>
+		</li>
+		<script>
+			var $img = $("#img-ring");
+			$(".btn-gain").on("click",function(){
+				var objWidth = $img.width();
+				var objHeight = $img.height();
+				var padding = ($img.innerWidth() - objWidth )/2;
+				var border = ($img.outerWidth() - $img.innerWidth())/2;
+				$(".id-name").children().html($img.attr("id"));
+				$(".title-name").children().html($img.attr("title"));
+				$(".src-name").children().html($img.attr("src"));
+				$(".width").children().html(objWidth+"px");
+				$(".height").children().html(objHeight+"px");
+				$(".border").children().html(border+"px");
+				$(".padding").children().html(padding+"px");
+			});
+			$(".btn-set").on("click",function(){
+				$img.attr("title","这是项链");
+				$img.attr("src","image/2.jpg");
+				$(".btn-gain").click();
+			});
+			$(".btn-data").on("click",function(){
+				$img.attr("data-src","img/1.jpg");
+				$(".data").children().html($img.attr("data-src"));
+			});
+		</script>
+	</ul>
+
+	
 	</div>
 </body>
 </html>
