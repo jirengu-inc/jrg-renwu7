@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task18</title>
+</head>
+<body>
+<script>
+  function push(arr,value){
+	arr.splice(arr.length,0,value)
+	return arr.length
+  }
+  function pop(arr){
+	return arr.splice(-1,1)    
+  }
+  function shift(arr){
+	return arr.splice(0,1)
+  }
+  function unshift(arr,value){
+	arr.splice(0,0,value)
+	return arr.length
+  }
+
+  var prod = {
+	name: '女装',
+	styles: ['短款', '冬季', '春装']
+  };
+  function getTplStr(data){
+	var Str = '<dl class="product">\n'
+	Str += '\u0020\u0020\u0020\u0020'+'<dt>' + data.name + '</dt>\n'
+	for(i = 0; i<data.styles.length; i++){
+	  Str += '\u0020\u0020\u0020\u0020'+'<dd>' + data.styles[i] + '</dd>\n'
+	}
+	Str += '</dl>'
+	return Str
+  };
+  var result = getTplStr(prod); //result为下面的字符串
+
+
+  function find(arr,value){
+	var arrIndexOf = arr.indexOf(value)
+	return console.log(arrIndexOf)
+  }
+  var arr = [ "test", 2, 1.5, false ]
+  find(arr, "test") // 0
+  find(arr, 2) // 1
+  find(arr, 0) // -1
+
+
+  function filterNumeric(arr){
+	var newArr = []
+	for(var i = 0; i<arr.length; i++){
+	  if(typeof arr[i] === 'number' ){
+		newArr.push(arr[i])
+	  }else{
+		continue
+	  }
+	}
+	return console.log(newArr)
+  }
+  arr = ["a", "b", 1, 3, 5, "b", 2];
+  newarr = filterNumeric(arr);  //   [1,3,5,2]
+
+
+	function addClass(obj,value){
+	var toArr = obj.className.split(' ')
+	if(toArr.indexOf(value) === -1){
+		obj.className += ' '+value
+	}
+	return console.log(obj.className)
+	}
+	function removeClass(obj,value){
+	var toArr = obj.className.split(' ')
+	if(toArr.indexOf(value) != -1){
+		toArr.splice(toArr.indexOf(value),1)
+		obj.className = toArr.join(' ')
+	}
+	return console.log(obj.className)
+	}
+	var obj = {
+	className: 'open menu'
+	}
+	addClass(obj, 'new') // obj.className='open menu new'
+	addClass(obj, 'open')  // 因为open已经存在，所以不会再次添加open
+	addClass(obj, 'me') // me不存在，所以 obj.className变为'open menu new me'
+	console.log(obj.className)  // "open menu new me"
+
+	removeClass(obj, 'open') // 去掉obj.className里面的 open，变成'menu new me'
+	removeClass(obj, 'blabla')  // 因为blabla不存在，所以此操作无任何影响
+	
+
+	function camelize(str){
+		var toArr = str.split('-')
+		if(toArr.length === 1){return str}
+		for( i = 1; i<toArr.length; i++){
+			toArr[i] = toArr[i].substr(0,1).toUpperCase() + toArr[i].substr(1)
+		}
+		return toArr.join('')
+	}
+	console.log(camelize("background-color") == 'backgroundColor')
+	console.log(camelize("list-style-image") == 'listStyleImage')
+
+
+	function filterNumericInPlace(arr){
+		for(var i = arr.length-1; i >= 0; i--){
+			if(typeof arr[i] != 'number' ){
+				arr.splice(i,1)
+			}
+		}
+	}
+	arr = ["a", "b", 1, 3, 4, 5, "b", 2];
+	//对原数组进行操作，不需要返回值
+	filterNumericInPlace(arr);
+	console.log(arr)  // [1,3,4,5,2]
+
+
+	function ageSort(arr){
+		arr.sort(function(p1,p2){
+			return p1.age - p2.age
+		})
+	}
+	var john = { name: "John Smith", age: 23 }
+	var mary = { name: "Mary Key", age: 18 }
+	var bob = { name: "Bob-small", age: 6 }
+	var people = [ john, mary, bob ]
+	ageSort(people) // [ bob, mary, john ]
+
+
+	function filter(arr,func){
+		for(var i = arr.length-1; i>= 0; i--){
+			if(!func(arr[i])){
+				arr.splice(i,1)
+			}
+		}
+		return arr
+	}
+	function isNumeric (el){
+    return typeof el === 'number'; 
+	}
+	arr = ["a",3,4,true, -1, 2, "b"]
+
+	arr = filter(arr, isNumeric) ; // arr = [3,4,-1, 2],  过滤出数字
+	arr = filter(arr, function(val) { return  typeof val === "number" && val > 0 });  // arr = [3,4,2] 过滤出大于0的整数
+
+	
+	function ucFirst(str){
+		var newStr = str.substr(0,1).toUpperCase() + str.substr(1)
+		return newStr
+	}
+	ucFirst("hunger") == "Hunger"
+
+
+	function truncate(str,maxlength){
+		var newStr = str
+		if(str.length > maxlength){
+			newStr = str.substr(0,maxlength) + '...'
+		}
+		return newStr
+	}
+	truncate("hello, this is hunger valley,", 10) == "hello, thi...";
+	truncate("hello world", 20) == "hello world"
+
+
+	function randomInt(min,max){
+		var float = Math.random()*(max-min)+min
+		return parseInt(float)
+	}
+
+	function randomInt(min,max){
+	var float = Math.random()*(max+1-min)+min
+	return Math.floor(float)
+	}
+
+	function generateArr(max,min,len){
+		var arr = []
+		for(var i = 0; i<len; i++){
+			arr.push(Math.floor(Math.random()*(max+1-min)+min))
+		}
+		return arr
+	}
+
+
+	function getRandStr(len){
+		var str = '',
+		num = 0,
+		SOS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		for(i = 0; i<len ; i++){
+			num = Math.floor(Math.random()*(SOS.length))
+			str += SOS.substr(num,1)
+		}
+		return str
+	}
+	var str = getRandStr(10); // 0a3iJiRZap
+
+</script>  
+</body>
+</html>
