@@ -36,6 +36,9 @@ a{
     height:50px;
     line-height:50px;
 }
+#header .navbar .logo:hover{
+    color:#333;
+}
 #header .navbar .logo .iconfont{
     font-size:30px;
 }
@@ -50,6 +53,9 @@ a{
 #header .navbar .nav>li a{
     color:#666;
 }
+#header .navbar .nav>li a:hover{
+    color:#333;
+}
 #header .navbar .nav .droplist{
     display:none;
     border:1px solid #ccc;
@@ -57,8 +63,11 @@ a{
 }
 #header .navbar .nav .droplist li{
     border-bottom:1px dashed #ccc;
-    padding:10px 5px;
+    padding:10px 10px;
     line-height:1;
+}
+#header .navbar .nav .droplist li:hover{
+    background-color: #eee;
 }
 #header .navbar .nav .droplist li:last-child{
     border-bottom:none;
@@ -126,6 +135,10 @@ a{
     height:33px;
     border:1px solid #ccc;
     border-radius: 3px;
+    color:#666;
+}
+#content .works .boxs .btn:hover{
+    color:#000;
 }
 #content .aboutme{
     padding:20px 0;
@@ -143,6 +156,9 @@ a{
     border:1px solid #ccc;
     border-radius: 3px;
     color:#fff;
+}
+#content .aboutme .btn:hover{
+    color:#333;
 }
 #footer{
     text-align: center;
