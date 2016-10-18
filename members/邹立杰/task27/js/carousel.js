@@ -85,6 +85,3 @@ function carousel(obj){
 		clearInterval(clock);
 	}
 }
-carousel( $(".carousel1") );
-carousel( $(".carousel2") );
-carousel( $(".carousel3") );
