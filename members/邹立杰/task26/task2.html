@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task</title>
+</head>
+<style>
+	body{
+		height:2000px;
+	}
+	.wrap{
+		width:800px;
+		margin:20px auto;
+	}
+	.btn{
+		display: inline-block;
+		padding:5px 10px;
+		border:1px solid #333;
+		border-radius:3px;
+		margin-bottom: 5px;
+		color:#fff;
+		background-color: red;
+	}
+	
+	.height{
+		height:400px;
+		border:1px solid #ccc;
+		background-color: #fff;
+	}
+	.scroll-top{
+		position: fixed;
+		padding:20px;
+		background:red;
+		color:#fff;
+		top:200px;
+		left:200px;
+	}
+	.blue{
+		background-color: blue;
+	}
+	.red{
+		background-color: red;
+	}
+	.input{
+		margin-top: 20px;
+		width:200px;
+		height:50px;
+		font-size: 50px;
+		padding-left: 10px;
+	}
+	.border-blue{
+		border:1px solid blue;
+	}
+</style>
+<body>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<div class="wrap">
+		<a href="#" class="btn">按钮</a>
+		<div class="height">
+			<div class="scroll-top">垂直滚动距离: <span></span></div>
+		</div>
+		<input type="text" class="input">
+		<p class="car">我有的车是 <span></span>，你有吗？</p>
+		<select id="select">
+			<option value="Benz">Benz</option>
+			<option value="Lincoln">Lincoln</option>
+			<option value="tractors">tractors</option>
+		</select>
+	</div>
+	<script>
+		$(function(){
+			$(".btn").on("click",function(e){
+				e.preventDefault()
+				$(this).toggleClass("blue");
+			})
+			$(document).on("scroll",function(){
+				// console.log("1");
+				$(".scroll-top").children().html($("body").scrollTop()+"px");
+			});
+			$(".height").on("mouseover",function(){
+				$(this).addClass("red")
+			});
+			$(".height").on("mouseout",function(){
+				$(this).removeClass("red")
+			});
+			$(".input").on("focus",function(){
+				$(this).addClass("border-blue");
+			});
+			$(".input").on("keyup",function(){
+				$(this).val(  $(this).val().toUpperCase()  );
+			})
+			$(".input").on("blur",function(){
+				$(this).removeClass("border-blue");
+				$(".car").before($("<p>请查看控制台</p>"))
+				console.log( $(this).val() );
+			});
+			$("#select").on("change",function(){
+				$(".car").children().html( $(this).val() );
+			});
+		});
+	</script>
+</body>
+</html>

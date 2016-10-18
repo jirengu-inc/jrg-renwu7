@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 29-3 无限加载</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body,html,ul,li{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .list li{
+            width: 100%;
+            border: 1px solid;
+            border-radius: 10px;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .bt{
+            text-align: center;
+        }
+        .btn{
+            display: inline-block;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<ul class="list">
+    <li>内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+    <li>内容5</li>
+    <li>内容6</li>
+    <li>内容7</li>
+    <li>内容8</li>
+    <li>内容9</li>
+    <li>内容10</li>
+    <li>内容11</li>
+    <li>内容12</li>
+    <li>内容13</li>
+    <li>内容14</li>
+    <li>内容15</li>
+    <li>内容16</li>
+    <li>内容17</li>
+    <li>内容18</li>
+    <li>内容19</li>
+    <div class="bt">
+        <a class="btn" href="#">加载更多</a>
+    </div><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li><li>内容19</li>
+
+
+
+</ul>
+
+
+
+<script>
+
+
+
+    function checkbtn($node) {
+
+        var windowH=$(window).height();
+        var btnoffT=$node.offset().top;
+        var btnsctop=$(window).scrollTop();
+        if(!$node.data('data-check')){
+            if(btnoffT<windowH+btnsctop&&btnoffT>btnsctop){
+                $node.data('data-check',true);
+                return console.log('true');
+
+            }else {
+                return false;
+            }
+        }
+
+
+
+    }
+    $(window).on('scroll',function () {
+        var cur=$('.btn');
+        checkbtn(cur);
+
+
+
+    })
+
+
+</script>
+
+</body>
+</html>

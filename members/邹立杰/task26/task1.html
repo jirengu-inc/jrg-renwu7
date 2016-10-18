@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery</title>
+</head>
+<style>
+	body,ul,li{
+		padding:0;
+		margin:0;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration:none;
+		color:#333;
+	}
+	.wrap{
+		width:800px;
+		margin:20px auto;
+	}
+	.ct{
+		overflow: hidden;
+		margin-bottom: 20px;
+	}
+	.ct li{
+		float: left;
+		cursor: pointer;
+	}
+	.item{
+		margin-right: 10px;
+		padding-right: 10px;
+		width:40px;
+		height:40px;
+		border:1px solid #333;
+		border-radius: 3px;
+	}
+	.item.active{
+		background-color: #333;
+	}
+	.title{
+		color:#333;
+		font-size: 14px;
+		margin-bottom:10px;
+	}
+	.btn-group{
+		margin-bottom: 10px;
+	}
+	.btn{
+		display: inline-block;
+		padding:5px 10px;
+		border:1px solid #333;
+		border-radius:3px;
+		margin-bottom: 5px;
+	}
+	#img-ring{
+		border:1px solid #eee;
+		padding:5px;
+		margin:5px;
+	}
+	.height{
+		height:500px;
+	}
+	.scroll-top{
+		position: fixed;
+		padding:20px;
+		background:red;
+		color:#fff;
+		top:200px;
+		left:200px;
+	}
+	.red{
+		background-color: red;
+	}
+	.blue{
+		background-color: blue;
+	}
+</style>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+<script src="js/jquery.min.js"></script>
+<body>
+	<div class="wrap">
+	<ul class="ct ct-empty">
+		<li >1</li>
+		<li class="item">2</li>
+		<li class="item">3</li>
+		<li >1</li>
+		<li class="item">4</li>
+		<li >1</li>
+		<li class="item">5</li>
+		<li >1</li>
+		<li class="panel">我是panel儿子</li>
+	</ul>
+	<p class="num">子元素有几个： <span></span></p>
+	<p class="one">该元素是第几个： <span></span></p>
+	<ul class="ul-text"></ul>
+	<ul class="btn-ct">
+		<li class="title">可以点击这些按钮</li>
+		<li class="btn-group">
+			<a href="" class="btn btn-add">变色</a>
+			<a href="" class="btn btn-recover">恢复</a>
+			<a href="" class="btn btn-recover-all">恢复原样</a>
+			<a href="" class="btn btn-show">出现</a>
+			<a href="" class="btn btn-hiden">隐藏</a>
+			<a href="" class="btn btn-add-first">头增加</a>
+			<a href="" class="btn btn-add-last">尾增加</a>
+			<a href="" class="btn btn-remove">删除</a>
+			<a href="" class="btn btn-empty">清空</a>
+			<a href="" class="btn btn-html">HTML</a>
+			<a href="" class="btn btn-css">CSS</a>
+			<a href="" class="btn btn-each">each</a>
+			<a href="" class="btn btn-find">child.item</a>
+			<a href="" class="btn btn-find-all">child</a>
+			<a href="" class="btn btn-find-spes">找panel儿子</a>
+			<a href="" class="btn btn-num">有几个</a>
+		</li>
+		<script>
+			$(function(){
+				$(".ct").on("click","li",function(){
+					var index = $(this).index();
+					$(".one").children().html(index);
+				});
+				var children = $(".ct").children().clone(true);
+				$(".btn-group").on("click",function(e){
+					e.preventDefault();
+					var $target = $(e.target);
+					if($target.hasClass("btn-add")){
+						$(".item").addClass("active");
+					};
+					if($target.hasClass("btn-recover")){
+						$(".item").removeClass("active");
+					};
+					if($target.hasClass("btn-recover-all")){
+						$(".ct").append(children);
+					};
+					if($target.hasClass("btn-show")){
+						$(".item").show();
+					};
+					if($target.hasClass("btn-hiden")){
+						$(".item").hide();
+					};
+					if($target.hasClass("btn-add-first")){
+						var newLi = $("<li class='item'>1</li>")
+						$(".ct").children().eq(0).before(newLi)
+					};
+					if($target.hasClass("btn-add-last")){
+						var newLi = $("<li class='item'>2</li>")
+						$(".ct").append(newLi)
+					};
+					if($target.hasClass("btn-remove")){
+						$(".item").remove();
+					};
+					if($target.hasClass("btn-empty")){
+						$(".ct-empty").empty();
+					};
+					if($target.hasClass("btn-html")){
+						$(".ct-empty").html("<div class='btn'>按钮</div>");
+					};
+					if($target.hasClass("btn-css")){
+						$(".item").css({"color":"red","font-size":"14px"});
+					};
+					if($target.hasClass("btn-each")){
+						$(".item").each(function(){
+							$(".ul-text").append( $(this).text())
+						});
+					};
+					if($target.hasClass("btn-find")){
+						$(".ct").find(".item").addClass("red");
+					};
+					if($target.hasClass("btn-find-all")){
+						$(".ct").find("li").toggleClass("red");
+					};
+					if($target.hasClass("btn-find-spes")){
+						$(".item").parent(".ct").find(".panel").toggleClass("blue");
+					};
+					if($target.hasClass("btn-num")){
+						$(".num").children().html($(".ct").children().length)
+					};
+				});
+			});
+		</script>
+	</ul>
+	<img id="img-ring" title="ring" src="image/1.jpg" >
+	<p class="id-name">id:  <span></span></p>
+	<p class="title-name">title:  <span></span></p>
+	<p class="src-name">src:  <span></span></p>
+	<p class="data">data-src:  <span></span></p>
+	<p class="width">width(内容):  <span></span></p>
+	<p class="innerWidth">innerWidth:  <span></span></p>
+	<p class="outerWidth">outerWidth:  <span></span></p>
+	<p class="trueOuterWidth">outerWidth(true):  <span></span></p>
+	<p class="left">水平:  <span></span></p>
+	<p class="top">垂直:  <span></span></p>
+	<ul class="btn-ct">
+		<li class="title">可以点击这些按钮</li>
+		<li class="btn-group">
+			<a href="" class="btn btn-gain">获取</a>
+			<a href="" class="btn btn-set">设置</a>
+			<a href="" class="btn btn-data">自定义属性</a>
+			<a href="" class="btn btn-offset">offset</a>
+			<a href="" class="btn btn-top">滚动距离</a>
+		</li>
+		<script>
+			var $img = $("#img-ring");
+			$(".btn-gain").on("click",function(){
+				var objWidth = $img.width();
+				var innerWidth = $img.innerWidth();
+				var outerWidth = $img.outerWidth();
+				var trueOuterWidth = $img.outerWidth(true);
+				$(".id-name").children().html($img.attr("id"));
+				$(".title-name").children().html($img.attr("title"));
+				$(".src-name").children().html($img.attr("src"));
+				$(".width").children().html(objWidth+"px");
+				$(".innerWidth").children().html(innerWidth+"px");
+				$(".outerWidth").children().html(outerWidth+"px");
+				$(".trueOuterWidth").children().html(trueOuterWidth+"px");
+				
+			});
+			$(".btn-set").on("click",function(){
+				$img.attr("title","这是项链");
+				$img.attr("src","image/2.jpg");
+				$(".btn-gain").click();
+			});
+			$(".btn-data").on("click",function(){
+				$img.attr("data-src","img/1.jpg");
+				$(".data").children().html($img.attr("data-src"));
+			});
+			$(".btn-offset").on("click",function(){
+				var off = $img.offset();
+				$(".left").children().html(off.left+"px");
+				$(".top").children().html(off.top+"px");
+			});
+			$(".btn-top").on("click",function(){
+				$(".scroll-top").children().html($("body").scrollTop()+"px");
+			});
+		</script>
+	</ul> 
+	<div class="height">
+		<div class="scroll-top">垂直滚动距离: <span></span></div>
+	</div>
+	<script>
+		$(function(){
+			// $(document).on("scroll",function(){
+			// 	// console.log("1");
+			// 	$(".scroll-top").children().html($("body").scrollTop()+"px");
+			// });
+		});
+	</script>
+	
+	</div>
+</body>
+</html>

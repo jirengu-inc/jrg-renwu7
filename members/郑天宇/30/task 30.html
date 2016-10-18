@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>30 瀑布流</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        .item{
+            position: absolute;
+            margin-right: 10px;
+            margin-top: 10px;
+            width: 200px;
+            transition: all 1s;
+        }
+        .ct{
+            position: relative;
+        }
+        .h1{
+            height: 400px;
+            background: yellow;
+        }
+        .h2{
+            height: 300px;
+            background: red;
+        }
+        .h3{
+            height: 600px;
+            background: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="item h1">1</div>
+    <div class="item h3">2</div>
+    <div class="item h2">3</div>
+    <div class="item h2">4</div>
+    <div class="item h3">5</div>
+    <div class="item h1">6</div>
+    <div class="item h2">7</div>
+    <div class="item h2">8</div>
+    <div class="item h3">9</div>
+    <div class="item h2">10</div>
+    <div class="item h1">11</div>
+    <div class="item h1">12</div>
+    <div class="item h2">13</div>
+    <div class="item h3">14</div>
+    <div class="item h1">15</div>
+    <div class="item h3">16</div>
+    <div class="item h1">17</div>
+</div>
+
+    <script>
+    function render() {
+        var nodewidth=$('.item').outerWidth(true)
+        var colnum=parseInt($(window).width()/nodewidth);
+        var sumheight=[];
+        console.log(colnum);
+        for(var i=0;i<colnum;i++){
+            sumheight.push(0);
+        }
+
+        $('.item').each(function () {
+            var cur=$(this);
+            var minheight=sumheight[0],
+                    idx=0;
+            for(var i=0; i<sumheight.length;i++) {
+
+                if (minheight > sumheight[i]) {
+                    minheight = sumheight[i];
+                    idx = i;
+                }
+            }
+                cur.css({
+                    left:idx*nodewidth,
+                    top:minheight
+                });
+                sumheight[idx]+=cur.outerHeight(true);
+
+        });
+    }
+
+    render();
+
+    $(window).on('resize',function () {
+        render();
+    })
+    </script>
+
+
+</body>
+</html>
