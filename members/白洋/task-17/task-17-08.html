@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(j); //undefined
+        console.log(i); //undefined
+        for (var i = 0; i < 10; i++) {
+            var j = 100;
+        }
+        console.log(i); //10
+        console.log(j); //100
+        //变形如下
+//        var i;
+//        var j;
+//        console.log(j);
+//        console.log(i);
+//        for (i = 0; i < 10; i++) {
+//            j = 100;
+//        }
+//        console.log(i);
+//        console.log(j);
+
+    </script>
+</body>
+
+</html>
