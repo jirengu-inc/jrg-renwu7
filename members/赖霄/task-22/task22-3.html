@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-3</title>
+</head>
+<body>
+<!-- 补全代码，要求：当鼠标放置在li元素上，会在img-preview里展示当前li元素的data-img对应的图片。     -->
+
+    <ul class="ct">
+        <li data-img="http://oe68k88iq.bkt.clouddn.com/dog1.jpg">鼠标放置查看图片1</li>
+        <li data-img="http://oe68k88iq.bkt.clouddn.com/dog2.jpg">鼠标放置查看图片2</li>
+        <li data-img="http://oe68k88iq.bkt.clouddn.com/dog3.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+        var ct = document.querySelector('.ct'),
+            lis = ct.children;
+//        ct.addEventListener('mouseover', function(e){
+//            var img_preview = document.querySelector('.img-preview'),
+//                data_img = e.target.getAttribute('data-img');
+//            img_preview.innerHTML = '<img src="' + data_img +'">';
+//        })
+//      考虑不使用循环，用事件代理把事件绑定到父元素上，想想怎么实现 ??
+        for(var i = 0; i<lis.length; i++){
+            lis[i].addEventListener('mouseenter', function(){
+                var data_img = this.getAttribute('data-img'),
+                    img_preview = document.querySelector('.img-preview');
+                img_preview.innerHTML = '<img src="' + data_img + '">';
+
+            })
+        }
+    </script>
+</body>
+</html>
