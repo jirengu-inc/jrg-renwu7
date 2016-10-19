@@ -5,7 +5,7 @@
     <title>task 32</title>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <style>
-        html,body,div,ul,li{
+        html,body,ul,li{
             padding: 0;
             margin: 0;
         }
@@ -20,98 +20,184 @@
             margin: 0 auto;
             border:1px solid;
         }
-        .news{
-            width: 250px;
-            height: 300px;
-            border: 1px solid;
-            margin: 20px;
-
+        .img-ct{
+            position: relative;
         }
+        .clearfix{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .img-ct .item{
+            position: absolute;
+            padding: 0 0 10px 0;
+            width: 280px;
+            margin: 10px;
+            border: 1px solid #DFDFDF;
+            background: #FFF;
+            opacity: 0;
+            transition: all .8s;
+        }
+        .img-ct .item img{
+            margin: 10px;
+            width: 260px;
+        }
+
+        .img-ct .item .header{
+            height: 25px;
+            margin: 0 12px;
+            border-bottom: 1px solid #DBDBDB;
+        }
+        .img-ct .desp{
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 10px 15px 0;
+            color: #777371;
+        }
+
+        #load{
+           visibility: hidden;
+            height: 20px;
+        }
+
+        .hide{
+            display: none;
+        }
+
     </style>
 </head>
 <body>
     <div class="ct">
-        <div class="news">
-            <div class="pic"></div>
-            <div class="text"></div>
-        </div>
+        <ul class="img-ct clearfix">
+        <li class="item hide"></li>
+        </ul>
+        <div id="load">我是看不见的</div>
     </div>
 
-    <script>
-        var $ct=$('.ct'),
-                $news=$('.news'),
-                clock;
 
+    <script>
+
+        var clock;
         $(window).on('scroll',function () {
             if(clock){
                 clearTimeout(clock);
             }
             clock=setTimeout(function () {
-                if(isvisable()){
+
                     checkshow();
-                }
-            });
+
+            },100);
         });
+       checkshow();
 
         function checkshow() {
-            if(ishow($el)){
-                load()
+            console.log('1')
+            if(ishow($('#load'))){
+                loadAndPlace()
             }
         }
 
         function ishow($el) {
-            var $el=$('.load'),
-                    $eloffsetH=$el.offset().height,
+            var $eloffsetH=$el.offset().top,
                     windowH=$(window).height(),
-                    $elscroll=$(window).scrollHeight();
+                    $elscroll=$(window).scrollTop();
             if($eloffsetH<windowH+$elscroll){
                 return true
             }else return false;
         }
 
         var curpage=1,
-                pagecount=0;
+                pagecount=9;
         
-        function load() {
+        function loadAndPlace() {
             $.ajax({
                 url:'http://platform.sina.com.cn/slide/album_tech',
-                datatype:'json',
+                datatype:'jsonp',
+                jsonp:"jsoncallback",
                 data:{
                     app_key:'1271687855',
                     num:pagecount,
                     page:curpage
-                },
-                success:function (ret) {
-                    onsuccess(ret)
-                },
-                error:function () {
-                    onerror()
                 }
+            }).done(function (ret) {
+                if(ret && ret.status && ret.status.code === "0"){
+                    place(ret.data);
+                }else {
+                    console.log('error data')
+                }
+            });
+            
+        }//加载
+
+
+        function place(nodelist) {
+            console.log(nodelist);
+            var node=renderdata(nodelist);//把节点添加到页面
+
+            var defereds=[];
+            node.find('img').each(function () {
+                var defer=$.Deferred();
+                $(this).load(function () {
+                    defer.resovle();
+                });
+                defereds.push(defer)
+            });
+            $.when.apply(null,defereds).done(function () {
+                console.log('over');
+                waterfall(node)
             })
-            
+
+        }//插入数据
+        function renderdata(items) {
+            var tpl='',
+                    node;
+            for(var i = 0; i<items.length;i++){
+
+                tpl+='<li class="item">';
+                tpl+='<img src="'+nodelist[i].img_url+'" alt="" '+"</a>";
+                tpl+='<h4 class="header">'+nodelist.short_name+'</h4>';
+                tpl+='<p class="desp">'+nodelist.short_intro+'</p>'  ;
+                tpl+='</li>';
+
+            }
+            node=$(tpl);
+            $('.img-ct').append(node);
+            return node;
         }
 
-        function onsuccess(ret) {
-        if(ret && ret.status && ret.status.code === "0"){
-            place(ret.data);
-        }
+        var nodewidth=$('.item').outerWidth(true);
+        var colnum=parseInt($('.img-ct').width()/nodewidth);
+        var sumheight=[];
 
-        }
+            for (var i = 0; i < colnum; i++) {
+                sumheight.push(0);
+            }
 
-        function onerror() {
-            alert('error');
-        }
-        
-        function palce(nodelist) {
-            var 
-        }
-        
-        function renderdata() {
-            
-        }
-        function water() {
-            
-        }
+            function waterfall($nodes) {
+
+                $nodes.each(function () {
+                    var cur = $(this);
+                    var minheight = sumheight[0],
+                            idx = 0;
+                    for (var i = 0; i < sumheight.length; i++) {
+
+                        if (minheight > sumheight[i]) {
+                            minheight = sumheight[i];
+                            idx = i;
+                        }
+                    }
+                    cur.css({
+                        left: idx * nodewidth,
+                        top: minheight,
+                        opacity:1
+                    });
+                    sumheight[idx] += cur.outerHeight(true);
+                    $('.img-ct').height(Math.max.apply(null,sumheight))
+
+                });
+            }
+        //瀑布流处理
+
 
 
     </script>
