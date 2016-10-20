@@ -118,15 +118,15 @@
         this.$carousel = $node;
         var $ct = this.$ct = this.$carousel.find(".image-ct");
         this.$item = $ct.children();
-        this.$next = $(".next");
-        this.$pre = $(".pre");
-        this.$bullet = $(".bullet");
+        this.$next = this.$carousel.find(".next");
+        this.$pre = this.$carousel.find(".pre");
+        this.$bullet = this.$carousel.find(".bullet");
         this.imgWidth = $ct.find("img").width();
         this.imgCount = $ct.find("img").length + 2;
         this.isAnimate = false;
-        this.curIdx = 1;
         this.clock = "";
         this.init();
+        this.curIdx = 1;
     }
     Carousel.prototype = {
         init:function(){
@@ -192,7 +192,7 @@
         }
     };
     var c1 = new Carousel($("#c1"));
-    var c2 = new Carousel($("#c2"))
+    var c2 = new Carousel($("#c2"));
 </script>
 </body>
 </html>
