@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task25-1</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      text-decoration: none;
+    }
+    li{
+      list-style: none;
+    }
+    .nav-ul{
+      width: 200px;
+    }
+    .nav-li{
+      background: #c7171e;
+      border-bottom: 1px solid #de272e;
+      cursor: pointer;
+      position: relative;
+      padding: 8px 12px;
+      height: 25px;
+      line-height: 25px;
+    }
+    .nav-a{
+      font-size: 18px;
+      color: #fff;
+    }
+    span{
+      position: absolute;
+      color: #fff;
+      top: 0;
+      left: 180px;
+      padding-top: 10px;
+      font-size: 18px;
+    }
+    .nav-ul-child{
+      position: absolute;
+      top: 0;
+      left: 200px;
+      border: 1px solid #333;
+      width: 200px;
+      display: none;
+    }
+    .nav-ul-child>li{
+      display: inline-block;
+      float: left;
+      width: 50px;
+      padding: 15px 25px;
+    }
+    .nav-ul-child>li>a{
+      color: #000;
+    }
+  </style>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+</head>
+<body>
+  <ul class="nav-ul">
+    <li class="nav-li">
+      <a class="nav-a" href="#">珠宝玉器</a>
+      <span>></span>
+      <ul class="nav-ul-child">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">玉石</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">水晶</a></li>
+        <li><a href="#">玛瑙</a></li>
+        <li><a href="#">珍珠</a></li>
+        <li><a href="#">钻石</a></li>
+        <li><a href="#">琥珀</a></li>
+        <li><a href="#">和田</a></li>
+        <li><a href="#">琥珀</a></li>
+      </ul>
+    </li>
+    <li class="nav-li">
+      <a class="nav-a" href="#">珠宝玉器</a>
+      <span>></span>
+      <ul class="nav-ul-child">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">玉石</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">水晶</a></li>
+        <li><a href="#">玛瑙</a></li>
+        <li><a href="#">珍珠</a></li>
+      </ul>
+    </li>
+    <li class="nav-li">
+      <a class="nav-a" href="#">珠宝玉器</a>
+      <span>></span>
+      <ul class="nav-ul-child">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">玉石</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">水晶</a></li>
+      </ul>
+    </li>
+    <li class="nav-li">
+      <a class="nav-a" href="#">珠宝玉器</a>
+      <span>></span>
+      <ul class="nav-ul-child">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">玉石</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">水晶</a></li>
+        <li><a href="#">玛瑙</a></li>
+        <li><a href="#">珍珠</a></li>
+      </ul>
+    </li>
+    <li class="nav-li">
+      <a class="nav-a" href="#">珠宝玉器</a>
+      <span>></span>
+      <ul class="nav-ul-child">
+        <li><a href="#">翡翠</a></li>
+        <li><a href="#">玉石</a></li>
+        <li><a href="#">宝石</a></li>
+        <li><a href="#">水晶</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    // $('.nav-ul-child').hide();
+    $('.nav-li').on('mouseenter', function(){
+      $(this).find('.nav-ul-child').show();
+    });
+    $('.nav-li').on('mouseleave', function(){
+      $(this).find('.nav-ul-child').hide();
+    });
+  </script>
+</body>
+</html>

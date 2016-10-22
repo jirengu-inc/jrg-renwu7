@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task20</title>
+</head>
+<body>
+<script>
+// 1. 下面的代码输出多少？修改代码让fnArr[i]() 输出 i。使用两种以上的方法
+    // var fnArr = [];
+    // for (var i = 0; i < 10; i ++) {
+    //     fnArr[i] =  (function(n){
+    //         return fn
+    //         function fn(){
+    //         	return n
+    //         }
+    //     }(i));
+    // }
+    // console.log( fnArr[3]() ); 
+// method one
+    var fnArr = [];
+    for (var i = 0; i < 10; i ++) {
+        fnArr[i] =  (function(n){
+            return fn
+            function fn(){
+            	return n
+            }
+        }(i));
+    }
+    console.log( fnArr[3]() ); 
+
+// method two
+    var fnArr = [];
+    for (var i = 0; i < 10; i ++) {
+        fnArr[i] =  (function(){
+        	var n = i
+            return fn
+            function fn(){
+            	return n
+            }
+        }());
+    }
+    console.log( fnArr[3]() ); 
+
+// 2. 使用闭包封装一个汽车对象，可以通过如下方式获取汽车状态
+
+// var Car = //todo;
+// Car.setSpeed(30);
+// Car.getSpeed(); //30
+// Car.ecelerate();
+// Car.getSpeed(); //40;
+// Car.decelerate();
+// Car.decelerate();
+// Car.getSpeed(); //20
+// Car.getStatus(); // 'running';
+// Car.decelerate();
+// Car.decelerate();
+// Car.getStatus();  //'stop';
+// //Car.speed;  //error
+
+var Car = {
+
+    'setSpeed' : function(n){
+        speed = n
+        return speed
+    },
+    'accelerate' : function(){
+        speed += 10
+    },
+    'getSpeed' : function(){
+        return speed
+    },
+    'decelerate' : function(){
+        if(speed>0){
+            speed -= 10
+        }
+    },
+    'getStatus' : function(){
+        if(typeof speed==='number' && speed>0){
+            return 'running'
+        }
+        return 'stop'
+    }
+}
+
+// 3.写一个函数使用setTimeout模拟setInterval的功能
+var i = 0
+function intv(element,time){
+    clock = setTimeout(function(){
+        !element()
+        intv(element,time)
+    },time)
+
+}
+function stop(){
+    clearTimeout(clock)
+}
+intv(function(){console.log(i++)},1000)
+
+
+
+// 4.写一个函数，计算setTimeout平均[备注：新加]最小时间粒度
+function getMini(){
+    var start = new Date().getTime();
+    var i = 0;
+    var clock = setTimeout(function(){
+        i++;
+        if(i == 10){
+            var end = Date.now();
+            return console.log( (end-start)/i );
+        }
+        setTimeout(arguments.callee,0);
+    },0);
+}
+getMini();
+
+
+// 5.下面这段代码输出结果是? 为什么?
+// var a = 1;
+// setTimeout(function(){
+//     a = 2;
+//     console.log(a);//2
+// }, 0);
+// var a ;
+// console.log(a);//1
+// a = 3;
+// console.log(a);//3
+// 以上代码相当于
+var a = 1
+console.log(a)//1
+a = 3
+console.log(a)//3
+setTimeout(function(){
+	a = 2
+	console.log(a)//2,setTimeout函数里的函数在0秒后放入执行清单，但JS将在执行完手头上的代码后再处理清单
+},0)
+
+// 6.下面这段代码输出结果是? 为什么?
+var flag = true;
+setTimeout(function(){
+    flag = false;
+},0)
+while(flag){}
+console.log(flag);
+// 上题已解释，setTimeout里的函数放在最后执行，flag永远为真，while进入死循环。但由于无任何执行代码，故无输出。
+
+// 7.下面这段代码输出？如何输出delayer: 0, delayer:1...（使用闭包来实现）
+for(var i=0;i<5;i++){
+    setTimeout(function(){
+         console.log('delayer:' + i );
+    }, 0);
+    console.log(i);//5
+}
+// 输出 1 2 3 4 5 delayer:5五次
+for(var i=0;i<5;i++){
+		setTimeout((function(i){
+			return function(){
+				console.log('delayer:' + i)
+			}
+		}(i)),0)
+		console.log(i)
+}
+
+
+</script>
+</body>
+</html>
