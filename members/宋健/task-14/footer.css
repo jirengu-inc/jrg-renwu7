@@ -1,0 +1,38 @@
+#footer{
+    padding-top:50px;
+    padding-bottom: 50px;
+    clear:both;
+    margin:50px auto;
+}
+#footer h3{
+    font:130%/1.5 "arial black";
+}
+#footer>p:nth-child(2){
+    margin-top:15px;
+}
+#footer .contactme{
+    margin-top:15px;
+}
+#footer .contactme a{
+    color:#377BB5;
+}
+#footer .contactme a:hover{
+    color:#377BB5;
+    text-decoration:underline;
+}
+#footer p:last-child{
+    color: rgba(107, 107, 107, 0.72);
+}
+#footer .socialmedia{
+    margin:10px 0px;
+}
+#footer .socialmedia .iconfont{
+    font-size:48px;
+    color:#377BB5;
+    padding:5px;
+}
+#footer .socialmedia a i:hover{
+    cursor:pointer;
+    color:#333;
+}
+

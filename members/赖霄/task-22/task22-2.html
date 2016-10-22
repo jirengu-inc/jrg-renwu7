@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-2</title>
+</head>
+<body>
+<!--     2.补全代码，要求：
+        1.当点击按钮开头添加时在<li>这里是</li>元素前添加一个新元素，内容为用户输入的非空字符串；当点击结尾添加时在<li>前端6班</li>后添加用户输入的非空字符串.
+        2.当点击每一个元素li时控制台展示该元素的文本内容。 -->
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端6班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容"/>
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+  
+    <script>
+        var ct = document.querySelector('.ct');
+        var button_addstart = document.getElementById('btn-add-start');
+        var button_addend = document.getElementById('btn-add-end');
+        var input = document.querySelector('.ipt-add-content');
+
+        ct.addEventListener('click', function(e){
+            console.log(e.target.innerText);
+        });
+
+        button_addstart.addEventListener('click', function(){
+//                var input_value = input.getAttribute('value');//为何使用getAttribute('value')获得的属性值是null？
+
+            if(/[^\s]/.test(input.value)) {
+                var li = document.createElement('li');
+                li.innerText = input.value;
+                ct.insertBefore(li, ct.firstChild);
+            }
+        });
+
+        button_addend.addEventListener('click', function(){
+            if(/[^\s]/.test(input.value)){
+                var li = document.createElement('li');
+                li.innerText = input.value;
+                ct.appendChild(li);
+            }
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>

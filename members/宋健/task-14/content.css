@@ -1,0 +1,129 @@
+#content .bar1{
+    padding-top:50px;
+    padding-bottom: 50px;
+}
+#content .bar1 h4{
+    padding-top:8px;
+    font-family:"Microsoft Yahei";
+}
+#content .bar1 a{
+    color:#377BB5;
+}
+#content .bar1 a:hover{
+    color:#333;
+    text-decoration:underline;
+}
+#content .bar2{
+    padding-top:50px;
+    padding-bottom: 50px;
+    background-color:#3372A8;
+    color:#fff;
+}
+#content .bar2 .iconbox:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+#content .bar2 .iconbox{
+   margin-left:25px;
+}
+#content .bar2 .iconbox li{
+    float:left;
+    width:23%;
+    padding:5px;
+}
+#content .bar2 .iconbox li>p{
+    padding:10px 0;
+}
+#content .bar2 .iconbox .iconfont{
+    font-size:96px;
+    color:#fff;
+}
+#content .bar2 .iconbox .btn2{
+    display:inline-block;
+    width:110px;
+    height:35px;
+    background-color: #ffffff;
+    line-height:35px;
+    color:#333;
+}
+#content .bar2 .iconbox .btn2:hover{
+    cursor:pointer;
+    background-color: #eee;
+}
+#content .bar3{
+    background:url("img/callout.jpg") no-repeat;
+    background-size:cover;
+}
+#content .bar3 .container h1{
+    padding:200px 0;
+    font-size:300%;
+    color:#fff;
+}
+#content .bar4{
+    padding-top:50px;
+    padding-bottom: 50px;
+}
+#content .bar4 ul{
+    margin-right:-30px;
+}
+#content .bar4 ul li{
+    float: left;
+    width: 465px;
+    height: 305px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+#content .bar4 ul li:hover{
+    outline:#ccc solid thick;
+}
+#content .bar4 ul li a img{
+    width:465px;
+    height:305px;
+}
+
+#content .bar4 .btn2{
+    display:inline-block;
+    width:165px;
+    height:45px;
+    background-color:#999999;
+    color:#fff;
+    line-height:45px;
+}
+#content .bar4 .btn2:hover{
+    cursor:pointer;
+    background-color: #333;
+}
+#content .bar5{
+    padding-top:50px;
+    padding-bottom: 50px;
+    width:100%;
+    background-color:#377BB5;
+}
+#content .bar5 .mygithub h2{
+    color:#fff;
+}
+#content .bar5 .mygithub .btn3{
+    display:inline-block;
+    width:130px;
+    height:50px;
+    line-height:50px;
+    margin:20px 10px 0 10px;
+    background-color:#fff;
+    color:#333;
+}
+#content .bar5 .mygithub .btn3:hover{
+    background-color:#eee;
+}
+#content .bar5 .mygithub .btn4{
+    display:inline-block;
+    width:130px;
+    height:50px;
+    line-height:50px;
+    margin:20px 10px 0 10px;
+    background-color:#204E6C;
+    color:#fff;
+}
+#content .bar5 .mygithub .btn4:hover{
+    background-color: #333;
+}

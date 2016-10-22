@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用浮动、负边距实现如下效果 </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        .panels li{
+            float: left;
+            height: 100px;
+            background: #004210;
+            width: 286px;
+            margin: 20px 0 0 20px;
+        }
+        .main{
+            margin-top: 10px;
+            padding: 10px 0;
+            background: #ccc;
+        }
+        .panels{
+            margin: -20px 0 0 -20px;
+        }
+        .panels:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .layout {
+            width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div id="content" class="layout">
+    <div class="main">
+        <ul class="panels">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

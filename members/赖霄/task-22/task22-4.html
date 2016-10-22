@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-4</title>
+    <style>
+    	*{padding:0;margin:0;}
+    	body{
+    		font: 16px/2 'microsoft yahei','Helvetica';
+    	}
+    	#content{
+/*     		width: 600px;
+ */    		height: 300px;
+    		border: 1px solid #CBCBCB;
+    		margin: 20px;
+    	}
+    	ul{
+    		list-style: none;
+			overflow:  hidden;
+			margin-left: -1px;
+    	}
+    	li{
+    		width: 33.3%;
+    		box-sizing: border-box;
+    		border-left: 1px solid #CBCBCB;
+    		border-bottom: 1px solid #CBCBCB;
+    		float: left;
+    		text-align: center;
+    		cursor: pointer;
+    	}
+    	p{
+    		padding: 10px;
+			display: none;
+    	}
+    	.show{
+    		display: block;
+    	}
+		.bgc-gray{
+			background-color: #EDEDED;
+		}
+    </style>
+</head>
+<body>
+<div id="content">
+  	<ul id='tab-event'>
+  		<li class='bgc-gray'>tab1</li>
+  		<li>tab2</li>
+  		<li>tab3</li>
+  	</ul>
+  	<p class='show'>内容1</p>
+  	<p>内容2</p>
+  	<p>内容3</p>
+  	<script>
+  		var tab_event = document.querySelector('#tab-event');
+  		var p = document.querySelectorAll('p');
+  		var lis = tab_event.children;
+  		var utils = {
+  			index : function(e){
+  				var siblings = e.parentElement.children;
+  				for(var i = 0; i<siblings.length; i++){
+	  				if(e === siblings[i]){
+	  					return i;
+	  				}
+  				}
+  			}
+  		}
+  		tab_event.addEventListener('click',function(e){
+  			var num = utils.index(e.target);
+  			for(var i = 0; i<lis.length; i++){
+  				lis[i].setAttribute('class', '');
+  				p[i].setAttribute('class', '');
+  			}
+  			e.target.setAttribute('class', 'bgc-gray');
+  			p[num].setAttribute('class', 'show');
+
+  		})
+  	</script>
+</div>  
+</body>
+</html>
