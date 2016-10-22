@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>瀑布流</title>
+</head>
+<style>
+	ul,li{
+		padding:0;
+		margin:0;
+	}
+	li.item{
+		list-style: none;
+		position: absolute;
+		width:350px;
+		margin-right:10px;
+		margin-bottom: 10px;
+		transition:all .8s;
+	}
+	.h1{
+		height:400px;
+		background-color:#e51e5e;
+	}
+	.h2{
+		height:600px;
+		background-color: #171515;
+	}
+	.h3{
+		height:450px;
+		background-color:#008ccc;
+	}
+	.h4{
+		height:500px;
+		background-color: #32a030;
+	}
+</style>
+<body>
+	<ul>
+		<li class="item h1">1</li>
+		<li class="item h2">2</li>
+		<li class="item h3">3</li>
+		<li class="item h4">4</li>
+		<li class="item h3">5</li>
+		<li class="item h1">6</li>
+		<li class="item h2">7</li>
+		<li class="item h2">7</li>
+		<li class="item h4">4</li>
+		<li class="item h1">6</li>
+		<li class="item h3">5</li>
+		<li class="item h4">4</li>
+		<li class="item h1">1</li>
+		<li class="item h2">2</li>
+		<li class="item h3">3</li>
+	</ul>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script>
+	function waterFull(){
+		var contWidth = $(window).width(),
+			itemWidth = $(".item").outerWidth(true);
+				col = Math.floor( contWidth/itemWidth );
+		var itemHeightArr = [];
+		for(var i = 0; i < col;i++){
+			itemHeightArr.push(0);
+		}
+		
+		$(".item").each(function(){
+			var $cur = $(this);
+			var idx = 0;
+			var minItemHeight = itemHeightArr[0];
+			for(var i = 0; i < itemHeightArr.length;i++){
+				if(minItemHeight > itemHeightArr[i]){
+					idx = i;
+					minItemHeight = itemHeightArr[i]
+				}
+			}
+			$cur.css({
+				"left":itemWidth*idx,
+				"top":minItemHeight
+			});
+			itemHeightArr[idx] = $cur.outerHeight(true)+itemHeightArr[idx];
+		});
+	}
+	waterFull();
+	$(window).on("resize",function(){
+		waterFull();
+	});
+</script>
+</html>
