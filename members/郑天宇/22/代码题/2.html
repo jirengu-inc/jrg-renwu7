@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ct{
+            overflow: inherit;
+        }
+    </style>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input id="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+    var ct=document.querySelector('.ct'),
+        addtop=document.getElementById('btn-add-start'),
+        addbottom=document.getElementById('btn-add-end'),
+        content=document.querySelector('#ipt-add-content');
+
+    ct.addEventListener("click",function (e) {
+      if (e.target.tagName.toLowerCase() ==="li"){
+          console.log(e.target.innerText);
+      }
+    });
+
+    addbottom.addEventListener("click",function () {
+        var newli=document.createElement("li");
+        newli.innerText=content.value;
+//        newp.appendChild(newcontent);
+        ct.appendChild(newli);
+    });
+    addtop.addEventListener("click",function () {
+        var newli = document.createElement("li");
+        newli.innerText = content.value;
+        ct.insertBefore(newli, ct.firstChild);
+    });
+    JSON.parse()
+
+</script>
+</body>
+</html>

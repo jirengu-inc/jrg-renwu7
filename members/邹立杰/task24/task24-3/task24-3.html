@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>注册</title>
+</head>
+<style>
+	body{
+		margin:20px;
+	}
+	.register-ct dt{
+		float:left;
+		width:85px;
+		height:25px;
+		line-height: 25px;
+	}
+	.register-ct dd{
+		margin-left:85px;
+	}
+	.register-ct dd input{
+		height:24px;
+		line-height: 24px;
+		padding-left: 8px;
+		border:1px solid #eee;
+		border-radius:3px;
+	}
+	.register-ct input.error{
+		border-color:red;
+	}
+	.msg{
+		color:#333;
+		font-size: 12px;
+		height:15px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+</style>
+<body>
+	<h3>注册</h3>
+	<form action="" id="register-form">
+		<dl class="register-ct">
+			<dt>用户名：</dt>
+			<dd><input id="username" name="username" type="text" placeholder="用户名（hunger被注册过）"></dd>
+			<dd class="msg msg-uname">只能是字母、数字、下划线，3-10个字符</dd>
+			<dt>密码：</dt>
+			<dd><input id="pwd1" type="password" name="password" class="password-input" placeholder="密码"></dd>
+			<dd class="msg msg-pwd1">大小写字母、数字、下划线最后两种，6-15个字符</dd>
+			<dt>再输一次：</dt>
+			<dd><input id="pwd2" type="password" name="password" class="password-input" placeholder="再输一次密码"></dd>
+			<dd class="msg msg-pwd2"></dd>
+			<dd><button id="btn-submit">注册</button></dd>
+		</dl>
+	</form>
+	<script>
+		var unameIpt = document.querySelector("#username");
+		var pwd1Ipt = document.querySelector("#pwd1");
+		var pwd2Ipt = document.querySelector("#pwd2");
+		var unMsg = document.querySelector(".msg-uname");
+		var pwd1Msg = document.querySelector(".msg-pwd1");
+		var pwd2Msg = document.querySelector(".msg-pwd2");
+		var btn = document.querySelector("#btn-submit");
+		var Msg = {
+			"uname_exit":"用户名已经存在",
+			"uname_type_error":"用户名格式错误",
+			"uname_can_use":"用户名可用",
+			"pwd_type_error":"密码格式错误",
+			"pwd_not_same":"两次密码输入不一致"
+		} 
+		unameIpt.addEventListener("change",function(){
+			//console.log(unameIpt.value)
+			testUname()&&postdata();
+		});
+		pwd1Ipt.addEventListener("change",function(){
+			testPwd1();
+		});
+		pwd2Ipt.addEventListener("change",function(){
+			testPwd2();
+		});
+		btn.addEventListener("click",function(e){
+			e.preventDefault();
+			if(testUname()&&testPwd1()&&testPwd2()){
+				console.log("注册成功");
+				alert("注册成功");
+			}
+		})
+		function postdata(){
+			/*
+				出参 {status:1} 用户名存在
+				    ｛status:0｝用户名可用
+			*/
+			ajax({
+				url:"3.php",
+				type:"get",
+				data:{
+					username:unameIpt.value
+				},
+				success:function(ret){
+					//console.log(ret);
+					if(ret === 1){
+						unMsg.innerHTML = Msg.uname_exit;
+						addClass(unameIpt,"error")
+					}else if(ret === 0){
+						unMsg.innerHTML = Msg.uname_can_use;
+						removeClass(unameIpt,"error")
+					}
+				},
+				error:function(){
+					console.log("出错了");
+				}
+			});
+		}
+		
+
+
+
+
+		function ajax(opts){
+			var xhr =  new XMLHttpRequest();
+			xhr.onreadystatechange = function (){
+				if(xhr.readyState == 4 && xhr.status == 200){
+					//console.log(xhr.responseText);
+					var json =JSON.parse(xhr.responseText);
+					// console.log(json);
+					opts.success(json);
+				}
+				if(xhr.readyState == 4 && xhr.status == 404){
+					opts.error();
+				}
+			}
+			var dataStr = "";
+			for(var key in opts.data){
+				dataStr += key +"="+opts.data[key]+"&";
+			}
+			dataStr = dataStr.substring(0,dataStr.length-1);
+			if(opts.type.toLowerCase() === "get"){
+				xhr.open(opts.type,opts.url +"?"+dataStr,true);
+				xhr.send();
+			}
+			if(opts.type.toLowerCase() === "post"){
+				xhr.open(opts.type,opts.url,true);
+				xhr.setRequestHeader("Content-type","application/xxx-form-urlencoded");
+				xhr.send(dataStr);
+			}
+		}
+		// 用户名验证
+		function isVaildName(){
+			return /[A-Za-z0-9_]{3,10}/.test(unameIpt.value);
+		}
+		// 大写字母、小写、数字、下划线最少两种，6-15个字符
+		function isVaildPsw(str){
+			//  先控制字符6-15
+			if(str.length < 6 || str.length >20 ){
+				return false;
+			};
+			// 防止除大写字母、小写、数字、下划线以外的字符出现
+			if(/[^A-Za-z0-9_]/.test(str)){
+				return false;
+			};
+			// 防止除了全是大写字母、小写、数字、下划线以外的字符出现
+			if((/^[a-z]+$/g).test(str) | (/^[A-Z]+$/g).test(str) | (/^\d+$/g).test(str) | (/^_+$/g).test(str)){
+				return false;
+			}
+			return true;
+		}
+		function hasClass(ele,cls){
+			var reg = /\bcls\b/;
+			return ele.className.match(reg);
+		}
+		function addClass(ele,cls){
+			if(ele.length && ele.length > 0){
+				for(var i = 0; i < ele.length; i++){
+					singleAddClass(ele[i],cls);
+				}
+			}else{
+					singleAddClass(ele,cls);
+			}
+		}
+		function removeClass(ele,cls){
+			if(ele.length && ele.length > 0){
+				for(var i = 0; i < ele.length; i++){
+					singleRemoveClass(ele[i],cls);
+				}
+			}else{
+				singleRemoveClass(ele,cls);
+			}
+		}
+		function singleAddClass(ele,cls){
+			if(!hasClass(ele,cls)){
+				ele.className += " " + cls;
+			}
+		}
+		function singleRemoveClass(ele,cls){
+			var reg = new RegExp('\\b' + cls + '\\b', 'g');
+			//console.log(ele.className)
+			ele.className = ele.className.replace(reg,"");
+		}
+
+		
+		// 验证用户名
+		function testUname(){
+			var uname = unameIpt.value;
+			if(!isVaildName(uname)){
+				unMsg.innerHTML = Msg.uname_type_error;
+				addClass(unameIpt,"error");
+				return false;
+			}else{
+				unMsg.innerHTML = "";
+				removeClass(unameIpt,"error");
+				return true;
+			}
+		}
+		// 验证原始密码格式正确与否
+		function testPwd1(){
+			var pwd1 = pwd1Ipt.value;
+			if(!isVaildPsw(pwd1)){
+				pwd1Msg.innerHTML = Msg.pwd_type_error;
+				addClass(pwd1Ipt,"error");
+				return false;
+			}else{
+				pwd1Msg.innerHTML = "";
+				removeClass(pwd1Ipt,"error");
+				return true;
+			}
+		}
+		//验证第二次密码
+		function testPwd2(){
+			var pwd2 = pwd2Ipt.value;
+			if(pwd2 !== pwd1Ipt.value){
+				pwd2Msg.innerHTML = Msg.pwd_not_same;
+				addClass(pwd2Ipt,"error");
+				return false;
+			}else{
+				pwd2Msg.innerHTML = "";
+				removeClass(pwd2Ipt,"error");
+				return true;
+			}
+		}
+	</script>
+</body>
+</html>

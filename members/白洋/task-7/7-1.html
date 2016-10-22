@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .hangnei-p {
+      display: inline;
+    }
+    
+    div {
+      margin: 1px;
+    }
+    #form-speak>textarea{
+     width: 400px; 
+      height: 100px; 
+      max-width: 400px; 
+      max-height: 100px; 
+
+    }
+  </style>
+</head>
+
+<body>
+  <form action="baidu.php">
+    <div id="form-name">
+      <p class="hangnei-p">姓名 :</p>
+      <input type="text" placeholder="用户名" />
+    </div>
+    <div id="form-passwd">
+      <p class="hangnei-p">密码 :</p>
+      <input type="password" name="password" />
+    </div>
+    <div id="form-sex">
+      <p class="hangnei-p">性别 :</p>
+      <input type="radio" name="sex" value="男" />
+      <p class="hangnei-p">男</p>
+      <input type="radio" name="sex" value="女" />
+      <p class="hangnei-p">女</p>
+    </div>
+    <div id="form-like-sex">
+      <p class="hangnei-p">取向 :</p>
+      <input type="radio" name="like-sex" value="男" />
+      <p class="hangnei-p">男</p>
+      <input type="radio" name="like-sex" value="女" />
+      <p class="hangnei-p">女</p>
+    </div>
+    <div id="form-like">
+      <p class="hangnei-p">爱好 :</p>
+      <input type="checkbox" name="like[]" value="DOTA" />
+      <p class="hangnei-p">dota</p>
+      <input type="checkbox" name="like[]" value="旅游" />
+      <p class="hangnei-p">旅游</p>
+      <input type="checkbox" name="like[]" value="宠物" />
+      <p class="hangnei-p">宠物</p>
+    </div>
+    <div id="form-speak">
+        <p class="hangnei-p">评论 :</p>
+      <textarea name="maneywords" maxlength=15  placeholder="ddd"></textarea>
+    </div>
+    <div id="form-car">
+      <p class="hangnei-p">我的car</p>
+      <select name="car"> 
+<option value ="car-1">车1</option>
+ <option value ="car-2">车2</option>
+ <option value="car-3">车3</option> 
+<option value="car-4" >车4</option>
+ </select>
+
+      <button type="submit">提交</button>
+    </div>
+  </form>
+
+</body>
+
+</html>

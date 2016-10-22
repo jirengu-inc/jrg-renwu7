@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task12-1</title>
+	<style>
+/* 		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+		} */
+		.OH{
+			overflow: hidden;
+		}
+		.box{
+			width: 490px;
+			background-color: #ccc;
+		}
+		.public{
+			width: 150px;
+			height: 100px;
+			background-color: blue;
+			margin: 10px 10px;
+			float: left;
+		}
+		.smallbox1,.smallbox4{ /*使最左边的盒子紧贴父盒子内边缘*/
+			margin-left: 0;
+		}
+		.smallbox3,.smallbox6{
+			margin-right: 0;
+		}	
+		</style>
+</head>
+<body>
+	<div class="box OH">
+		<div class="public smallbox1">1</div>
+		<div class="public smallbox2">2</div>
+		<div class="public smallbox3">3</div>
+		<div class="public smallbox4">4</div>
+		<div class="public smallbox5">5</div>
+		<div class="public smallbox6">6</div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task29-3</title>
+    <style type='text/css'>
+    *{
+      font-family: 'Microsoft YaHei';
+      padding: 0;
+      margin: 0;
+    }
+    ul,li{
+      list-style: none;
+    }
+    .btn{
+      display: block;
+      margin: 0 auto;
+      width: 90px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      border: 1px solid #ccc;
+      color:red;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    li{
+      background: #eee;
+      border: 1px solid #ccc;
+      height: 40px;
+      margin:10px;
+      line-height: 40px;
+      padding: 10px;
+    }
+    li:hover{
+      background: green;
+      color:#fff;
+    }
+
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>内容1</li>
+      <li>内容2</li>
+      <li>内容3</li>
+      <li>内容4</li>
+      <li>内容5</li>
+      <li>内容6</li>
+      <li>内容7</li>
+      <li>内容8</li>
+      <li>内容9</li>
+      <li>内容10</li>
+      <li>内容11</li>
+      <li>内容12</li>
+      <li>内容13</li>
+      <li>内容14</li>
+
+    </ul>
+    <div class="btn">
+      加载更多
+    </div>
+    <script src='http://libs.baidu.com/jquery/1.9.1/jquery.min.js'></script>
+    <script>
+
+    var clock;
+    var cur = 14;
+
+    $(window).on("scroll",function () {
+        if(clock){
+            clearTimeout(clock);
+        }
+        clock = setTimeout(function () {
+            checkShow($(".btn"));
+        },400);
+    });
+
+    function checkShow($node) {
+        var scrollH = $(window).scrollTop();
+        var winH = $(window).height();
+        var nodeH = $node.offset().top;
+        if(nodeH < scrollH + winH){
+            $.ajax({
+                url:"task3.php",
+                type:"get",
+                dataType:"json",
+                data:{
+                    start : cur,
+                    len : 10
+                },
+                success:function (ret) {
+                    if(ret.status == 1){
+                        $(ret.data).each(function(i){
+                            $("ul").append("<li>" + ret.data[i]+ "</li>");
+                        });
+                        cur += 10;
+                    }
+                    else{
+                        alert("服务器数据暂时无法连接");
+                    }
+                },
+                error: function () {
+                    console.log("出错了...")
+                }
+            });
+        }
+    }
+
+    </script>
+  </body>
+</html>

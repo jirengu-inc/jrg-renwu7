@@ -1,0 +1,19 @@
+body,html{
+    /*margin:0;*/
+    padding:0;
+}
+#header ,#footer{
+    height:40px;
+    background:red;
+}
+.aside{
+    background:deepskyblue;
+    width:200px;
+    float:left;
+    opacity:0.1;
+}
+.main {
+    background: pink;
+    overflow:auto;
+    padding: 0 10px;
+}

@@ -1,0 +1,211 @@
+body, html, li, ul, div {
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+}
+
+#header {
+    width: 100%;
+    height: 100%;
+    background: url('img/bg.jpg') no-repeat;
+    background-size: cover;
+}
+.layout {
+    width: 920px;
+    height: 100%;
+    margin: 0 auto;
+}
+.table {
+    display: table;
+}
+.header-content {
+    width: 920px;
+}
+.header-content a {
+    color: white;
+    display: inline-block;
+    width: 140px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #757E85;
+}
+.header-content a:hover {
+    background-color: #3D3E42;
+}
+.Personalinfo {
+    height: 200px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.skills {
+    height: 400px;
+    background: #337ab7;
+    text-align: center;
+}
+.skills h1 {
+    display: inline-block;
+    color: white;
+    border-bottom: 1px solid white;
+    padding-bottom: 30px;
+    width: 120px;
+}
+.icon>li {
+    float: left;
+    padding: 50px 55px 50px 60px;
+    text-align: center;
+    color: white;
+
+}
+.icon .iconfont{
+  font-size: 50px;
+}
+.icon li ul li {
+    padding: 10px 0;
+}
+.icon a {
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    background: white;
+    line-height: 30px
+}
+.icon a:hover {
+    background: #7c7c7c;
+}
+.ad {
+    height: 600px;
+    background-image: url(img/callout.jpg);
+    position: relative;
+}
+.ad h1 {
+    color: white;
+    display: block;
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -20px;
+}
+.ourwork {
+    height: 700px;
+}
+.ourwork h1 {
+    width: 200px;
+    text-align: center;
+    border-bottom: 1px solid #747577;
+    padding-bottom: 30px;
+    margin: 50px auto;
+}
+.ourwork ul li {
+    float: left;
+    width: 450px;
+    height: 305px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+.ourwork img {
+    width: 450px;
+    height: 305px;
+}
+.ourwork a {
+    margin: 0 auto;
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    color: white;
+    background: #8a939b;
+    line-height: 30px;
+    text-align: center;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.aboutme {
+    margin-top: 50px;
+    height: 200px;
+    background: #337ab7;
+    position: relative;
+}
+.aboutme p {
+    color: white;
+    font-size: 30px;
+}
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.aboutme-content a:nth-child(2) {
+    width: 110px;
+    height: 30px;
+    display: inline-block;
+    background: white;
+    color: black;
+    line-height: 30px;
+
+}
+.aboutme-content a:nth-child(2):hover{
+  background: #aaa;
+  color: white;
+}
+.aboutme-content a:nth-child(3) {
+    width: 110px;
+    height: 30px;
+    display: inline-block;
+    background: black;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+.aboutme-content a:nth-child(3):hover{
+  background: #aaa;
+  color: black;
+}
+#footer{
+  margin-top: 80px;
+}
+#footer h3{
+  margin-bottom: 40px;
+}
+#footer p{
+  font-size: 15px;
+  font-family:Microsoft YaHei;
+  font-weight: bold;
+
+
+}
+i{
+  margin: 10px;
+}
+.contact i{
+  display: block;
+}
+.web-link i{
+  display: inline-block;
+
+
+}
+.web-link .iconfont{
+  font-size: 60px;
+  color: #337ab7;
+}
+.copyright p{
+  border-top: 2px solid #eee ;
+  display: inline-block;
+  height: 40px;
+  padding-top: 20px;
+}

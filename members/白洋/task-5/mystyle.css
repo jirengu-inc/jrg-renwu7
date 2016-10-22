@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2016-8-7, 9:56:38
+    Author     : free
+*/
+body{
+    font-family: "微软雅黑","宋体";
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+p{
+    color: #000;
+    text-indent: 2rem;
+    line-height: 1.5;
+    width:20rem;
+    text-align:justify;
+}

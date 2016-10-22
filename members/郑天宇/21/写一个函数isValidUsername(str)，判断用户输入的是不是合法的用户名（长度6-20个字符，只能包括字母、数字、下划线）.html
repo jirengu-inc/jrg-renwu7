@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isValidUsername(str) {
+        var name=/\w{6,20}/g;
+        return name.test(str);
+    }
+    var a='aa';
+    var b='_dasdasds';
+    isValidUsername(a);
+    isValidUsername(b);
+</script>
+</body>
+</html>

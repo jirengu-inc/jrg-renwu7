@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WaterFall</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+        .box{
+            position: absolute;
+            width: 200px;
+            margin-top: 10px;
+            margin-left:10px;
+            color: #fff;
+            transition: all,1s;
+        }
+        li{
+            list-style: none;
+        }
+        .list{
+            position: relative;
+        }
+        .red{
+            background-color: red;
+            height: 300px;
+        }
+        .blue{
+            background: blue;
+            height: 400px;
+        }
+        .orange{
+            background: orange;
+            height: 500px;
+        }
+        .yellow{
+            background: yellow;
+            height: 600px;
+            color: black;
+        }
+        .green{
+            background: green;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="box red">1</li>
+        <li class="box blue">2</li>
+        <li class="box green">3</li>
+        <li class="box yellow">4</li>
+        <li class="box orange">5</li>
+        <li class="box yellow">6</li>
+        <li class="box red">7</li>
+        <li class="box green">8</li>
+        <li class="box blue">9</li>
+        <li class="box yellow">10</li>
+        <li class="box orange">11</li>
+        <li class="box blue">12</li>
+        <li class="box red">13</li>
+        <li class="box green">14</li>
+        <li class="box red">15</li>
+        <li class="box yellow">16</li>
+        <li class="box blue">17</li>
+        <li class="box orange">18</li>
+    </ul>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        var waterFall = (function () {
+            function render() {
+                var windowWidth = $(window).width();
+                var itemWidth = $(".box").outerWidth(true);
+                var colNum = parseInt(windowWidth/itemWidth);
+                var $item =$(".box");
+                var colSumHeight = [];
+                for(var i = 0;i < colNum; i++){
+                    colSumHeight.push(0);
+                }
+                $item.each(function () {
+                    var $cur = $(this);
+                    var index = 0,
+                            minHeight = colSumHeight[index];
+                    for(var j = 1;j < colSumHeight.length; j++){
+                        if(colSumHeight[j] < minHeight){
+                            index = j;
+                            minHeight = colSumHeight[j];
+                        }
+                    }
+                    $cur.css({
+                        top:minHeight,
+                        left:itemWidth*index
+                    });
+                    colSumHeight[index] += $cur.outerHeight(true);
+                });
+            }
+            render();
+            $(window).on("resize",function () {
+                render();
+            });
+            return {
+                init: render
+            }
+        })();
+
+    </script>
+</body>
+</html>

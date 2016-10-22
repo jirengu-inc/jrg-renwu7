@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task24-3</title>
+  <style>
+    .msg{
+        font-size: 10px;
+        color: #999;
+        margin-top:5px;
+        min-height: 20px;
+    }
+    .register-ct{
+        position: relative;
+    }
+    dd{
+        position: relative;
+        top:-20px;
+        left:50px;
+    }
+    input{
+        display: block;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        height: 20px;
+        line-height: 20px;
+    }
+    .errorInput{
+        border: 1px solid red;
+    }
+    .correctInput{
+        border: 1px solid green;
+    }
+  </style>
+</head>
+<body>
+  <div class="register">
+    <h3>注册</h3>
+    <form id="register-form" action="">
+        <dl class="register-ct">
+            <dt>用户名:</dt>
+            <dd>
+                <input id="username" type="text" placeholder="用户名(hunger被注册过)">
+            </dd>
+            <dd class="msg msg-un">只能是字母、数字、下划线，3-10个字符</dd>
+
+            <dt>密码:</dt>
+            <dd>
+                <input type="password" id="password1" placeholder="密码">
+            </dd>
+            <dd class="msg msg-pwd1">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+
+            <dt> 确认密码:</dt>
+            <dd>
+                <input type="password" id="password2" placeholder="请再输入一次密码">
+            </dd>
+            <dd class="msg msg-pwd2"></dd>
+            <dd><button id="btn-register">注册</button></dd>
+        </dl>
+    </form>
+  </div>
+
+  <script>
+    var usernameIpt = document.getElementById('username');
+        msgUn = document.querySelector('.msg-un');
+        pasw1Ipt = document.getElementById('password1');
+        msgPwd1 = document.querySelector('.msg-pwd1');
+        msgPwd2 = document.querySelector('.msg-pwd2');
+        pasw2Ipt = document.getElementById('password2');
+        btnReg = document.getElementById('btn-register');
+    usernameIpt.addEventListener('change', function(){
+      testUnserName();
+    });
+    pasw1Ipt.addEventListener('change',function() {
+      testPaswd1();
+    })
+    pasw2Ipt.addEventListener('change', function() {
+      testPaswd2();
+    })
+    btnReg.addEventListener('click',function() {
+      if (isLegalName()&&testPaswd1()&&testPaswd2()) {
+        alert("注册成功！");
+      }else {
+        alert("请检查用户名和密码，再注册");
+    }
+    })
+    function testUnserName(){
+      if(isLegalName()) {
+        ajax({
+          url:'task24-3.php',
+          type:'post',
+          data:{
+            username:usernameIpt.value
+          },
+          success: function(){
+            msgUn.innerText = "用户名可用";
+          },
+          error:function(){
+            console.log("cuowu");
+          }
+        })
+      }else {
+        msgUn.innerText = "用户名格式错误";
+      }
+    };
+    function isLegalPassword(str){
+      if(str.length < 6 || str.length > 15){
+        return false;
+      }
+      //如果包含上述四种以外的字符，false
+      if(/[^A-Za-z_0-9]/.test(str)){
+        return false;
+      }
+      //如果全为大写、小写、下划线、数字, false
+      if(/(^[a-z]+$)|(^[A-Z]+$)|(^_+$)|(^\d+$)/g.test(str) ){
+        return false;
+      }
+      return true;
+    };
+    function isLegalName() {
+      var username = usernameIpt.value;
+      return /\w{3,10}/.test(username);
+    };
+    function testPaswd1() {
+      var pwd = pasw1Ipt.value;
+      if(isLegalPassword(pwd)) {
+        msgPwd1.innerText = '密码格式符合';
+        return true;
+      }else {
+        msgPwd1.innerText = '密码格式不对';
+        return false;
+      }
+    };
+    function testPaswd2() {
+      if(pasw1Ipt.value == pasw2Ipt.value) {
+        msgPwd2.innerText = '两次输入一致';
+        return true;
+      }else {
+        msgPwd2.innerText = '两次输入不一致，请重新输入';
+        return false;
+      }
+    };
+    function ajax(opts){
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function(){
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+          console.log(xmlhttp.responseText);
+          var json = JSON.parse(xmlhttp.responseText);
+          opts.success(json);
+        }
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 404){
+          opts.error();
+        }
+      }
+      var datastr = '';
+      for(var key in opts.data){
+        datastr += key + '=' + opts.data[key] + '&'
+      }
+      datastr = datastr.substr(0,datastr.length-1);
+      if(opts.type.toLowerCase() === 'get'){
+        xmlhttp.open('get', opts.url + '?' + datastr, true);
+        xmlhttp.send();
+      }
+      if(opts.type.toLowerCase() === 'post'){
+        xmlhttp.open('post', opts.url, true);
+        xmlhttp.setRequestHeader("Contenr-type","application/x-www-form-urlencoded");
+        xmlhttp.send(datastr);
+      }
+    }
+  </script>
+</body>
+</html>

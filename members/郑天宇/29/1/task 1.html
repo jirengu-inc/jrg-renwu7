@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gotop</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        .ct{
+            height: 100px;
+        }
+        #gotop{
+            position: fixed;
+            right: 2px;
+            bottom:1px;
+            width: 150px;
+            height: 50px;
+            border:1px solid;
+            border-radius: 10px;
+            line-height: 50px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+
+    <div class="ct">内容</div>
+
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div>
+    <div class="ct">内容</div> <div class="ct">内容</div>
+    <div class="ct">内容</div>
+
+
+
+    <script>
+        var gotop=$('<div id="gotop">回到顶部</div>');
+        $('body').append(gotop);
+        $(window).on('scroll',function () {
+            var scrolltop=$(this).scrollTop();
+            if(scrolltop>100){
+                $('#gotop').show()
+            }
+            if(scrolltop<=100){
+                $('#gotop').hide();
+            }
+        })
+
+        $('#gotop').on('click',function () {
+            $(window).scrollTop(0);
+        })
+    </script>
+
+</body>
+</html>

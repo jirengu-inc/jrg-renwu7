@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="display:none、visibility:hidden、opacity:0的区别" />
+    <meta charset="utf-8">
+    <title>导航栏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+            color: #000;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        .nav{
+            margin: 5px;
+        }
+        .bar{
+            background: #CBCBCB;
+        }
+        .bar:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .bar>li{
+            float: left;
+            padding: 5px 10px;
+            position: relative;
+        }
+        .bar>li .child{
+            display: none;
+            border: 1px solid #cbcbcb;
+            background: #fff;
+        }
+        .bar>li:hover{
+            background: #AAA;
+        }
+        .bar>li:hover .child{
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 30px;
+        }
+        .bar>li:hover .child>li{
+            padding: 5px 0;
+        }
+        .child>li:hover{
+            background: #cbcbcb;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul class="bar">
+            <li>
+                <a href="javascript:;">前端</a>
+                <ul class="child">
+                    <li><a href="javascript:;">JavaScript</a></li>
+                    <li><a href="javascript:;">CSS</a></li>
+                    <li><a href="javascript:;">HTML</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">服务端</a>
+                <ul class="child">
+                    <li><a href="javascript:;">Node</a></li>
+                    <li><a href="javascript:;">PHP</a></li>
+                    <li><a href="javascript:;">Java</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">前端工具</a>
+                <ul class="child">
+                    <li><a href="javascript:;">Sublime</a></li>
+                    <li><a href="javascript:;">Webstorm</a></li>
+                    <li><a href="javascript:;">Git</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">HTML</a>
+            </li>
+            <li>
+                <a href="javascript:;">NODE</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

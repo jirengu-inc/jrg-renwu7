@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 6-1</title>
+    <style type="text/css">
+        .first{
+            border:1px solid #ccc;
+            width:200px;
+            height:80px;
+            font-size: 14px;
+            color:#f0f;
+            line-height:80px;
+            text-align:center;
+        }
+        .dialog{
+            border: 1px solid #ccc;
+        }
+        .header{
+            height: 40px;
+            text-align: left;
+            padding-left: 10px;
+            font-size: 16px;
+            color: #f00;
+            border-bottom: 1px solid #ccc;
+        }
+        .content{
+            height: 100px;
+        }
+        .content>h3>a{
+            text-decoration: none;
+            color: blue;
+        }
+        .content>h3>a:hover {
+            color: red;
+        }
+        .footer{
+            height: 50px;
+            text-align: center;
+        }
+        .footer a {
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 4px 3px;
+        }
+        table{
+            border-collapse: collapse;
+            width:100%;
+            text-align: center;
+        }
+        table,td,th{
+            border: 1px solid #cccccc;
+            padding: 1em;
+        }
+        th{
+            background-color: #3c8e8e;
+        }
+        tr:hover{
+            background-color: #cccccc;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+   <div class="first">
+       这里是饥人谷
+   </div>
+   <div class="dialog">
+       <div class="header">
+           <h3>我是标题</h3>
+           <a class="close" title="关闭" href="#">X</a>
+       </div>
+       <div class="content">
+           <h3>欢迎来到  <a href="http://jirengu.com">饥人谷</a></h3>
+           <p> 在这个大家庭你能快乐的学到更多前端技能</p>
+       </div>
+       <div class="footer">
+           <a class="btn btn-cancel" href="#">取消</a>
+           <a class="btn btn-confirm" href="#">确认</a>
+       </div>
+   </div>
+   <table >
+       <thead>
+          <tr>
+              <th>姓名</th>
+              <th>性别</th>
+          </tr>
+       </thead>
+       <tbody>
+          <tr>
+              <td>小明</td>
+              <td>男</td>
+          </tr>
+          <tr>
+              <td>小花</td>
+              <td>女</td>
+          </tr>
+       </tbody>
+   </table>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my web</title>
+    <meta charset="utf-8">
+    <style>
+
+    @font-face {font-family: "iconfont";
+      src: url(iconfont/iconfont.eot?t=1472540408); /* IE9*/
+      src: url(iconfont/iconfont.eot?t=1472540408#iefix) format('embedded-opentype'), /* IE6-IE8 */
+      url(iconfont/iconfont.woff?t=1472540408) format('woff'), /* chrome, firefox */
+      url(iconfont/iconfont.ttf?t=1472540408) format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+      url(iconfont/iconfont.svg?t=1472540408#iconfont) format('svg'); /* iOS 4.1- */
+    }
+    .iconfont {
+      font-family:"iconfont" !important;
+      font-size:16px;
+      font-style:normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    html,body,h1,p,ul,li{
+      margin: 0;
+      padding: 0;
+      font-family: "微软雅黑";
+      text-align: center;
+    }
+    a{
+      text-decoration: none;
+    }
+    ul,li{
+      list-style-type: none;
+    }
+    html,body{
+      height: 100%;
+    }
+    .maincontent{
+      margin: 0 auto;
+      width: 960px;
+      height: 100%;
+      text-align: center;
+    }
+    #head .maincontent{
+      margin: 0 auto;
+      width: 960px;
+      height: 100%;
+      display: table;
+    }
+    .vertical{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    #head{
+      background:url(bg.jpg);
+      height:100%;
+      background-size: cover;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .vertical>h1{
+      font:bold 40px 微软雅黑;
+      margin:20px;
+    }
+    .btn1{
+      width: 150px;
+      height: 50px;
+      background-color: rgba(0,0,0,0.4);
+      color:#fff;
+      margin-top: 25px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 50px;
+      font-size: 20px;
+    }
+    /*<!--这是首页结尾-->*/
+    .btn1:hover{
+      background-color:#000;
+    }
+    #main .content1>h1{
+      margin: 30px;
+    }
+    #main .content1>a{
+      color: blue;
+      margin-bottom: 30px;
+      display:block;
+      outline-style: none;
+    }
+    .content1>a:hover{
+      text-decoration: underline;
+    }
+    .content2{
+      overflow: hidden;
+    }
+    .mainp2{
+      background: #337ab7;
+    }
+    .mainp2{
+      color: #fff;
+    }
+    .mainp2 h1{
+      margin: 30px;
+    }
+    .btn2{
+      display: inline-block;
+      width: 100px;
+      height: 30px;
+      background: #fff;
+      color: #000;
+      line-height:30px;
+      border-radius: 4px;
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+    .btn2:hover{
+      background-color: #eee;
+    }
+    li>.iconfont{
+      font-size: 120px;
+    }
+    .lichildv{
+      position: relative;
+      top:-10px;
+    }
+    .lichild1{
+      font-size: 30px;
+      margin:10px;
+    }
+    .lichild2{
+      font-size: 20px;
+      margin:10px;
+    }
+    .ulfather>li{
+      float: left;
+      margin-left: 10px;
+    }
+    .hr1{
+      width: 100px;
+      margin-bottom: 50px;
+    }
+    /*<!--以下开始是第三页-->*/
+    .mainp3 {
+      height: 500px;
+      background-image:url(callout.jpg);
+      background-size:cover;
+    }
+    .mainp3>.maincontent{
+      font: 50px bold 微软雅黑;
+      color: #fff;
+      display: table;
+    }
+    .mainp3c{
+      display:table-cell;
+      vertical-align:middle;
+    }
+    /*<!--以下开始是第四页-->*/
+
+    .mainp4 .maincontent h1{
+      margin: 30px;
+    }
+    .mainp4 .maincontent hr{
+      width: 150px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .contentp{
+      overflow: hidden;
+    }
+    .contentp>a>img{
+      float: left;
+    }
+    .picture2>img{
+      margin-left: 30px;
+    }
+    .picture3>img{
+      margin-top: 30px;
+    }
+    .picture4>img{
+      margin-top: 30px;
+      margin-left: 30px;
+    }
+    .btn3{
+      width: 120px;
+      height: 40px;
+      background: #999;
+      margin: 40px;
+      display: inline-block;
+      line-height: 40px;
+      border-radius: 4px;
+      color: #fff;
+      font-size:20px;
+    }
+    .btn3:hover{
+      background-color: #000;
+    }
+    .li5{
+      margin-top: 20px;
+      position: relative;
+      top:3px;
+    }
+    .li6 .iconfont{
+      position: relative;
+      top:5px;
+    }
+    /*<!--这是第五页-->*/
+    .mainp5{
+      background-color:#337ab7;
+      height: 200px;
+      color: #fff;
+    }
+    .btn4{
+      width: 120px;
+      height: 40px;
+      background: #fff;
+      margin: 20px;
+      display: inline-block;
+      line-height: 40px;
+      border-radius: 4px;
+      color: #000;
+      font-size:20px;
+    }
+    .btn4:hover{
+      background-color: #999;
+    }
+    .btn5{
+      width: 120px;
+      height: 40px;
+      background: #999;
+      margin: 20px;
+      display: inline-block;
+      line-height: 40px;
+      border-radius: 4px;
+      color: #fff;
+      font-size:20px;
+    }
+    .btn5:hover{
+      background-color: #000;
+    }
+    .mainp5 .maincontent{
+      display: table;
+    }
+    .mainp5 .maincontent .child{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .divul2{
+      margin: 30px auto;
+      display: inline-block;
+      overflow: auto;
+    }
+    .ul2>li{
+      float: left;
+    }
+    #foot .maincontent .iconfont{
+      font-size: 40px;
+    }
+    #foot .ul2 .iconfont{
+      font-size: 60px;
+      margin: 20px;
+      color: #337ab7;
+    }
+    #foot .ul2 .iconfont:hover{
+      color: #000;
+    }
+    .li1{
+      margin-top: -3px;
+    }
+    .li3{
+      margin-top: 5px;
+    }
+    .hr3{
+      width: 220px;
+    }
+    .bot{
+      margin-top: 20px;
+      margin-bottom: 100px;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="head">
+      <div class="maincontent">
+          <div class="vertical">
+            <h1>我是尹轶凡</h1>
+            <p>爱编程，爱前端，也爱一切美好的事物</p>
+            <a class="btn1" name="pag1" href="#pag2">查看更多</a>
+          </div>
+      </div>
+    </div>
+    <div id="main">
+      <div class="maincontent">
+        <div class="content1">
+           <h1>关于我的简介</h1>
+           <a name="pag2" class="a2" href="#">作品预览</a>
+        </div>
+      </div>
+    <div class="mainp2">
+      <div class="maincontent">
+        <div class="content2">
+          <h1>技能</h1>
+          <hr class="hr1"/>
+            <ul class="ulfather">
+              <li>
+                <ul>
+                  <li class="lichildv"><i class="iconfont">&#xe61e;</i></li>
+                  <li class="lichild1">HTML</li>
+                  <li class="lichild2">熟悉精通HTML结构</li>
+                  <li><a class="btn2" href="#">了解更多</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li><i class="iconfont">&#xe844;</i></li>
+                  <li class="lichild1">CSS</li>
+                  <li class="lichild2">熟悉精通CSS样式与使用</li>
+                  <li><a class="btn2" href="#">了解更多</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li><i class="iconfont">&#xe608;</i></li>
+                  <li class="lichild1">Javascript</li>
+                  <li class="lichild2">熟悉精通Javascript的运用</li>
+                  <li><a class="btn2" href="#">了解更多</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li><i class="iconfont">&#xe690;</i></li>
+                  <li class="lichild1">Photoshop</li>
+                  <li class="lichild2">熟练使用基本的PS技巧</li>
+                  <li><a class="btn2" href="#">了解更多</a></li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mainp3">
+      <div class="maincontent">
+        <div class="mainp3c">
+          不断地学习，不断地摸索，不断地敲代码，努力成为一名优秀的全栈攻城狮！
+        </div>
+      </div>
+    </div>
+    <div class="mainp4">
+      <div class="maincontent">
+          <h1>我的作品</h1>
+          <hr/>
+          <div class="contentp">
+            <a class="picture1" href="#">
+              <img src="picture.jpg" width="465" height="305">
+            </a>
+            <a class="picture2" href="#">
+              <img src="picture.jpg" width="465" height="305">
+            </a>
+            <a class="picture3" href="#">
+              <img src="picture.jpg" width="465" height="305">
+            </a>
+            <a class="picture4" href="#">
+              <img src="picture.jpg" width="465" height="305">
+            </a>
+          </div>
+          <a class="btn3" href="#">了解更多</a>
+      </div>
+    </div>
+    <div class="mainp5">
+      <div class="maincontent">
+        <div class="child">
+          <h2>我是一个有目标，又努力奔跑的人</h2>
+          <a class="btn4" href="#">click me</a>
+          <a class="btn5" href="#">about me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div id="foot">
+      <div class="maincontent">
+      <ul>
+        <li><h2>我的信息</h2></li>
+        <li>现居：武汉</li>
+        <li>学历：本科</li>
+        <li class="li5"><i class="iconfont">&#xe640;</i>1387*****03</li>
+        <li class="li6"><i class="iconfont">&#xe838;</i>1387*****03@126.com</li>
+      </ul>
+      <div class="divul2">
+        <ul class="ul2">
+          <li class="li1"><i class="iconfont">&#xe735;</i></li>
+          <li><i class="iconfont">&#xe60a;</i></li>
+          <li class="li3"><i class="iconfont">&#xe63b;</i></li>
+        </ul>
+      </div>
+      <hr class="hr3"/>
+      <p class="bot">Copyright © Allen-YinYiFan 2016<p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    .top{
+          position: relative;
+          width: 200px;
+          margin-top: 20px;
+          margin-left: 20px;
+    }
+    .top-a{
+    position: absolute;
+    top:-20px;
+    left: 20px;
+      border: 10px solid;
+      border-color: #fff #fff #bbb #fff;
+    }
+    .top-b{
+      height: 100px;
+      width: 200px;
+      border: 1px solid #bbb;
+    }
+    .mid{
+      position: relative;
+      width: 200px;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    .mid-a{
+      position: absolute;
+      top:0px;
+      right: -1px;
+      border: 10px solid;
+      border-color: red red #fff #fff;
+    }
+    .mid-b{
+      height: 100px;
+      width: 200px;
+      border: 1px solid #bbb;
+    }
+    .bot{
+          position: relative;
+          width: 200px;
+          margin-top: 20px;
+          margin-left: 20px;
+    }
+    .bot-a{
+      position: absolute;
+             top:-20px;
+             left:20px;
+             width: 0;
+             height: 0;
+             border: 10px solid;
+             border-color:#fff #fff #bbb #fff;
+    }
+    .bot-b{
+      height: 100px;
+      width: 200px;
+      border: 1px solid #bbb;
+    }
+    .bot-c{
+      position: absolute;
+top: -19px;
+left: 20px;
+width: 0;
+height: 0;
+border: 10px solid;
+border-color: transparent transparent #fff transparent;
+z-index: 1;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+    <div class="top-a"></div>
+    <div class="top-b"></div>
+</div>
+<div class="mid">
+  <div class="mid-a"></div>
+  <div class="mid-b"></div>
+</div>
+<div class="bot">
+  <div class="bot-a"></div>
+  <div class="bot-b"></div>
+  <div class="bot-c"></div>
+</div>
+  </body>
+</html>

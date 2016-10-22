@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串搜索</title>
+</head>
+<body>
+	<script>
+	var obj = {
+		className: 'open menu'
+	}
+	function addClass(obj,classname){
+		// console.log( obj.className.search(classname) );
+		if(obj.className.search(classname) < 0){
+			//console.log(obj.className);
+			//第一种
+			var arr = obj.className.split(" ");
+			arr.push(classname);
+			obj.className = arr.join(" ");
+			// 第二种
+			//obj.className +=" "+classname;
+		}
+	}
+	function removeClass(obj,str){
+		if(obj.className.search(str) > 0){
+			//obj.className.substr(obj.className.search(str),str.length);
+			//第一种
+			var arr = obj.className.split(" ");
+			arr.splice(arr.indexOf(str),1);
+			obj.className = arr.join(" ");
+			// 第二种
+			//obj.className = obj.className.replace(str,"");
+		}
+	}
+	addClass(obj, 'new');
+	addClass(obj, 'new');
+	removeClass(obj, 'new');
+	removeClass(obj, 'new');
+	removeClass(obj, '121212');
+	// removeClass(obj, 'new');
+	</script>
+</body>
+</html>

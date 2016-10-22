@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 29-2 懒加载</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body,html{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+
+        .ct{
+            margin: auto 500px;
+        }
+
+        .imgct li{
+            float: left;
+            display: inline-block;
+            width: 33.333%;
+        }
+        
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <ul class="imgct">
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+            <li data-imgsrc="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/girl.jpg"></li>
+
+        </ul>
+    </div>
+
+    <script>
+
+        var imgct=$('.imgct li');
+        var clock;
+        $(window).on('scroll',function () {
+            if(clock){
+                clearTimeout(clock);
+            }
+            clock=setTimeout(function () {
+                console.log('1');
+                checkshow()
+            },300);
+        });
+
+
+        checkshow();
+        function checkshow() {
+            imgct.each(function () {
+                var cur=$(this);
+                if(cur.attr('isLoaded'))
+                {
+                    return;
+                }
+                if(ishow(cur)){
+                    showimg(cur);
+                }
+            });;
+
+        }
+
+        function ishow($el) {
+            var scrollH=$(window).scrollTop();
+            var offsettop=$el.offset().top;
+            var windowH=$(window).height();
+            if(offsettop<scrollH+windowH){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+        
+        function showimg($el) {
+            var src=$el.attr('data-imgsrc');
+            console.log(src);
+           $el.append('<img src="'+src+'">');
+
+        }
+
+       
+    </script>
+
+</body>
+</html>

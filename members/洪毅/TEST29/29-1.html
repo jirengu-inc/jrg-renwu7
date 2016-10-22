@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>29-1</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+    <style>
+        p {
+            font-size: 36px;
+            margin-bottom: 140px;
+        }
+
+        .go-top {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 10px;
+            right: 10px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p>内容1</p>
+    <p>内容2</p>
+    <p>内容3</p>
+
+    <p>内容4</p>
+    <p>内容5</p>
+
+    <p>内容6</p>
+
+    <p>内容1</p>
+
+    <p>内容22</p>
+
+    <p>内容3</p>
+    <p>内容45</p>
+    <script>
+        var $goTop = $('<img src="icon/1.png" class="go-top" title="回到顶部" />')
+        $('body').append($goTop);
+        $(window).on('scroll', function() {
+            var offsetTop = $('body').scrollTop();
+            if (offsetTop > 100) {
+                $goTop.show();
+            } else {
+                $goTop.hide();
+            }
+        })
+        $goTop.on('click', function() {
+            $(window).scrollTop(0);
+        });
+    </script>
+
+</body>
+
+</html>

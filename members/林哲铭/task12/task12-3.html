@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task12-2</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .head,.foot{
+            background: #ccc;
+            height: 40px;
+        }
+        .wraps{
+            padding-left: 200px;
+        }
+        .wraps:after{
+            display: block;
+            content: "";
+            clear: both;
+        }
+        .main{
+            background: green;
+            width: 100%;
+        }
+        .aside,.main{
+            position: relative;
+            float:left;
+        }
+        .aside{
+            width: 200px;
+            min-height: 100px;
+            background: red;
+            margin-left: -100%;
+            left: -200px;
+        }
+    </style>
+</head>
+<body>
+<div class="head">头部</div>
+    <div class="wraps">
+        <div class="main">
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+            我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈我是中间哈哈哈
+        </div>
+        <div class="aside">左侧边栏，固定宽度</div>
+    </div>
+    <div class="foot">尾部</div>
+</body>
+</html>

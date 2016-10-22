@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>สýื้นýยห</title>
+</head>
+<body>
+	<script>
+		var arr = ["a", "b", 1, 3, 5, "b", 2];
+
+		function filterNumeric(arr) {
+			return arr.filter(function(val) {
+				return typeof val === "number"
+			});
+		}
+		var newArr = filterNumeric(arr);
+	</script>
+</body>
+</html>

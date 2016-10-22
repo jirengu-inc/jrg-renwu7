@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-2</title>
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端6班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容" />
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+
+    <script>
+        var input = document.querySelector(".ipt-add-content")
+        var ct = document.querySelector(".ct");
+        var start = document.getElementById("btn-add-start");
+        var end = document.getElementById("btn-add-end");
+
+        start.addEventListener('click',function () {
+            var element = document.createElement("li");
+            element.innerText = input.value;
+            if ( element.innerText ){
+                ct.insertBefore(element,ct.firstElementChild);
+            }
+        });
+        end.addEventListener('click',function () {
+            var element = document.createElement("li");
+            element.innerText = input.value;
+            if ( element.innerText ){
+                ct.appendChild(element);
+            }
+        });
+        ct.addEventListener("click",function(e) {
+            if (e.target.tagName.toLowerCase() === "li") {              //我自己写的时候没加这个判断
+                console.log(e.target.innerText);
+            }
+        })
+    </script>
+</body>
+</html>

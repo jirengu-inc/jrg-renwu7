@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>最小时间粒度</title>
+</head>
+<body>
+	<script>
+	// 6 最小时间粒度
+
+	var flag = true;
+	setTimeout(function() {
+		flag = false;
+	}, 0)
+	while (flag) {}
+	console.log(flag);
+	// 没有输出   都卡死在while循环中
+	/*延时函数时在队列的最才会执行，由于while已经形成了死循环了*/
+	</script>
+</body>
+</html>

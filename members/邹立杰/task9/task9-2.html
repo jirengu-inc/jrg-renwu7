@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图标不同实现技术（CSS Sprite 和 字体图标）</title>
+	</head>
+	<style>
+		ul{
+			list-style:none;
+		}
+		ul > li{
+			display: inline-block;
+			cursor:pointer;
+			font-size: 22px;
+		}
+		.icon{
+			display:inline-block;
+			width:16px;
+			height:16px;
+			background-image:url(images/result.png);
+			background-repeat: no-repeat;
+			margin-right:4px;
+
+		}
+		.forward{
+			background-position:0 0;
+		}
+		li:hover{
+			color:#9d55b8;
+		}
+		li:hover .forward{
+			background-position:0 -21px;
+		}
+		.play{
+			background-position: -19px 0;
+		}
+		li:hover .play{
+			background-position: -19px -21px;
+		}
+		.pause{
+			background-position: -38px 0;
+		}
+		li:hover .pause{
+			background-position: -38px -21px;
+		}
+		@font-face {
+			font-family: 'iconfont';
+		    src: url('font/iconfont.eot'); /* IE9*/
+		    src: url('font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		    url('font/iconfont.woff') format('woff'), /* chrome、firefox */
+		    url('font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+		    url('font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+		}
+		.iconfont{
+		    font-family:"iconfont" !important;
+		    font-size:16px;font-style:normal;
+		    -webkit-font-smoothing: antialiased;
+		    -webkit-text-stroke-width: 0.2px;
+		    -moz-osx-font-smoothing: grayscale;
+		    cursor:pointer;
+		    font-size: 18px;
+		    margin-right:5px;
+		}
+	</style>
+	<body>
+		<h2>图标不同实现技术（CSS Sprite 和 字体图标）</h2>
+		<h3>CSS Sprite实现</h3>
+		<ul>
+			<li><div class="icon forward"></div>前进</li>
+			<li><div class="icon play"></div>播放</li>
+			<li><div class="icon pause"></div>暂停</li>
+		</ul>
+		<h3>字体图标实现</h3>
+		<ul>
+			<li><i class="iconfont">&#xe644;</i>前进</li>
+			<li><i class="iconfont">&#xe60c;</i>播放</li>
+			<li><i class="iconfont">&#xe68b;</i>暂停</li>
+		</ul>
+	</body>
+</html>

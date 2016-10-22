@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>22-2</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input id="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+  var ct = document.querySelector('.ct'),
+      addStartBtn = document.querySelector('#btn-add-start'),
+      addEndBtn = document.querySelector('#btn-add-end'),
+      ipt = document.querySelector('#ipt-add-content');
+
+  ct.addEventListener('click', function(e){//控制台展示该元素的文本内容
+      if(e.target.tagName.toLowerCase() === 'li'){
+       console.log(e.target.innerText);
+      }
+  });
+
+  addEndBtn.addEventListener('click', function(){//结尾添加
+     var li = document.createElement('li');
+     li.innerText = ipt.value;//文本元素接收
+     ct.appendChild(li);
+  });
+
+  addStartBtn.addEventListener('click', function(){//开头添加
+     var li = document.createElement('li');
+     li.innerText = ipt.value;//文本元素接收
+     ct.insertBefore(li,ct.firstChild);
+  });
+</script>
+
+</body>
+</html>
