@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 11-1</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .header{
+            background-color: #cccccc;
+            height: 25px;
+        }
+        .nav>li{
+            display: inline-block;
+            float: left;
+            height: 25px;
+            line-height: 25px;
+            font-family: '微软雅黑';
+            padding: 0 5px;
+            position: relative;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            padding:0 5px;
+        }
+
+        .nav>li:hover{
+            background-color:#999999 ;
+
+        }
+        .drop{
+            display: none;
+        }
+        .nav>li:hover>.drop{
+            display: block;
+            list-style: none;
+        }
+        .drop {
+            border: 1px solid #cccccc;
+            position: absolute;
+            left: 0px;
+        }
+        .drop>li:hover{
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul class="nav">
+            <li ><a href="#">前端</a>
+                <ul class="drop">
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">HTML</a></li>
+                </ul>
+            </li>
+            <li ><a href="#">服务端</a>
+                <ul class="drop">
+                    <li><a href="#">Node</a></li>
+                    <li><a href="#">PHP</a></li>
+                    <li><a href="#">Java</a></li>
+                </ul>
+            </li>
+            <li><a href="#">前端工具</a>
+                <ul class="drop">
+                    <li><a href="#">Sublime</a></li>
+                    <li><a href="#">Webstorm</a></li>
+                    <li><a href="#">Git</a></li>
+                </ul>
+            </li>
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">NODE</a></li>
+        </ul>
+
+    </div>
+
+</body>
+</html>
