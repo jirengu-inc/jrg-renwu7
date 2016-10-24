@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>这里另一个页面</title>
+</head>
+<body style="background: #fff;">
+	a.com里面的元素
+	<script>
+		document.domain = "a.com";
+	    window.name = "index2";
+		window.index2Fun = function(){
+			console.log("index2");
+		}
+	</script>
+</body>
+</html>
