@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>降域</title>
+</head>
+<body style="background:gray;">
+	这里是child.a.com的代码 <br>
+	<iframe src="//a.com/task31/index2.html" frameborder="0"></iframe>
+	<script>
+		document.domain = "a.com";
+		//  如果没有设置定时函数的话就因为iframes里的js还没有解析执行完进行报错
+		setTimeout(function(){
+			var frames = window.frames[0];
+			console.log(frames.window.name);
+			frames.window.index2Fun();
+		},2000)
+	</script>
+</body>
+</html>
