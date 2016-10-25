@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>code 02</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+
+    <script>
+    //hasClass(el, cls)
+    	 function hasClass(el,cls){
+		    var reg = new RegExp('(\\s|^)' + cls + '(\\b|$)','g');
+		    return reg.test(el.className);
+		    }
+    //addClass(el, cls)
+    	function addClass(el, cls){
+			if(! hasClass(el,cls) ){
+				return el.className + '' + cls;
+			}
+		    }
+    //removeClass(el,cls)
+	    function removeClass(el,cls){
+			if(hasClass(el,cls)){
+				var reg = new RegExp('(\\s|^)' + cls + '(\\b|$)','g');
+				return  el.className.replace(reg,'');
+			}
+		    }
+    </script>
+</body>
+</html>
