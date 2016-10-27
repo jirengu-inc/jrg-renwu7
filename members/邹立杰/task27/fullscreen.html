@@ -181,10 +181,14 @@
 		$bullet.find("li").on("click",function(){
 			var index = $(this).index();
 			setBg(index+1);
-			if(index > curIdx){
-				playNext(index-curIdx);
-			}else{
-				playPrev(curIdx - index);
+			if(index!== curIdx){
+				if(index > curIdx){
+					playNext(index-curIdx);
+					console.log("后面"+index + " " + curIdx );
+				}else{
+					playPrev(curIdx - index);
+					console.log("前面"+index + " " + curIdx );
+				}
 			}
 		});
 
@@ -236,8 +240,6 @@
 		function stopAuto(){
 			clearInterval(clock);
 		}
-
-
 
 		// 优化性能
 		function setBg(idx){
