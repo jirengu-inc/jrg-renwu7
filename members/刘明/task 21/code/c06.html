@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>code 06</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+
+    <script>
+    //写一个函数isValidPassword(str), 判断用户输入的
+    //是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）
+	    function isValidPassword(str){
+		    var upper=/^[A-Z]{6,20}$/;
+		    var down=/^[a-z]{6,20}$/;
+		    var num=/^[0-9]{6,20}$/;
+		    var line=/^_{6,20}$/;
+		    if((upper||down||line)&&num.test(str)||(upper||down||num)&&line.test(str)||(num||down||line)&&upper.test(str)||(num||upper||line)&&down.test(str)){
+		        return "请输入两种以上字符！"
+		    }else{
+		        return true;
+		    }
+		    }
+    </script>
+</body>
+</html>

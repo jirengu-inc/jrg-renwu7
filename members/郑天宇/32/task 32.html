@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>task 32</title>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <style>
@@ -16,7 +17,7 @@
             text-decoration: none;
         }
         .ct{
-            width: 900px;
+            width: 1100px;
             margin: 0 auto;
             border:1px solid;
         }
@@ -91,7 +92,7 @@
        checkshow();
 
         function checkshow() {
-            console.log('1')
+            console.log('1');
             if(ishow($('#load'))){
                 loadAndPlace()
             }
@@ -112,7 +113,7 @@
         function loadAndPlace() {
             $.ajax({
                 url:'http://platform.sina.com.cn/slide/album_tech',
-                datatype:'jsonp',
+                dataType:'jsonp',
                 jsonp:"jsoncallback",
                 data:{
                     app_key:'1271687855',
@@ -138,7 +139,7 @@
             node.find('img').each(function () {
                 var defer=$.Deferred();
                 $(this).load(function () {
-                    defer.resovle();
+                    defer.resolve();
                 });
                 defereds.push(defer)
             });
@@ -154,9 +155,9 @@
             for(var i = 0; i<items.length;i++){
 
                 tpl+='<li class="item">';
-                tpl+='<img src="'+nodelist[i].img_url+'" alt="" '+"</a>";
-                tpl+='<h4 class="header">'+nodelist.short_name+'</h4>';
-                tpl+='<p class="desp">'+nodelist.short_intro+'</p>'  ;
+                tpl+='<img src="'+items[i].img_url+'" alt="" '+"</a>";
+                tpl+='<h4 class="header">'+items[i].short_name+'</h4>';
+                tpl+='<p class="desp">'+items[i].short_intro+'</p>'  ;
                 tpl+='</li>';
 
             }
@@ -197,7 +198,6 @@
                 });
             }
         //瀑布流处理
-
 
 
     </script>
