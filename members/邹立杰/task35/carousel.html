@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>三个</title>
+	<title>两个</title>
 </head>
 <style>
 	body,ul,li{
@@ -59,7 +59,7 @@
 	.next{
 		right:10px;
 	}
-	.bullet{
+/*	.bullet{
 		position: absolute;
 		bottom: 10px;
 		left:50%;
@@ -75,7 +75,7 @@
 	}
 	.bullet>li.active{
 		background-color: #999;
-	}
+	}*/
 </style>
 <body>
 	<div class="carousel1">
@@ -103,12 +103,6 @@
 		</ul>
 		<a href="#" class="arrow prev"><</a>
 		<a href="#" class="arrow next">></a>
-		<ul class="bullet">
-			<li class="active"></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
 	</div>
 	<div class="carousel2">
 		<ul class="ct">
@@ -135,48 +129,45 @@
 		</ul>
 		<a href="#" class="arrow prev"><</a>
 		<a href="#" class="arrow next">></a>
-		<ul class="bullet">
-			<li class="active"></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-	</div>
-	<div class="carousel3">
-		<ul class="ct">
-			<li data-index="0">
-				<a href="#">
-					<img src="images/23.jpg" alt="">
-				</a>
-			</li>
-			<li data-index="1">
-				<a href="#">
-					<img src="images/24.jpg" alt="">
-				</a>
-			</li>
-			<li data-index="2">
-				<a href="#">
-					<img src="images/25.jpg" alt="">
-				</a>
-			</li>
-			<li data-index="3">
-				<a href="#">
-					<img src="images/26.jpg" alt="">
-				</a>
-			</li>
-		</ul>
-		<a href="#" class="arrow prev"><</a>
-		<a href="#" class="arrow next">></a>
-		<ul class="bullet">
-			<li class="active"></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
 	</div>
 <script src="../js/jquery.min.js"></script>
 <script>
-
+	function Carousel($node){
+		this.$carousel = $node;
+		this.$ct = $node.find(".ct");
+		this.$prev = $node.find(".prev");
+		this.$next = $node.find(".next");
+		this.imgWidth = $node.find("li").width();
+		this.num = $node.find("li").length;
+		this.$ct.css({"width":this.imgWidth*this.num});
+		this.bind();
+	}
+	Carousel.prototype = {
+		bind:function(){
+			var _this = this;
+			this.$prev.on("click",function(){
+				_this.showPrev();
+			});
+			this.$next.on("click",function(){
+				_this.showNext();
+			});
+		},
+		showPrev:function(){
+			var $ct = this.$ct;
+			$ct.prepend(this.$ct.children().last());
+			$ct.css({"left":0-this.imgWidth});
+			$ct.animate({left:0});
+		},
+		showNext:function(){
+			var $ct = this.$ct;
+			$ct.animate({"left":0-this.imgWidth},function(){
+				$ct.append($ct.children().first())
+				$ct.css("left",0);
+			});
+		}
+	}
+	new Carousel($(".carousel1"));
+	new Carousel($(".carousel2"));
 </script>
 </body>
 </html>
