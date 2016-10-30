@@ -1,0 +1,40 @@
+ul,li,body,a{
+	padding: 0px;
+	margin: 0px;
+	font-size: 16px;
+}
+.content{
+	display: block;
+}
+.nav{
+	background: #cbcbcb;
+}
+.clear{ clear:both} 
+li{
+	float: left;
+	list-style: none;
+	padding: 5px 10px;
+	line-height: 26px;
+	position: relative;
+}
+a{
+	text-decoration:none;
+	color: #343434;
+	font-size: 16px;
+}
+li:hover{
+	background: #aaa;
+}
+.down{
+	display: none;
+	position: absolute;
+	border: 1px solid #cbcbcb;
+	border-top:1px solid #aaa; 
+	margin-top: 5px;
+	left: 0px;
+}
+.down li{
+	float:none;
+}
+.nav ul li:hover ul{ display:block; }	
+
