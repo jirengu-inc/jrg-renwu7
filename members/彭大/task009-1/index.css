@@ -205,3 +205,19 @@ span{
     border-style: solid;
     border-width: 50px;
 }
+
+.left_angle{
+    height: 0px;
+    width: 0px;
+    border-color: transparent transparent #f0eb7a #f0eb7a;
+    border-style: solid;
+    border-width: 50px;
+}
+
+.right_angle{
+    height: 0px;
+    width: 0px;
+    border-color: transparent #12ad2a #12ad2a transparent;
+    border-style: solid;
+    border-width: 50px;
+}
