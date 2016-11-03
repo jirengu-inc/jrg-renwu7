@@ -85,27 +85,26 @@
 <body>
 <div class="course">
     <ul class="img-ct clearfix">
-        <li data-id="0"><a href="#"><img src="http://beijingww.qianlong.com/mmsource/images/2008/03/28/bjwwlmgd080328014.jpg" alt=""></a></li>
-        <li data-id="1"><a href="#"><img src="http://image2.90e.com/image/1024x768/12764.jpg" alt=""></a></li>
+        <li data-id="0"><a href="#"><img src="http://img.sootuu.com/vector/2006-4/2006420114643989.jpg" alt=""></a></li>
+        <li data-id="1"><a href="#"><img src="http://img.sootuu.com/vector/2007-07-01/066/1/572.gif" alt=""></a></li>
         <li data-id="2"><a href="#"><img src="http://www.1tong.com/uploads/wallpaper/anime/209-3-1920x1200.jpg" alt=""></a></li>
         <li data-id="3"><a href="#"><img src="http://attach.bbs.miui.com/forum/201203/20/170226n5qcwdpusnjdsswy.jpg" alt=""></a></li>
     </ul>
     <a class="playnext playbg" href="#"> > </a>
     <a class="playpre playbg" href="#"> < </a>
-    <div class="bullet">
-        <ul>
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
+    <!--<div class="bullet">-->
+        <!--<ul>-->
+            <!--<li class="active"></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+        <!--</ul>-->
+    <!--</div>-->
 </div>
 <script>
     function Carousel($course) {
         this.$course = $course ;
-        var $ct = this.$ct = $('.img-ct').children();
-        this.imgct=$('.img-ct');
+        var $ct = this.$ct = $course.find('.img-ct');
         this.$pre = $course.find(".playpre");
         this.$next = $course.find('.playnext');
         this.imgWidth = $ct.find('li').width();
@@ -113,10 +112,13 @@
 
         $('.img-ct').css('width' , this.imgWidth*this.imgSize);
 
-        this.bind();
+
+
+        //this.bind();
 
     }
-
+        var animate = false;
+        var animate2 = false;
 
     Carousel.prototype = {
         bind : function () {
@@ -128,24 +130,46 @@
                 $this.showNext();
             });
         },
-        
+
         showpre: function () {
-            this.$ct.prepend(this.$ct.children().last());
-            this.$ct.css('left', 0-this.imgWidth);
-            this.$ct.animate({'left': 0});
+            if (!animate2) {
+                    animate = true;
+                    this.$ct.prepend(this.$ct.children().last());
+                    this.$ct.css('left', 0 - this.imgWidth); //向前移动其实就是整体向右移动,
+                    this.$ct.animate({'left': 0});//使用css操作移动，animate只给一个动画效果
+                    animate = false;
+            }
+
+
+
         },
         showNext: function(){
-            var $ct = this.$ct;
-            $ct.animate({'left': 0-this.imgWidth},function(){
-                $ct.append($ct.children().first());
-                $ct.css('left', 0);
-            });
+            if (!animate) {
+                animate = true;
+                console.log('11');
+                var $ct = this.$ct;
+
+                $ct.animate({'left': 0-this.imgWidth},function(){  //看到的永远是最后一张
+                    $ct.append($ct.children().first());
+                    $ct.css('left', 0); //移动完成后本身是变成 left: 0-imgwidth ，但是设置为O,使其保持有动画的效果
+                    animate = false;
+
+
+                });
+
+            }
+
+
         }
     };
 
-    $('.course').each(function(){
-        new Carousel($(this));
-    });
+    //    $('.course').each(function(){
+    //        new Carousel($(this));
+    //    });
+
+        var a = new Carousel($('.course'));
+
+        a.bind();
 
 
 
