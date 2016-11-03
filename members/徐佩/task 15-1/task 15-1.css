@@ -1,0 +1,125 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #666;
+}
+a:hover{
+  color: #333;
+}
+.container{
+  width: 1000px;
+  margin: 0 auto;
+}
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+#header{
+  border: 1px solid #ccc;
+}
+#nav li{
+  float: left;
+  line-height: 50px;
+  padding: 0 10px;
+  margin-top: 20px;
+  position: relative;
+}
+#nav .child{
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display:none;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+#nav .child li{
+  line-height:8px;
+  padding: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+#nav>li:hover .child{
+  display: block;
+}
+.intro{
+  background-color: rgb(177, 62, 66);
+  color: #fff;
+  padding: 30px 0;
+}
+.first-page{
+  margin-top: 40px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+.first-page ul{
+  padding: 10px;
+}
+.first-page li{
+  display: inline-block;
+}
+.first-page a{
+  color: rgb(177, 62, 66);
+}
+.projects{
+  margin-top: 10px;
+}
+.btn{
+  display: inline-block;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.projects .container>ul{
+  margin-left: -40px;
+}
+.projects .container>ul>li{
+  float: left;
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.projects .container>ul>li img{
+  width: 300px;
+  height: 200px;
+}
+.projects .container>ul>li h1{
+  padding-left: 10px;
+  font-size: 16px;
+  text-align: left;
+}
+.projects>ul>li p{
+  padding-left: 10px;
+  font-size: 12px;
+  text-align: left;
+}
+.contact-message{
+  margin-top: 40px;
+  padding: 20px 0;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  background-color: rgb(177, 62, 66);
+}
+.contact-message .btn{
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+.contact-message a{
+  color: #fff
+}
+#footer p{
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 40px;
+  padding: 30px;
+  border-top:1px solid #ccc;
+}
