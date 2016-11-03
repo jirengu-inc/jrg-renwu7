@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="tab切换 原生js" />
+    <meta charset="utf-8">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <meta name="robots" content="noindex">
+    <title>tab 切换</title>
+
+    <style id="jsbin-css">
+        .mod-tab {
+            border: 1px solid #ccc;
+        }
+        .mod-tab * {
+            box-sizing: border-box;
+        }
+        .mod-tab ul,
+        .mod-tab li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .mod-tab .tabs:after {
+            content: '';
+            height: 0;
+            display: table;
+            clear: both;
+        }
+        .mod-tab .tabs li {
+            float: left;
+            width: 33.3%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .mod-tab .tabs li:last-child {
+            border-right: none;
+        }
+        .mod-tab .tabs .active {
+            background: #eee;
+        }
+        .mod-tab .panel {
+            display: none;
+            height: 180px;
+            padding: 20px;
+        }
+        .mod-tab .active {
+            display: block;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="mod-tab">
+    <ul class="tabs">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="panel active">内容1</div>
+    <div class="panel">内容2</div>
+    <div class="panel">内容3</div>
+</div>
+
+<script>
+    function Tab($tab) {
+        this.$tab = $tab;
+        var $ct = $tab.find('.tabs');
+       this.$items = $ct.find('li');
+       this.$panel = $tab.find('.panel');
+    }
+
+    Tab.prototype= {
+        bind: function () {
+            var _this = $(this);
+            this.$items.on('click',function () {
+                var idx = $(this).index();
+                _this.$items.removeClass('active');
+                _this.$items.eq(idx).addClass('active');
+
+            })
+
+
+        }
+
+    }
+
+    var a = new Tab($('.mod-tab'))
+    a.bind();
+</script>
+
+</body>
+</html>

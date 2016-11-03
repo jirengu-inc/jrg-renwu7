@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>35-2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+           .ct{
+               position: relative;
+               overflow: hidden;
+               width: 400px;
+               height: 250px;
+           }
+           .img_ct{
+               position: relative;
+               top:0;
+               left:0;
+           }
+        li{
+            list-style-type: none;
+            display: inline-block;
+        }
+
+        .left_icon{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width:30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ccc;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .right_icon{
+            position: absolute;
+            top: 50%;
+            left: 369px;
+            width:30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ccc;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="images">
+        <ul class="img_ct">
+            <li><img src="img/1.jpg" /></li>
+            <li><img src="img/2.jpg" /></li>
+            <li><img src="img/3.jpg" /></li>
+            <li><img src="img/4.jpg" /></li>
+        </ul>
+    <div class="icons">
+        <div class="left_icon"><</div>
+        <div class="right_icon">></div>
+    </div>
+    </div>
+</div>
+<div class="ct">
+    <div class="images">
+        <ul class="img_ct">
+            <li><img src="img/1.jpg" /></li>
+            <li><img src="img/2.jpg" /></li>
+            <li><img src="img/3.jpg" /></li>
+            <li><img src="img/4.jpg" /></li>
+        </ul>
+
+    <div class="icons">
+        <div class="left_icon"><</div>
+        <div class="right_icon">></div>
+    </div>
+</div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+function Carousel($node){
+    this.$node=$node;
+    this.$ct=$node.find('.img_ct');
+    this.$left_icon=$node.find('.left_icon');
+    this.$right_icon=$node.find('.right_icon');
+    this.imgWidth=$node.find('li').width();
+    this.imgSize=$node.find('li').size();
+    this.$ct.css({'width':this.imgWidth*this.imgSize});
+    this.bind();
+}
+    Carousel.prototype.bind=function(){
+        var _this=this;
+        this.$left_icon.on('click',function(){
+            _this.showPre();
+        });
+        this.$right_icon.on('click',function(){
+            _this.showNext();
+        });
+    };
+    Carousel.prototype.showPre=function(){
+        var $ct=this.$ct;
+        $ct.prepend($ct.children().last());
+        $ct.css('left',0-this.imgWidth);
+        $ct.animate({left:0});
+    };
+    Carousel.prototype.showNext=function() {
+        var $ct = this.$ct;
+            $ct.animate({left:0-this.imgWidth},function(){
+            $ct.append($ct.children().first());
+            $ct.css('left', 0);
+            });
+    };
+      $ct1=$('.ct').eq(0);
+      $ct2=$('.ct').eq(1);
+    var c1=new Carousel($ct1);
+    var c2=new Carousel($ct2);
+</script>
+</body>
+</html>

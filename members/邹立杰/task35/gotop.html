@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GoTop</title>
+</head>
+<style>
+	body{
+		background: #000;
+	}
+	.gotop{
+		position: fixed;
+		right:20px;
+		bottom:80px;
+		padding:10px 15px;
+		background: #fff;
+		border:1px solid #eee;
+		border-radius:3px;
+		cursor:pointer;
+	}
+	span{
+		color:#fff;
+		font-size: 50px;
+	}
+</style>
+<body>
+	<span>请下拉100px</span>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		function GoTop($ct){
+			this.$ct = $ct;
+			this.$target = $("<div class='gotop'>回到顶部</div>")
+		}
+		GoTop.prototype.createNode = function(){
+			this.$ct.append(this.$target);
+			this.$target.hide();
+
+		}
+		GoTop.prototype.bindEvent = function(){
+			var _this = this;
+			$(window).on("scroll",function(){
+				var scrollTop = $(window).scrollTop();
+				if(scrollTop > 100){
+					_this.$target.show()
+				}else{
+					_this.$target.hide()
+				}
+			})
+			this.$target.on("click",function(){
+				$(window).scrollTop(0);
+			});
+		}
+		var gotop = new GoTop($("body"));
+		gotop.createNode();
+		gotop.bindEvent();
+	</script>
+</body>
+</html>

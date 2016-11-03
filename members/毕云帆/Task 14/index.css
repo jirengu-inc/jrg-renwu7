@@ -1,0 +1,303 @@
+*{margin:0;padding:0;}
+html,body{height:100%;width: 100%;font-family: Tahoma  ;  }
+@font-face {
+    font-family: 'iconfont';
+    src: url('http://at.alicdn.com/t/font_1477469245_6565864.eot'); /* IE9*/
+    src: url('http://at.alicdn.com/t/font_1477469245_6565864.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('http://at.alicdn.com/t/font_1477469245_6565864.woff') format('woff'), /* chrome、firefox */
+    url('http://at.alicdn.com/t/font_1477469245_6565864.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('http://at.alicdn.com/t/font_1477469245_6565864.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{font-family: iconfont;font-size: 100px;font-style:normal;}
+a{text-decoration: none; }
+
+#header{
+    width:100%;
+    height:100%;
+    background: url(img/bg.jpg) ;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+}
+.header-content{
+    margin: 0 auto;
+    display: table ;
+    width: 960px;
+    height: 100%;
+}
+.header-wrapper{
+    vertical-align: middle;
+    display: table-cell;
+}
+.header-content>.header-wrapper>h1{
+    font-size: 3em;
+    padding-bottom: 15px;
+}
+.header-content>.header-wrapper>p{
+    font-size: 1.2em;
+    padding-bottom: 20px;
+}
+.header-btn{
+    display: inline-block;
+    width:120px;
+    height: 40px;
+    background: #777;
+    color: white;
+    box-shadow: 0 0 0.5px #333;
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+.header-btn:hover{
+    opacity: 1;
+}
+.introduce{
+    text-align: center;
+    background: white;
+    margin: 60px 0;
+}
+.int-wrapper{
+    display: inline-block;
+    width: 960px;
+}
+.int-wrapper>h1{
+    font-size: 1.5em;
+    font-weight: normal;
+    margin:10px 0;
+}
+.int-wrapper>p{
+    opacity: 0.8;
+}
+.services{
+    background: #377ab7;
+    text-align: center;
+    color: white;
+}
+.services-header{
+    font-size: 1.5em;
+    padding-top:60px;
+}
+.ser-cutoff{
+    width: 5em;
+    border-top:1px solid white;
+    display: inline-block;
+    opacity: 0.8;
+}
+.wrapper{
+    width: 960px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-bottom: 80px;
+}
+.box{
+    display: inline-block;
+    width:200px;
+}
+.box>h1{
+    font-size:1em;
+    padding-bottom: 15px;
+}
+.box>p{
+    font-size: 0.8em;
+}
+.box>a{
+    display: inline-block;
+    height:25px;
+    width:90px;
+    line-height: 25px;
+    text-decoration: none;
+    color:darkblue;
+    background: white;
+    font-size: 0.8em;
+    margin-top:15px;
+    box-shadow: 0 0 2px blue;
+}
+.box>a:hover{
+    background: #cccccc;
+}
+.callout{
+    background: url(img/callout.jpg) no-repeat;
+    height:450px;
+    background-position:0px -100px ;
+    color:white;
+    font-size:4em;
+    line-height: 450px;
+}
+.callout-wrapper{
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+.callout-wrapper>p{
+    width: 960px;
+    display: inline-block;
+}
+.ourwork{
+    width: 960px;
+    margin: 0 auto;
+    padding-top:70px;
+    text-align: center;
+    background: white;
+    padding-bottom: 100px;;
+}
+.work-header{
+    width: 960px;
+    margin: 0 auto;
+    font-size: 1.5em;
+    padding-bottom: 15px;
+}
+.work-cutoff{
+    width: 5em;
+    border-top:1px solid #aaaaaa;
+    display: block;
+    padding-bottom: 20px;
+    opacity: 0.2;
+    margin: 0 auto;
+}
+.photos{
+    display: block;
+    width: 990px;
+    height: 696px;
+    margin-right: -30px;
+    margin-top: -5px;
+    vertical-align: top;
+}
+.photos:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.photo1,.photo2,.photo3,.photo4{
+    display: block;
+    float: left;
+    height:305px;
+    width:465px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+
+}
+.photo1{
+    background: url(img/portfolio-1.jpg);
+    background-size: cover;
+}
+.photo2{
+    background: url(img/portfolio-2.jpg);
+    background-size: cover;
+}
+.photo3{
+    background: url(img/portfolio-3.jpg);
+    background-size: cover;
+}
+.photo4{
+    background: url(img/portfolio-4.jpg);
+    background-size: cover;
+}
+.work-btn{
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    background: #888888;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    box-shadow: 0 0 1px #666666;
+    opacity: 0.8;
+    text-decoration: none;
+}
+.work-btn:hover{
+    opacity: 1;
+}
+.aboutme{
+    background: #377ab7;
+}
+.me-wrapper{
+    margin: 0 auto;
+    width: 960px;
+    color:white;
+    text-align: center;
+    padding:50px 0;
+}
+.me-wrapper>p{
+    font-size: 1.5em;
+}
+.me-btn1{
+    font-size: 1em;
+    display: inline-block;
+    padding:10px;
+    background: white;
+    text-decoration: none;
+    color: black;
+    margin:20px ;
+    box-shadow: 0 0 2px blue;
+}
+.me-btn1:hover{
+    background: #cccccc;
+}
+.me-btn2{
+    display: inline-block;
+    padding: 10px;
+    background: darkblue;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 0 2px blue;
+}
+.me-btn2:hover{
+    background: #333333;
+}
+#footer{
+    background: white;
+    width: 100%;
+    text-align: center;
+    margin-top:150px;
+    font-size: 0.8em;
+}
+.footer-wrapper{
+    margin: 0 auto;
+    width: 960px;
+}
+.footer-wrapper>h2{
+    font-size: 1.3em;
+}
+.footer-wrapper>p{
+
+    margin: 20px 0;
+}
+.footer-wrapper>a{
+    text-decoration: none;
+    color: #377ab7;
+}
+.phone{
+    height: 18px;
+}
+.phone>span{
+    font-size: 1.3em;
+    vertical-align: top;
+}
+.email{
+    font-size: 1.4em;
+    vertical-align: middle;
+}
+.icon1,.icon2,.icon3{
+    text-decoration: none;
+    color: #377ab7;
+    font-size: 4em;
+    display: inline-block;
+    padding: 20px ;
+}
+.icon2{
+    font-size: 3em;
+}
+.icon1:hover,.icon2:hover,.icon3:hover{
+    color: blue;
+}
+.footer-cutoff{
+    width: 8em;
+    border-top:1px solid #cccccc;
+    display: block;
+    padding:10px 0;
+    margin: 0 auto;
+}
+
+
+

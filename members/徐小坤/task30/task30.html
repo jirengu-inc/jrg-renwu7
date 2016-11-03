@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task30-瀑布流</title>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+  <style>
+    .ct{
+      position: relative;
+    }
+    .item{
+      position: absolute;
+      width: 200px;
+      margin-right: 10px;
+      margin-top: 10px;
+      transition: all 1s;
+    }
+    .wrap1{
+			height: 200px;
+			background-color: #f4b300;
+		}
+
+		.wrap2{
+			height: 300px;
+			background-color: #691BB8;
+		}
+
+		.wrap3{
+			height: 400px;
+			background-color: #006ac1;
+		}
+  </style>
+</head>
+<body>
+  <div class="ct">
+    <div class="item wrap1">1</div>
+    <div class="item wrap2">2</div>
+    <div class="item wrap3">3</div>
+    <div class="item wrap3">4</div>
+    <div class="item wrap1">5</div>
+    <div class="item wrap3">6</div>
+    <div class="item wrap2">7</div>
+    <div class="item wrap3">8</div>
+    <div class="item wrap1">9</div>
+    <div class="item wrap1">10</div>
+    <div class="item wrap2">11</div>
+    <div class="item wrap3">12</div>
+    <div class="item wrap2">13</div>
+    <div class="item wrap3">14</div>
+    <div class="item wrap1">15</div>
+    <div class="item wrap2">16</div>
+  </div>
+
+  <script>
+	function render(){
+		var nodeWidth = $('.item').outerWidth(true),
+			  cols = Math.floor($(window).width()/nodeWidth),
+			  colSumHeight = [];
+		for(var i = 0; i < cols; i++){
+			colSumHeight[i] = 0;
+		}
+    $('.item').each(function(){
+      var $cur = $(this),
+          idx = 0,
+          minHeight = colSumHeight[0];
+      for(var i= 0; i<colSumHeight.length; i++){
+      	if(minHeight > colSumHeight[i]){
+          minHeight = colSumHeight[i];
+          idx = i;
+      	}
+      }
+      $cur.css({
+      	left: nodeWidth*idx,
+      	top: minHeight
+      });
+      colSumHeight[idx] = colSumHeight[idx] + $cur.outerHeight(true);
+    });
+
+		}
+	render();
+	$(window).on('resize', function(){
+		render();
+	});
+  </script>
+</body>
+</html>

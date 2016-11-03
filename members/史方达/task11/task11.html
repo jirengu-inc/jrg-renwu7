@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>任务11</title>
+<style>
+	ul,li,body,a{
+	padding: 0px;
+	margin: 0px;
+	font-size: 16px;
+}
+.content{
+	display: block;
+}
+.nav{
+	background: #cbcbcb;
+}
+.clear{ clear:both} 
+li{
+	float: left;
+	list-style: none;
+	padding: 5px 10px;
+	line-height: 26px;
+	position: relative;
+}
+a{
+	text-decoration:none;
+	color: #343434;
+	font-size: 16px;
+}
+li:hover{
+	background: #aaa;
+}
+.down{
+	display: none;
+	position: absolute;
+	border: 1px solid #cbcbcb;
+	border-top:1px solid #aaa; 
+	margin-top: 5px;
+	left: 0px;
+}
+.down li{
+	float:none;
+}
+.nav ul li:hover ul{ display:block; }	
+
+</style>
+</head>
+
+<body>
+<div class="content">
+	<div class="nav">
+		<ul class="top">
+			<li class="bar">
+			    <a href="#">前端</a>
+			    <ul class="down">
+			    	<li><a href="#">javascript</a></li>
+			    	<li><a href="#">CSS</a></li>
+			    	<li><a href="#">HTML</a></li>
+			    </ul>
+			</li>
+			<li class="bar">
+				<a href="#">服务器</a>
+				<ul class="down">
+			    	<li><a href="#">PHP</a></li>
+			    	<li><a href="#">JAVA</a></li>
+			    	<li><a href="#">Python</a></li>
+			    </ul>
+			</li>
+			<li class="bar">
+				<a href="#">前端工具</a>
+				<ul class="down">
+			    	<li><a href="#">sublime</a></li>
+			    	<li><a href="#">webstrom</a></li>
+			    	<li><a href="#">git</a></li>
+			    </ul>
+			</li>
+			<li class="bar">
+				<a href="#">HTML</a>
+			</li>
+			<li class="bar">
+				<a href="#">NODE</a>
+			</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
