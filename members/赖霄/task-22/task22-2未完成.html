@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task22-2</title>
+</head>
+<body>
+<!--     2.补全代码，要求：
+        1.当点击按钮开头添加时在<li>这里是</li>元素前添加一个新元素，内容为用户输入的非空字符串；当点击结尾添加时在<li>前端6班</li>后添加用户输入的非空字符串.
+        2.当点击每一个元素li时控制台展示该元素的文本内容。 -->
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端6班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容"/>
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+  
+    <script>
+        var ct = document.querySelector('.ct');
+        var lis = ct.children;  
+        var button1 = document.getElementById('btn-add-start');
+        var button2 = document.getElementById('btn-add-end');
+        var input = document.querySelector('.ipt-add-content');
+        var input_value = input.getAttribute('value');
+        var li = document.createElement('li');
+
+        for(var i = 0; i<lis.length; i++){
+            lis[i].addEventListener('click', function(){
+                console.log(this.innerText)
+            });
+        };
+        console.log(input_value)
+          
+        if(input_value !== null){
+            button1.addEventListener('click',function(){
+                li.innerText = input_value
+                ct.insertBefore(li,lis[0])
+            });
+            button2.addEventListener('click',function(){
+                li.innerText = input_value
+                ct.appendChild(li)
+            });
+        };
+    </script>
+</body>
+</html>

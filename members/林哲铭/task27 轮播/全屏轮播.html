@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全屏轮播</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+            font-family: "Microsoft YaHei UI";
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        html, body, #header, #header .carousel, #header .img-ct{
+            width: 100%;
+            height: 100%;
+        }
+        #header .img-ct:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #header .carousel{
+            position: relative;
+            overflow: hidden;
+        }
+        #header .img-ct{
+            position: absolute;
+        }
+        #header .item{
+            position: relative;
+            height: 100%;
+            width: 100%;
+            float: left;
+            background-size: cover;
+        }
+        .carousel .item .main{
+            color: #fff;
+            position: absolute;
+            text-align: center;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 1;
+        }
+        .carousel .item .main h1{
+            margin-bottom: 20px;
+        }
+        .carousel .item .main p{
+            font-size: 1.2em;
+        }
+        .bullet{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 20px;
+        }
+        .bullet li{
+            display: inline-block;
+            width: 30px;
+            height: 10px;
+            margin: 10px;
+            background: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .bullet .active{
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="carousel">
+            <ul class="img-ct">
+                <li class="item">
+                    <div class="cover" data-bg-img="image/bg1.jpg"></div>
+                    <div class="main">
+                        <h1>图1</h1>
+                        <p>突破云层，即是晴天</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="cover" data-bg-img="image/bg2.jpg"></div>
+                    <div class="main">
+                        <h1>图二</h1>
+                        <p>星空之下，万物永恒</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="cover" data-bg-img="image/bg3.jpg"></div>
+                    <div class="main">
+                        <h1>图3</h1>
+                        <p>我编不下去了！</p>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="cover" data-bg-img="image/bg4.jpg"></div>
+                    <div class="main">
+                        <h1>图4</h1>
+                        <p>眉梢夕阳，春满人间</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="bullet">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+    var $ct = $(".img-ct"),
+        $items = $ct.children(),
+        $next = $(".next"),
+        $pre = $(".pre"),
+        $bullet = $(".bullet");
+        imgWidth = $(window).width();
+        imgCount = $items.length+2;
+
+        var isAnimate = false;
+        var curIdx =1;
+
+        setImg(0);
+        setImg(1);
+        $items.width(imgWidth);
+        $ct.width(imgCount*imgWidth);
+        $ct.prepend($items.last().clone());
+        $ct.append($items.first().clone());
+        $ct.css({left: -imgWidth});
+
+        $(window).on("resize",function () {
+            $items = $ct.children();
+            imgWidth = $(window).width();
+            $items.width(imgWidth);
+            $ct.width(imgCount*imgWidth);
+            $ct.css({left: -imgWidth});
+        });
+
+        $bullet.on("click","li",function () {
+           var idx = $(this).index();
+           play(idx+1);
+        });
+
+        autoPlay();
+        
+        function setBullet() {
+            $bullet.children().removeClass("active")
+                              .eq(curIdx-1).addClass("active");
+        }
+        function play(index) {
+            if(isAnimate) return;
+            isAnimate = true;
+            setImg(curIdx+1);
+            if( index == 0){
+                curIdx = imgCount-2;
+            }else if(index == imgCount-1){
+                curIdx = 1;
+            }else{
+                curIdx = index;
+            }
+            $ct.animate({left:-imgWidth*index},function () {
+                isAnimate = false;
+                $ct.css("left",-imgWidth*curIdx);
+            });
+            setBullet();
+        }
+        function autoPlay() {
+            clock = setInterval(function () {
+                playNext();
+            },4000)
+        }
+        function playNext() {
+            play((curIdx + 1)% imgCount);
+        }
+        function setImg(idx) {    //懒加载
+            var $node = $items.eq(idx),
+                $cover = $node.find(".cover"),
+                $imgUrl =$cover.attr('data-bg-img');
+            if ($node.data("isSet")) return;
+            $node.css("background-image",'url(' + $imgUrl + ')');
+            $node.data('isBgSet',true);
+        }
+    </script>
+</body>
+</html>

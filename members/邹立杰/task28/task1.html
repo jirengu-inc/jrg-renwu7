@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>stickup</title>
+</head>
+<style>
+	#header{
+		width:100%;
+		height:70px;
+		background-color:red;
+		text-align: center;
+	}
+	.nav{
+		width:100%;
+		height:50px;
+		margin-top:20px;
+		background-color:blue;
+	}
+	#content{
+		width:100%;
+		min-height:800px;
+		padding:10px;
+		background-color:#ccc;
+		box-sizing:border-box;
+	}
+	#content:after{
+		content:"";
+		display: block;
+		clear:both;
+	}
+	.aside{
+		float: left;
+		width:80px;
+		min-height:300px;
+		background:green;
+	}
+	.main{
+		overflow: auto;
+		min-height:990px;
+		background:#fff;
+	}
+	#footer{
+		background-color:black;
+		color:#fff;
+	}
+</style>
+<body>
+	<div id="header">header</div>
+	<div class="nav">nav</div>
+	<div id="content">
+		<div class="aside">aside</div>
+		<div class="main">main</div>
+	</div>
+	<div id="footer">footer</div>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$.fn.stick = function(){
+			var $cur = this,
+				width = $cur.width(),
+				height = $cur.height(),
+				offsetTop = $cur.offset().top,
+				offsetLeft = $cur.offset().left;
+			var lock = false;
+			// 克隆放入
+			var $cloneDiv = $cur.clone().insertBefore($cur).css({"opacity":0}).hide();
+
+			$(window).on("scroll",function(){
+				var winTop = $(this).scrollTop();
+				if(winTop >= offsetTop){
+					if(!lock){
+						setFixed();
+					}
+				}else{
+					if(lock){
+						unSetFixed();
+					}
+				}
+			});
+			// 设置Fixed
+			function setFixed(){
+				$cur.css({
+					"position":"fixed",
+					"width":width,
+					"height":height,
+					"top":0,
+					"left":offsetLeft,
+					"margin":0,
+					"zIndex":9999
+				});
+				$cloneDiv.show();
+				lock = true;
+			}
+			// 去除fixed
+			function unSetFixed(){
+				$cur.removeAttr("style");
+				$cloneDiv.hide();
+				lock = false;
+			}
+
+		}
+		$(".nav").stick();
+	</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>task24-1</title>
+</head>
+<body>
+<button id="btn">click me!</button>
+<div id="content"></div>
+<script>
+    function ajax(opts) {
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft,XMLHTTP");
+        }
+        var datastr = "";
+        for(var key in opts.data){
+            datastr += key + "=" + opts.data[key] + "&";
+        }
+        datastr = datastr.substring(0,datastr.length-1);
+        if (datastr.length == 0){
+            return
+        }
+        xmlhttp.onreadystatechange = function () {
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                var json = JSON.parse(xmlhttp.responseText);
+                opts.success(json);
+            }
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 404){
+                opts.error();
+            }
+        };
+        if(opts.type.toLowerCase() === "post" ){
+            xmlhttp.open("POST",opts.url,true);
+            xmlhttp.setRequestHeader("Content-type","application/x-ww-form-urlencoded");
+            xmlhttp.send(datastr);
+        }
+        if(opts.type.toLowerCase() === "get" ){
+            xmlhttp.open("GET",opts.url+"?"+datastr,true);
+            xmlhttp.send();
+        }
+    }
+
+    document.getElementById("btn").addEventListener("click",function(){
+        ajax({
+            url:"getData.php",
+            type:"get",
+            data:{
+                username:"xiaoming",
+                password:"abcd1234"
+            },
+            success: function (ret) {
+                console.log(ret);
+                var content = document.querySelector("#content");
+                content.innerText = "username:" + ret.username + " and password:" + ret.password + "."
+            },
+            error: function () {
+                console.log("出错了");
+            }
+        })
+    });
+</script>
+</body>
+</html>

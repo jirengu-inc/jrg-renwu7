@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <style>
+  ul{
+    margin: 0;
+    padding: 0;
+  }
+    #facon>li{
+      height: 40px;
+      border: 1px solid #eee;
+      margin: 10px;
+      line-height: 40px;
+      font-size: 20px;
+      padding: 10px;
+      list-style: none;
+    }
+    #facon>li:hover{
+      background-color: green;
+      color:#fff;
+    }
+    .btn{
+      text-align: center;
+      width: 120px;
+      height: 50px;
+      border: 1px solid red;
+      color:red;
+      font-size:25px;
+      display: block;
+      margin: 0 auto;
+      text-decoration: none;
+      line-height: 50px;
+      border-radius:10px;
+    }
+
+  </style>
+  <body>
+    <ul id="facon">
+      <li>内容1</li>
+      <li>内容2</li>
+    </ul>
+    <a class="btn" href="###">
+      加载更多
+    </a>
+
+    <script>
+
+    function ajax(opts){
+      var xmlhttp;
+      if(window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+      }
+      if (window.ActiveXObject) {
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+      }
+
+    xmlhttp.onreadystatechange=function(){
+      if(xmlhttp.readyState===4&&xmlhttp.status===200){
+        var json=JSON.parse(xmlhttp.responseText);
+        opts.success(json);
+      }
+      if(xmlhttp.readyState===4&&xmlhttp.status===404){
+        opts.error();
+      }
+    }
+
+    var datastr="";
+    for(var key in opts.data){
+      datastr+=key+"="+opts.data[key]+"&";
+    }
+     datastr=datastr.substr(0,datastr.length-1);
+
+     if(opts.type.toLowerCase()=="get"){
+       xmlhttp.open("get",opts.url+"?"+datastr,true);
+       xmlhttp.send();
+     }
+     if(opts.type.toLowerCase()=="post"){
+       xmlhttp.open("post",opts.url,true);
+       xmlhttp.setRequestHeader("Content-type",'application/x-www-form-urlencoded');
+       xmlhttp.send(datastr);
+     }
+    }
+    var container=document.getElementById("facon");
+    var onload=false;
+    var start=3;
+    var len=3;
+    document.querySelector(".btn").addEventListener("click",function(){
+      if(onload){
+        return;
+      }
+      onload=true;
+      ajax({
+        url:"task2.php",
+        type:"get",
+        data:{
+          "start":start,
+          "len":len
+        },
+        success:function(ret){
+          var text="";
+          for(var i=0;i<len;i++){
+            var num=start+i;
+            text='内容'+num;
+          var newli=document.createElement("li");
+          newli.innerText=text;
+          container.appendChild(newli);
+        }
+        onload=false;
+        start=ret;
+      },
+        error:function(){
+          console.log("加载有误....");
+        }
+      });
+    });
+
+
+
+
+
+    </script>
+  </body>
+
+</html><!--

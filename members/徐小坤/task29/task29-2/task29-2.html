@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jquery</title>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+  <style>
+
+    li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+    }
+    .img{
+      width: 900px;
+      margin: 0 auto;
+    }
+    .img li{
+      float: left;
+      margin: 10px 10px;
+    }
+    .img li img{
+      width: 260px;
+      height: 410px;
+    }
+    P{
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <ul class="img">
+    <li><a href="#"><img src="1.jpg" data-src="1.jpg" /></a></li>
+    <li><a href="#"><img src="2.jpg" data-src="2.jpg" /></a></li>
+    <li><a href="#"><img src="3.jpg" data-src="3.jpg" /></a></li>
+    <li><a href="#"><img src="4.jpg" data-src="4.jpg" /></a></li>
+    <li><a href="#"><img src="5.jpg" data-src="5.jpg" /></a></li>
+    <li><a href="#"><img src="6.jpg" data-src="6.jpg" /></a></li>
+    <li><a href="#"><img src="1.jpg" data-src="1.jpg" /></a></li>
+    <li><a href="#"><img src="2.jpg" data-src="2.jpg" /></a></li>
+    <li><a href="#"><img src="3.jpg" data-src="3.jpg" /></a></li>
+    <li><a href="#"><img src="4.jpg" data-src="4.jpg" /></a></li>
+    <p>文字</p>
+    <li><a href="#"><img src="5.jpg" data-src="5.jpg" /></a></li>
+    <li><a href="#"><img src="6.jpg" data-src="6.jpg" /></a></li>
+    <li><a href="#"><img src="1.jpg" data-src="1.jpg" /></a></li>
+    <li><a href="#"><img src="2.jpg" data-src="2.jpg" /></a></li>
+    <li><a href="#"><img src="3.jpg" data-src="3.jpg" /></a></li>
+    <li><a href="#"><img src="4.jpg" data-src="4.jpg" /></a></li>
+    <li><a href="#"><img src="5.jpg" data-src="5.jpg" /></a></li>
+    <li><a href="#"><img src="6.jpg" data-src="6.jpg" /></a></li>
+  </ul>
+  <script>
+    var clock;
+    $(window).on('scroll', function(){
+      if(clock){
+        clearTimeout(clock);
+      }
+      clock = setTimeout(function(){
+        console.log(1);
+        checkShow();
+      }, 300);
+    });
+    checkShow();
+    function checkShow(){
+      $('.img img').each(function(){
+        var $cur = $(this);
+        if($cur.attr('isLoaded')){
+          return;
+        }
+        if(isShow($cur)){
+          showImg($cur);
+        }
+      });
+    }
+    function isShow($el){
+      var scrollH = $(window).scrollTop(),
+          winH = $(window).height(),
+          top = $el.offset().top;
+      if(top < winH + scrollH){
+        return true;
+      }else {
+        return false;
+      }
+    }
+    function showImg($el){
+      $el.attr('src', $el.attr('data-src'));
+      $el.attr('isLoaded', true);
+    }
+  </script>
+</body>
+</html>

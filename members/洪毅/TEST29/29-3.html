@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>29-3</title>
+    <style>
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ctn {
+            width: 300px;
+        }
+
+        li {
+            text-align: center;
+            width: 280px;
+            height: 40px;
+            border: 1px solid #AAA;
+            margin: 10px;
+            padding-left: 10px;
+            line-height: 40px;
+        }
+
+        .btn {
+            height: 40px;
+            width: 120px;
+            color: green;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid green;
+            border-radius: 4px;
+            margin: 10px auto;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ctn">
+        <ul id="list">
+            <li>内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+            <li>内容4</li>
+            <li>内容5</li>
+            <li>内容6</li>
+            <li>内容7</li>
+            <li>内容8</li>
+            <li>内容9</li>
+            <li>内容10</li>
+            <li>内容11</li>
+            <li>内容12</li>
+            <li>内容13</li>
+            <li>内容14</li>
+            <li>内容15</li>
+            <li>内容16</li>
+            <li>内容17</li>
+            <li>内容18</li>
+
+        </ul>
+        <div class="btn">加载更多</div>
+    </div>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $('.ctn').on('mouseover', 'li', function() {
+            $(this).css('background', 'green');
+            $(this).css('color', '#fff');
+        });
+        $('.ctn').on('mouseout', 'li', function() {
+            $(this).css('background', '#fff');
+            $(this).css('color', '#000');
+        });
+
+        var cur = 18;
+        var clock;
+        $(window).on('scroll',function () {
+            if(clock){
+                clearTimeout(clock);
+            }
+            clock = setTimeout(function () {
+                checkShow($('.btn'));
+            },400);
+        });
+
+
+        function checkShow($node) {
+            var scrollH = $(window).scrollTop();
+            var winH = $(window).height();
+            var nodeH = $node.offset().top;
+            if(nodeH < scrollH + winH){
+            $.ajax({
+                url: 'getData.php',
+                dataType: 'json',
+                type: 'get',
+                data: {
+                    start: cur,
+                    len: 10
+                },
+                success: function(ret) {
+                    if (ret.status == 1) {
+                        $(ret.data).each(function(i) {
+                            $("ul").append("<li>" + ret.data[i] + "</li>");
+                        })
+                        cur += 10;
+                    } else {
+                        alert("服务器无法连接")
+                    }
+                },
+                error: function() {
+                    alert("出错啦")
+                }
+            });
+        }
+
+        }
+    </script>
+</body>
+
+</html>

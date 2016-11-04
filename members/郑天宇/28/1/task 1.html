@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 28-1  stickup插件</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body,html{
+            padding: 0;
+            margin: 0;
+        }
+        .top{
+            width: 100%;
+            height: 50px;
+            background: red;
+            margin: 20px;
+        }
+
+        .aside{
+            height: 300px;
+            width: 100px;
+            background: blue;
+            float: left;
+
+            margin-left: 20px;
+        }
+       .clearfix{
+            content: " ";
+            display: block;
+            clear: both;
+        }
+        .content{
+
+
+            padding: 20px;
+        }
+        .main{
+            width: 500px;
+            height: 900px;
+            background: #3f3f3f;
+            overflow: auto;
+        }
+        .footer{
+            position: relative;
+            bottom: 10px;
+            width: 100%;
+            height: 50px;
+            background: green;
+
+        }
+    </style>
+</head>
+<body >
+    <div class="top">top</div>
+
+    <div class="content clearfix">
+        <div class="aside">aside</div>
+        <div class="main"> main</div>
+    </div>
+    <div class="footer">footer</div>
+
+    <script>
+        var $target=$('.top');
+        var $targetH=$target.height();
+        var $targetW=$target.width();
+        var offsettop=$target.offset().top;
+        var offsetleft=$target.offset().left;
+<<<<<<< HEAD
+        var scrolltop=$(this).scrollTop;
+=======
+
+>>>>>>> bca84bd8f821847cbf3272658f8b1a428272662a
+        var targetclone=$target.clone()
+                        .css({'display':'none'})
+                        .insertBefore($target);
+
+
+        $(window).on('scroll',function () {
+            var scrolltop=$(this).scrollTop();
+            if(scrolltop >= offsettop){
+                if(!isfixed())
+                {
+                    setfixed();
+                }
+            }
+                else
+                    {
+                    if(isfixed()){
+                       unsetfixed()
+                    }
+                }
+
+
+        });
+        function isfixed() {
+            return $target.data('data-fixed');
+        }
+        
+        function setfixed() {
+            $target.data('data-fixed',true)
+                    .css({
+                        'position':'fixed',
+                        'top':0,
+                        'left':offsetleft,
+                        'width':$targetW,
+                        'margin':0,
+                        'height':$targetH,
+                        'z-index':10000
+                            });
+            targetclone.show();
+        }
+        function unsetfixed() {
+            $target.data('data-fixed',false)
+                    .removeAttr('style');
+            targetclone.hide();
+        }
+
+        
+
+    </script>
+
+</body>
+</html>

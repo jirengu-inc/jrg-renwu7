@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DOM</title>
+</head>
+<body>
+  <ul class="ct">
+    <li data-img="images/1.jpg">鼠标放置查看图片1</li>
+    <li data-img="images/2.jpg">鼠标放置查看图片2</li>
+    <li data-img="images/3.jpg">鼠标放置查看图片3</li>
+  </ul>
+  <div class="img-preview"></div>
+  <script>
+    var ct = document.querySelector('.ct');
+    var div = document.querySelector('.img-preview');
+    var imgBox = document.createElement('img');
+    ct.addEventListener('mouseover', function(e){
+      if(e.target.tagName.toLowerCase() === 'li'){
+        var data = e.target.getAttribute('data-img');
+        imgBox.src = data;
+        div.appendChild(imgBox);
+      }
+    })
+  </script>
+</body>
+</html>

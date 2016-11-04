@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>L12 -03</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	*{
+		margin: 0;
+		padding:0;
+	}
+	#header,#footer{background: #ccc;height: 50px;}
+	#content{
+		padding-left: 200px;
+	}
+	.clearfix:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.main{
+		float: left;
+		width: 100%;
+		background: green;
+	}
+	.left_bar{
+		float: left;
+		width: 200px;
+		height: 150px;
+		background: red;	
+		margin-left: -100%;
+		position:relative;
+		left: -200px;	
+	}
+</style>
+<body>
+    <div id="header">头部</div>
+    <div id="content" class="clearfix">
+        <div class="main">圣杯布局————中间主内容区块宽度自适应，左右两侧边栏宽度固定
+        的布局方式。左右侧边栏区块和中间主内容区块都设置浮动，然后三栏的父元素设置padding，
+        使两边留出空白。左侧边栏区块设置margin-left:-100%，右侧边栏区块设置margin-left值为
+        区块本身的宽度再配合相对定位即可<br>
+圣杯布局————中间主内容区块宽度自适应，左右两侧边栏宽度固定
+        的布局方式。左右侧边栏区块和中间主内容区块都设置浮动，然后三栏的父元素设置padding，
+        使两边留出空白。左侧边栏区块设置margin-left:-100%，右侧边栏区块设置margin-left值为
+        区块本身的宽度再配合相对定位即可
+        </div>
+    	<div class="left_bar">左侧边栏，固定宽度</div>
+    </div>
+    <div id="footer">尾部</div>
+</body>
+</html>

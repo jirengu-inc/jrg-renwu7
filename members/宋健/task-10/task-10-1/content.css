@@ -1,0 +1,32 @@
+#content{
+    margin-top:10px;
+    text-decoration: none;
+}
+#content:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+#content .sidebar{
+    width:200px;
+    float:left;
+    background-color:#eee;
+    min-height:500px;
+}
+#content .main{
+    width:700px;
+    margin-left:210px;
+    background-color:#eee;
+    padding:30px 0px;
+    color:#656565;
+    text-decoration: none;
+}
+#content .main h1{
+    padding:20px 20px;
+    text-decoration: none;
+}
+#content .main p{
+    padding:2px 20px;
+    text-decoration: none;
+    font-size:14px;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task27-1</title>
+  <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+    }
+    .carousel{
+      width: 310px;
+      height: 206px;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel .img-ct{
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .img-ct img{
+      width: 310px;
+      height: 206px;
+    }
+    .img-ct:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .img-ct li{
+      display: inline-block;
+    }
+    .arrow{
+      position: absolute;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      background: #4E443C;
+      text-align: center;
+      border-radius: 30px;
+      top: 50%;
+      margin-top: -15px;
+      box-shadow: 0 0 2px #666;
+      opacity: 0.8;
+    }
+    .arrow:hover{
+      opacity: 1;
+    }
+    .pre{
+      margin-left: 10px;
+    }
+    .next{
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="c1" class="carousel">
+    <ul class="img-ct">
+      <li data-id=0><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt="" /></a></li>
+      <li data-id=1><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt="" /></a></li>
+      <li data-id=2><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt="" /></a></li>
+      <li data-id=3><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt="" /></a></li>
+    </ul>
+    <a class="pre arrow" href="#"><</a>
+    <a class="next arrow" href="#">></a>
+  </div>
+  <div id="c2" class="carousel">
+    <ul class="img-ct">
+      <li data-id=0><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt="" /></a></li>
+      <li data-id=1><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt="" /></a></li>
+      <li data-id=2><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt="" /></a></li>
+      <li data-id=3><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt="" /></a></li>
+    </ul>
+    <a class="pre arrow" href="#"><</a>
+    <a class="next arrow" href="#">></a>
+  </div>
+
+  <script>
+  function Carousel($node){
+    this.$carousel = $node;
+    var $ct = this.$ct = this.$carousel.find('.img-ct');
+    this.$item = $ct.children();
+    this.$pre = this.$carousel.find('.pre');
+    this.$next = this.$carousel.find('.next');
+    this.imgWidth = $ct.find('li').width();
+    this.imgCount = $ct.find('li').size();
+    $ct.css('width', this.imgWidth*this.imgCount);
+    this.bind();
+  }
+  Carousel.prototype.bind = function(){
+    var _this = this;
+    _this.$next.on('click', function(){
+      _this.playNext();
+    });
+    _this.$pre.on('click', function(){
+      _this.playPre();
+    });
+  }
+  Carousel.prototype.playPre = function(){
+    this.$ct.prepend(this.$ct.children().last());
+    this.$ct.css('left', 0-this.imgWidth);
+    this.$ct.animate({'left': 0});
+  }
+  Carousel.prototype.playNext = function(){
+    var $ct = this.$ct;
+    $ct.animate({'left': 0-this.imgWidth}, function(){
+      $ct.append($ct.children().first());
+      $ct.css('left', 0);
+    });
+  }
+  var c1 = new Carousel($('#c1'));
+  var c2 = new Carousel($('#c2'));
+
+  </script>
+</body>
+</html>

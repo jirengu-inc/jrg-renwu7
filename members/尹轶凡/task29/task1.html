@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task29-1</title>
+    <style type="text/css">
+    *{
+      font-family: 'Microsoft YaHei'
+    }
+      ul,li{
+        list-style: none;
+      }
+      li{
+        height: 50px;
+        margin-top: 10px;
+      }
+      .btn{
+        position: fixed;
+        right: 100px;
+        bottom: 100px;
+        border: 1px solid #ccc;
+        background: #ccc;
+        width: 100px;
+        height: 60px;
+        font-size: 20px;
+        line-height: 60px;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: #999 3px 2px 1px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>内容1</li>
+      <li>内容2</li>
+      <li>内容3</li>
+      <li>内容4</li>
+      <li>内容5</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+      <li>内容</li>
+    </ul>
+    <div class='btn'>返回顶部</div>
+    <script src='http://code.jquery.com/jquery-latest.js'></script>
+    <script>
+      var $btn=$('.btn');
+
+      $(window).on('scroll',function(){
+        var $scrollH=$(this).scrollTop();
+
+         if($scrollH>1000){
+           $btn.show();
+         }else{
+           $btn.hide();
+         }
+      })
+
+      $btn.on('click',function(){
+        $(window).scrollTop(0);
+      })
+
+
+    </script>
+  </body>
+</html>

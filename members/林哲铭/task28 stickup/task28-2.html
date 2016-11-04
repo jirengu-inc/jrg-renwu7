@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task28-1</title>
+    <style>
+        .wraps{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .header{
+            background:red;
+            height: 60px;
+        }
+        .nav{
+            background: yellow;
+            height: 30px;
+            margin-top: 20px;
+            border: 1px solid black;
+        }
+        .content{
+            margin-bottom: 20px;
+        }
+        .content:after{
+            display: block;
+            content: "";
+            clear: both;
+        }
+        .aside{
+            float: left;
+            background: pink;
+            width: 200px;
+            min-height: 400px;
+        }
+        .main{
+            margin-left: 220px;
+            background: blue;
+            min-height: 400px;
+        }
+        .footer{
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="wraps">
+        <div class="header">header</div>
+        <div class="nav nav1">nav1</div>
+        <div class="content">
+            <div class="aside">aside</div>
+            <div class="main">main</div>
+        </div>
+        <div class="nav nav2">nav2</div>
+        <div class="content">
+            <div class="aside">aside</div>
+            <div class="main">main</div>
+        </div>
+        <div class="nav nav3">nav3</div>
+        <div class="content">
+            <div class="aside">aside</div>
+            <div class="main">main</div>
+        </div>
+        <div class="nav nav4">nav4</div>
+        <div class="content">
+            <div class="aside">aside</div>
+            <div class="main">main</div>
+        </div>
+    </div>
+    <div class="footer">footer</div>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(".nav").each(function () {
+            var $this = $(this);
+            var offsetX = $this.offset().left,
+                    offsetY = $this.offset().top;
+            var $node  = $this.clone();
+            $node.insertBefore($this)
+                  .width($this.width())
+                  .css({
+                    "position":"absolute",
+                    "left":offsetX,
+                    "top":offsetY,
+                    "margin":0
+                  });
+            $node.hide();
+            $(window).on("resize",function () {
+                offsetX = $this.offset().left;
+                offsetY = $this.offset().top;
+                $node.width($this.width())
+                    .css({
+                    "left":offsetX,
+                    "top":0
+                });
+            });
+            $(window).on("scroll",function () {
+                if( $(document).scrollTop() > offsetY){
+                    $node.show();
+                    $node.css({
+                        "position":"fixed",
+                        "top":0,
+                        "z-index":999
+                    });
+                    $this.css("opacity",0);
+                }
+                if( $(document).scrollTop() < offsetY){
+                    $node.hide();
+                    $this.css("opacity",1);
+                }
+            })
+        });
+        </script>
+</body>
+</html>

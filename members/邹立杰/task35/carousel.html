@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>两个</title>
+</head>
+<style>
+	body,ul,li{
+		padding:0;
+		margin:0;
+	}
+	li{
+		list-style:none;
+	}
+	a{
+		color:#333;
+		text-decoration:none;
+	}
+	div[class^='carousel']{
+		position:relative;
+		width:480px;
+		height:360px;
+		margin:10px auto;
+		overflow: hidden;
+	}
+	.ct{
+		position:absolute;
+	}
+	.ct:after{
+		content:"";
+		display: block;
+		clear:both;
+	}
+	.ct li{
+		float:left;
+		width: 480px;
+		height:360px;
+	}
+	.arrow{
+		position:absolute;
+		top:50%;
+		margin-top: -25px;
+		width:50px;
+		height:50px;
+		line-height: 50px;
+		border-radius:50%;
+		font-size: 22px;
+		color:#fff;
+		background-color: #000;
+		text-align: center;
+		opacity: 0.6;
+	}
+	a.arrow:hover{
+		opacity: 1;
+	}
+	.prev{
+		left:10px;
+	}
+	.next{
+		right:10px;
+	}
+/*	.bullet{
+		position: absolute;
+		bottom: 10px;
+		left:50%;
+		transform:translateX(-50%);
+	}
+	.bullet>li{
+		display: inline-block;
+		width:20px;
+		height:8px;
+		border-radius:10px;
+		background-color: #fff;
+		cursor:pointer;
+	}
+	.bullet>li.active{
+		background-color: #999;
+	}*/
+</style>
+<body>
+	<div class="carousel1">
+		<ul class="ct">
+			<li data-index="0">
+				<a href="#">
+					<img src="images/23.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="1">
+				<a href="#">
+					<img src="images/24.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="2">
+				<a href="#">
+					<img src="images/25.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="3">
+				<a href="#">
+					<img src="images/26.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+		<a href="#" class="arrow prev"><</a>
+		<a href="#" class="arrow next">></a>
+	</div>
+	<div class="carousel2">
+		<ul class="ct">
+			<li data-index="0">
+				<a href="#">
+					<img src="images/23.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="1">
+				<a href="#">
+					<img src="images/24.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="2">
+				<a href="#">
+					<img src="images/25.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="3">
+				<a href="#">
+					<img src="images/26.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+		<a href="#" class="arrow prev"><</a>
+		<a href="#" class="arrow next">></a>
+	</div>
+<script src="../js/jquery.min.js"></script>
+<script>
+	function Carousel($node){
+		this.$carousel = $node;
+		this.$ct = $node.find(".ct");
+		this.$prev = $node.find(".prev");
+		this.$next = $node.find(".next");
+		this.imgWidth = $node.find("li").width();
+		this.num = $node.find("li").length;
+		this.$ct.css({"width":this.imgWidth*this.num});
+		this.bind();
+	}
+	Carousel.prototype = {
+		bind:function(){
+			var _this = this;
+			this.$prev.on("click",function(){
+				_this.showPrev();
+			});
+			this.$next.on("click",function(){
+				_this.showNext();
+			});
+		},
+		showPrev:function(){
+			var $ct = this.$ct;
+			$ct.prepend(this.$ct.children().last());
+			$ct.css({"left":0-this.imgWidth});
+			$ct.animate({left:0});
+		},
+		showNext:function(){
+			var $ct = this.$ct;
+			$ct.animate({"left":0-this.imgWidth},function(){
+				$ct.append($ct.children().first())
+				$ct.css("left",0);
+			});
+		}
+	}
+	new Carousel($(".carousel1"));
+	new Carousel($(".carousel2"));
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<style>
+    ul,li,p,fieldset{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+    }
+    .loadMore .loadCt{
+        border: 1px solid #CCC;
+        margin-bottom: 10px;
+        text-align: left;
+        padding: 5px;
+        cursor: pointer ;
+        color: #666;
+    }
+    .loadMore .loadCt.cover{
+        background: #008000;
+        color: #FFF;
+    }
+    .btnLoad{
+        text-decoration: none;
+        padding: 5px 10px;
+        width: 80px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block;
+        border: 1px solid #c81623;
+        background: #fff;
+        font-size: 20px;
+        color: #c81623;
+        margin: 0 auto;
+    }
+</style>
+<body>
+<ul class="loadMore">
+    <li class="loadCt">内容1</li>
+    <li class="loadCt">内容2</li>
+</ul>
+<a class="btnLoad" href="###">
+    加载更多
+</a>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $('.loadMore').on('mouseenter','.loadCt',function(e){
+        var $cur = $(this);
+        $cur.addClass('cover');
+    });
+    $('.loadMore').on('mouseleave','.loadCt',function(e){
+        var $cur = $(this);
+        $cur.removeClass('cover');
+    });
+    var cur=3;
+    var lock=false;
+    $('.btnLoad').on('click',function(){
+        if (lock==true){
+            return;
+        }
+        lock = true;
+        $.ajax(
+                {
+                    url:'2.php',
+                    data:{
+                        start:cur,
+                        len:6
+                    },
+                    type:'get',
+                    dataType:'json',
+                    success:function(ret){
+                        if(ret.status==1){
+                            $(ret.data).each(function(i){
+                                $('.loadMore').append('<li class="loadCt">'+ ret.data[i]+ '</li>')
+                            });
+                            lock=false;
+                            cur+=6;
+                        }else{
+                            alert('数据出错了...')
+                        }
+                    },
+                    error:function(){
+                        alert('出错了...')
+                    }
+                })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>瀑布流</title>
+    <style>
+    *{
+      font-size: 30px;
+      font-family: 'Microsoft YaHei';
+    }
+      .container{
+        position: relative;
+      }
+      .item{
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+      }
+      .div1{
+        background: red;
+        height: 300px;
+      }
+      .div2{
+        background: yellow;
+        height: 400px;
+      }
+      .div3{
+        background: green;
+        height: 500px;
+      }
+      .div4{
+        background: blue;
+        height: 200px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <div class='item div1'>1</div>
+    <div class='item div4'>2</div>
+    <div class='item div3'>3</div>
+    <div class='item div2'>4</div>
+    <div class='item div4'>5</div>
+    <div class='item div3'>6</div>
+    <div class='item div1'>7</div>
+    <div class='item div3'>8</div>
+    <div class='item div2'>9</div>
+    <div class='item div3'>10</div>
+    <div class='item div1'>11</div>
+    <div class='item div2'>12</div>
+    <div class='item div2'>13</div>
+    <div class='item div1'>14</div>
+    <div class='item div4'>15</div>
+    </div>
+    <script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js'></script>
+    <script>
+
+    function render(){
+      var $item=$('.item'),
+          $itemWidth=$item.outerWidth(true),
+          $conWidth=$(window).width(),
+          $colitem=parseInt($conWidth/$itemWidth),
+
+          colHeight=[];
+          for(var i=0;i<$colitem;i++){
+            colHeight.push(0);
+          }
+
+          $item.each(function(){
+            var idx=0,
+                minHeight=colHeight[0];
+
+            for(var i=0;i<colHeight.length;i++){
+              if(minHeight>colHeight[i]){
+                minHeight=colHeight[i];
+                idx=i;
+              }
+            }
+
+            $(this).css({
+              left:$itemWidth*idx,
+
+              top:minHeight
+            });
+            colHeight[idx]+=$(this).outerHeight(true);
+          });
+     }
+
+     render();
+
+     $(window).on('resize',function(){
+       render();
+     })
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

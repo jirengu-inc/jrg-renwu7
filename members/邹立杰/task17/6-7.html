@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task17</title>
+</head>
+<body>
+	<script>
+	// 6
+	function fn(fn2){
+		console.log(fn2);
+		var fn2 = 3;
+		console.log(fn2);
+		console.log(fn);
+		function fn2(){
+			console.log("fnn2");
+		}
+	}
+	fn(10);
+	// function fn2 3 function fn
+	/*
+		因为变量声明在前，函数声明在后会覆盖同名变量，现在自身作用域中寻找fn没有
+		再到父级作用域到寻找fn
+	*/
+	// 7
+	var fn = 1;
+	function fn(fn) {
+		console.log(fn);
+	}
+	console.log(fn(fn));
+	// 报错，fn不是函数
+	/*
+	     var fn;
+	     function fn(fn) {
+			console.log(fn);
+		}
+		fn = 1;
+		console.log(fn(fn));
+		是这样执行的，所以这时候fn只是1并不是方法。
+	*/
+	</script>
+</body>
+</html>
