@@ -3,7 +3,7 @@
  */
 // ajax
 
-define(['jquery','app/waterFall'],function ($,WaterFall) {
+define(['jquery','app/waterFall','app/stickup'],function ($,WaterFall,Stickup) {
     function AJAX($node){
         this.getData();
         this.click($node);
@@ -43,6 +43,7 @@ define(['jquery','app/waterFall'],function ($,WaterFall) {
             });
             $.when.apply(null,deferreds).done(function(){
                 WaterFall.init($("#protfolio"));
+                Stickup.init($(".nav-bar"));
             })
         },
         render:function (ret) {

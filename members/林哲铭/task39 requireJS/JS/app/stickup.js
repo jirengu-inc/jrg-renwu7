@@ -15,6 +15,7 @@ define(['jquery'],function($){
             this.bind(this.$node);
         },
         initPosition:function () {
+            this.navLong = $("#nav").height();
             this.serviceBlockHeight = $("#service").offset().top;
             this.protfolioBlockHeight = $("#protfolio").offset().top;
             this.aboutBlockHeight = $("#about").offset().top;
@@ -48,15 +49,15 @@ define(['jquery'],function($){
         },
         judge:function () {
             var windowScroll = $(window).scrollTop();
-            if(windowScroll<this.serviceBlockHeight){
+            if(windowScroll<this.serviceBlockHeight - this.navLong){
                 this.span = 0;
-            }else if(windowScroll<this.protfolioBlockHeight){
+            }else if(windowScroll<this.protfolioBlockHeight - this.navLong){
                 this.span = 1;
-            }else if(windowScroll<this.aboutBlockHeight+20){
+            }else if(windowScroll<this.aboutBlockHeight+ - this.navLong){
                 this.span = 2;
-            }else if(windowScroll<this.teamBlockHeight+20){
+            }else if(windowScroll<this.teamBlockHeight - this.navLong){
                 this.span = 3;
-            }else if(windowScroll<this.brandBlockHeight){
+            }else if(windowScroll<this.brandBlockHeight - this.navLong){
                 this.span = 4;
             }else{
                 this.span = 5;
