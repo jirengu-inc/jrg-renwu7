@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 12-5</title>
+    <style>
+        *{padding:0;margin:0;}
+        #header,#footer{
+            width:100%;
+            height:50px;
+            background: #cccccc;
+        }
+        #content{
+            height:300px;
+        }
+        #content::after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        .middle{
+            float:left;
+            width: 100%;
+            background: #3c8e8e;
+
+
+        }
+        .right{
+            float:left;
+            background: orange;
+            width:200px;
+            height: 100%;
+            margin-left: -200px;
+        }
+        .middle>div{
+            margin-right:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">头部</div>
+    <div id="content">
+        <div class="middle">
+            <div>
+                中间自适应中间自适应中间自适应中间自适应中间自适应中间自适应中间自适应
+                中间自适应中间自适应中间自适应中间自适应中间自适应中间自适应中间自适应
+                中间自适应中间自适应中间自适应中间自适应中间自适应中间自适应中间自适应
+                中间自适应双飞翼布局指两边顶宽,中间自适应的三栏布局,中间栏要在放在文档流
+                前面以优先渲染。
+            </div>
+        </div>
+        <div class="right">右侧边栏固定宽度</div>
+    </div>
+    <div id="footer">尾部</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>tab</title>
+</head>
+<style>
+ul,li{
+	margin: 0;
+	padding:0;
+	box-sizing:border-box;
+}
+li{
+	list-style: none;
+}
+.tabs:after{
+	content:"";
+	display: block;
+	clear:both;
+}
+.tabs li{
+	float: left;
+	width:220px;
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+	border:1px solid #ccc;
+	border-right:0;
+	cursor:pointer;
+}
+.tabs li:last-child{
+	border:1px solid #ccc;
+}
+.tabs li.active{
+	background-color:#eee;
+}
+.tab-pane{
+	display: none;
+	width:660px;
+	padding:20px;
+	height:150px;
+	border:1px solid #ccc;
+	border-top: 0;
+	box-sizing:border-box;
+}
+.tab-pane.active{
+	display: block;
+}
+</style>
+<body>
+	<div class="mod-tab">
+		<ul class="tabs">
+			<li class="item active">tab1</li>
+			<li class="item">tab2</li>
+			<li class="item">tab3</li>
+		</ul>
+		<div class="tab-pane active">
+			内容一
+		</div>
+		<div class="tab-pane">
+			内容二
+		</div>
+		<div class="tab-pane">
+			内容三
+		</div>
+	</div>
+	<br>
+	<div class="mod-tab">
+		<ul class="tabs">
+			<li class="item active">tab1</li>
+			<li class="item">tab2</li>
+			<li class="item">tab3</li>
+		</ul>
+		<div class="tab-pane active">
+			内容一
+		</div>
+		<div class="tab-pane">
+			内容二
+		</div>
+		<div class="tab-pane">
+			内容三
+		</div>
+	</div>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+		function Tab($node){
+			this.$node = $node;
+			this.$tabHeader = $node.find(".tabs");
+			this.$item = $node.find(".item");
+			this.$tabPane = $node.find(".tab-pane");
+			this.bind();
+		}
+		Tab.prototype = {
+			bind : function(){
+				var _this = this;
+				this.$tabHeader.on("click",".item",function(){
+					var index = _this.$item.index( $(this) );
+					_this.change(index);
+				})
+			},
+			change : function(idx){
+				var _this = this;
+				this.$item.eq(idx).addClass("active").siblings().removeClass("active");
+				this.$tabPane.eq(idx).addClass("active").siblings().removeClass("active");
+			}
+		}
+		$(".mod-tab").each(function(){
+			new Tab($(this));
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造对象</title>
+</head>
+<body>
+	<script>
+		function Car(name,color,status){
+			this.name = name;
+			this.color = color;
+			this.status = status;
+			// this.run = function(){
+			// 	console.log("Running....");
+			// 	this.status = "run";
+			// };
+			// this.stop = function(){
+			// 	console.log("Stop........");
+			// 	this.status = "stop";
+			// };
+			
+		}
+		Car.prototype.run = function(){
+				console.log("Running....");
+				this.status = "run";
+		}
+		Car.prototype.stop = function(){
+				console.log("Stop........");
+				this.status = "stop";
+		}
+		// 同名函数会有问题
+		Car.prototype.getStatus = function(){
+			console.log(this.status)
+		}
+		var Benz = new Car("Benz","black","run");
+	</script>
+</body>
+</html>

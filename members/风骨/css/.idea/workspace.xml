@@ -19,21 +19,7 @@
     <favorites_list name="css" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="task15-1.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/task15-1.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="107" column="1" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
-              <folding>
-                <element signature="e#1592#1757#0" expanded="false" />
-                <element signature="e#1955#2045#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -202,16 +188,17 @@
       <workItem from="1473352174934" duration="1000" />
       <workItem from="1473388557550" duration="214000" />
       <workItem from="1473507945718" duration="1029000" />
-      <workItem from="1473664317551" duration="715000" />
+      <workItem from="1473664317551" duration="896000" />
+      <workItem from="1473749012281" duration="15000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109334000" />
+    <option name="totallyTimeSpent" value="109530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="76" y="91" width="1119" height="640" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24366042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -256,10 +243,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1592#1757#0" expanded="false" />
-            <element signature="e#1955#2045#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -267,10 +250,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1592#1757#0" expanded="false" />
-            <element signature="e#1955#2045#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -447,32 +426,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js-test.html" />
-    <entry file="file://$PROJECT_DIR$/../js-test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="7" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../task16.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="370" column="43" selection-start-line="370" selection-start-column="43" selection-end-line="370" selection-end-column="43" />
-          <folding>
-            <element signature="n#pre#6;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../js-test.html" />
+    <entry file="file://$PROJECT_DIR$/../task16.html" />
     <entry file="file://$PROJECT_DIR$/task15-1.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="107" column="1" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="1" />
-          <folding>
-            <element signature="e#1592#1757#0" expanded="false" />
-            <element signature="e#1955#2045#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="118" column="1" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
         </state>
       </provider>
     </entry>

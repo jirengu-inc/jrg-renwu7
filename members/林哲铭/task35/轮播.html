@@ -149,8 +149,8 @@
         prepare:function(){
             var $ct = this.$ct;
             var $items = this.$item;
-            $ct.prepend($items.eq($items.length-1).clone());
-            $ct.append($items.eq(0).clone());
+            $ct.prepend($items.last().clone());
+            $ct.append($items.first().clone());
             $ct.width(this.imgWidth*this.imgCount);
             $ct.css("left",-this.imgWidth);
         },
