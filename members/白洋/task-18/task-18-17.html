@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var temp;
+        var arr;
+        arr=[];
+        var arrs=[]; 
+        var str="1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+        function suiji(zx, zd, len) {
+            for( var temp=0;temp<len;temp++)
+            {
+            arr.push(str.split("")[Math.floor(Math.random() * (zd - zx + 1)) + zx]);
+                
+            }
+        }
+        suiji(1, 62,5);
+
+    </script>
+</body>
+
+</html>

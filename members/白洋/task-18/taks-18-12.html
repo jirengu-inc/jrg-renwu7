@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var temp;
+        var tempa;
+        function ucFirst(temp){
+            tempa=temp;
+            console.log(temp);
+            if (temp.toUpperCase().split("")[0]===tempa.split("")[0]){
+                return console.log("第一位为大写")
+            }else{
+                return console.log("第一位不是大写")
+            }
+        }
+        ucFirst("Hello");
+        ucFirst("hello");
+    </script>
+</body>
+</html>

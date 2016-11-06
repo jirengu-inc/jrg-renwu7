@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>楼梯有20级，每次走1级或是2级，从底走到顶一共有多少种走法？用代码（递归）实现</title>
+</head>
+<body>
+<h1>楼梯有20级，每次走1级或是2级，从底走到顶一共有多少种走法？用代码（递归）实现</h1>
+<script>
+    function Num (tmp){
+//        console.log(tmp);
+        if (tmp==1) {return 1;}
+        if (tmp==2) {return 2;}
+        else {
+            return Num(tmp-1)+Num(tmp-2);
+        }
+    }
+    var Number=Num(20);
+    console.log(Number);
+</script>
+</body>
+</html>

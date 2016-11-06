@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>完善如下代码，用于获取执行时间如</title>
+</head>
+<body>
+<h1>完善如下代码，用于获取执行时间如</h1>
+<script>
+    var Runtime = (function(){
+        var StartTime, EndTime, GetTime ;
+        //code here ...
+        var obj = {
+            start: function(){
+                //code here ...， 当前时间
+                StartTime=Date.now();
+
+            },
+            end: function(){
+                EndTime=Date.now();
+                //code here ...  结束时间
+            },
+            get: function(){
+                return GetTime = EndTime-StartTime;
+                //code here ...  获取执行时间
+            }
+        };
+        return obj;
+    }());
+    Runtime.start();
+    for(var i=0;i<1000;i++){
+        console.log("6666666");
+    }
+    //todo somethint
+    Runtime.end();
+    console.log(  Runtime.get() );
+
+</script>
+</body>
+</html>

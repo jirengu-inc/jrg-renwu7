@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isNumeric(el) {
+            return typeof el === 'number';
+        }
+        var arr;
+        arr = ["a", 3, 4, true, -1, 2, "b"];
+        var temp;
+        var tempa;
+        function filter(arr,temp){
+            for(tempa=arr.length-1;tempa>=0;tempa--){
+
+                if(temp(arr[tempa])===false){
+                    
+                    arr.splice(tempa,1)
+                }
+                console.log(arr);
+            }
+            console.log(arr.length)
+            console.log(temp)
+        }
+//        filter(arr, isNumeric); // arr = [3,4,-1, 2],  过滤出数字
+        function isshuzi(val) {
+            return typeof val === "number" && val > 0
+        } // arr = [3,4,2] 过滤出大于0的整数
+//        filter(arr,isshuzi);
+        filter(arr,iszimu);
+        function iszimu(tempc){
+            if(typeof tempc ==="string"){
+                return true;
+            }
+            if(typeof tempc==='boolean'){
+                return false;
+            }
+            if(typeof tempc ==="number"){
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

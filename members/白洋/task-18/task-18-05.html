@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> </title>
+</head>
+
+<body>
+    <script>
+        var tempA;
+        var tempB;
+        var obj = {
+            className: 'open menu'           //Copyright © 1998-2016
+        }
+        function addClass(obj,tempA){
+            if (obj.className.search(tempA)===0){
+                return console.log(tempA+"重复了")
+            }else{
+                obj.className=obj.className+" "+tempA
+                return console.log(obj.className);
+            }
+        }
+        function removeClass(obj,tempA){
+           if (obj.className.search(tempA)===-1){
+               return(console.log(tempA+"没有删除个啥"));
+           }else{
+               
+               var tempC;
+               tempB=obj.className.split(" ");
+               for(tempC=0;tempC<tempB.length;tempC++){
+                   if(tempB[tempC]===tempA){
+                       tempB.splice(tempC,1,"");
+                   }
+               }
+               
+               
+               return console.log(tempB.join(" "));
+               
+           }
+        }
+        addClass(obj, 'new') // obj.className='open menu new'
+        addClass(obj, 'open') // 因为open已经存在，所以不会再次添加open
+        addClass(obj, 'me') // me不存在，所以 obj.className变为'open menu new me'
+        console.log(obj.className) // "open menu new me"
+
+        removeClass(obj, 'open') // 去掉obj.className里面的 open，变成'menu new me'
+        removeClass(obj, 'blabla') // 因为blabla不存在，所以此操作无任何影响
+
+    </script>
+</body>
+
+</html>

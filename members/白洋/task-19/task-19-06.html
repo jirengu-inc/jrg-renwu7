@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>写一个json对象深拷贝的方法，json对象可以多层嵌套，值可以是字符串、数字、布尔、json对象中的任意项</title>
+</head>
+<body>
+<h1>写一个json对象深拷贝的方法，json对象可以多层嵌套，值可以是字符串、数字、布尔、json对象中的任意项</h1>
+
+<script>
+    function DeepCopyOb1(ObTmp1) {
+        var NewObj1={};
+        for(var key in ObTmp1){
+            if (typeof ObTmp1[key]==="object"){
+                NewObj1[key]=DeepCopyOb1(ObTmp1[key]);
+
+            }
+            else {
+                NewObj1[key]=ObTmp1[key];
+            }
+
+        }
+        return NewObj1;
+    }
+
+    function DeepCopyOb2(ObTmp2){
+        var NewObj=JSON.stringify(ObTmp2);
+        return JSON.parse(NewObj);
+    }
+</script>
+</body>
+</html>
