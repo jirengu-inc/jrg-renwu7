@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>37-1</title>
+    <style>
+        html body{
+            height:100%;
+        }
+        #box{
+            position: absolute;
+            top:120px;
+            left:50%;
+            margin-left: -150px;
+            width: 300px;
+            border:1px solid;
+            border-radius: 10px;
+            background: #eee;
+
+        }
+        .head_box{
+            width:300px;
+            height:40px;
+            background: #ccc;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            line-height: 40px;
+
+        }
+
+        .main_box{
+            width: 300px;
+            height: 160px;
+            background: #eee;
+            border-radius:0 0 10px 10px;
+            text-align: center;
+        }
+        .btn{
+            position: absolute;
+            top:75%;
+            width: 40px;
+            height: 30px;
+            background: red;
+            color: #fff;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn.close_btn{
+            left:180px;
+        }
+        .btn.confirm_btn{
+            left:80px;
+        }
+    </style>
+</head>
+<body>
+<!--<div id="box">-->
+    <!--<div class="head_box"></div>-->
+    <!--<div class="main_box">-->
+        <!--<div class="btn close_btn">取消</div>-->
+        <!--<div class="btn confirm_btn">确定</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<button id="open1">打开1</button>
+<button id="open2">打开2</button>
+<button id="open3">打开3</button>
+<button id="open4">打开4</button>
+<button id="open5">打开5</button>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+function Dialog() {
+    this.createDialog();
+    this.bindEvent();
+    }
+Dialog.prototype={
+    defaultOpts:{
+        title:'',
+        message:'',
+        isShowCloseBtn:true,
+        isShowConfirmBtn:false,
+        onClose:function(){},
+        onConfirm:function(){}
+    }
+};
+Dialog.prototype.setOps=function(o){
+    if(typeof o ==='string'){
+        this.o=$.extend({},this.defaultOpts,{message:o});
+        }else if(typeof o==="object"){
+        this.o=$.extend({},this.defaultOpts,o);
+    }
+};
+    Dialog.prototype.open=function(o){
+        this.setOps(o);
+        this.setDialog();
+
+    };
+    Dialog.prototype.bindEvent=function(){
+        var that =this;
+        //var $mainBox=$('.main_box');
+        that.$dialog.find('.close_btn').on('click',function(e){
+            e.preventDefault();
+            that.o.onClose();
+            that.closeBox();
+        });
+        that.$dialog.find('.confirm_btn').on('click',function(e){
+            e.preventDefault();
+            that.o.onConfirm();
+            that.closeBox();
+        });
+        this.$dialog.on('mousedown',function(e){
+            var $dialog=$(this),
+                    evtX=e.pageX-$dialog.offset().left,
+                    evtY=e.pageY-$dialog.offset().top;
+            $dialog.addClass('draggable').data('evtPos',{
+                x:evtX,
+                y:evtY
+            });
+        });
+        $('body').on('mousemove',function(e){
+            $('.draggable').length&&$('.draggable').offset({
+                top:e.pageY-$('.draggable').data('evtPos').y,
+                left:e.pageX-$('.draggable').data('evtPos').x
+            });
+        });
+        $('body').on('mouseup',function(){
+            $('.draggable').length&&$('.draggable').removeClass('draggable').removeData('pos')
+        })
+    };
+
+Dialog.prototype.createDialog=function(){
+    var tpl="<div id='box'><div class='head_box'></div><div class='main_box'><div class='btn close_btn'>取消</div><div class='btn confirm_btn'>确定</div> </div></div>"
+    this.$dialog=$(tpl);
+    $('body').append(this.$dialog)
+
+};
+Dialog.prototype.setDialog=function(){
+    if(this.o.title){
+        this.$dialog.find('.head_box').show();
+        this.$dialog.find('.head_box').text(this.o.title);
+    }else{
+        this.$dialog.find('.head_box').hide();
+
+    }
+    if(this.o.message){
+        this.$dialog.find('.main_box').append("<div class='main_new'></div>");
+        this.$dialog.find('.main_new').html(this.o.message);
+    }
+    if(!this.o.isShowCloseBtn){
+        this.$dialog.find('.close_btn').hide();
+        this.$dialog.find('.confirm_btn').css({left:"134px"});
+    }
+    if(!this.o.isShowConfirmBtn){
+        this.$dialog.find('.confirm_btn').hide();
+        this.$dialog.find('.close_btn').css({left:"134px"});
+    }
+};
+Dialog.prototype.closeBox=function(){
+    this.$dialog.hide()
+};
+
+$('#open1').on('click',function() {
+    var dialog1 = new Dialog();
+    dialog1.open({
+        message:"hello，这里是饥人谷",
+        isShowConfirmBtn:false
+    });
+});
+$('#open2').on('click',function() {
+    var tpl='<a>饥人谷</a>';
+    var dialog2 = new Dialog();
+    dialog2.open({
+        message:tpl,
+        isShowConfirmBtn:false
+    });
+})
+$('#open3').on('click',function() {
+    var dialog3 = new Dialog();
+    dialog3.open({
+        title:"欢迎来到饥人谷",
+        message:"hello",
+        isShowCloseBtn: true,
+        isShowConfirmBtn: true,
+        onClose: function(){
+            alert('close')
+        },
+        onConfirm: function(){
+            alert('确定');
+        }
+    });
+})
+$('#open4').on('click',function(){
+    var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+    var dialog4 = new Dialog();
+    dialog4.open({
+        title: '欢迎来到饥人谷',
+        message: tpl,
+        isShowCloseBtn: true,
+        isShowConfirmBtn: true,
+        onClose: function(){
+            alert('close')
+        },
+        onConfirm: function(){
+            alert('确定');
+        }
+    });
+});
+$('#open5').on('click',function(){
+    var dialog5 = new Dialog();
+    dialog5.open({
+        title: '欢迎来到饥人谷',
+        message: "hello",
+        isShowCloseBtn: false,
+        isShowConfirmBtn: false
+    });
+});
+
+
+</script>
+</body>
+</html>
