@@ -118,8 +118,7 @@
 
     }
         var animate = false;
-        var animate2 = false;
-
+        
     Carousel.prototype = {
         bind : function () {
             var $this = this;
@@ -132,12 +131,14 @@
         },
 
         showpre: function () {
-            if (!animate2) {
+            if (!animate) {
                     animate = true;
                     this.$ct.prepend(this.$ct.children().last());
                     this.$ct.css('left', 0 - this.imgWidth); //向前移动其实就是整体向右移动,
-                    this.$ct.animate({'left': 0});//使用css操作移动，animate只给一个动画效果
-                    animate = false;
+                    this.$ct.animate({'left': 0},function () {
+                        animate = false;
+                    });//使用css操作移动，animate只给一个动画效果
+
             }
 
 
