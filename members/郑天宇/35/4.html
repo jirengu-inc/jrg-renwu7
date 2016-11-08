@@ -41,19 +41,18 @@
             border-right: none;
         }
         .mod-tab .tabs .active {
-            background: #eee;
+            background: #0000ff;
         }
-        .mod-tab .panel {
+        .mod-tab .panel li {
             display: none;
             height: 180px;
             padding: 20px;
         }
-        .mod-tab .active {
+        .mod-tab .panel .active{
             display: block;
         }
-        .active{
-            display: block;
-        }
+
+
     </style>
 </head>
 <body>
@@ -63,36 +62,41 @@
         <li>tab2</li>
         <li>tab3</li>
     </ul>
-    <div class="panel active">内容1</div>
-    <div class="panel">内容2</div>
-    <div class="panel">内容3</div>
+
+    <ul class="panel">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
 </div>
 
 <script>
-    function Tab($tab) {
-        this.$tab = $tab;
-        var $ct = $tab.find('.tabs');
-       this.$items = $ct.find('li');
-       this.$panel = $tab.find('.panel');
+    function Tabs($node) {
+        //this.$modtabs = $('.mod-tab');
+        this.$node = $node;
+        this.$tabs = $node.find('.tabs')
+        this.$items = this.$tabs.find('li');
+        this.$panel = $node.find('.panel').find('li');
+        this.bind();
     }
-
-    Tab.prototype= {
+    
+    Tabs.prototype={
         bind: function () {
-            var _this = $(this);
-            this.$items.on('click',function () {
-                var idx = $(this).index();
-                _this.$items.removeClass('active');
-                _this.$items.eq(idx).addClass('active');
-
+            var _this = this ;
+            this.$items.on('click',function (e) {
+                var idx = $(e.currentTarget).index()
+                //var idx = $(this).index();
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+                _this.$items.parents('.mod-tab').find('.panel').find('li').removeClass('active');
+                _this.$items.parents('.mod-tab').find('.panel').find('li').eq(idx).addClass('active')
             })
-
-
         }
+    };
+    var tab1 = $('.mod-tab');
+    var a = new Tabs(tab1);
 
-    }
-
-    var a = new Tab($('.mod-tab'))
-    a.bind();
 </script>
 
 </body>
