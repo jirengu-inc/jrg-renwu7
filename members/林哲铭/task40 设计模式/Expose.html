@@ -1,0 +1,72 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta lang="zh-cn">
+    <title>demo</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            margin-top:1000px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box item1"></div>
+    <div class="box item2"></div>
+    <div class="box item3"></div>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        var Expouse = (function Expouse(){
+            var isTrue = false;
+            var clock;
+            function bind($target,func) {
+                if(typeof func != "function") {
+                    throw "please input function"
+                }
+                $(window).on("scroll",function(){
+                    clock && clearTimeout(clock);
+                    clock = setTimeout(function () {
+                        if(isShow($target)){
+                            func();
+                        }
+                    },100)
+                });
+            }
+            function one($target,func) {
+                $(window).on("scroll",function () {
+                    if(isTrue) return;
+                    if(isShow($target)){
+                        func();
+                        isTrue = true;
+                    }
+                })
+            }
+
+            function isShow($target) {
+                var scrollHeight = $(window).scrollTop();
+                var winHeight = $(window).height();
+                var targetHeight = $target.offset().top;
+                return scrollHeight < targetHeight && targetHeight < winHeight + scrollHeight;
+            }
+            return {
+                bind:bind,
+                one:one
+            }
+        })();
+        Expouse.bind($(".item1"),function () {
+            alert("box1");
+        });
+        Expouse.one($(".item2"),function () {
+            alert("box2");
+        })
+
+
+    </script>
+</body>
+</html>
