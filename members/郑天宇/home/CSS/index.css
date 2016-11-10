@@ -86,6 +86,7 @@ a:visited{
     margin-left: 20px;
 }
 .header .cloudpic {
+    position: relative;
     margin-top: 150px;
 }
 .header .cloudpic .ourintroudce h3{
@@ -148,13 +149,43 @@ a:visited{
 
 .information{
     margin-top: 50px;
+    margin-bottom: 100px;
     font-size: 10px;
     color: #777;
+
+}
+.information ul{
     text-align: center;
+
 }
 
-.information h1{
-    margin-top: 20px;
+.information ul li {
+    font-size: 50px;
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.information .panel .message{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+}
+.information .panel .active{
+
+    display: block;
+}
+.information .message:last-child{
+    width: 510px;
+}
+.information .message p{
+
+    height: 50px;
+    background: #888888;
+    border-radius: 30px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
 }
 
 .footer{
@@ -165,6 +196,9 @@ a:visited{
     font-family: webfont;
 
 }
+
+
+
 
 
 

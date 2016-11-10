@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>云服务技术中心</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="shuffling.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/shuffling.css">
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script src="JS/unslider.min.js"></script>
-    <script src="JS/shuffing.js"></script>
-
     <script src="JS/stickUp.min.js"></script>
     <script src="JS/stickup.js"></script>
+    <script src="JS/unslider-master/src/js/unslider.js"></script>
+    <link rel="stylesheet" href="JS/unslider-master/src/scss/unslider.scss">
+    <link rel="stylesheet" href="JS/unslider-master/src/scss/unslider.css">
+
+    <script src="JS/shuffing.js"></script>
+    <script src="JS/index.js"></script>
+
 
 </head>
-<body>
+<body scroll="no" style="overflow-x:hidden">
     <div id="homepage" class="header ">
         <div class="nav">
             <div class="layout clearfix">
@@ -50,10 +54,8 @@
                   <li><img src="PIC/3.jpg" alt=""></li>
                   <li><img src="PIC/clouds.jpg" alt=""></li>
               </ul>
-              <a href="javascript:void(0)" class="unslider-arrow prev"><img class="arrow" src="PIC/arrowl.png" alt=""></a>
-              <a href="javascript:void(0)" class="unslider-arrow next"><img class="arrow" src="PIC/arrowr.png" alt=""></a>
-          </div>
 
+          </div>
         </div>
     </div>
 
@@ -61,7 +63,7 @@
         <div id="results" class="persons layout">
             <div class="title">
                 <h1>研发成果</h1>
-                <p>Research & Development</p>
+                <p>Research & Achievement</p>
             </div>
             <ul class="development clearfix">
                 <li>
@@ -142,19 +144,68 @@
                 <p>Contact Us</p>
             </div>
             <div class="information">
+                <ul class="tabs">
+                    <li class="iconfontcontact">&#xe600;</li>
 
-                    <h1 class="iconfontcontact">&#xe600; 18600000000</h1>
+                    <li class="iconfontcontact">&#xe746;</li>
 
-                    <h1 class="iconfontcontact">&#xe746; 0531-8888888</h1>
+                    <li class="iconfontcontact">&#x3442; </li>
 
-                    <h1 class="iconfontcontact">&#x3442; cloudservice@gmail.com</h1>
+                    <li class="iconfontcontact">&#xe694;</li>
 
-                    <h1 class="iconfontcontact">&#xe694; 颖秀路3366号 中国冶金地质总局山东局 717室</h1>
+                </ul>
+
+                <ul class="panel">
+                    <li class="message">
+                        <p>0531-88888888</p>
+                    </li>
+                    <li class="message">
+                        <p>0531-6666666</p>
+                    </li>
+                    <li class="message">
+                        <p>Cloud@Sdzy.com</p>
+                    </li>
+                    <li class="message">
+                        <p>山东济南颖秀路3366号 中国冶金地质总局山东局 717</p>
+                    </li>
+                </ul>
+
 
             </div>
+
         </div>
     </div>
 
 </div>
+    <script>
+        function Tabs($node) {
+            //this.$modtabs = $('.mod-tab');
+            this.$node = $node;
+            this.$tabs = $node.find('.tabs');
+            this.$items = this.$tabs.find('li');
+            this.$message = $node.find('.message');
+            this.bind();
+        }
+
+        Tabs.prototype={
+            bind: function () {
+
+                var _this = this ;
+                console.log(this);
+                this.$items.on('click',function (e) {
+
+                    var idx = $(e.currentTarget).index();
+                    //var idx = $(this).index();
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+                    console.log(idx);
+                    _this.$items.parents('.information').find('.panel').find('li').removeClass('active');
+                    _this.$items.parents('.information').find('.panel').find('li').eq(idx).addClass('active');
+                })
+            }
+        };
+        var tab = $('.information');
+        var a = new Tabs(tab);
+    </script>
 </body>
 </html>
