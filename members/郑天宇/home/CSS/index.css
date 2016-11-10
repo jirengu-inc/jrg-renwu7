@@ -1,12 +1,13 @@
 
 @font-face {
     font-family: 'iconfont';  /* project id："177961" */
-    src: url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.eot');
-    src: url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.eot') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.woff') format('woff'),
-    url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_sa7meio6pcqe61or.eot');
+    src: url('//at.alicdn.com/t/font_sa7meio6pcqe61or.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_sa7meio6pcqe61or.woff') format('woff'),
+    url('//at.alicdn.com/t/font_sa7meio6pcqe61or.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_sa7meio6pcqe61or.svg#iconfont') format('svg');
 }
+
 .iconfonts{
     font-family: "iconfont";
     font-size: 100px;
@@ -87,7 +88,7 @@ a:visited{
 }
 .header .cloudpic {
     position: relative;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 .header .cloudpic .ourintroudce h3{
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -165,6 +166,9 @@ a:visited{
     margin-left: 20px;
     cursor: pointer;
 }
+.information .tabs  .active{
+    color: burlywood;
+}
 .information .panel .message{
     width: 300px;
     margin: 0 auto;
@@ -175,9 +179,9 @@ a:visited{
 
     display: block;
 }
-.information .message:last-child{
-    width: 510px;
-}
+/*.information .message:last-child{*/
+    /*width: 510px;*/
+/*}*/
 .information .message p{
 
     height: 50px;
@@ -188,14 +192,22 @@ a:visited{
     color: #fff;
 }
 
-.footer{
-    background-color: dodgerblue;
+.footer .nav{
+    background: -webkit-linear-gradient(left, darkcyan , greenyellow); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, darkcyan, greenyellow); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, darkcyan, greenyellow); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, darkcyan , greenyellow); /* 标准的语法 */
+    text-align: center;
+}
+.footer .nav ul li{
+    font-size: 13px;
+    display: block;
+    padding-top: 8px;
+    font-family: "微软雅黑";
+    color: white;
+
 }
 
-.link {
-    font-family: webfont;
-
-}
 
 
 

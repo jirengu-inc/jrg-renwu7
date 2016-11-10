@@ -140,24 +140,23 @@
 
         <div id="contactus" class="contactus">
             <div class="title">
-                <h1>联系我们</h1>
+                <h1>业务咨询</h1>
                 <p>Contact Us</p>
             </div>
             <div class="information">
                 <ul class="tabs">
-                    <li class="iconfontcontact">&#xe600;</li>
+                    <li class="iconfontcontact active">&#xe600;</li>
 
                     <li class="iconfontcontact">&#xe746;</li>
 
                     <li class="iconfontcontact">&#x3442; </li>
 
-                    <li class="iconfontcontact">&#xe694;</li>
+                    <li class="iconfontcontact">&#xe606;</li>
 
                 </ul>
 
-
                 <ul class="panel">
-                    <li class="message">
+                    <li class="message active">
                         <p>TEL : 0531-88888888</p>
                     </li>
                     <li class="message">
@@ -167,7 +166,7 @@
                         <p>Mail : Cloud@Sdzy.com</p>
                     </li>
                     <li class="message">
-                        <p>山东济南颖秀路3366号 中国冶金地质总局山东局 717</p>
+                        <p>QQ : 67892562</p>
                     </li>
                 </ul>
 
@@ -178,35 +177,17 @@
     </div>
 
 </div>
-    <script>
-        function Tabs($node) {
-            //this.$modtabs = $('.mod-tab');
-            this.$node = $node;
-            this.$tabs = $node.find('.tabs');
-            this.$items = this.$tabs.find('li');
-            this.$message = $node.find('.message');
-            this.bind();
-        }
 
-        Tabs.prototype={
-            bind: function () {
+    <div class="footer">
+        <div class="nav">
+            <ul>
+                <li>山东正元地球物理信息技术有限公司 云服务技术中心</li>
+                <li>公司地址 ：山东济南高新区颖秀路3366号 中国冶金地质总局山东局 </li>
+                <li>服务电话：8888888  传真 ：666666</li>
+                <li>电子邮件：Cloud@Sdzy.com</li>
+            </ul>
+        </div>
+    </div>
 
-                var _this = this ;
-                console.log(this);
-                this.$items.on('click',function (e) {
-
-                    var idx = $(e.currentTarget).index();
-                    //var idx = $(this).index();
-                    $(this).siblings().removeClass('active');
-                    $(this).addClass('active');
-                    console.log(idx);
-                    _this.$items.parents('.information').find('.panel').find('li').removeClass('active');
-                    _this.$items.parents('.information').find('.panel').find('li').eq(idx).addClass('active');
-                })
-            }
-        };
-        var tab = $('.information');
-        var a = new Tabs(tab);
-    </script>
 </body>
 </html>
