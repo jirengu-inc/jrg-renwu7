@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>task 14实战</title>
+<link rel="stylesheet" type="text/css" href="./iconfont.css">
+<style>
+html body{
+	padding: 0px;
+	margin: 0px;
+	font-family: Tahoma;
+}
+img{
+	border: none;
+	display: block;
+}
+p,h1,h2,ul,li{
+	padding: 0xp;
+	margin: 0xp;
+}
+a{
+	text-decoration: none;
+}
+p{
+	font-size: 16px;
+}
+li{
+	list-style: none;
+}
+	.container{
+      width: 900px;
+      margin: 0 auto;
+    }
+    #header{
+    	background: url(img/bg1.jpg);
+    	height: 730px;
+    	text-align: center;
+    }
+    #header>.container>div {
+    	padding-top: 284px;
+    }
+    #header h1{
+        color: #333232;
+        font-size: 43px;
+        
+    }
+    #header a{
+    	display: block;
+    	width: 140px;
+    	height:40px;
+    	margin-top: 10px;
+    	margin: 30px auto 0;
+    	background: #6d7d84;
+    	text-align: center;
+    	line-height: 40px;
+    	color: #fff;
+    }
+    #header a:hover{
+    	background: #363e41;
+    }
+
+    .about{
+    	height: 212px;
+    	margin-top: -20px;
+    	text-align: center;
+    	padding-top: 95px;
+    }
+    .about h2{
+        color: #020603;
+        font-size: 23px;
+    }
+    .about p{
+    	color: #5a5259;
+    }
+    .about a{
+    	color: #036fb3;
+    }
+    .services{
+    	background: #036fb3;
+    	height: 420px;
+    }
+    .services .container div{
+    	height: 72px;
+    	width: 150px;
+    	font-size: 24px;
+    	padding-top: 28px;
+    	margin: 0 auto;
+    	text-align: center;
+    	line-height: 72px;
+    	color: #fff;
+    }
+    .services-items{
+    	margin: 20px 0px;
+    	padding:0px;
+    }
+    .services-items li{
+    	float: left;
+    	width: 199px;
+    	height: 264px;
+    	margin: 0px 12px;
+    	text-align: center;
+    	color: #fff;
+    	font-size: 14px;
+    }
+    .services-items i{
+    	font-size: 100px;
+    }
+    .services-items li>a{
+    	display: block;
+    	width: 90px;
+    	height: 34px;
+    	background: #fff;
+    	color: #1a1e1e;
+    	text-align: center;
+    	line-height: 34px;
+    	margin: 0 auto;
+    }
+    .clear:after{
+    	content: "";
+        clear: both;
+        display: block;
+    }
+    .advertisement{
+    	background: url(img/bg2.jpg) no-repeat 0px -60px;
+    	height: 400px;
+    }
+    .advertisement div{
+    	color: #fff;
+    	text-align: center;
+    	font-size: 42px;
+    	line-height: 400px;
+    }
+    .work{
+
+    	margin: 50px 0px 100px 0px;
+    }
+    .work .container{
+    	width: 990px;
+    }
+    .work ul{
+    	margin: 0 auto;
+    }
+    .work-list li{
+    	float: left;
+    	margin:7px;
+    }
+    .work p{
+    	font-size: 24px;
+    	display: block;
+    	width: 120px;
+    	height: 25px;
+    	margin:25px auto;
+    	padding-left:51px;
+    }
+    .work img{
+    	display: block;
+    }
+    .work a{
+    	display:block;
+    	width: 140px;
+    	height: 30px;
+    	line-height: 30px;
+    	text-align: center;
+    	background: #999395;
+    	color: #fff;
+    	margin:20px auto 0px;
+    }
+    .work a:hover{
+    	background: #4c4c4c;
+    }
+    .read{
+    	height: 220px;
+    	background: #036fb3;
+    }
+    .read p{
+    	font-size: 24px;
+    display: block;
+    width: 500px;
+    height: 25px;
+    margin: 30px auto;
+    padding: 75px 0 0 25px;
+    color: #fff;
+    }
+    .read a{
+    	display: inline-block;
+    	width: 125px;
+    	height: 45px;
+    	line-height: 45px;
+    	background: #fff;
+    	font-size: 14px;
+    	color: #000;
+    	text-align: center;
+    }
+    .read a:hover{
+    	color:#fff;
+    	background: #1d496b;
+    }
+    .read .buttom{
+    	width: 500px;
+    	margin: 0px auto;
+    	text-align: center;
+    }
+    .footer-content{
+    	width: 190px;
+    	height: 350px;
+    	margin: 0px auto;
+    	text-align: center;
+    	padding-top: 100px;
+    }
+    .footer-content p{
+    	font-size: 12px;
+    }
+    .footer-content a{
+    	color:#337ab7;
+    }
+    .footer-content a:hover{
+        color: #205372;
+    }
+    .footer-content ul{
+    	margin-top: 30px;
+    	padding-left: 0px;
+    }
+    .footer-content li{
+        float: left;
+        display: inline-block;
+        margin: 10px;
+        text-align: center;
+    }
+    .footer-content li i{
+    	font-size: 40px;
+    	color: #337ab7;
+    }
+    .footer-content i:hover{
+    	color:#205372; 
+    }
+    hr{
+    	border-top: 1px solid #ccc;
+    	margin: 20px auto;
+    	width: 100px;
+    }
+</style>
+</head>
+
+<body>
+<div id="header">
+   <div class="container">
+   <div>
+     <h1>Star Bootstrap</h1>
+     <p>Free Bootstrap Themes&Templates</p>
+     <div class="header-bottom"><a href="#">Find Out More</a></div>
+    </div>
+   </div>
+ </div>
+  <div id="content">
+    <div class="about">
+    <div class="container">
+       <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
+       <p>This theme features some wonderful photography courtesy of <a href="#">Death to the Stock Photo</a></p>
+    </div>
+    </div>
+    <div class="services">
+    <div class="container clear">
+    	<div>Our services</div>
+    	<ul class="services-items clear">
+    		<li class="clear">
+    			<i class="iconfont icon-cloud"></i>
+    			<h4>LIMS-CF</h4>
+    			<p>专门面向科研实验室公共仪器的智能化管理平台</p>
+    			<a href="#" class="services-buttom">Learn More</a>
+    		</li>
+    		<li class="clear">
+    			<i class="iconfont icon-caigou"></i>
+    			<h4>LIMS</h4>
+    			<p>实验室与软件,互联网结合,加强自动化程度</p>
+    			<a href="#" class="services-buttom">Learn More</a>
+    		</li>
+    		<li class="clear">
+    			<i class="iconfont icon-shiyanxiangmu"></i>
+    			<h4>来买网</h4>
+    			<p>是云科研采购管理平台，系统全面整合产品</p>
+    			<a href="#" class="services-buttom">Learn More</a>
+    		</li>
+    		<li class="clear">
+    			<i class="iconfont icon-shitiguanxi"></i>
+    			<h4>G-IoT</h4>
+    			<p>是一个物联网智能科研管理体系</p>
+    			<a href="#" class="services-buttom">Learn More</a>
+    		</li>
+    	</ul>
+    </div>
+       	
+    </div>
+    <div class="advertisement">
+    	<div class="container">
+    	<div>Vertically Centered Text</div>
+
+    	</div>
+    	</div>
+    	<div class="work">
+    		<div class="container clear">
+    		<p>Our Work</p>
+    	    
+    		<ul class="work-list clear">
+    			<li><img src="img/pic2.gif" alt="#" /></li>
+    			<li><img src="img/pic1.gif" alt="#" /></li>
+    			<li><img src="img/pic3.gif" alt="#" /></li>
+    			<li><img src="img/pic4.gif" alt="#" /></li>
+    		</ul>
+    		<a href="#">View more Items</a>
+    		</div>
+    	</div>
+    	<div class="read clear">
+    	<div class="container clear">
+    		<p>The buttom below are impossible to resist.</p>
+    		<div class="buttom">
+    			<a href="#">Click Me!</a>
+    			<a href="#">Look At ME!</a>
+    		</div>
+    			
+    		
+    		</div>
+    	</div>
+    </div>
+    
+  </div>
+  <div id="footer">
+    <div class="container">
+      <div class="footer-content">
+      	<strong>Start Bootstrap</strong>
+      	<p>
+      	3481 Melrose Place</br>Beverly Hills,CA90210</br>
+      	</p>
+      	<p>
+      	<i class="iconfont icon-telephone"></i>(123)456-7890</br>
+      	<i class="iconfont icon-email"></i><a href="#">goodluck0710s@163.com</a>
+      	</p>
+      	<ul class="clear">
+      		<li><a href="#"><i class="iconfont icon-facebook"></i></a></li>
+      		<li><a href="#"><i class="iconfont icon-twitter"></i></a></li>
+      		<li><a href="#"><i class="iconfont icon-lanqiu"></i></a></li>
+      	</ul>
+      	<hr>
+      	<p>Copyright@hunger 2016</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
