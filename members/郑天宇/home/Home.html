@@ -9,11 +9,12 @@
     <script src="JS/unslider.min.js"></script>
     <script src="JS/shuffing.js"></script>
 
-
+    <script src="JS/stickUp.min.js"></script>
+    <script src="JS/stickup.js"></script>
 
 </head>
 <body>
-    <div class="header ">
+    <div id="homepage" class="header ">
         <div class="nav">
             <div class="layout clearfix">
 
@@ -22,20 +23,20 @@
                 </ul>
 
                 <ul class="nav-bar clearfix ">
-                    <li><a href="">
-                        联系我们</a>
+                    <li class="menuItem">
+                        <a href="#contactus">联系我们</a>
                     </li>
-                    <li>
+                    <li class="menuItem">
                         <a href="">许可授权</a>
                     </li>
-                    <li>
-                        <a href="">员工风采</a>
+                    <li class="menuItem">
+                        <a href="#persons">员工风采</a>
                     </li>
-                     <li>
-                         <a href="">研发成果</a>
+                     <li class="menuItem">
+                         <a href="#results">研发成果</a>
                      </li>
-                    <li>
-                        <a href="">首页</a>
+                    <li class="menuItem">
+                        <a href="#homepage">首页</a>
                     </li>
 
                 </ul>
@@ -57,7 +58,7 @@
     </div>
 
     <div class="content">
-        <div class="persons layout">
+        <div id="results" class="persons layout">
             <div class="title">
                 <h1>研发成果</h1>
                 <p>Research & Development</p>
@@ -85,7 +86,7 @@
                 </li>
             </ul>
         </div>
-        <div class="staffer layout ">
+        <div id="persons" class="staffer layout ">
             <div class="title">
                 <h1>员工风采</h1>
                 <p>Staff Presence</p>
@@ -135,7 +136,7 @@
                 </ul>
             </div>
 
-        <div class="contactus">
+        <div id="contactus" class="contactus">
             <div class="title">
                 <h1>联系我们</h1>
                 <p>Contact Us</p>
@@ -154,6 +155,6 @@
         </div>
     </div>
 
-
+</div>
 </body>
 </html>
