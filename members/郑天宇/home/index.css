@@ -1,0 +1,168 @@
+
+@font-face {
+    font-family: 'iconfont';  /* project id："177961" */
+    src: url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.eot');
+    src: url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.woff') format('woff'),
+    url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_we2oe9ecqzci8uxr.svg#iconfont') format('svg');
+}
+.iconfonts{
+    font-family: "iconfont";
+    font-size: 100px;
+}
+.iconfontcontact{
+    font-family: iconfont;
+
+
+}
+body,html,li,ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    color: inherit;
+}
+a:visited{
+    color: inherit;
+}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.layout{
+    width: 1170px;
+    margin: 0 auto;
+}
+.title{
+    text-align: center;
+}
+.title h1{
+    color: #333;
+    font-size: 36px;
+    font-family: "Microsoft YaHei UI Light";
+}
+.title p{
+    color: #777;
+    font-size: 14px;
+    font-family: Verdana;
+}
+
+.header .nav{
+    height: 80px;
+    background: -webkit-linear-gradient(left, red , blue); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, red, blue); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, red, blue); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, red , blue); /* 标准的语法 */
+}
+.nav-logo li{
+    float: left;
+    font-family: "Microsoft YaHei UI Light";
+    color:white;
+    font-size: 35px;
+    padding-top: 17px;
+
+}
+.nav-bar li{
+    color: white;
+    float: right;
+    font-size: 20px;
+    font-family: monospace;
+    height: 30px;
+    font-family: monospace;
+    width: 100px;
+    margin-top: -27px;
+    margin-left: 20px;
+}
+.header .cloudpic {
+    margin-top: 150px;
+}
+.header .cloudpic .ourintroudce h3{
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    padding-top: 230px
+
+}
+.header .cloudpic .ourintroudce h1{
+    font-size: 70px;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    font-family: Verdana;
+    color: cadetblue;
+}
+
+.content{
+    margin-top: 150px;
+}
+.content .persons .development{
+    margin-top: 60px;
+}
+.content .persons .development li{
+    float: left;
+    padding-left: 160px;
+}
+.content .persons .development li p{
+    color: #777;
+    font-size: 14px;
+}
+.content .persons .development li a{
+    color: #888;
+    width: 67px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid #888;
+    border-radius: 7px;
+    display: inline-block;
+    margin-left: 8px;
+}
+.content .persons .development li a:hover{
+    background: #aaa;
+}
+
+.staffer{
+    margin-top: 100px;
+}
+.staffer .staffpic li{
+    float: left;
+    width: 350px;
+    margin-left: 30px;
+}
+
+.contactus{
+    margin-top: 100px;
+}
+
+.information{
+    margin-top: 50px;
+    font-size: 10px;
+    color: #777;
+    text-align: center;
+}
+
+.information h1{
+    margin-top: 20px;
+}
+
+.footer{
+    background-color: dodgerblue;
+}
+
+.link {
+    font-family: webfont;
+
+}
+
+
+
