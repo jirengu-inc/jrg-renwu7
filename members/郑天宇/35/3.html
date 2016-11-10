@@ -19,8 +19,8 @@
         }
         .course{
             position: relative;
-            width: 300px;
-            height: 200px;
+            width: 1000px;
+            height: 500px;
             overflow: hidden;
         }
 
@@ -35,7 +35,7 @@
             float: left;
 
         }
-        .clearfix{
+        .clearfix::after{
             content: "";
             display: block;
             clear: both;
@@ -109,13 +109,8 @@
         this.$next = $course.find('.playnext');
         this.imgWidth = $ct.find('li').width();
         this.imgSize =  $ct.find('li').size();
-
         $('.img-ct').css('width' , this.imgWidth*this.imgSize);
-
-
-
         //this.bind();
-
     }
         var animate = false;
 
@@ -141,8 +136,6 @@
 
             }
 
-
-
         },
         showNext: function(){
             if (!animate) {
@@ -154,13 +147,9 @@
                     $ct.append($ct.children().first());
                     $ct.css('left', 0); //移动完成后本身是变成 left: 0-imgwidth ，但是设置为O,使其保持有动画的效果
                     animate = false;
-
-
                 });
 
             }
-
-
         }
     };
 
