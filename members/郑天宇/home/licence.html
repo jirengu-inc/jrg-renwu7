@@ -3,9 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <title>许可/授权</title>
+    <style>
+        body,html,li,ul,h1{
+            padding: 0;
+            margin: 0;
+        }
+        input:focus{
+            outline-offset: 0;
+            outline: none;
+        }
+        .layout{
+            width: 1170px;
+            margin:0 auto;
+        }
+        .header {
+            position: relative;
+            height: 80px;
+            z-index: 1000;
+            background: -webkit-linear-gradient(left, red , blue); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(right, red, blue); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(right, red, blue); /* Firefox 3.6 - 15 */
+            background: linear-gradient(to right, red , blue); /* 标准的语法 */
+        }
+        .header .title h1{
+           padding-top: 20px;
+        }
+        .content{
+            margin-top: 150px;
+            position: relative;
+            text-align: center;
+        }
+        .content .box h2{
+            font-family: "Microsoft YaHei UI";
+            font-size: 40px;
+
+        }
+
+        #code{
+            border: 3px solid #c14d21;
+            border-radius: 10px;
+            height: 30px;
+            width: 350px;
+            text-align: center;
+            font-size: 25px;
+            margin-top: 20px;
+        }
+
+        #btn{
+            width: 80px;
+            height: 35px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-family: "Microsoft YaHei UI";
+            display: block;
+            margin-top: 60px;
+            margin-left: 47%;
+        }
+        button:focus{
+            outline: none;
+        }
+        .content .results {
+            margin-top: 50px;
+        }
+        .content .results h2{
+            font-family: "Microsoft YaHei UI";
+            font-size: 40px;
+        }
+        .content .results p{
+            font-size: 20px;
+        }
+        .footer{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+
+        }
+        .footer .nav{
+            background: -webkit-linear-gradient(left, darkcyan , greenyellow); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(right, darkcyan, greenyellow); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(right, darkcyan, greenyellow); /* Firefox 3.6 - 15 */
+            background: linear-gradient(to right, darkcyan , greenyellow); /* 标准的语法 */
+            text-align: center;
+        }
+        .footer .nav ul li{
+            font-size: 13px;
+            display: block;
+            padding-top: 8px;
+            font-family: "微软雅黑";
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="header ">
+        <div class="title layout">
+            <h1>许可授权</h1>
+        </div>
 
+    </div>
+
+    <div class="content layout">
+        <div class="box">
+            <h2>输入授权码</h2>
+            <input id="code" name="code" type="text">
+            <button id="btn">提交</button>
+        </div>
+
+        <!--<div class="results">-->
+            <!--<h2>授权码</h2>-->
+            <!--<p>1457523dadas35</p>-->
+        <!--</div>-->
+    </div>
+
+
+    <div class="footer">
+        <div class="nav">
+            <ul>
+                <li>山东正元地球物理信息技术有限公司 云服务技术中心</li>
+                <li>公司地址 ：山东济南高新区颖秀路3366号 中国冶金地质总局山东局 </li>
+                <li>服务电话：8888888  传真 ：666666</li>
+                <li>电子邮件：Cloud@Sdzy.com</li>
+            </ul>
+        </div>
+    </div>
 
 </body>
 </html>
