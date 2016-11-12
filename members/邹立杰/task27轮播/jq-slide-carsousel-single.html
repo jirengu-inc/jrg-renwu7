@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无限轮播</title>
+</head>
+<style>
+	body,ul,li{
+		padding:0;
+		margin:0;
+	}
+	li{
+		list-style:none;
+	}
+	a{
+		color:#333;
+		text-decoration:none;
+	}
+	.carsousel{
+		position:relative;
+		width:480px;
+		height:360px;
+		margin:50px auto;
+		overflow: hidden;
+	}
+	.ct{
+		position:absolute;
+	}
+	.ct:after{
+		content:"";
+		display: block;
+		clear:both;
+	}
+	.ct li{
+		float:left;
+		width: 480px;
+		height:360px;
+	}
+	.arrow{
+		position:absolute;
+		top:50%;
+		margin-top: -25px;
+		width:50px;
+		height:50px;
+		line-height: 50px;
+		border-radius:50%;
+		font-size: 22px;
+		color:#fff;
+		background-color: #000;
+		text-align: center;
+		opacity: 0.6;
+	}
+	a.arrow:hover{
+		opacity: 1;
+	}
+	.prev{
+		left:10px;
+	}
+	.next{
+		right:10px;
+	}
+	.bullet{
+		position: absolute;
+		bottom: 10px;
+		left:50%;
+		transform:translateX(-50%);
+	}
+	.bullet>li{
+		display: inline-block;
+		width:20px;
+		height:8px;
+		border-radius:10px;
+		background-color: #fff;
+		cursor:pointer;
+	}
+	.bullet>li.active{
+		background-color: #999;
+	}
+</style>
+<body>
+	<div class="carsousel">
+		<ul class="ct">
+			<li data-index="0">
+				<a href="#">
+					<img src="images/23.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="1">
+				<a href="#">
+					<img src="images/24.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="2">
+				<a href="#">
+					<img src="images/25.jpg" alt="">
+				</a>
+			</li>
+			<li data-index="3">
+				<a href="#">
+					<img src="images/26.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+		<a href="#" class="arrow prev"><</a>
+		<a href="#" class="arrow next">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+<script src="js/jquery.min.js"></script>
+<script>
+	var $ct = $(".ct"),
+		$item = $ct.children(),
+		$prev = $(".prev"),
+		$next = $(".next"),
+		$bullet = $(".bullet"),
+		imgWidth = $item.width(),
+		imgCount = $item.length;
+
+	var curIdx = 0;
+	var isAnimate = false;
+	var clock;
+	//设置头尾图片  起到无折返作用 
+	$ct.append(  $item.first().clone() );
+	$ct.prepend( $item.last().clone() );
+	nowCount = $ct.children().length;
+	// 设置窗口的起始
+	$ct.css({"width":nowCount*imgWidth,left:0-imgWidth});
+	$prev.on("click",function(){
+		playPrev();
+	});
+	$next.on("click",function(){
+		playNext();
+	});
+	$bullet.children("li").on("click",function(){
+		var idx = $(this).index();
+		console.log(idx);
+		if(idx > curIdx){
+		console.log(idx-curIdx);
+			playNext(idx - curIdx);
+		}else{
+			playPrev(curIdx - idx)
+		}
+	});
+	autoPlay();
+	// 下一个
+	function playNext(idx){
+		var num = idx || 1;
+		if(!isAnimate){
+			stopPlay();
+			isAnimate = true;
+			$ct.animate({left:"-="+imgWidth*num},function(){
+				curIdx = (curIdx+num)%imgCount;
+				if(curIdx === 0){
+					$ct.css({"left":0-imgWidth});
+				}
+				isAnimate = false;
+				setBullet();
+				autoPlay();
+			});
+		}
+	}
+	// 上一个
+	function playPrev(idx){
+		var num = idx || 1;
+		if(!isAnimate){
+			stopPlay();
+			isAnimate = true;
+			$ct.animate({"left":"+="+imgWidth*num},function(){
+				curIdx = (imgCount+ curIdx-num)%imgCount;
+				if(curIdx === (imgCount-1)){
+					$ct.css({"left":0-imgWidth*imgCount});
+				}
+				isAnimate = false;
+				setBullet();
+				autoPlay();
+			});
+		}
+	}
+	// 设置bullet
+	function setBullet(){
+		$bullet.find("li").removeClass("active").eq(curIdx).addClass("active");
+	}
+	// 自动
+	function autoPlay(){
+		clock = setInterval(function(){
+			playNext();
+		},3000);
+	}
+	// 暂停自动
+	function stopPlay(){
+		clearInterval(clock);
+	}
+</script>
+</body>
+</html>

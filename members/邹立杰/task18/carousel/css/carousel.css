@@ -1,0 +1,70 @@
+body,html,ol,li{
+	margin:0;
+	padding:0;
+}
+body,html{
+	width:100%;
+	height:100%;
+}
+li{
+	list-style: none;
+}
+.carousel{
+	position: relative;
+	width:100%;
+	height:100%;
+	overflow: hidden;
+	/*background: #000;*/
+}
+ol.ct{
+	position: relative;
+	height:100%;
+}
+ol>li.item{
+	/*width:100%;*/
+	height:100%;
+	float:left;
+}
+ol>li.item>img{
+	width:100%;
+	height:100%;
+}
+.arrow{
+	position: absolute;
+	width:40px;
+	height:40px;
+	line-height: 40px;
+	top:50%;
+	margin-top: -20px;
+	background:rgba(0,0,0,0.7);
+	color:#fff;
+	border-radius:50%;
+	text-align: center;
+	font-weight: bold;
+	cursor:pointer;
+}
+.prev{
+	left:5px;
+}
+.next{
+	right:5px;
+}
+ol.bullet{
+	position: absolute;
+	bottom: 10px;
+	left:50%;
+	transform:translateX(-50%);
+	margin-left: -5px;
+}
+ol.bullet>li{
+	width:20px;
+	height:10px;
+	margin-left:8px;
+	float: left;
+	border-radius:5px;
+	background: #ccc;
+	cursor:pointer;
+}
+ol.bullet>li.active{
+	background: #333;
+}
