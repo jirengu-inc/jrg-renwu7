@@ -3,10 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <title>task-20-4</title>
+    <style type="text/css">
+        ul,li{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+        .ct{
+            border:1px solid #ccc;
+            width:600px;
+            box-sizing: border-box;
+        }
+        .ct .tablist:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .ct .tablist .atab{
+            border-right:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+            float:left;
+            width:33.2%;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .ct .tablist .atab:last-child{
+            border-right:none;
+        }
+        .ct .tablist .active{
+            background-color: #eee;
+        }
+        .ct .cont{
+            display:none;
+            height:180px;
+            padding:20px;
+        }
+        .ct>.active{
+            display: block;
+        }
+    </style>
 </head>
 <body>
-<script type="text/javascript">
-
-</script>
+    <div class="ct">
+        <ul class="tablist">
+            <li class="atab active">tab1</li>
+            <li class="atab">tab2</li>
+            <li class="atab">tab3</li>
+        </ul>
+        <div class="cont active">内容1</div>
+        <div class="cont">内容2</div>
+        <div class="cont">内容3</div>
+    </div>
+    <script type="text/javascript">
+        var tabList = document.querySelector('.tablist');
+        var actionBox={
+                hasClass:function(el,cls){
+                    var reg = new RegExp('(\\b)'+cls+'(\\b)');
+                    return reg.test(el.className);
+                },
+                addClass:function(el,cls){
+                    if(!actionBox.hasClass(el,cls)){
+                    return el.className+=' '+cls;
+                    }
+                },
+                removeClass:function(el,cls){
+                    if (el.length && el.length > 0){
+                        for (var i = 0; i < el.length; i++) {
+                            actionBox.singleRemoveClass(el[i],cls)
+                        }
+                    }else{
+                        actionBox.singleRemoveClass(el,cls)
+                    }
+                },
+                singleRemoveClass:function(el,cls){
+                    if (actionBox.hasClass(el, cls)) {
+                        return el.className=el.className.replace(cls,'');
+                    }
+                },
+                indexOf: function(ele){
+                    var parent = ele.parentElement,
+                        siblings = parent.children;
+                    for(var i=0; i<siblings.length; i++){
+                        if(ele === siblings[i]) return i;
+                    }
+                    return -1;
+                }
+        };
+        tabList.addEventListener('mouseover', function(e){
+                var target = e.target,
+                    tabs = tabList.children,
+                    index = actionBox.indexOf(target),
+                    cont = document.querySelectorAll('.cont');
+                if(index > -1){
+                    actionBox.removeClass(tabs, 'active');
+                    actionBox.addClass(target, 'active');
+                    actionBox.removeClass(cont, 'active');
+                    actionBox.addClass(cont[index], 'active');
+                }
+        });
+    </script>
 </body>
 </html>
