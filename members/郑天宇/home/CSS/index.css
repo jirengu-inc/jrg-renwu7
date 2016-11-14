@@ -33,6 +33,23 @@ a:link{
 a:visited{
     color: inherit;
 }
+#gotop{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 36px;
+    height: 40px;
+    cursor: pointer;
+    display: block;
+    background: 7px 8px no-repeat url("../PIC/gotop.png");
+    background-color: rgba(0,0,0,.6);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+
+}
+.bt:focus{
+    outline: none;
+}
 
 .clearfix::after{
     content: "";
@@ -61,11 +78,14 @@ a:visited{
 .header .nav{
     position: relative;
     height: 80px;
-    z-index: 1000;
-    background: -webkit-linear-gradient(left, red , blue); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, red, blue); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, red, blue); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, red , blue); /* 标准的语法 */
+    
+    /*background: -webkit-linear-gradient(left, red , blue); !* Safari 5.1 - 6.0 *!*/
+    /*background: -o-linear-gradient(right, red, blue); !* Opera 11.1 - 12.0 *!*/
+    /*background: -moz-linear-gradient(right, red, blue); !* Firefox 3.6 - 15 *!*/
+    /*background: linear-gradient(to right, red , blue); !* 标准的语法 *!*/
+    background-image: url("../PIC/banner_01.jpg") ;
+    background-position: 66px -48px;;
+
 }
 .nav-logo li{
     float: left;
@@ -88,13 +108,13 @@ a:visited{
 }
 .header .cloudpic {
     position: relative;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .header .cloudpic .ourintroudce h3{
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-style: italic;
     font-size: 40px;
-    padding-top: 230px
+    padding-top: 230px;
 
 }
 .header .cloudpic .ourintroudce h1{
@@ -107,6 +127,7 @@ a:visited{
 
 .content{
     margin-top: 150px;
+    position: relative;
 }
 .content .persons .development{
     margin-top: 60px;
@@ -145,6 +166,7 @@ a:visited{
 }
 
 .contactus{
+    position: relative;
     margin-top: 100px;
 }
 
@@ -191,13 +213,24 @@ a:visited{
     font-size: 20px;
     color: #fff;
 }
+.footer{
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+
+
+}
 
 .footer .nav{
-    background: -webkit-linear-gradient(left, darkcyan , greenyellow); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, darkcyan, greenyellow); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, darkcyan, greenyellow); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, darkcyan , greenyellow); /* 标准的语法 */
+    background: url("../PIC/banner_04.jpg");
+    /*background: -webkit-linear-gradient(left, darkcyan , greenyellow); !* Safari 5.1 - 6.0 *!*/
+    /*background: -o-linear-gradient(right, darkcyan, greenyellow); !* Opera 11.1 - 12.0 *!*/
+    /*background: -moz-linear-gradient(right, darkcyan, greenyellow); !* Firefox 3.6 - 15 *!*/
+    /*background: linear-gradient(to right, darkcyan , greenyellow); !* 标准的语法 *!*/
     text-align: center;
+    background-position: 180px -104px;
+    background-size: cover;
 }
 .footer .nav ul li{
     font-size: 13px;

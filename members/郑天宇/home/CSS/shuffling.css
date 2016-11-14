@@ -1,21 +1,25 @@
 .banner{
-    position: relative;
+    position: rji'shu'zhelative;
     overflow: hidden;
-    margin-left: 197px;
+    /*margin-left: 197px;*/
 }
 
 .banner ul li{
     width:1100px;
     height: 600px;
-    float: left;
+    display: inline-block;
 
 }
 .banner img{
-    margin: 0 auto;
+
+    width: 1170px;
     height: 600px;
     z-index: 10;
+    text-align: center;
 }
-
+.banner .banner-words{
+    width: 100%;
+}
 
 
 .banner a{

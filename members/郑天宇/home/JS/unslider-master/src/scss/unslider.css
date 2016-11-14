@@ -50,25 +50,25 @@
   border: none;
 }
 .unslider-arrow {
- position: absolute;
-  top:200px;
+  position: absolute;
+  top:300px;
   width: 32px;
   height: 32px;
-  background: rgba(0,0,0,.2) no-repeat 50% 50%;
+  background: rgba(0,0,0,.3) no-repeat 50% 50%;
   background-image: url("arr.png");
   background-size: 7px 11px;
   border-radius: 32px;
   text-indent: -999em;
-  opacity: .6;
+  opacity: 1;
   transition: opacity .2s;
 }
 .unslider-arrow.next {
 
-   right: -20px;
+   right: 0px;
 
  }
 .unslider-arrow.prev {
-  left: 20px;
+  left: 0px;
   transform: rotate(-180deg)
 
 
