@@ -1,0 +1,13 @@
+require.config({
+	baseUrl:'./js',
+	paths:{
+		'jquery':'lib/jquery/jquery.min',
+	}
+});
+require(["jquery",'app/gotop'],function($,goTop){
+	//console.log(goTop)
+	//包含参数
+	//goTop.init($(".gotop"));
+	//不含参数
+	goTop.init();
+})
