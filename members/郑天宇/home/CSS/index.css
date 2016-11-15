@@ -171,7 +171,7 @@ a:visited{
     background: #aaa;
 }
 .content .Brief .intro{
-    width: 550px;
+    width: 825px;
     margin: 0 auto;
     font-size: 20px;
     margin-top: 50px;
@@ -179,6 +179,7 @@ a:visited{
 .content .Brief .intro p{
     font-family: "Microsoft YaHei";
     color: #555;
+    text-indent: 40px;
 }
 .staffer{
     margin-top: 100px;
