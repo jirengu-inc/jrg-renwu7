@@ -8,6 +8,7 @@ jQuery(function($) {
                 1:'persons',
                 2: 'results',
                 3: 'homepage',
+                4: 'brief'
 
             },
             itemClass: 'menuItem',
