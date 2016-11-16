@@ -1,0 +1,452 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+html body{
+    height:100%;
+    position: relative;
+}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style-type: none;
+}
+#nav{
+    background: rgb(30,28,86);
+    width: 100%;
+    height:83px;
+}
+#nav:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#nav ul{
+
+}
+#nav .nav_left{
+    float: left;
+    width: 70px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    margin-left: 60px;
+
+}
+#nav .nav_right{
+    float: right;
+    width: 70px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    margin-right: 60px;
+}
+#nav li a{
+    color: #fff;
+}
+#nav li a:hover{
+    color: rgb(253,225,11);
+}
+#nav img{
+    float: left;
+    margin-left: 34px;
+}
+#header{
+    background: rgb(13,11,72);
+    width: 100%;
+}
+.container{
+    width: 1080px;
+    margin: 0 auto;
+}
+#header .logo{
+    padding-top: 50px;
+    color: rgb(253,225,11);
+    margin-left: 10%;
+}
+#header .logo:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#header .logo img{
+    float: left;
+    width: 200px;
+    height: 150px;
+    margin-top: -54px
+}
+#header .logo h1{
+    font-weight: normal;
+    font-size: 5em;
+}
+#header .what{
+    text-align: center;
+    margin-top: 30px;
+}
+#header .what .what_mark:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#header .what .what_mark ul{
+float: left;
+    margin-left: 36%;
+}
+#header .what .what_mark li{
+    float: left;
+    font-size: 8em;
+    color: rgb(253,225,11);
+}
+#header .what .what_mark li:nth-child(1){
+    transform:rotate(-66deg);
+    margin-top: 50px;
+    margin-right: 25px;
+
+}
+#header .what .what_mark li:nth-child(2) {
+
+}
+#header .what .what_mark li:nth-child(3){
+    transform:rotate(40deg);
+    margin-top: 40px;
+    margin-left: 20px;
+}
+#header .what .what_get{
+    font-size: 2em;
+    color: #fff;
+    clear: both;
+}
+#header .what .what_for{
+    margin-top: 50px;
+}
+#header .what .what_for:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#header .what .what_for ul{
+
+}
+#header .what .what_for li{
+    float: left;
+    width: 250px;
+    height: 250px;
+    background:rgb(255,225,7);
+    border-radius: 50%;
+    margin-left: 82px;
+    text-align: center;
+    line-height: 35px;
+}
+#header .what .what_for li h5{
+    color:rgb(13,11,72);
+    font-size: 35px;
+    margin-top: 45px
+}
+#header .what .what_for li p{
+    color:rgb(13,11,72);
+    font-size: 20px;
+    margin-top: 10px
+}
+#header .what .what_for li a{
+    display: inline-block;
+    width: 75px;
+    height: 30px;
+    border-radius: 10px;
+    color: #fff;
+    background:rgb(13,11,72);
+    line-height: 30px;
+    cursor: pointer;
+}
+
+#main{
+    padding-top: 50px;
+}
+#main .main_why{
+    text-align: center;
+}
+#main .main_why h2{
+    color:rgb(13,11,72);
+    letter-spacing: 7px;
+    font-size: 30px;
+}
+#main .main_teacher:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#main .main_teacher img{
+   float: left;
+    width: 150px;
+    height: 150px;
+    border:2px solid rgb(255,225,7);
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-left: 38px;
+}
+#main .main_teacher span{
+    /* display: inline-block; */
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(13,11,72);
+    float: left;
+    margin-top: 75px;
+    margin-left: 250px;
+}
+#main .main_explain{
+    width: 293px;
+    padding: 10px;
+    border: 2px dashed #ccc;
+}
+#main .main_explain h6{
+    color: rgb(13,11,72);
+    font-size: 20px;
+}
+#main .main_explain p{
+      color: gray;
+    font-size: 14px;
+}
+#main .main_teacher .main_explain{
+    float: left;
+    margin-top: 50px;
+    margin-left: 132px;
+}
+#main .main_know:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#main .main_explain.explain_one{
+    float: left;
+    margin-top: 90px;
+}
+#main .main_explain.explain_two{
+    float: left;
+    margin-top: 25px;
+    clear: both;
+}
+#main .main_explain.explain_three{
+    float: left;
+    margin-top: -230px;
+    margin-left: 757px;
+    clear: both;
+}
+#main .main_explain.explain_four{
+    float: left;
+    margin-top: -79px;
+    margin-left: 757px;
+    clear: both;
+}
+
+#main .main_know span{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(13,11,72);
+    float: left;
+    margin-top: -90px;
+    margin-left: 95px;
+}
+#works{
+    /*position: relative;*/
+    background:rgb(13,11,72);
+    padding-top: 50px;
+    margin-top: 50px;
+}
+#works .works_word:after{
+    content: '';
+    display: block;
+    clear:both;
+}
+
+#works .works_word .works_fir{
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 30px;
+}
+#works .works_word .works_sec{
+    text-align: center;
+    color: #fff;
+    font-size: 48px;
+}
+#works .works_word .works_exclamatory {
+    float: right;
+    margin-right: 275px;
+    margin-top: -169px;
+    font-size: 182px;
+    color: rgb(255, 225, 7);
+    transform: rotate(10deg);
+}
+#works ul:after{
+content: '';
+    display: block;
+    clear:both;
+}
+#works li{
+    float: left;
+    width: 270px;
+    height:260px;
+    text-align: center;
+}
+#works li img{
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgb(255, 225, 7);
+    border-radius: 50%;
+}
+#works li p{
+    color: #fff;
+}
+#connect .connect_outline{
+    margin-top: 50px;
+}
+#connect .connect_outline h2{
+    font-size: 40px;
+    text-align: center;
+    color: rgb(13,11,72);
+}
+#connect .outline h3{
+    float: left;
+    margin-top: 125px;
+    margin-left: 115px;
+    font-size: 52px;
+    font-weight: normal;
+    color: rgb(13,11,72);
+}
+#connect .outline .outline_line{
+    float: left;
+    margin-top: 150px;
+    width: 200px;
+    height: 2px;
+    background: #ccc;
+}
+#connect .outline .outline_introduce{
+    margin-top: 30px;
+    margin-left: 43%;
+    text-align: left;
+}
+#connect .outline dt{
+    margin-left: -8px;
+    font-size: 50px;
+    color: rgb(13,11,72);
+}
+#connect .outline dd{
+    font-size: 22px;
+    color: #aaa;
+}
+#connect .outline a{
+    font-size: 22px;
+    color:rgb(13,11,72);
+    font-weight: bold;
+}
+#connect .outline.two h3{
+    float: right;
+    margin-top: 125px;
+    margin-right: 60px;
+    font-size: 52px;
+    font-weight: normal;
+    color: rgb(13,11,72);
+}
+#connect .outline_line.line_two{
+    float: right;
+    margin-top: 150px;
+    margin-right: -115px;
+    width: 200px;
+    height: 2px;
+    background: #ccc;
+}
+#connect .outline.three h3{
+    float: left;
+    margin-top: 120px;
+    margin-left: 90px;
+    font-size: 52px;
+    font-weight: normal;
+    color: rgb(13,11,72);
+}
+#connect .outline_line.line_three{
+    float: left;
+    margin-top: 150px;
+    width: 107px;
+    height: 2px;
+    background: #ccc;
+}
+#question .question_outline{
+    margin-top: 50px;
+}
+#question .question_outline h2 {
+    font-size: 40px;
+    text-align: center;
+    color: rgb(13,11,72);
+}
+#question .question_outline p{
+    color: rgb(13,11,72);
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+#question .question_answer h3{
+    font-size: 24px;
+    color: rgb(13,11,72);
+}
+#question .question_answer p{
+    font-size: 16px;
+    color: gray;
+}
+#footer{
+    background: rgb(13,11,72);
+}
+#footer:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#footer ul{
+    width: 210px;
+    margin: 0 auto;
+}
+#footer li{
+    float: left;
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+}
+
+#footer li a{
+    color: #fff;
+}
+#footer li a:hover{
+    color:rgb(255, 225, 7);
+}
+#footer p{
+    font-size: 10px;
+    color: #fff;
+    clear: both;
+    text-align: center;
+}
+#aside{
+    position: fixed;
+    top:50%;
+    right:0;
+}
+#aside ul{
+    width: 80px;
+    border-radius: 10px;
+    background: #ccc;
+    opacity: 0.7;
+}
+#aside li{
+height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+#aside li img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+
