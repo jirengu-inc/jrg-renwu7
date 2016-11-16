@@ -34,4 +34,8 @@ jQuery(function($) {
         var tab = $('.information');
         var a = new Tabs(tab);
     });
-})
+
+    $('.help-info').on('click',function () {
+        alert('页面问题请联系 QQ：417002107 云服务_郑天宇')
+    })
+});

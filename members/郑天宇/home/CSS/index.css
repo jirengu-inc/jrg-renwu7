@@ -1,11 +1,11 @@
 
 @font-face {
     font-family: 'iconfont';  /* project id："177961" */
-    src: url('//at.alicdn.com/t/font_sa7meio6pcqe61or.eot');
-    src: url('//at.alicdn.com/t/font_sa7meio6pcqe61or.eot') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_sa7meio6pcqe61or.woff') format('woff'),
-    url('//at.alicdn.com/t/font_sa7meio6pcqe61or.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_sa7meio6pcqe61or.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.eot');
+    src: url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.woff') format('woff'),
+    url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.svg#iconfont') format('svg');
 }
 
 .iconfonts{
@@ -110,6 +110,16 @@ a:visited{
     position: relative;
     margin-top: 30px;
 }
+.header .help{
+    position: absolute;
+    top: 58px;
+    right: 10px;
+}
+.header .help a{
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    color: aliceblue;
+}
 .header .cloudpic .ourintroudce h3{
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-style: italic;
@@ -129,16 +139,21 @@ a:visited{
     margin-top: 150px;
     position: relative;
 }
+.content .persons{
+    margin-top: 100px;
+}
 .content .persons .development{
     margin-top: 60px;
 }
 .content .persons .development li{
     float: left;
     padding-left: 160px;
+    padding-bottom: 20px;
 }
 .content .persons .development li p{
     color: #777;
     font-size: 14px;
+    text-indent: 10px;
 }
 .content .persons .development li a{
     color: #888;
@@ -155,7 +170,17 @@ a:visited{
 .content .persons .development li a:hover{
     background: #aaa;
 }
-
+.content .Brief .intro{
+    width: 825px;
+    margin: 0 auto;
+    font-size: 20px;
+    margin-top: 50px;
+}
+.content .Brief .intro p{
+    font-family: "Microsoft YaHei";
+    color: #555;
+    text-indent: 40px;
+}
 .staffer{
     margin-top: 100px;
 }
