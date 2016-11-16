@@ -144,6 +144,7 @@ a:visited{
 }
 .content .persons .development{
     margin-top: 60px;
+    text-align: center;
 }
 .content .persons .development li{
     float: left;
@@ -180,6 +181,9 @@ a:visited{
     font-family: "Microsoft YaHei";
     color: #555;
     text-indent: 40px;
+    word-wrap: break-word;
+    word-break: normal;
+
 }
 .staffer{
     margin-top: 100px;

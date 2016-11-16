@@ -3976,11 +3976,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 1px 0 0;
 }
 .navbar-brand {
-  float: left;
-  height: 50px;
   padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
+  float: left;
+  font-family: "Microsoft YaHei UI Light";
+  color:white;
+  font-size: 35px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -4057,11 +4057,19 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar-nav {
-    float: left;
+    float: right;
     margin: 0;
   }
   .navbar-nav > li {
     float: left;
+    color: white;
+    font-size: 20px;
+    font-family: monospace;
+    height: 30px;
+    font-family: monospace;
+    width: 120px;
+    margin-top: 15px;
+    /*margin-left: 20px;*/
   }
   .navbar-nav > li > a {
     padding-top: 15px;
@@ -4198,7 +4206,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
-  color: #777;
+  color: white;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -4209,18 +4217,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: white;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333;
+  color: white;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #555;
-  background-color: #e7e7e7;
+  color: white;
+  background-color: ;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,

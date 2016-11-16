@@ -51,7 +51,7 @@
 }
 .unslider-arrow {
   position: absolute;
-  top:300px;
+  top:50%;
   width: 32px;
   height: 32px;
   background: rgba(0,0,0,.3) no-repeat 50% 50%;
@@ -64,11 +64,11 @@
 }
 .unslider-arrow.next {
 
-   right: 0px;
+   right: 14%;
 
  }
 .unslider-arrow.prev {
-  left: 0px;
+  left: 14%;
   transform: rotate(-180deg)
 
 

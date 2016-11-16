@@ -21,6 +21,9 @@ body,html,li,ul{
     margin: 0;
     padding: 0;
 }
+/*body {*/
+    /*　　　　font: normal 100% Helvetica, Arial, sans-serif;*/
+    /*　}*/
 li{
     list-style: none;
 }

@@ -16,57 +16,53 @@
     <script src="JS/shuffing.js"></script>
     <script src="JS/index.js"></script>
     <script src="JS/gotop.js"></script>
-    <link rel="stylesheet" href="bootstrap-3.3.0-dist/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <script src="bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
+    <script src="bootstrap-3.3.0-dist/dist/js/bootstrap.min.js"></script>
 
 
 </head>
 <body scroll="no" style="overflow-x:hidden">
 <div class="bb">
     <div id="homepage" class="header ">
-        <div class="navf row">
-            <div class="col-md-4">云服务技术中心</div>
-            <div class="col-md-1 col-md-offset-2">首页</div>
-            <div class="col-md-1">部门简介</div>
-            <div class="col-md-1">研究成功</div>
-            <div class="col-md-1">员工风采</div>
-            <div class="col-md-1">授权处理</div>
-            <div class="col-md-1">联系我们</div>
+        <!--<div class="navf navbar row">-->
 
-            <!--<div class="logo-pic">-->
-                <!--<img src="PIC/logo.png" alt="">-->
-            <!--</div>-->
-            <!--<div class="container clearfix">-->
+        <nav class="navf navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
 
+                    <a class="navbar-brand" style="color: white" href="javascript:void (0)">云服务技术中心</a>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="menuItem">
+                            <a href="#homepage">首页</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#brief">部门简介</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#results">研发成果</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#persons">员工风采</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="licence.html">许可授权</a>
+                        </li>
 
-                <!--<ul class="nav-logo clearfix">-->
-                    <!--&lt;!&ndash;<li><img src="PIC/logo.png" alt=""></li>&ndash;&gt;-->
-                    <!--<li>云服务技术中心</li>-->
-                <!--</ul>-->
+                        <li class="active menuItem">
+                            <a href="#contactus">业务咨询</a>
+                        </li>
 
-                <!--<ul class="nav-bar clearfix ">-->
-                    <!--<li class="menuItem">-->
-                        <!--<a href="#contactus">业务咨询</a>-->
-                    <!--</li>-->
-                    <!--<li class="menuItem">-->
-                        <!--<a href="licence.html">许可授权</a>-->
-                    <!--</li>-->
-                    <!--<li class="menuItem">-->
-                        <!--<a href="#persons">员工风采</a>-->
-                    <!--</li>-->
-                     <!--<li class="menuItem">-->
-                         <!--<a href="#results">研发成果</a>-->
-                     <!--</li>-->
-                    <!--<li class="menuItem">-->
-                        <!--<a href="#brief">部门简介</a>-->
-                    <!--</li>-->
-                    <!--<li class="menuItem">-->
-                        <!--<a href="#homepage">首页</a>-->
-                    <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 
-                <!--</ul>-->
-            <!--</div>-->
-        </div>
-        <div class="cloudpic container  ">
+    <div class="cloudpic container   ">
+
           <div class="banner clearfix">
               <ul>
 
@@ -96,7 +92,7 @@
               </ul>
 
           </div>
-        </div>
+    </div>
 
     </div>
 
@@ -107,10 +103,10 @@
                 <p>Department Brief</p>
             </div>
             <div class="row intro">
-                <div class="col-md-12 col-sm-12">
-                <p>云服务技术中心成立于2016年1月，隶属于山东正元地球物理信息技术有限公司，主要从事GIS软件开发，管线云服务，管线安全性评估等工作。
+                <div class="col-md-12 col-sm-10 col-xs-4">
+                <p class="text-justify">云服务技术中心成立于2016年1月，隶属于山东正元地球物理信息技术有限公司，主要从事GIS软件开发，管线云服务，管线安全性评估等工作。
                 </p>
-                <p>云服务技术中心秉承着公司“团结、严谨、务实、创新”的企业精神和“为客户创造价值，让员工享受快乐”的企业价值观，专注探索地理信息行业的新发展方向，力求为地理信息和公司的发展做出更大的贡献。
+                <p class="text-justify">云服务技术中心秉承着公司“团结、严谨、务实、创新”的企业精神和“为客户创造价值，让员工享受快乐”的企业价值观，专注探索地理信息行业的新发展方向，力求为地理信息和公司的发展做出更大的贡献。
                 </p>
                 </div>
             </div>
@@ -120,47 +116,47 @@
                 <h1>研发成果</h1>
                 <p>Research & Achievement</p>
             </div>
-            <ul class="development clearfix">
-                <li>
+            <ul class="row  development clearfix">
+                <div class="col-md-3 col-sm-6">
                     <span class="iconfonts">&#xe810;</span>
                     <p>管线云平台</p>
                     <!--<a href="javascript:void(0)">详情</a>-->
-                </li>
-                <li>
+                </div>
+                <div class="col-md-3 col-sm-6">
                     <span class="iconfonts">&#xe85f;</span>
                     <p>管线安全性评估</p>
                     <!--<a href="javascript:void(0)">详情</a>-->
-                </li>
-                <li>
+                </div>
+                    <div class="col-md-3 col-sm-6">
                     <span class="iconfonts">&#xe75b;</span>
                     <p>管线/地形更新</p>
                     <!--<a href="javascript:void(0)">详情</a>-->
-                </li>
-                <li>
+                </div>
+                <div class="col-md-3 col-sm-6">
                     <span class="iconfonts">&#xe698;</span>
                     <p>地下管廊项目</p>
                     <!--<a href="javascript:void(0)">详情</a>-->
-                </li>
-                <li>
+                </div>
+                <div class="col-md-3 col-sm-6">
                     <span class="iconfonts">&#xe6a8;</span>
                     <p>智慧档案平台</p>
                     <!--<a href="javascript:void(0)">详情</a>-->
-                </li>
-                <li>
+                </div>
+                 <div class="col-md-3 col-sm-6">
                     <span class="iconfonts">&#xe674;</span>
                     <p>市场管理平台</p>
                     <!--<a href="javascript:void(0)">详情</a>-->
-                </li>
-                <li>
+                </div>
+                <div class="col-md-3 col-sm-6">
                     <span class="iconfonts">&#xe6cc;</span>
                     <p>工资查询平台</p>
                     <!--<a href="javascript:void(0)">详情</a>-->
-                </li>
-                <li>
+                </div>
+                    <div class="col-md-3 col-sm-6">
                     <span class="iconfonts">&#xe604;</span>
                     <p>项目管理平台</p>
                     <!--<a href="javascript:void(0)">详情</a>-->
-                </li>
+                </div>
 
             </ul>
         </div>
