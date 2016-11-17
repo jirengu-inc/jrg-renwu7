@@ -52,20 +52,18 @@ ul li{
     float: left;
     width: 200px;
     height: 80px;
-    margin-left: 53px;
 }
 #header{
     background: rgb(13,11,72);
     width: 100%;
 }
 .container{
-    width: 1080px;
+    width: 980px;
     margin: 0 auto;
 }
 #header .logo{
     padding-top: 50px;
     color: rgb(253,225,11);
-    margin-left: 2%;
 }
 #header .logo:after{
     content: '';
@@ -80,7 +78,7 @@ ul li{
 }
 #header .logo h1{
     font-weight: normal;
-    font-size: 5em;
+    font-size: 76px;
 }
 #header .what{
     text-align: center;
@@ -93,7 +91,7 @@ ul li{
 }
 #header .what .what_mark ul{
 float: left;
-    margin-left: 428px;
+    margin-left: 385px;
 }
 #header .what .what_mark li{
     float: left;
@@ -115,7 +113,7 @@ float: left;
     margin-left: 20px;
 }
 #header .what .what_get{
-    font-size: 2em;
+    font-size: 43px;
     color: #fff;
     clear: both;
 }
@@ -136,7 +134,7 @@ float: left;
     height: 250px;
     background:rgb(255,225,7);
     border-radius: 50%;
-    margin-left: 82px;
+    margin-left: 67px;
     text-align: center;
     line-height: 35px;
 }
@@ -184,17 +182,17 @@ float: left;
     border:2px solid rgb(255,225,7);
     border-radius: 50%;
     margin-top: 50px;
-    margin-left: 38px;
+    margin-left: 122px;
 }
 #main .main_teacher span{
     /* display: inline-block; */
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     color: rgb(13,11,72);
     float: left;
     margin-top: 75px;
-    margin-left: 250px;
+    margin-left: 119px;
 }
 #main .main_explain{
     width: 293px;
@@ -212,7 +210,7 @@ float: left;
 #main .main_teacher .main_explain{
     float: left;
     margin-top: 50px;
-    margin-left: 132px;
+    margin-left: 100px;
 }
 #main .main_know:after{
     content: '';
@@ -221,34 +219,36 @@ float: left;
 }
 #main .main_explain.explain_one{
     float: left;
-    margin-top: 90px;
+    margin-top: 45px;
+    margin-left: 44px;
+    width: 210px;
 }
 #main .main_explain.explain_two{
     float: left;
     margin-top: 25px;
     clear: both;
+    margin-left: 44px;
+    width: 210px;
 }
 #main .main_explain.explain_three{
-    float: left;
-    margin-top: -230px;
-    margin-left: 757px;
-    clear: both;
+    float: right;
+    margin-top: -145px;
+    margin-right: 17px;
 }
 #main .main_explain.explain_four{
-    float: left;
-    margin-top: -79px;
-    margin-left: 757px;
-    clear: both;
+    float: right;
+    margin-top: -25px;
+    margin-right: 17px;
 }
 
 #main .main_know span{
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     color: rgb(13,11,72);
     float: left;
     margin-top: -90px;
-    margin-left: 95px;
+    margin-left: 90px;
 }
 #works{
     /*position: relative;*/
@@ -274,8 +274,8 @@ float: left;
 }
 #works .works_word .works_exclamatory {
     float: right;
-    margin-right: 275px;
-    margin-top: -169px;
+    margin-right: 217px;
+    margin-top: -204px;
     font-size: 182px;
     color: rgb(255, 225, 7);
     transform: rotate(10deg);
@@ -287,9 +287,10 @@ content: '';
 }
 #works li{
     float: left;
-    width: 270px;
-    height:260px;
+    width: 257px;
+    height: 268px;
     text-align: center;
+    margin-left: -12px;
 }
 #works li img{
     width: 200px;
@@ -318,8 +319,8 @@ content: '';
 }
 #connect .outline .outline_line{
     float: left;
-    margin-top: 150px;
-    width: 200px;
+    margin-top: 153px;
+    width: 159px;
     height: 2px;
     background: #ccc;
 }
@@ -352,7 +353,7 @@ content: '';
 }
 #connect .outline_line.line_two{
     float: right;
-    margin-top: 150px;
+    margin-top: 158px;
     margin-right: -115px;
     width: 200px;
     height: 2px;
@@ -368,8 +369,8 @@ content: '';
 }
 #connect .outline_line.line_three{
     float: left;
-    margin-top: 150px;
-    width: 107px;
+    margin-top: 158px;
+    width: 79px;
     height: 2px;
     background: #ccc;
 }
@@ -396,42 +397,57 @@ content: '';
     font-size: 22px;
     color: gray;
 }
-#footer{
-    background: rgb(13,11,72);
+#footer {
+    background: url(img/bg3.png);
+    background-repeat: no-repeat;
+    /* background-size: 54% 156%; */
+    background-position: 49% 39%;
+    height: 200px;
 }
 #footer:after{
     content: '';
     display: block;
-    clear: both;
-}
-#footer{
-    width: 100%;
-
+    clear:both;
 }
 #footer ul{
-    width: 280px;
+    width: 500px;
     margin: 0 auto;
 }
 #footer li{
     float: left;
     text-align: center;
-    width: 70px;
+    width: 135px;
     height: 70px;
     line-height: 70px;
-    margin-left:23px;
+    margin-left: 31px;
+    margin-top: 60px;
+    margin-bottom: 44px;
+    font-size: 24px;
 }
 
 #footer li a{
+    padding-right: 35px;
     color: #fff;
+    border-right: 1px solid rgba(255,255,255,0.4);
+}
+#footer li:last-child a{
+    border-right:none;
 }
 #footer li a:hover{
     color:rgb(255, 225, 7);
 }
 #footer p{
-    font-size: 10px;
+    font-size: 18px;
     color: #fff;
     clear: both;
     text-align: center;
+}
+#footer img{
+    float: left;
+    width: 150px;
+    height: 200px;
+    margin-top: -302px;
+    margin-left: 775px;
 }
 #aside{
     position: fixed;
