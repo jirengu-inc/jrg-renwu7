@@ -1,11 +1,11 @@
 
 @font-face {
     font-family: 'iconfont';  /* project id："177961" */
-    src: url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.eot');
-    src: url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.eot') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.woff') format('woff'),
-    url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_wfxshz4vfp8n0zfr.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.eot');
+    src: url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.svg#iconfont') format('svg');
 }
 
 .iconfonts{
@@ -44,7 +44,8 @@ a:visited{
     background: 7px 8px no-repeat url("../PIC/gotop.png");
     background-color: rgba(0,0,0,.6);
     border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    z-index: 60000;
+    /*box-shadow: 0 1px 3px rgba(0,0,0,.2);*/
 
 }
 .bt:focus{
@@ -77,7 +78,7 @@ a:visited{
 
 .header .navf{
     position: relative;
-    height: 80px;
+
     
     /*background: -webkit-linear-gradient(left, red , blue); !* Safari 5.1 - 6.0 *!*/
     /*background: -o-linear-gradient(right, red, blue); !* Opera 11.1 - 12.0 *!*/

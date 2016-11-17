@@ -14,21 +14,26 @@ jQuery(document).ready(function($) {
         console.log(this.$ct);
         this.$target.hide();
     };
+    var isScroll = false;
 
     GoTop.prototype.bindEvent = function () {
         var $this = this;
-        console.log($this);
-        $(window).on('scroll',function () {
-            var sctop = $(window).scrollTop();
-            console.log(sctop);
+        if (!isScroll) {
+            isScroll = true ;
+            $(window).on('scroll',function () {
+                console.log(1);
+                var sctop = $(window).scrollTop();
+                if(sctop>=200){
+                    $this.$target.show();
+                    isScroll = false;
+                }else {
+                    $this.$target.hide();
+                    isScroll = false;
 
-            if(sctop>=200){
-                $this.$target.show();
-            }else {
-                $this.$target.hide();
+                }
 
-            }
-        });
+            });
+        }
         this.$target.on('click',function () {
             $(window).scrollTop(0);
         })

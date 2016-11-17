@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html scroll="" style="overflow-x:hidden;height: 100%" lang="en">
+<html  style="overflow-x:hidden;" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>云服务技术中心</title>
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/shuffling.css">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script src="JS/stickUp.min.js"></script>
-    <script src="JS/stickup.js"></script>
+    <script src="JS/jquery-3.1.1.min.js"></script>
     <script src="JS/unslider-master/src/js/unslider.js"></script>
     <link rel="stylesheet" href="JS/unslider-master/src/scss/unslider.scss">
     <link rel="stylesheet" href="JS/unslider-master/src/scss/unslider.css">
@@ -17,22 +15,29 @@
     <script src="JS/gotop.js"></script>
     <link rel="stylesheet" href="bootstrap-3.3.0-dist/dist/css/bootstrap.css">
     <script src="bootstrap-3.3.0-dist/dist/js/bootstrap.js"></script>
-
+    <script src="JS/Mystickup.js"></script>
+    <script src="JS/stickUp.js"></script>
 
 
 </head>
-<body scroll="" style="overflow-x:hidden;height: 100%">
-<div class="bb ">
+<body style="overflow-x:hidden;">
+<div class="bb">
     <div id="homepage" class="header ">
         <!--<div class="navf navbar row">-->
 
         <nav class="navf navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
                     <a class="navbar-brand" style="color: white" href="javascript:void (0)">云服务技术中心</a>
                 </div>
-                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="menuItem">
                             <a href="#homepage">首页</a>
@@ -65,34 +70,45 @@
           <div class="banner clearfix">
               <ul>
 
+
+                  <li>
+                      <a href="http://www.zydqwl.com/" target="_blank">
+                          <img src="PIC/linian3.jpg" alt="">
+                      </a>
+                      <!--<p class="banner-words" >4</p>-->
+                  </li>
                   <li >
                       <img src="PIC/yun.png" alt="">
                       <!--<p class="banner-words">3</p>-->
                   </li>
-                  <li>
-                      <img src="PIC/linian3.jpg" alt="">
-                      <!--<p class="banner-words" >4</p>-->
-                  </li>
 
                   <li >
-                      <img src="PIC/gongzi.jpg" alt="">
+                      <a href="http://221.214.110.227:8890/Account/LogOn?ReturnUrl=%2f" target="_blank">
+                          <img src="PIC/gongzi.jpg" alt="">
+                      </a>
                       <!--<p class="banner-words">1</p>-->
                   </li>
                   <li >
-                      <img src="PIC/xiangmu.jpg" alt="">
+
+                      <a href="http://221.214.110.227:8898/login.html" target="_blank">
+                          <img src="PIC/xiangmu.jpg" alt="">
+                      </a>
                       <!--<p class="banner-words" >2</p>-->
                   </li>
 
                   <li>
-                      <img src="PIC/shichang.jpg" alt="">
+
+                      <a href="http://221.214.110.227:8050/Account/Login?returnUrl=%2F#" target="_blank">
+                          <img src="PIC/shichang.jpg" alt="">
+                      </a>
                       <!--<p class="banner-words" >4</p>-->
                   </li>
 
               </ul>
 
           </div>
-        <a class="unslider-arrow next hidden-md hidden-sm hidden-xs">Next</a>
-        <a class="unslider-arrow prev hidden-md hidden-sm hidden-xs">Prev</a>
+        <!--<a class="unslider-arrow next hidden-md hidden-sm hidden-xs">Next</a>-->
+        <!--<a class="unslider-arrow prev hidden-md hidden-sm hidden-xs">Prev</a>-->
     </div>
 
     </div>
@@ -104,7 +120,7 @@
                 <p>Department Brief</p>
             </div>
             <div class="row intro">
-                <div class="col-md-12 col-sm-10 col-xs-7">
+                <div class="col-md-12 col-sm-10 col-xs-6">
                 <p class="text-justify">云服务技术中心成立于2016年1月，隶属于山东正元地球物理信息技术有限公司，主要从事GIS软件开发，管线云服务，管线安全性评估等工作。
                 </p>
                 <p class="text-justify">云服务技术中心秉承着公司“团结、严谨、务实、创新”的企业精神和“为客户创造价值，让员工享受快乐”的企业价值观，专注探索地理信息行业的新发展方向，力求为地理信息和公司的发展做出更大的贡献。
