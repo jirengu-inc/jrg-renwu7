@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
     $('.banner').unslider({
 
         infinite: true,
-        arrows: true,
+        arrows: false,
         dots:true,
         nav:true,
         autoplay:true,
