@@ -977,6 +977,7 @@ hr {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+  text-align: center;
 }
 .sr-only-focusable:active,
 .sr-only-focusable:focus {
@@ -4218,6 +4219,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a {
   color: white;
+  text-align: center;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
