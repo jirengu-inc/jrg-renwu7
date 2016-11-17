@@ -56,10 +56,12 @@ ul li{
 #header{
     background: rgb(13,11,72);
     width: 100%;
+    /*z-index:-9999;*/
 }
 .container{
     width: 980px;
     margin: 0 auto;
+    /*border: 1px solid red;*/
 }
 #header .logo{
     padding-top: 50px;
@@ -83,6 +85,21 @@ ul li{
 #header .what{
     text-align: center;
     margin-top: 30px;
+}
+#header .what_what{
+    color: gray;
+    font-size: 28px;
+    opacity: 0.4;
+}
+#header .what_what.one{
+    float: right;
+    margin-top: 200px;
+    margin-right: -91px;
+}
+#header .what_what.two{
+    float: left;
+    margin-top: -8px;
+    margin-left: -178px;
 }
 #header .what .what_mark:after{
     content: '';
@@ -134,9 +151,10 @@ float: left;
     height: 250px;
     background:rgb(255,225,7);
     border-radius: 50%;
-    margin-left: 67px;
+    margin-left: 66px;
     text-align: center;
     line-height: 35px;
+    z-index: 1;
 }
 #header .what .what_for li h5{
     color:rgb(13,11,72);
@@ -167,7 +185,7 @@ float: left;
 }
 #main .main_why h2{
     color:rgb(13,11,72);
-    letter-spacing: 7px;
+    letter-spacing: 3px;
     font-size: 30px;
 }
 #main .main_teacher:after{
@@ -175,14 +193,35 @@ float: left;
     display: block;
     clear: both;
 }
-#main .main_teacher img{
+#main .main_teacher .ruoyu{
    float: left;
     width: 150px;
     height: 150px;
     border:2px solid rgb(255,225,7);
     border-radius: 50%;
     margin-top: 50px;
-    margin-left: 122px;
+    margin-left: 55px;
+}
+#main .icon{
+    float: left;
+    width: 80px;
+    height: 50px;
+}
+#main .icon.icon_left{
+    margin-top: 75px;
+    margin-left: 77px;
+}
+#main .icon.icon_right{
+    margin-top: 75px;
+    margin-left: 12px;
+}
+#main .icon.icon1_left{
+    margin-top: -86px;
+    margin-left: 28px;
+}
+#main .icon.icon1_right{
+    margin-top: -82px;
+    margin-left: 320px;
 }
 #main .main_teacher span{
     /* display: inline-block; */
@@ -192,7 +231,7 @@ float: left;
     color: rgb(13,11,72);
     float: left;
     margin-top: 75px;
-    margin-left: 119px;
+    margin-left: 18px;
 }
 #main .main_explain{
     width: 293px;
@@ -210,7 +249,7 @@ float: left;
 #main .main_teacher .main_explain{
     float: left;
     margin-top: 50px;
-    margin-left: 100px;
+    margin-left: 19px;
 }
 #main .main_know:after{
     content: '';
@@ -220,14 +259,14 @@ float: left;
 #main .main_explain.explain_one{
     float: left;
     margin-top: 45px;
-    margin-left: 44px;
+    margin-left: 8px;
     width: 210px;
 }
 #main .main_explain.explain_two{
     float: left;
     margin-top: 25px;
     clear: both;
-    margin-left: 44px;
+    margin-left: 8px;
     width: 210px;
 }
 #main .main_explain.explain_three{
@@ -248,13 +287,15 @@ float: left;
     color: rgb(13,11,72);
     float: left;
     margin-top: -90px;
-    margin-left: 90px;
+    margin-left: 118px;
 }
 #works{
     /*position: relative;*/
     background:rgb(13,11,72);
-    padding-top: 50px;
     margin-top: 50px;
+}
+#works .works_word{
+    padding-top: 50px;
 }
 #works .works_word:after{
     content: '';
@@ -319,7 +360,7 @@ content: '';
 }
 #connect .outline .outline_line{
     float: left;
-    margin-top: 153px;
+    margin-top: 160px;
     width: 159px;
     height: 2px;
     background: #ccc;
@@ -329,6 +370,12 @@ content: '';
     margin-left: 43%;
     text-align: left;
 }
+#connect .outline .outline_introduces{
+    margin-top: 30px;
+    margin-left: 2%;
+    text-align: left;
+}
+
 #connect .outline dt{
     margin-left: -8px;
     font-size: 45px;
@@ -343,10 +390,17 @@ content: '';
     color:rgb(13,11,72);
     font-weight: bold;
 }
+#connect .outline .htmlp{
+    float: right;
+    width: 146px;
+    height: 299px;
+    margin-top: -286px;
+    margin-right: 60px;
+}
 #connect .outline.two h3{
     float: right;
     margin-top: 125px;
-    margin-right: 60px;
+    margin-right: 124px;
     font-size: 52px;
     font-weight: normal;
     color: rgb(13,11,72);
@@ -354,10 +408,33 @@ content: '';
 #connect .outline_line.line_two{
     float: right;
     margin-top: 158px;
-    margin-right: -115px;
+    margin-right: -112px;
     width: 200px;
     height: 2px;
     background: #ccc;
+}
+#connect .css_left{
+    float: left;
+    width: 261px;
+    height: 110px;
+    margin-top: -14px;
+    margin-left: 16px;
+}
+#connect .css_right{
+    float: left;
+    width: 377px;
+    margin-top: -205px;
+    height: 300px;
+}
+#connect .outline.three{
+    clear:both;
+}
+#connect .jsp{
+    float: right;
+    width: 200px;
+    height: 111px;
+    margin-top: -112px;
+    margin-right: 100px;
 }
 #connect .outline.three h3{
     float: left;
@@ -387,6 +464,9 @@ content: '';
     text-align: center;
     font-size: 16px;
     margin-bottom: 50px;
+}
+#question .question_answer{
+    padding: 0 20px 0 20px;
 }
 #question .question_answer h3{
     font-size: 28px;
@@ -471,5 +551,53 @@ height: 80px;
     cursor: pointer;
 }
 
+.x {
+    width: 100%;
+    height: 110px;
+    position: relative;
+    background-color: transparent;
+}
 
+.x:before {
+    position: absolute;
+    top: -30px;
+    border-bottom: 140px solid white;
+    border-left: 1903px solid transparent;
+    content: "";
+}
 
+.x:after {
+    position: absolute;
+    border-bottom: 0 solid white;
+    border-left: 990px solid transparent;
+    content: "";
+}
+.y {
+    /*border: solid 1px red;*/
+    width: 725px;
+    /*height: 100px;*/
+    position: relative;
+    background-color: transparent;
+}
+
+.y:before {
+    position: absolute;
+    /*top: 0;*/
+    /*right: 0;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    border-bottom: 100px solid transparent;
+    border-left: 725px solid #fff;
+    content: "";
+}
+
+.y:after {
+    position: absolute;
+    /* left: 1px; */
+    /* right: 0; */
+    /* top: 1px; */
+    /* bottom: 0; */
+    border-bottom: 100px solid transparent;
+    border-left: 725px solid transparent;
+    content: "";
+}
