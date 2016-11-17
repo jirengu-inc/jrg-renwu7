@@ -64,11 +64,11 @@
 }
 .unslider-arrow.next {
 
-   right: 14%;
+   right: 1.2%;
 
  }
 .unslider-arrow.prev {
-  left: 14%;
+  left: 0;
   transform: rotate(-180deg)
 
 

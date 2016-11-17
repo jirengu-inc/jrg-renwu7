@@ -120,20 +120,20 @@ a:visited{
     font-size: 14px;
     color: aliceblue;
 }
-.header .cloudpic .ourintroudce h3{
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-style: italic;
-    font-size: 40px;
-    padding-top: 230px;
+/*.header .cloudpic .ourintroudce h3{*/
+    /*font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    /*font-style: italic;*/
+    /*font-size: 40px;*/
+    /*padding-top: 230px;*/
 
-}
-.header .cloudpic .ourintroudce h1{
-    font-size: 70px;
-    padding-top: 20px;
-    padding-bottom: 60px;
-    font-family: Verdana;
-    color: cadetblue;
-}
+/*}*/
+/*.header .cloudpic .ourintroudce h1{*/
+    /*font-size: 70px;*/
+    /*padding-top: 20px;*/
+    /*padding-bottom: 60px;*/
+    /*font-family: Verdana;*/
+    /*color: cadetblue;*/
+/*}*/
 
 .content{
     margin-top: 150px;
