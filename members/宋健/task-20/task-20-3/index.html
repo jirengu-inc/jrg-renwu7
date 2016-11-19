@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-20-3</title>
+</head>
+<body>
+    <ul class="ct">
+        <li data-img="http://www.joycesong.com/wp-content/uploads/2016/11/1.jpg">鼠标放置查看图片1</li>
+        <li data-img="http://www.joycesong.com/wp-content/uploads/2016/11/2.jpg">鼠标放置查看图片2</li>
+        <li data-img="http://www.joycesong.com/wp-content/uploads/2016/11/3.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script type="text/javascript">
+        var ct = document.querySelector('.ct'),
+            preview = document.querySelector('.img-preview'),
+            newImg = document.createElement('img');
+        ct.addEventListener('mouseover',function(e){
+            newImg.src = e.target.getAttribute('data-img') ;
+            preview.appendChild(newImg);
+        });
+        //另一种方法
+        //        var allli = ct.querySelectorAll('li');
+        //        for(var i=0;i<allli.length;i++){
+        //            allli[i].addEventListener('mouseenter',function(){
+        //                var tempImg = this.getAttribute('data-img');
+        //                preview.innerHTML = "<img src='"+tempImg+"'>";
+        //            });
+        //        }
+
+    </script>
+</body>
+</html>

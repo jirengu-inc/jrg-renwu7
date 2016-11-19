@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task 16-6</title>
+  </head>
+  <body>
+    <script>
+    console.log(a);/*由于"变量提升"a存在但是未赋值,输出结果为undefined*/
+    var a = 1;   /*给a赋值*/
+    console.log(a);/*a 赋值为1,输出结果为1*/
+    console.log(b);/*不存在b的"变量提升",输出结果为报错*/
+    </script>
+  </body>
+</html>
