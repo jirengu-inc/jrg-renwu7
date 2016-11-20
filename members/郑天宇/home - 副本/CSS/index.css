@@ -1,0 +1,279 @@
+
+@font-face {
+    font-family: 'iconfont';  /* project id："177961" */
+    src: url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.eot');
+    src: url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_7fw9w6i5x31ve7b9.svg#iconfont') format('svg');
+}
+
+.iconfonts{
+    font-family: "iconfont";
+    font-size: 100px;
+}
+.iconfontcontact{
+    font-family: iconfont;
+
+
+}
+body,html,li,ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    color: inherit;
+}
+a:visited{
+    color: inherit;
+}
+#gotop{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 36px;
+    height: 40px;
+    cursor: pointer;
+    display: block;
+    background: 7px 8px no-repeat url("../PIC/gotop.png");
+    background-color: rgba(0,0,0,.6);
+    border-radius: 2px;
+    z-index: 60000;
+    /*box-shadow: 0 1px 3px rgba(0,0,0,.2);*/
+
+}
+.bt:focus{
+    outline: none;
+}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*.layout{*/
+    /*width: 1170px;*/
+    /*margin: 0 auto;*/
+/*}*/
+.title{
+    text-align: center;
+}
+.title h1{
+    color: #333;
+    font-size: 36px;
+    font-family: "Microsoft YaHei UI Light";
+}
+.title p{
+    color: #777;
+    font-size: 14px;
+    font-family: Verdana;
+}
+
+.header .navf{
+    position: relative;
+
+    
+    /*background: -webkit-linear-gradient(left, red , blue); !* Safari 5.1 - 6.0 *!*/
+    /*background: -o-linear-gradient(right, red, blue); !* Opera 11.1 - 12.0 *!*/
+    /*background: -moz-linear-gradient(right, red, blue); !* Firefox 3.6 - 15 *!*/
+    /*background: linear-gradient(to right, red , blue); !* 标准的语法 *!*/
+    background-image: url("../PIC/banner_01.jpg") ;
+    background-position: 66px -48px;;
+
+}
+.nav-logo li{
+    float: left;
+    font-family: "Microsoft YaHei UI Light";
+    color:white;
+    font-size: 35px;
+    padding-top: 17px;
+
+}
+.nav-bar li{
+    color: white;
+    float: right;
+    font-size: 20px;
+    font-family: monospace;
+    height: 30px;
+    font-family: monospace;
+    width: 100px;
+    margin-top: -27px;
+    margin-left: 20px;
+}
+.header .cloudpic {
+    position: relative;
+    margin-top: 30px;
+}
+.header .help{
+    position: absolute;
+    top: 58px;
+    right: 10px;
+}
+.header .help a{
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    color: aliceblue;
+}
+/*.header .cloudpic .ourintroudce h3{*/
+    /*font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    /*font-style: italic;*/
+    /*font-size: 40px;*/
+    /*padding-top: 230px;*/
+
+/*}*/
+/*.header .cloudpic .ourintroudce h1{*/
+    /*font-size: 70px;*/
+    /*padding-top: 20px;*/
+    /*padding-bottom: 60px;*/
+    /*font-family: Verdana;*/
+    /*color: cadetblue;*/
+/*}*/
+
+.content{
+    margin-top: 150px;
+    position: relative;
+}
+.content .persons{
+    margin-top: 100px;
+}
+.content .persons .development{
+    margin-top: 60px;
+    text-align: center;
+}
+.content .persons .development li{
+    float: left;
+    padding-left: 160px;
+    padding-bottom: 20px;
+}
+.content .persons .development li p{
+    color: #777;
+    font-size: 14px;
+    text-indent: 10px;
+}
+.content .persons .development li a{
+    color: #888;
+    width: 67px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid #888;
+    border-radius: 7px;
+    display: inline-block;
+    margin-left: 8px;
+}
+.content .persons .development li a:hover{
+    background: #aaa;
+}
+.content .Brief .intro{
+    width: 825px;
+    margin: 0 auto;
+    font-size: 20px;
+    margin-top: 50px;
+}
+.content .Brief .intro p{
+    font-family: "Microsoft YaHei";
+    color: #555;
+    text-indent: 40px;
+    word-wrap: break-word;
+    word-break: normal;
+
+}
+.staffer{
+    margin-top: 100px;
+}
+.staffer .staffpic li{
+    float: left;
+    width: 350px;
+    margin-left: 30px;
+}
+
+.contactus{
+    position: relative;
+    margin-top: 100px;
+}
+
+.information{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    font-size: 10px;
+    color: #777;
+
+}
+.information ul{
+    text-align: center;
+
+}
+
+.information ul li {
+    font-size: 50px;
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.information .tabs  .active{
+    color: burlywood;
+}
+.information .panel .message{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+}
+.information .panel .active{
+
+    display: block;
+}
+/*.information .message:last-child{*/
+    /*width: 510px;*/
+/*}*/
+.information .message p{
+
+    height: 50px;
+    background: #888888;
+    border-radius: 30px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
+}
+.footer{
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+
+
+}
+
+.footer .nav{
+    background: url("../PIC/banner_04.jpg");
+    /*background: -webkit-linear-gradient(left, darkcyan , greenyellow); !* Safari 5.1 - 6.0 *!*/
+    /*background: -o-linear-gradient(right, darkcyan, greenyellow); !* Opera 11.1 - 12.0 *!*/
+    /*background: -moz-linear-gradient(right, darkcyan, greenyellow); !* Firefox 3.6 - 15 *!*/
+    /*background: linear-gradient(to right, darkcyan , greenyellow); !* 标准的语法 *!*/
+    text-align: center;
+    background-position: 180px -104px;
+    background-size: cover;
+}
+.footer .nav ul li{
+    font-size: 13px;
+    display: block;
+    padding-top: 8px;
+    font-family: "微软雅黑";
+    color: white;
+
+}
+
+
+
+
+
+
+
