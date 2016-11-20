@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>下面这段代码输出？如何输出delayer: 0, delayer:1...（使用闭包来实现）</title>
+</head>
+<body>
+<script>
+    for(var i=0;i<5;i++){
+        setTimeout(function(){
+            console.log('delayer:' + i );
+        }, 0);
+        console.log(i);
+    }
+    //0,1,2,3,4,delayer:5(5个)
+
+    for(var b=0;b<5;b++){
+        setTimeout((function(n){
+            console.log('delayer:' + n );
+        })(b), 0);
+        console.log(b);
+    }
+
+</script>
+</body>
+</html>
