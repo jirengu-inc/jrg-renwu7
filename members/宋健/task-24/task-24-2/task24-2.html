@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+   ul,li{
+       list-style: none;
+       margin:0;
+       padding:0;
+   }
+  .contentblock li{
+      border:1px solid #ccc;
+      padding:10px;
+      margin-top:8px;
+  }
+  .contentblock li:hover{
+      background-color: green;
+      cursor: pointer;
+  }
+  .btn{
+      color:#E07374;
+      border:1px solid #E07374;
+      border-radius: 3px;
+      text-align:center;
+      display: block;
+      height:40px;
+      width:85px;
+      line-height:40px;
+      margin:8px auto;
+      text-decoration: none;
+  }
+</style>
+</head>
+<body>
+<ul class="contentblock">
+    <li>内容1</li>
+    <li>内容2</li>
+</ul>
+<a class="btn" href="#">加载更多</a>
+<script type="text/javascript">
+    function ajax(opts){
+        //http请求
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4&&xmlhttp.status==200){
+                var json = JSON.parse(xmlhttp.responseText)
+                opts.success(json);
+            }
+            if(xmlhttp.status==404){
+                opts.error();
+            }
+        };
+        //转化字符串格式
+        var dataStr='';
+        for(var key in opts.data){
+            dataStr += key+'='+ opts.data[key] +'&';
+        }
+        dataStr = dataStr.substr(0,dataStr.length-1);
+        //判断提交方式
+        if(opts.type.toLowerCase()==='get'){
+            xmlhttp.open('get',opts.url+'?'+dataStr,true);
+            xmlhttp.send();
+        }
+        if(opts.type.toLowerCase()==='post'){
+            xmlhttp.open('post',opts.url,true);
+            xmlhttp.sendRequestHeader('Content-type','application/x-www-form-urlencoded');
+            xmlhttp.send(dataStr);
+        }
+    }
+
+    var btn = document.querySelector('.btn'),
+        cb = document.querySelector('.contentblock'),
+        lock = false,
+        index = 2;
+    btn.addEventListener('click',function(){
+        btn.innerText='加载中';
+        if(!lock){
+            lock = true;
+            ajax({
+                url:'task24-2.php',
+                type:'get',
+                data:{
+                    start:index,
+                    length:6
+                },
+                success:function(json){
+                    toSuccess(json);
+                },
+                error:function(){
+                    toError();
+                }
+            });
+        }
+    });
+    function toSuccess(json){
+        for(var i =0;i<json.length;i++){
+            var newli =document.createElement('li');
+            newli.innerText ='内容'+json[i];
+            cb.appendChild(newli);
+        }
+        index +=6;
+        lock = false;
+        btn.innerText ='加载更多';
+    }
+    function toError(){
+        alert('出错了');
+    }
+</script>
+
+</body>
+</html>
