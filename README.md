@@ -9,6 +9,5 @@
 
 # 在线预览
 
-这个 repo 里的代码可以在 http://book.jirengu.com/jirengu-inc/jrg-renwu7/
-预览。
-
+这个 repo 里的代码可以在 http://book.jirengu.com/jirengu-inc/jrg-renwu7/  预览。
+或者用  https://jirengu-inc.github.io/jrg-renwu7/ + 文件路径 来预览（不支持目录）
