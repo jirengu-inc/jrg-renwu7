@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位</title>
+	<meta title="description" content="">
+	<meta title="keywords" oontent="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="./task_010.css">
+</head>
+<body>
+<h3 id="demo_001">脱离文档流的几种方法</h3>
+<div class="container">
+	<div class="box"></div>
+	<p>absoulte本来应该在红色矩形下面的</p>
+	<div class="box">
+	fixed
+	</div>
+	<div class="box">dddfadsfasdfasdfasd</div>
+	<p>我在display:none下面</p>
+	<div class="box"></div>
+	<p>我在float下面</p>
+</div>
+
+
+<h3 id="demo_002">absolute  relative fixd</h3>
+<div class="container1">
+	<div class="box">
+		<div class="subox">
+			<div class="ab">absolute</div>
+		</div>
+	</div>
+	<div class="box"></div>
+	<div class="box">固定</div>
+</div>
+
+<h3 id="demo_003">z-index</h3>
+<div class="container2">
+	<img src="http://ww2.sinaimg.cn/large/801b780agw1f9qmv0erd1j20gd0b5q50.jpg" alt="饥人谷">
+	<p>z-index属性默认值是0,只有在设置了position后才生效。正常情况下文字应该被盖住的。p元素的z-index大,所以文字显示在图片前面。</p>
+</div>
+
+<h3 id="demo_004">垂直水平居中</h3>
+<div class="container3">
+	重直水平居中
+</div>
+
+
+<h3 id="demo_005">float</h3>
+<div class="container4">
+	<div class="box">1.右浮动</div>
+	<div class="box">2.右浮动</div>
+	<p>浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。
+由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就像浮动框不存在一样。</p>
+	<div class="box">3</div>
+	文字围绕着浮动元素排列
+	<div class="box">4被浮动盖住了</div>
+</div>
+
+<h3 id="demo_006">clear float</h3>
+
+<div class="container5">
+		<p>float left默认情况下会在同一行排列.</p>
+	<img src="http://www.jirengu.com/data/upload/2016/0321/16/56efb29eadb87.png" alt=""/>
+	<img src="http://www.jirengu.com/data/upload/2016/0321/16/56efb29eadb87.png" alt=""/>
+</div>
+
+</body>
+</html>
