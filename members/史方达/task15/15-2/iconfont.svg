@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Mon Nov 21 20:46:46 2016
+ By admin
+</metadata>
+<defs>
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face 
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="896"
+    descent="-128"
+    x-height="792"
+    bbox="44 -212 973 839"
+    underline-thickness="0"
+    underline-position="0"
+    unicode-range="U+0078-EC5F"
+  />
+<missing-glyph 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="341" 
+ />
+    <glyph glyph-name="x" unicode="x" horiz-adv-x="1001" 
+d="M281 543q-27 -1 -53 -1h-83q-18 0 -36.5 -6t-32.5 -18.5t-23 -32t-9 -45.5v-76h912v41q0 16 -0.5 30t-0.5 18q0 13 -5 29t-17 29.5t-31.5 22.5t-49.5 9h-133v-97h-438v97zM955 310v-52q0 -23 0.5 -52t0.5 -58t-10.5 -47.5t-26 -30t-33 -16t-31.5 -4.5q-14 -1 -29.5 -0.5
+t-29.5 0.5h-32l-45 128h-439l-44 -128h-29h-34q-20 0 -45 1q-25 0 -41 9.5t-25.5 23t-13.5 29.5t-4 30v167h911zM163 247q-12 0 -21 -8.5t-9 -21.5t9 -21.5t21 -8.5q13 0 22 8.5t9 21.5t-9 21.5t-22 8.5zM316 123q-8 -26 -14 -48q-5 -19 -10.5 -37t-7.5 -25t-3 -15t1 -14.5
+t9.5 -10.5t21.5 -4h37h67h81h80h64h36q23 0 34 12t2 38q-5 13 -9.5 30.5t-9.5 34.5q-5 19 -11 39h-368zM336 498v228q0 11 2.5 23t10 21.5t20.5 15.5t34 6h188q31 0 51.5 -14.5t20.5 -52.5v-227h-327z" />
+    <glyph glyph-name="weibiaoti1" unicode="&#xe65d;" 
+d="M613 812q-104 0 -167 -30q-58 -29 -87 -89q-23 -49 -23 -137v-63h-104v-163h104v-542h223v542h139l39 163h-178v59q0 60 22 80q23 23 76 23q16 0 33 -5.5t28.5 -11.5t33.5 -19l40 154q-13 4 -43.5 13t-46 13.5t-41 8.5t-48.5 4z" />
+    <glyph glyph-name="twitter" unicode="&#xec5f;" 
+d="M962 663q-38 -56 -92 -96v-24q0 -74 -21.5 -148t-66 -142t-105.5 -120t-147.5 -83.5t-184.5 -31.5q-155 0 -283 83q20 -2 44 -2q129 0 229 79q-60 1 -107 36.5t-65 91.5q19 -3 35 -3q24 0 48 6q-64 13 -106 63.5t-42 117.5v2q39 -21 84 -23q-38 25 -60 65.5t-23 88.5
+q0 50 26 93q69 -85 168 -136.5t212 -56.5q-4 21 -4 42q0 77 54 131t130 54q80 0 135 -59q62 12 117 45q-21 -66 -81 -102q53 6 106 29v0z" />
+    <glyph glyph-name="linkedin" unicode="&#xe6f0;" 
+d="M260 740q0 -41 -29.5 -69.5t-76.5 -28.5q-45 0 -74 28.5t-29 69.5q0 43 29 71t76 28t74.5 -28t29.5 -71v0zM57 -69v633h197v-633h-197v0zM371 361q0 89 -4 203h170l10 -88h4q61 103 194 103q103 0 165.5 -69t62.5 -204v-375h-197v351q0 137 -100 137q-72 0 -101 -74
+q-6 -12 -6 -49v-365h-198v430v0v0z" />
+  </font>
+</defs></svg>
