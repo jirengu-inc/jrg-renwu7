@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task26-1</title>
+    <style>
+        fieldset{
+            margin-bottom:10px;
+        }
+        .node{
+            width:100px;
+            height:100px;
+            background-color: red;
+            margin:10px;
+            color:#fff;
+            padding:5px;
+            position:relative;
+        }
+        .box .active{
+            opacity: 0.5;
+        }
+        .btn{
+            width:50px;
+            height:20px;
+            border:1px solid #ccc;
+            background-color: #fff;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left:-25px;
+            margin-top:-10px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset class="box">
+        <legend>1. 给元素添加、删除class<br>2. 隐藏、展示元素</legend>
+        <div class="node"></div>
+        <input type="button" class="addclass" value="添加class">
+        <input type="button" class="removeclass" value="删除class">
+        <input type="button" class="hideele" value="隐藏元素">
+        <input type="button" class="showele" value="展示元素">
+    </fieldset>
+    <fieldset class="box">
+        <legend>3. 获取、修改元素属性<br>4. 添加自定义属性</legend>
+        <div class="node" id="ndnd" src="#" title="abc"></div>
+        <input type="button" class="showattr" value="获取元素属性">
+        <input type="button" class="changeattr" value="修改元素属性">
+        <input type="button" class="addattr" value="添加自定义属性">
+    </fieldset>
+    <fieldset class="box">
+        <legend>5. 在父元素内部最开头添加元素<br>6. 在父元素内部最末尾添加元素<br>7. 删除元素</legend>
+        <div class="node"></div>
+        <input type="button" class="addtostart" value="添加到开头">
+        <input type="button" class="addtoend" value="添加到末尾">
+        <input type="button" class="delele" value="删除元素">
+    </fieldset>
+    <fieldset class="box">
+        <legend>8. 清空内容<br>9. 设置HTML</legend>
+        <div class="node">我是内容</div>
+        <input type="button" class="cleartext" value="清空内容">
+        <input type="button" class="sethtml" value="设置HTML">
+    </fieldset>
+    <fieldset class="box">
+        <legend>10. 获取、设置元素宽度、高度<br>11. 获取窗口滚动条垂直滚动距离<br>12. 获取元素到根节点水平、垂直偏移距离</legend>
+        <div class="node">我是内容</div>
+        <input type="button" class="getw" value="获取宽度">
+        <input type="button" class="geth" value="获取高度">
+        <input type="button" class="setwh" value="设置宽度、高度">
+        <input type="button" class="getscroll" value="获取窗口滚动条垂直滚动距离">
+        <input type="button" class="getdistance" value="获取元素到根节点水平、垂直偏移距离">
+    </fieldset>
+    <fieldset class="box">
+        <legend>13. 修改样式</legend>
+        <div class="node">我是内容</div>
+        <input type="button" class="changestyle" value="修改样式">
+    </fieldset>
+    <fieldset class="box">
+        <legend>14. 遍历节点</legend>
+        <div class="node">
+            <p>我是内容1</p>
+            <p>我是内容2</p>
+            <p>我是内容3</p>
+        </div>
+        <input type="button" class="eachele" value="遍历节点">
+    </fieldset>
+    <fieldset class="box">
+        <legend class="panel">15. 查找class为.item的子元素<br>16. 获取所有子元素<br>17. 从子元素的父元素里找另一个子元素.panel</legend>
+        <div class="node">
+            <p>我是内容1</p>
+            <p class="item">我是内容2</p>
+            <p>我是内容3</p>
+        </div>
+        <input type="button" class="getitem" value="查找item">
+        <input type="button" class="getchildren" value="获取所有子元素">
+        <input type="button" class="getachild" value="获取父元素的另一个子元素">
+    </fieldset>
+    <fieldset class="box2">
+        <legend>18. 获取选择元素的数量<br>19. 获取当前元素在兄弟中的排行</legend>
+        <div class="node">
+            <p>我是内容1</p>
+            <p>我是内容2</p>
+            <p>我是内容3</p>
+        </div>
+        <input type="button" class="getnum" value="获取选择元素的数量">
+        <input type="button" class="getidx" value="获取当前元素在兄弟中的排行">
+    </fieldset>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $node =$('.node');
+    //代码1.1
+    $('.addclass').on('click',function(){
+        $(this).parent().find($node).addClass('active');
+    });
+    $('.removeclass').on('click',function(){
+        $(this).parent().find($node).removeClass('active');
+    });
+    //代码1.2
+    $('.showele').on('click',function(){
+        $(this).parent().find($node).show();
+    });
+    $('.hideele').on('click',function(){
+        $(this).parent().find($node).hide();
+    });
+    //代码1.3
+    $('.showattr').on('click',function(){
+        $(this).parent().find($node).text(
+                "id:"+$(this).parent().find($node).attr('id')
+                +" src:"+$(this).parent().find($node).attr('src')
+                +" title:"+$(this).parent().find($node).attr('title'));
+    });
+    $('.changeattr').on('click',function(){
+        $(this).parent().find($node).attr({
+            id:'dddnnn',
+            src:'#',
+            title:'rename'
+        });
+        $(this).parent().find($node).text(
+                "id:"+$(this).parent().find($node).attr('id')
+                +" src:"+$(this).parent().find($node).attr('src')
+                +" title:"+$(this).parent().find($node).attr('title'));
+    });
+    //代码1.4
+    $('.addattr').on('click',function(){
+        $(this).parent().find($node).attr('data-src','xxx.png');
+        $(this).parent().find($node).text('data-src="'+
+                $(this).parent().find($node).attr('data-src')+'"')
+    });
+    //代码1.5
+    $('.addtostart').on('click',function(){
+        var $newdiv = $(this).parent().find($node).clone();
+        $newdiv.css('background-color','blue');
+        $(this).parent().prepend($newdiv);
+    });
+    //代码1.6
+    $('.addtoend').on('click',function(){
+        var $newdiv = $(this).parent().find($node).clone();
+        $newdiv.css('background-color','#ccc');
+        $(this).parent().append($newdiv);
+    });
+    //代码1.7
+    $('.delele').on('click',function(){
+        $(this).parent().find($node).remove();
+    });
+    //代码1.8
+    $('.cleartext').on('click',function(){
+        $(this).parent().find($node).empty();
+    });
+    //代码1.9
+    $('.sethtml').on('click',function(){
+        $(this).parent().find($node).html("<div class='btn'><div>")
+    });
+    //代码1.10
+    $('.getw').on('click',function (){
+        $(this).parent().find('.node').css('font-size','8px');
+        var $w1 = $(this).parent().find('.node').width(),
+            $w2 = $(this).parent().find('.node').innerWidth(),
+            $w3 = $(this).parent().find('.node').outerWidth(),
+            $w4 = $(this).parent().find('.node').outerWidth(true);
+        $(this).parent().find('.node').text('width：'+$w1 +'px'
+            +' innerWidth：'+$w2+'px'
+                +' outerWidth：'+$w3+'px'
+                    +' outerWidth(true)：'+$w4+'px'
+        );
+    });
+    $('.geth').on('click',function (){
+        $(this).parent().find('.node').css('font-size','8px');
+        var $h1 = $(this).parent().find('.node').height(),
+            $h2 = $(this).parent().find('.node').innerHeight(),
+            $h3 = $(this).parent().find('.node').outerHeight(),
+            $h4 = $(this).parent().find('.node').outerHeight(true);
+        $(this).parent().find('.node').text('height：'+$h1 +'px'
+                +' innerHeight：'+$h2+'px'
+                +' outerHeight：'+$h3+'px'
+                +' outerHeight(true)：'+$h4+'px'
+        );
+    });
+    $('.setwh').on('click',function(){
+        $(this).parent().find('.node').width('150px');
+        $(this).parent().find('.node').height('50px');
+    });
+    //代码1.11
+    $('.getscroll').on('click',function (){
+        var $totop = $(window).scrollTop();
+        $(this).parent().find('.node').text($totop);
+    });
+    //代码1.12
+    $('.getdistance').on('click',function (){
+        $(this).parent().find('.node').css('font-size','8px');
+        var $xy = $(this).parent().find('.node').offset();
+        $(this).parent().find('.node').text("水平距离："+$xy.left+'px'+
+                " 垂直距离："+$xy.top+'px');
+    });
+    //代码1.13
+    $('.changestyle').on('click',function(){
+        $(this).parent().find('.node').css({
+            'color':'#000',
+            'font-size':'14px'
+        })
+    });
+    //代码1.14
+    $('.eachele').on('click',function(){
+        var $abc = $(this).parent().find('.node');
+        $abc.css('font-size','8px');
+        $abc.css('height','300px');
+        $abc.each(function(idx){
+            $abc.append($(this).html());
+        })
+    });
+    //代码1.15
+    $('.getitem').on('click',function(){
+        $(this).parent().children().children('.item').css('color','blue')
+    });
+    //代码1.16
+    $('.getchildren').on('click',function(){
+        $(this).parent().children().css('color','blue')
+    });
+    //代码1.17
+    $('.getachild').on('click',function(){
+        $(this).parent().children('.panel').css('color','red')
+    });
+    //代码1.18
+    $('.getnum').on('click',function(){
+        var $num = $(this).length;
+        $(this).parent().find('.node').text($num);
+    });
+    //代码1.19
+    $('.getidx').on('click',function(){
+        var $idx = $(this).index();
+        $(this).parent().find('.node').text($idx);
+    });
+</script>
+</body>
+</html>
