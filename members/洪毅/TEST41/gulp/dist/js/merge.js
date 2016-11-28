@@ -1,0 +1,1 @@
+var ct1=document.getElementById("ct1");ct1.onclick=function(){alert("red")};var ct2=document.getElementById("ct2");ct2.onclick=function(){alert("green")};
