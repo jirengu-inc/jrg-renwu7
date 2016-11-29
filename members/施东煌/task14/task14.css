@@ -173,14 +173,14 @@ html,body,ul,li{
 #footer .contact-information li.icon-phone {
   display: block;
 }
-		#footer .contact-inco{
-			text-align: center;
+#footer .contact-inco{
+	text-align: center;
 
-		}
-		.contact-inco li{
-			display: inline-block;
-			margin: 10px;
-		}
+}
+.contact-inco li{
+	display: inline-block;
+	margin: 10px;
+}
 		.iconfont {
     font-family:"iconfont" !important;
     font-size:40px;
