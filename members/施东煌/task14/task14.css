@@ -175,6 +175,7 @@ html,body,ul,li{
 }
 		#footer .contact-inco{
 			text-align: center;
+
 		}
 		.contact-inco li{
 			display: inline-block;
@@ -182,7 +183,8 @@ html,body,ul,li{
 		}
 		.iconfont {
     font-family:"iconfont" !important;
-    font-size:16px;
+    font-size:40px;
+    color: #337ab7;
     font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
