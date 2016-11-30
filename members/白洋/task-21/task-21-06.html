@@ -10,8 +10,17 @@
 </h1>
 <script>
 function isValidPassword(str) {
-    var tmp=/a/;
-        return tmp.test(str);
+    var a = /^\w{6,20}$/;
+    if (a.test(str)) {
+        var b = /(^[A-Z]+$)|(^[a-z]+$)|(^[0-9]+$)|(^_+&)/;
+        if (b.test(str)) {
+            return false
+        }else {
+            return true;
+        }
+    } else {
+        return false
+    }
 }
 </script>
 </body>

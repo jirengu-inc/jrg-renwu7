@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        下面代码输出什么? 为什么? 改写代码，让其输出hunger, world.
+    </title>
+</head>
+<body>
+<h1>
+
+    下面代码输出什么? 为什么? 改写代码，让其输出hunger, world.
+
+</h1>
+<script>
+    var str = 'hello  "hunger" , hello "world"';
+    var pat =  /".*?"/g;
+    str.match(pat);
+</script>
+<h2>输出   Array [ ""hunger" , hello "world"" ]</h2>
+<h3>. 匹配除换行和行结束符外的任意单个字符，*是贪婪模式,取消贪婪模式即输出</h3>
+
+</body>
+</html>
