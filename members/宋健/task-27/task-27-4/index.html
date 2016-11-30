@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-4</title>
+    <style>
+        html,body,ul,li,a,img{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel{
+            width:100vw;
+            height:100vh;
+            position:relative;
+            overflow:hidden;
+        }
+        .carousel .imgsec{
+            position:absolute;
+        }
+        .carousel .imgsec:after{
+            content:"";
+            display:block;
+            clear: both;
+        }
+        .carousel .imgsec .imgli a img{
+            width:100vw;
+            height:100vh;
+        }
+        .carousel .imgsec .imgli{
+            position:relative;
+            float:left;
+        }
+        .carousel .imgsec .textblock{
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            text-align: center;
+            color:#fff;
+        }
+        .carousel .jumpsec{
+            position:absolute;
+            bottom:10px;
+            left:50%;
+            transform:translate(-50%);
+        }
+        .carousel .jumpsec li{
+            width:20px;
+            height:5px;
+            background-color:rgba(0,0,0,0.5);
+            display:inline-block;
+            border-radius:8px;
+            cursor:pointer;
+        }
+        .carousel .jumpsec li.active{
+            background-color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="imgsec">
+        <li class="imgli">
+            <a href="#"><img src="../img/knowledge-book-library-glasses.jpg"></a>
+            <div class="textblock">
+                <h1>标题1</h1>
+                <p>简介1</p>
+            </div>
+        </li>
+        <li class="imgli">
+            <a href="#"><img src="../img/books-magazines-building-school.jpg"></a>
+            <div class="textblock">
+                <h1>标题2</h1>
+                <p>简介2</p>
+            </div>
+        </li>
+        <li class="imgli">
+            <a href="#"><img src="../img/startup-photos.jpg"></a>
+            <div class="textblock">
+                <h1>标题3</h1>
+                <p>简介3</p>
+            </div>
+        </li>
+        <li class="imgli">
+            <a href="#"><img src="../img/wood-coffee-iphone-notebook.jpg"></a>
+            <div class="textblock">
+                <h1>标题4</h1>
+                <p>简介4</p>
+            </div>
+        </li>
+    </ul>
+    <ul class="jumpsec">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    var $imgSec = $('.imgsec'),
+            $items = $imgSec.children(),
+            $jumpSec = $('.jumpsec'),
+            imgWidth = $items.width(),
+            imgCount = $items.length,
+            crtIdx = 0,
+            inProcess = false;
+
+    $lastimg = $items.last().clone();
+    $firstimg = $items.first().clone();
+    $imgSec.prepend($lastimg).append($firstimg);
+    imgRealCount = $imgSec.children().length;
+    $imgSec.css({left:0-imgWidth,width:imgRealCount*imgWidth});
+
+    $jumpSec.find('li').on('click',function(){
+        var idx = $(this).index();
+        if(idx>crtIdx){
+            playNext(idx-crtIdx);
+        }
+        if(idx<crtIdx){
+            playPrev(crtIdx-idx);
+        }
+    });
+
+    function playNext(idx){
+        var idx = idx||1;
+        if(!inProcess){
+            inProcess = true;
+            $imgSec.animate({left:'-='+(imgWidth*idx)},function(){
+                crtIdx = (imgCount+crtIdx+idx)%imgCount;
+                if(crtIdx === 0){
+                    $imgSec.css({left:0-imgWidth});
+                }
+//                console.log(crtIdx);
+                inProcess = false;
+                jumpTo();
+            })
+        }
+    }
+    function playPrev(idx){
+        var idx = idx ||1;
+        if(!inProcess){
+            inProcess = true;
+            $imgSec.animate({left:'+='+(imgWidth*idx)},function(){
+                crtIdx = (imgCount+crtIdx-idx)%imgCount;
+                if(crtIdx === (imgCount-1)){
+                    $imgSec.css({left:0-imgWidth*imgCount});
+                }
+//                console.log(crtIdx);
+                inProcess = false;
+                jumpTo();
+            })
+        }
+    }
+    function jumpTo(){
+        $jumpSec.find('li').removeClass('active').eq(crtIdx).addClass('active');
+    }
+    function autoPlay(){
+        clock = setInterval(function(){
+            playNext();
+        },3000)
+    }
+    //调试函数
+    function stopPlay(){
+        clearInterval(clock);
+    }
+
+    autoPlay();
+
+
+
+</script>
+</body>
+</html>
