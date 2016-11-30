@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-2</title>
+    <style>
+        ul,li,a,img{
+            margin:0;
+            padding:0;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .carousel{
+            width:400px;
+            height:300px;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgsection li a img{
+            width:400px;
+            height:300px;
+        }
+        .btn{
+            position: absolute;
+            width:30px;
+            height:30px;
+            line-height:30px;
+            background-color:rgba(0,0,0,0.8);
+            border-radius:50%;
+            text-align: center;
+            color:#fff;
+            opacity: 0.8;
+            top:50%;
+            margin-top:-15px;
+            cursor:pointer;
+        }
+        .btn:hover{
+            opacity:1;
+        }
+        .prev{
+            left: 10px;
+        }
+        .next{
+            right:10px;
+        }
+        .jumpsection{
+            position:absolute;
+            left:50%;
+            transform:translate(-50%);
+            bottom:10px;
+        }
+        .jumpsection li{
+            width: 20px;
+            height:5px;
+            background-color:rgba(0,0,0,0.5);
+            border-radius: 5px;
+            display:inline-block;
+            cursor:pointer;
+        }
+        .jumpsection li.active{
+            background-color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="imgsection">
+        <li><a href="#"><img src="../img/apple-iphone-books-desk.jpg"></a></li>
+        <li><a href="#"><img src="../img/books-magazines-building-school.jpg"></a></li>
+        <li><a href="#"><img src="../img/startup-photos.jpg"></a></li>
+        <li><a href="#"><img src="../img/knowledge-book-library-glasses.jpg"></a></li>
+    </ul>
+    <a href="#" class="btn prev"><</a>
+    <a href="#" class="btn next">></a>
+    <ul class="jumpsection">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="carousel">
+    <ul class="imgsection">
+        <li><a href="#"><img src="../img/apple-iphone-books-desk.jpg"></a></li>
+        <li><a href="#"><img src="../img/books-magazines-building-school.jpg"></a></li>
+        <li><a href="#"><img src="../img/startup-photos.jpg"></a></li>
+        <li><a href="#"><img src="../img/knowledge-book-library-glasses.jpg"></a></li>
+    </ul>
+    <a href="#" class="btn prev"><</a>
+    <a href="#" class="btn next">></a>
+    <ul class="jumpsection">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="carousel">
+    <ul class="imgsection">
+        <li><a href="#"><img src="../img/apple-iphone-books-desk.jpg"></a></li>
+        <li><a href="#"><img src="../img/books-magazines-building-school.jpg"></a></li>
+        <li><a href="#"><img src="../img/startup-photos.jpg"></a></li>
+        <li><a href="#"><img src="../img/knowledge-book-library-glasses.jpg"></a></li>
+    </ul>
+    <a href="#" class="btn prev"><</a>
+    <a href="#" class="btn next">></a>
+    <ul class="jumpsection">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="../jquery-3.1.1.min.js"></script>
+<script>
+     $.fn.extend({carousel:function(){
+         var $imgitems = $(this).find($('.imgsection')).children(),
+             $prev = $(this).find($('.prev')),
+             $next = $(this).find($('.next')),
+             $jumpsec = $(this).find($('.jumpsection')),
+             $imgcount = $imgitems.length,
+             crtIdx = 0,
+             inProcess = false;
+
+         $prev.on('click',function(e){
+             e.preventDefault();
+             playPrev();
+         });
+         $next.on('click',function(e){
+             e.preventDefault();
+             playNext();
+         });
+         $jumpsec.find('li').on('click',function(){
+             var idx = $(this).index();
+             play(idx);
+         });
+
+         function playNext(){
+             play((crtIdx+1)%$imgcount);
+         }
+         function playPrev(){
+             play((crtIdx-1)%$imgcount);
+         }
+         function play(idx){
+             if(inProcess){
+                 return;
+             }
+             inProcess=true;
+             $imgitems.eq(crtIdx).fadeOut(500);
+             $imgitems.eq(idx).fadeIn(500,function(){
+                 inProcess = false;
+             });
+             crtIdx = idx;
+             jumpTo();
+         }
+         function jumpTo(){
+             $jumpsec.children().removeClass('active').eq(crtIdx).addClass('active');
+         }
+         function autoPlay(){
+             clock = setInterval(function(){
+                 playNext()
+             },3000);
+         }
+         function stopPlay(){
+             clearInterval(clock);
+         }
+
+         play(0);
+         autoPlay();
+
+     }});
+
+    $('.carousel').each(function(){
+        $(this).carousel();
+    })
+
+</script>
+</body>
+</html>
