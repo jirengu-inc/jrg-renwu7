@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-3</title>
+    <style>
+        ul,li,a,img{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel{
+            position: relative;
+            width:400px;
+            height:300px;
+            overflow:hidden;
+
+        }
+        .carousel .imgsec{
+            position:absolute;
+        }
+        .carousel .imgsec:after{
+            content:"";
+            display:block;
+            clear: both;
+        }
+        .carousel .imgsec li{
+            float:left;
+        }
+        .carousel .imgsec li a img{
+            width:400px;
+            height:300px;
+        }
+        .carousel .btn{
+            position: absolute;
+            width:30px;
+            height:30px;
+            line-height:30px;
+            background-color:rgba(0,0,0,0.8);
+            border-radius:50%;
+            top:50%;
+            margin-top:-15px;
+            color:#fff;
+            text-align:center;
+            opacity: 0.6;
+            cursor:pointer;
+        }
+        .carousel .btn:hover{
+            opacity:1;
+        }
+        .carousel .prev{
+            left:10px;
+        }
+        .carousel .next{
+            right:10px;
+        }
+        .carousel .jumpsec{
+            position:absolute;
+            bottom:10px;
+            left:50%;
+            transform:translate(-50%);
+        }
+        .carousel .jumpsec li{
+            width:20px;
+            height:5px;
+            background-color:rgba(0,0,0,0.5);
+            display:inline-block;
+            border-radius:8px;
+            cursor:pointer;
+        }
+        .carousel .jumpsec li.active{
+            background-color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <ul class="imgsec">
+            <li><a href="#"><img src="../img/apple-iphone-books-desk.jpg"></a></li>
+            <li><a href="#"><img src="../img/books-magazines-building-school.jpg"></a></li>
+            <li><a href="#"><img src="../img/startup-photos.jpg"></a></li>
+            <li><a href="#"><img src="../img/knowledge-book-library-glasses.jpg"></a></li>
+            <li><a href="#"><img src="../img/wood-coffee-iphone-notebook.jpg"></a></li>
+        </ul>
+        <a href="#" class="btn prev"><</a>
+        <a href="#" class="btn next">></a>
+        <ul class="jumpsec">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+<script src="../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    var $imgSec = $('.imgsec'),
+        $items = $imgSec.children(),
+        $prev = $('.prev'),
+        $next = $('.next'),
+        $jumpSec = $('.jumpsec'),
+        imgWidth = $items.width(),
+        imgCount = $items.length,
+        crtIdx = 0,
+        inProcess = false;
+
+    $lastimg = $items.last().clone();
+    $firstimg = $items.first().clone();
+    $imgSec.prepend($lastimg).append($firstimg);
+    imgRealCount = $imgSec.children().length;
+    $imgSec.css({left:0-imgWidth,width:imgRealCount*imgWidth});
+
+    $prev.on('click',function(){
+        playPrev();
+    });
+    $next.on('click',function(){
+        playNext();
+    });
+    $jumpSec.find('li').on('click',function(){
+        var idx = $(this).index();
+        if(idx>crtIdx){
+            playNext(idx-crtIdx);
+        }
+        if(idx<crtIdx){
+            playPrev(crtIdx-idx);
+        }
+    });
+
+    function playNext(idx){
+        var idx = idx||1;
+        if(!inProcess){
+            inProcess = true;
+            $imgSec.animate({left:'-='+(imgWidth*idx)},function(){
+                crtIdx = (imgCount+crtIdx+idx)%imgCount;
+                if(crtIdx === 0){
+                    $imgSec.css({left:0-imgWidth});
+                }
+//                console.log(crtIdx);
+                inProcess = false;
+                jumpTo();
+            })
+        }
+    }
+    function playPrev(idx){
+        var idx = idx ||1;
+        if(!inProcess){
+            inProcess = true;
+            $imgSec.animate({left:'+='+(imgWidth*idx)},function(){
+                crtIdx = (imgCount+crtIdx-idx)%imgCount;
+                if(crtIdx === (imgCount-1)){
+                    $imgSec.css({left:0-imgWidth*imgCount});
+                }
+//                console.log(crtIdx);
+                inProcess = false;
+                jumpTo();
+            })
+        }
+    }
+    function jumpTo(){
+        $jumpSec.find('li').removeClass('active').eq(crtIdx).addClass('active');
+    }
+    function autoPlay(){
+        clock = setInterval(function(){
+            playNext();
+        },3000)
+    }
+    //调试函数
+    function stopPlay(){
+        clearInterval(clock);
+    }
+
+    autoPlay();
+
+
+
+</script>
+</body>
+</html>
