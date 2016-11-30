@@ -8,14 +8,16 @@
 <h1>写一个函数使用setTimeout模拟setInterval的功能</h1>
 <script>
 function setDs(RunTemp,TimeTemp) {
-        setTimeout(arguments.callee,TimeTemp);
-};
+    setTimeout(function() {
+        RunTemp();
+        setDs(RunTemp, TimeTemp);
+    }, TimeTemp);
 
-function tmps () {
+};
+function temps () {
     console.log("a");
 };
-
-var test=setDs(tmps(),1000);
+setDs(temps,1000);
 </script>
 </body>
 </html>

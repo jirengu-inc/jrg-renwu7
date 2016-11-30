@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>使用实现 addClass(el, cls)、hasClass(el, cls)、removeClass(el,cls)，使用正则</title>
+</head>
+<body>
+<h1>使用实现 addClass(el, cls)、hasClass(el, cls)、removeClass(el,cls)，使用正则</h1>
+<script>
+    function hasClass(el, cls) {
+        var reg = new RegExp('(^|\\s)' + cls + '($|\\s)', 'g');
+        return reg.test(el.className);
+    }
+    function addClass(el, cls) {
+        if (hasClass(el, cls)) {
+            return "exist";
+        } else {
+            return el.className + ' ' + cls
+        }
+    }
+    function removeClass(el, cls) {
+        if (hasClass(el, cls)) {
+            return el.className = el.className.replace(cls, '');
+        } else {
+            return "no exist";
+        }
+    }
+</script>
+</body>
+</html>
