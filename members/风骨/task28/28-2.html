@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stickup 实现</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <style>
+        *{marign: 0;padding: 0; font-size: 14px;}
+        #header{
+            background: red;
+            width: 100%;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .nav{
+            background: blue;
+            height: 40px;
+        }
+        /*#ct {*/
+        /*//background: #ccc;*/
+        /*//padding: 10px;*/
+        /*}*/
+        #ct:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .aside{
+            width: 100px;
+            float: left;
+            background: green;
+            min-height: 400px;
+        }
+        .main{
+            overflow: auto;   /*形成BFC*/
+            background: #fff;
+            min-height: 400px;
+            padding-left: 10px;
+            margin-bottom: 30px;
+        }
+        #footer{
+            background: greenyellow;
+            margin-top: -30px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div id="header">header</div>
+    <div class="nav">nav1</div>
+    <div id="ct">
+        <div class="aside">aside</div>
+        <div class="main">main</div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="nav">nav2</div>
+    <div id="ct">
+        <div class="aside">aside2</div>
+        <div class="main">main2</div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="nav">nav3</div>
+    <div id="ct">
+        <div class="aside">aside3</div>
+        <div class="main">main3</div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="nav">nav4</div>
+    <div id="ct">
+        <div class="aside">aside4</div>
+        <div class="main">main4</div>
+    </div>
+    <div id="footer">footer</div>
+</div>
+<script>
+
+$('.nav').each(function() {
+
+
+        var $nav = $(this),
+            navW = $nav.width(),
+            navTop = $nav.offset().top,
+            navLeft = $nav.offset().left;
+
+        var $navClone = $nav.clone().css({visibility: 'hidden', display: 'none'}).insertBefore($nav);
+
+
+        $(window).on('scroll', function () {
+            var scrollTop = $(this).scrollTop();
+
+            if (scrollTop >= navTop) {
+                if ( !isFixed() ) {
+                    setFixed();
+                }
+            }else{
+                if ( isFixed() ) {
+                    unsetFixed();
+                }
+            }
+        });
+
+// 封装所需方法
+
+        function isFixed() {
+            return $nav.attr('data-fixed');
+        }
+        
+        function setFixed() {
+            $nav.attr('data-fixed', true)
+            .css({
+                'position': 'fixed',
+                'width': navW,
+                'left': navLeft,
+                'top': 0,
+                'z-index': 9999
+            });
+            $navClone.show();
+        }
+
+        function unsetFixed() {
+            $nav.removeAttr('data-fixed')
+                .removeAttr('style');
+            $navClone.hide();
+        }
+
+   
+
+})
+</script>
+</body>
+</html>

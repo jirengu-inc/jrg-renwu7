@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task 17-6</title>
+  </head>
+  <body>
+    <script>
+    function fn(fn2){
+        console.log(fn2);
+        var fn2 = 3;
+        console.log(fn2);
+        console.log(fn);
+        function fn2(){
+            console.log('fnnn2');
+     }
+  }
+ fn(10);
+ /*
+ 先根据函数执行载入顺序对以上代码进行改写
+ function fn(fn2){
+    var fn2;                    // 局部变量fn提升至函数的最上面进行定义；
+    function fn2(){             // 局部变量fn2通过函数声明变为一个函数；
+     console.log('fnnn2');
+    }
+    console.log(fn2);           //输出结果为function fn2(){
+                                       console.log('fnnn2');}
+                                       此时fn2是一个函数，所以输出的是这个函数；
+    fn2 = 3;                    //把数值3赋值给fn2，覆盖之前的函数;
+    console.log(fn2);           //输出为数值3；
+    console.log(fn);            //输出结果为
+    }                                function fn(fn2){
+                                    console.log(fn2);
+                                    var fn2 = 3;
+                                    console.log(fn2);
+                                    console.log(fn);
+                                    function fn2(){
+                                       console.log('fnnn2');
+                                      }
+                                  }
+                                 在该函数的作用域中没有找到fn，提升到全局作用域,找到函数fn,因此这里输出函数fn                                           中寻找参数fn，找到的是函数fn（），所以输出这个函数
+
+ fn(10)；                       //函数fn（）的参数已在自身局部变量中找到，所以该条代码无效；
+
+ */
+    </script>
+  </body>
+</html>

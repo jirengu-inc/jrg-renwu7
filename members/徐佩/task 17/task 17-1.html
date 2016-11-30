@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> task17-1</title>
+  </head>
+  <body>
+    <script>
+    function getInfo(name, age, sex){
+     console.log('name:',name);
+     console.log('age:', age);
+     console.log('sex:', sex);
+     console.log(arguments);
+     arguments[0] = 'valley';
+     console.log('name', name);
+}
+getInfo('hunger', 28, '男');
+/*输出结果
+name:hunger
+age:28
+sex:男
+["hunger",28,"男"]
+name valley
+*/
+getInfo('hunger', 28);
+/*输出结果
+name:hunger
+age:28
+sex:undefined
+["hunger",28]
+name valley
+*/
+getInfo('男');
+/*输出结果
+name:hunger
+age:undefined
+sex:undefined
+["男"]
+name valley
+*/
+    </script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .ct {
+            margin: 80px;
+        }
+
+        .tabs .active {
+            background: #eee;
+        }
+
+        li {
+            width: 33.33%;
+            height: 50px;
+            border: 1px solid black;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .ct div {
+            display: none;
+            border: 1px solid black;
+            height: 200px;
+        }
+
+        .ct .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ct">
+        <ul class="tabs clearfix">
+            <li class="active">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <div class="part active">part1</div>
+        <div class="part">part2</div>
+        <div class="part">part3</div>
+    </div>
+
+    <script type="text/javascript">
+        var tab = document.querySelector('.tabs'),
+            part = document.querySelectorAll('.part');
+
+        function removeClass(el, cls) {
+            if (el.length && el.length > 0) {
+                for (var i = 0; i < el.length; i++) {
+                    singleRemoveClass(el[i], cls);
+                }
+            } else {
+                singleRemoveClass(el, cls);
+            }
+        }
+
+        function singleRemoveClass(ele, cls) {
+            ele.className = ele.className.replace(new RegExp('\\b' + cls + '\\b', 'g'), '');
+        }
+
+        function addClass(ele, cls) {
+            ele.className = ele.className + ' ' + cls
+        };
+
+        function indexOf(e) {
+            var child = e.parentElement.children;
+            for (var i = 0; i < child.length; i++) {
+                if (e === child[i]) {
+                    return i
+                }
+            }
+        };
+        tab.addEventListener('click', function(e) {
+            var target = e.target,
+                tabChild = tab.children,
+                index = indexOf(target);
+            if (index > -1) {
+                removeClass(tabChild, 'active');
+                addClass(target, 'active');
+                removeClass(part, 'active')
+                addClass(part[index], 'active')
+            }
+
+        })
+    </script>
+</body>
+
+</html>

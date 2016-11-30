@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task 17-8</title>
+  </head>
+  <body>
+    <script>
+    //作用域
+  console.log(j);/*输出结果为undefined,变量j提升但是未赋值*/
+  console.log(i);/*输出结果为undefined,变量i提升但是未赋值*/
+  for(var i=0; i<10; i++){
+      var j = 100;
+  }
+  console.log(i);/*输出结果为10,for循环语句,循环结束时i的值为10*/
+  console.log(j);/*输出结果为100,j的赋值为100*/
+
+    </script>
+  </body>
+</html>

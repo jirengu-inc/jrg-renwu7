@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-25-1</title>
+    <style>
+        html,body,ul,li,a,p{
+            margin:0;
+            padding:0;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color:#000;
+        }
+        .list{
+            margin:10px;
+            width:200px;
+            background-color: #C51B26;
+        }
+        .list .item{
+            position: relative;
+            padding:10px 0 0 20px;
+            color:#fff;
+        }
+        .list .item .goright{
+            display: inline-block;
+            color:#fff;
+            margin-left:100px;
+        }
+        .list .item .underline{
+            margin-top:10px;
+            margin-left:-10px;
+            border-bottom:1px solid #fff;
+            width:180px;
+            opacity: 0.1;
+        }
+        .sethide{
+            position:absolute;
+            width:180px;
+            border:1px solid #ccc;
+            display: none;
+            left:200px;
+            top:0;
+        }
+        .sethide li{
+            display: inline-block;
+            padding:10px 10px 10px 10px;
+            margin-left:25px;
+        }
+        .sethide li a{
+            font-size:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <ul class="list">
+        <li class="item">
+            珠宝玉器<span class="goright">></span>
+            <div class="underline"></div>
+            <ul class="sethide">
+                <li><a href="#">翡翠</a></li>
+                <li><a href="#">玉石</a></li>
+                <li><a href="#">宝石</a></li>
+                <li><a href="#">水晶</a></li>
+                <li><a href="#">玛瑙</a></li>
+                <li><a href="#">珍珠</a></li>
+                <li><a href="#">钻石</a></li>
+                <li><a href="#">琥珀</a></li>
+                <li><a href="#">和田</a></li>
+            </ul>
+        </li>
+        <li class="item">
+            珠宝玉器<span class="goright">></span>
+            <div class="underline"></div>
+            <ul class="sethide">
+                <li><a href="#">翡翠</a></li>
+                <li><a href="#">玉石</a></li>
+                <li><a href="#">宝石</a></li>
+                <li><a href="#">水晶</a></li>
+                <li><a href="#">玛瑙</a></li>
+                <li><a href="#">珍珠</a></li>
+            </ul>
+        </li>
+        <li class="item">
+            珠宝玉器<span class="goright">></span>
+            <div class="underline"></div>
+            <ul class="sethide">
+                <li><a href="#">翡翠</a></li>
+                <li><a href="#">玉石</a></li>
+                <li><a href="#">宝石</a></li>
+                <li><a href="#">水晶</a></li>
+                <li><a href="#">玛瑙</a></li>
+            </ul>
+        </li>
+        <li class="item">
+            珠宝玉器<span class="goright">></span>
+            <div class="underline"></div>
+            <ul class="sethide">
+                <li><a href="#">翡翠</a></li>
+                <li><a href="#">玉石</a></li>
+                <li><a href="#">宝石</a></li>
+                <li><a href="#">水晶</a></li>
+                <li><a href="#">玛瑙</a></li>
+                <li><a href="#">珍珠</a></li>
+            </ul>
+        </li>
+        <li class="item">
+            珠宝玉器<span class="goright">></span>
+            <div class="underline"></div>
+            <ul class="sethide">
+                <li><a href="#">翡翠</a></li>
+                <li><a href="#">玉石</a></li>
+                <li><a href="#">宝石</a></li>
+                <li><a href="#">水晶</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $('.item').on('mouseenter',function (){
+        $(this).find('.sethide').show();
+    })
+    $('.item').on('mouseleave',function (){
+        $(this).find('.sethide').hide();
+    })
+</script>
+</body>
+</html>

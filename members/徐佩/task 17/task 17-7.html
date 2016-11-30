@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task 17-7</title>
+  </head>
+  <body>
+    <script>
+    var fn = 1;
+    function fn(fn){
+      console.log(fn);
+ }
+   console.log(fn(fn));
+   /*
+  变量fn声明提升,函数fn声明在变量提升之后,再对fn进行赋值为1.此时fn已经不是一个函数,因此报错 fn is not a function
+   */
+    </script>
+  </body>
+</html>
