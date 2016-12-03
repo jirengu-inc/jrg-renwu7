@@ -37,65 +37,69 @@
 <a href="#" class="btn">加载更多</a>
 <script src="../jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
-    getMore();
     var clock;
-$(window).on('scroll',function(){
-    if(clock){
-        clearTimeout(clock);
-    }
-    clock = setTimeout(function(){
-        if(isShow($('.btn'))){
-            getMore();
+    var crt = 2;
+    getMore();
+    $(window).on('scroll',function(){
+        if(clock){
+            clearTimeout(clock);
+        }
+        clock = setTimeout(function(){
+            if(isShow($('.btn'))){
+                getMore();
+            }
+            else{
+                return;
+            }
+        },300)
+    });
+    $('.container').on('mouseenter','p',function(){
+        $(this).css('background-color','green');
+    }).on('mouseleave','p',function(){
+        $(this).removeAttr('style');
+    });
+    function isShow($ele){
+        var winH = $(window).height(),
+            scrollT = $(window).scrollTop(),
+            offsetT = $ele.offset().top;
+        if((offsetT>scrollT)&&(offsetT<winH+scrollT)){
+            return true;
         }
         else{
-            return;
+            return false;
         }
-    },300)
-
-});
-function isShow($ele){
-    var winH = $(window).height(),
-        scrollT = $(window).scrollTop(),
-        offsetT = $ele.offset().top;
-    if((offsetT>scrollT)&&(offsetT<winH+scrollT)){
-        return true;
     }
-    else{
-        return false;
-    }
-}
-var crt = 2;
-function getMore() {
-    $.ajax({
-        url: 'test.php',
-        type: 'GET',
-        dataType: 'json',
-        data: {
-            start: crt,
-            len: 10
-        },
-        success: function(json){
-            onSuccess(json);
-        },
-        error: function(){
-            onError();
-        }
-    });
-}
-function onSuccess(json){
-    if(json.status == 1){
-        $(json.data).each(function(e){
-                $('.container').append('<p>'+json.data[e]+'</p>');
+    function getMore() {
+        $.ajax({
+            url: 'test.php',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                start: crt,
+                len: 10
+            },
+            success: function(json){
+                onSuccess(json);
+            },
+            error: function(){
+                onError();
+            }
         });
-        crt += 10;
     }
-    else{
-        alert('获取数据失败');
+    function onSuccess(json){
+        if(json.status == 1){
+            $(json.data).each(function(e){
+                    $('.container').append('<p>'+json.data[e]+'</p>');
+            });
+            crt += 10;
+        }
+        else{
+            alert('获取数据失败');
+        }
     }
-}
-function onError(){
-    alert('服务器异常');
-}
+    function onError(){
+        alert('服务器异常');
+    }
 </script>
 
 </body>
