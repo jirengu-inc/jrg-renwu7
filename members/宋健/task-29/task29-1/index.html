@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <style>
+        p{
+            padding:20px;
+        }
+        #totop{
+            position:fixed;
+            right:10px;
+            bottom:10px;
+            border:1px solid red;
+            width:100px;
+            height:30px;
+            line-height:30px;
+            text-align: center;
+            display:none;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容2</p>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容3</p>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容1</p>
+    <p>内容2</p>
+    <p>内容3</p>
+    <p>内容4</p>
+    <p>内容5</p>
+    <div id="totop">回到顶部</div>
+<script src="../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+    var $toTop = $('#totop');
+
+    $(window).on('scroll',function(){
+        var scrollT = $(window).scrollTop();
+        if(scrollT>30){
+            $toTop.show();
+        }
+        else{
+            $toTop.hide();
+        }
+    });
+
+    $toTop.on('click',function(){
+        $(window).scrollTop(0);
+    });
+
+</script>
+</body>
+</html>

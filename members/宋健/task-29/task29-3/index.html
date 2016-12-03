@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载更多</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        p{
+            border:1px solid #ccc;
+            padding:10px;
+            margin:10px;
+        }
+        .btn{
+            display: block;
+            margin:10px auto;
+            width:100px;
+            height:40px;
+            line-height:40px;
+            text-align:center;
+            border:1px solid #E07374;
+            border-radius:8px;
+        }
+        a{
+            color:#E07374;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p>内容1</p>
+    <p>内容2</p>
+</div>
+<a href="#" class="btn">加载更多</a>
+<script src="../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    getMore();
+    var clock;
+$(window).on('scroll',function(){
+    if(clock){
+        clearTimeout(clock);
+    }
+    clock = setTimeout(function(){
+        if(isShow($('.btn'))){
+            getMore();
+        }
+        else{
+            return;
+        }
+    },300)
+
+});
+function isShow($ele){
+    var winH = $(window).height(),
+        scrollT = $(window).scrollTop(),
+        offsetT = $ele.offset().top;
+    if((offsetT>scrollT)&&(offsetT<winH+scrollT)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+var crt = 2;
+function getMore() {
+    $.ajax({
+        url: 'test.php',
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            start: crt,
+            len: 10
+        },
+        success: function(json){
+            onSuccess(json);
+        },
+        error: function(){
+            onError();
+        }
+    });
+}
+function onSuccess(json){
+    if(json.status == 1){
+        $(json.data).each(function(e){
+                $('.container').append('<p>'+json.data[e]+'</p>');
+        });
+        crt += 10;
+    }
+    else{
+        alert('获取数据失败');
+    }
+}
+function onError(){
+    alert('服务器异常');
+}
+</script>
+
+</body>
+</html>
