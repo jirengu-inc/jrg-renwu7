@@ -44,7 +44,7 @@ html, body {
 /*}*/
 .header ul > li {
     position: absolute;
-    top: 38px;
+    top: 35px;
     font-size: 18px;
     cursor: pointer;
 }
@@ -83,7 +83,7 @@ html, body {
 }
 
 .header dd {
-    margin-top: 11px;
+    margin-top: 7px;
     padding-left: 4px;
     display: none;
 }
@@ -378,7 +378,7 @@ position: absolute;
 .detail{
     width: 100%;
     height:718px;
-    background-image:url(img/bg2.png);
+    background-image:url(img/bg2.PNG);
     background-size:cover;
     background-position: center center;
     background-repeat: no-repeat;
