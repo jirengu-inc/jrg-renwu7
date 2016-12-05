@@ -47,7 +47,7 @@ html, body {
 /*}*/
 .header ul > li {
     position: absolute;
-    top: 40px;
+    top: 45px;
     font-size: 18px;
     cursor: pointer;
 }
@@ -222,7 +222,7 @@ html, body {
     line-height: 50px;
     top:587px;
     left:516px;
-    padding:0 20px;
+    padding:0 15px;
     text-shadow: 0 0 0.2em #69c9d2;
     box-shadow:0 0 10px #fff;
     z-index: 9999;
