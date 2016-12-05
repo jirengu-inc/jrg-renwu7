@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var proin=$('.projects-introduction');
-    proin.on('click',function(){
+    proin.on('mouseover',function(){
         if(!proin.is(':animated')) {
             if (!$(this).hasClass('z1')) {
                 var mid_div = $('.z1');

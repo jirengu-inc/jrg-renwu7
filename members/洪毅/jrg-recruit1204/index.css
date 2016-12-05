@@ -47,7 +47,7 @@ html, body {
 /*}*/
 .header ul > li {
     position: absolute;
-    top: 45px;
+    top: 40px;
     font-size: 18px;
     cursor: pointer;
 }
@@ -84,43 +84,43 @@ html, body {
 .header ul li:nth-child(6) {
     left: 655px;
 }
-
-.header dd {
-    margin-top: 11px;
-    padding-left: 4px;
+.header li a:hover{
+    color: #aee0e1;
+}
+.header li:hover .block{
+    display: block;
+}
+.header .block{
     display: none;
 }
-.header li:nth-of-type(4) div{
-    width: 200px;
-    height:75px;
-    position: absolute;
-    background: transparent;
+.header .block > a {
+    font-size: 14px;
+    color: #fff;
+    display: block;
+    height: 17px;
+    margin-top: 11px;
 }
-.header li:nth-of-type(4) div:after{
+.header .block.one>a{
+    padding-left: 4px;
+}
+.header .block.thr>a{
+    float: left;
+    padding-right: 8px;
+}
+.header .block > a:hover {
+    color: #aee0e1;
+}
+.header .block.thr{
+    width: 142px;
+}
+.header .block.thr:after{
     content: '';
     display: block;
     clear:both;
 }
-.header li:nth-of-type(4) dd{
-    float: left;
-    margin-left: 2px;
-}
-
-.header dd > a {
-    font-size: 14px;
-    color: #fff;
-}
-
-.header li > a:hover {
-    color: #aee0e1;
-}
-
-.header dd > a:hover {
-    color: #aee0e1;
-}
-
-.header li:hover dd {
-    display: block;
+.header .block.thr a:last-of-type {
+    margin-top: 36px;
+    margin-left: -44px;
 }
 
 .header .search input {
@@ -146,7 +146,7 @@ html, body {
 
 .header .search a {
     position: absolute;
-    top: 40px;
+    top: 45px;
     font-size: 18px;
     color: #ccc;
 }
@@ -169,8 +169,8 @@ html, body {
 }
 .header .stone{
     position: absolute;
-    top: 189px;
-    left: -117px;
+    top: 208px;
+    left: -139px;
     z-index: 1;
 }
 .header p{
@@ -185,46 +185,46 @@ html, body {
     text-shadow: 0 0 0.8em #69c9d2;
 }
 .header p:nth-of-type(1){
-    top: 425px;
-    left: 400px;
+    top: 443px;
+    left: 380px;
 }
 .header p:nth-of-type(2){
     font-size: 7px;
-    top: 429px;
-    left: 538px;
+    top: 446px;
+    left: 515px;
     text-shadow: 0 0 0.2em #69c9d2;
 }
 .header p:nth-of-type(3){
-    top: 482px;
-    left: 509px;
+    top: 497px;
+    left: 491px;
 }
 .header p:nth-of-type(4){
-    top: 482px;
-    left: 666px;
+    top: 497px;
+    left: 647px;
 }
 .header span:nth-of-type(1){
-    top: 414px;
-    left: 475px;
+    top: 431px;
+    left: 454px;
 }
 .header span:nth-of-type(2) {
-    top: 469px;
-    left: 546px;
+    top: 486px;
+    left: 526px;
 }
 .header .audition{
     position: absolute;
     width:120px;
     height:50px;
-    border:2px solid rgb(255,0,255);
+    border:2px solid #7ccef3;
     border-radius: 10px;
     font-size: 30px;
     color:#fff;
     text-align: center;
     line-height: 50px;
-    top:570px;
+    top:587px;
     left:516px;
     padding:0 20px;
     text-shadow: 0 0 0.2em #69c9d2;
-    box-shadow:0 0 10px rgb(255,0,255);
+    box-shadow:0 0 10px #fff;
     z-index: 9999;
 }
 .actual{
@@ -284,17 +284,6 @@ html, body {
     left:50%;
     transform:translateX(-50%);
 }
-.main .arrow{
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-}
-.main .arrow.arrow-left{
-    left:28px;
-}
-.main .arrow.arrow-right{
-    right:28px;
-}
 .main p{
     text-align: center;
     color:#fff;
@@ -321,13 +310,6 @@ html, body {
     box-shadow:0 0 10px #7ccef3;
     border-radius:10px;
 }
-.main .spot{
-position: absolute;
-    top:504px;
-    left:50%;
-    transform:translateX(-50%);
-}
-
 .actual-project{
     width: 100%;
     height:560px;
@@ -547,7 +529,7 @@ position: absolute;
     border-radius:10px;
     background: transparent;
     float: left;
-    margin-left: 20px;
+    margin:0 10px;
     position: relative;
     box-shadow: 0 0 20px #ccc;
 }
@@ -562,6 +544,9 @@ position: absolute;
 }
 .how-learn li:nth-of-type(1){
     margin-left: 0;
+}
+.how-learn li:nth-of-type(3){
+    margin-right: 0;
 }
 .how-learn .fir li{
     width: 370px;
