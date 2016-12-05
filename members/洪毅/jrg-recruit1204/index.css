@@ -389,7 +389,7 @@ position: absolute;
 }
 .detail{
     width: 100%;
-    height:741px;
+    height:763px;
     background-image:url(img/bg2.PNG);
     background-size:cover;
     background-position: center center;
@@ -398,7 +398,7 @@ position: absolute;
 }
 .detail .detail-inside{
     width: 1000px;
-    height:643px;
+    height:665px;
     background: rgba(0,0,255,0.3);
     border:1px solid #000;
     margin: 46px auto 51px auto;
@@ -526,7 +526,6 @@ position: absolute;
 }
 .detail .connect{
     width: 104px;
-    height: 80px;
     background: #9b2929;
     color: #fff;
     text-align: left;
