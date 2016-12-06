@@ -114,7 +114,7 @@ display: none;
     font-size: 14px;
     margin-top: 11px;
     height:17px;
-    width: 140px;
+    width: 200px;
 }
 .header .block li>a:nth-child(2){
     padding-left:10px;
@@ -181,7 +181,7 @@ display: none;
     position: absolute;
     top:384px;
     left:396px;
-    width: 384px;
+    width: 420px;
     /*border:1px solid red*/
 }
 .header .font p{
