@@ -180,8 +180,8 @@ display: none;
 .header .font{
     position: absolute;
     top:384px;
-    left:396px;
-    width: 420px;
+    left:393px;
+    width: 435px;
     /*border:1px solid red*/
 }
 .header .font p{
@@ -189,11 +189,13 @@ display: none;
     color:#fff;
     display: inline-block;
     text-shadow:0 0 10px #69c9d2;
+    letter-spacing: 1px;
 }
 .header .font span{
     font-size: 30px;
     color:#fff;
     text-shadow:0 0 10px #69c9d2;
+    letter-spacing: 1px;
 }
 .header .font p:nth-of-type(3){
     margin-left:123px;
@@ -201,21 +203,21 @@ display: none;
 
 .header .audition{
     position: absolute;
-    width:120px;
-    height:50px;
-    border:2px solid #7ccef3;
+    width: 140px;
+    height: 48px;
+    border: 2px solid #3b5891;
     border-radius: 10px;
-    font-size: 30px;
-    color:#fff;
+    font-size: 20px;
+    color: #fff;
     text-align: center;
-    line-height: 50px;
-    top:527px;
-    left:50%;
-    transform:translateX(-50%);
-    padding:0 15px;
-    text-shadow: 0 0 0.2em #69c9d2;
-    box-shadow:0 0 10px #fff;
+    line-height: 47px;
+    top: 527px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 0 0 0.2em #7ccef3;
+    box-shadow: 0 0 10px #5c80c6;
     z-index: 9999;
+    box-sizing: border-box;
 }
 .actual{
     height:235px;
@@ -383,16 +385,11 @@ display: none;
 .detail .detail-inside{
     width: 1000px;
     height:665px;
-    background: rgba(0,0,255,0.3);
+    background: rgba(7,27,51,0.5);
     border:1px solid #000;
     margin: 46px auto 51px auto;
     position: relative;
 }
-/*.detail .detail-inside:after{*/
-    /*content:'';*/
-    /*display: block;*/
-    /*clear:both;*/
-/*}*/
 .detail .detail-inside h3{
     font-size: 24px;
     color:#fff;
@@ -442,19 +439,12 @@ display: none;
 .detail .detail-inside li{
     float:left;
     padding-bottom: 16px;
+    width:421px;
 }
 .detail .detail-inside li:nth-of-type(odd){
     margin-left: 158px;
 }
-.detail .detail-inside li:nth-of-type(2){
-    margin-left: 111px;
-}
-.detail .detail-inside li:nth-of-type(4){
-    margin-left: 281px;
-}
-.detail .detail-inside li:nth-of-type(6){
-    margin-left: 309px;
-}
+
 .detail .detail-inside li>a{
     font-size:18px;
     color:#fff;
