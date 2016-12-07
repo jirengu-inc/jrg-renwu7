@@ -411,12 +411,13 @@ display: none;
     background-size:cover;
     background-position: center center;
     background-repeat: no-repeat;
+    border-top:1px solid #000;
 }
 .detail .detail-inside{
     width: 1000px;
     height:665px;
     background: rgba(7,27,51,0.5);
-    border:1px solid #000;
+    border-top:1px solid #000;
     margin: 46px auto 51px auto;
     position: relative;
 }
