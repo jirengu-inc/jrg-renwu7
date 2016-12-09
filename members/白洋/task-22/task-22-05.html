@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+	    /* 初始化 */
+		body{
+			margin: 0px;
+			padding: 0px;
+		}
+		.modai{
+			margin: 0px;
+			padding: 0px;
+		/* 	border: 1px solid red; */
+		}
+		.beijing{
+			margin: 0px;
+			padding: 0px;
+			position:fixed;
+			top: 0px;
+			background: #111;
+			opacity: 0.9;
+			z-index: 1;
+			height: 100vh;
+			width: 100%;
+			display: none;
+		}
+		.chuangti{
+			position: fixed;
+			border: 2px solid #ccc;
+			height: 140px;
+			width: 300px;
+			top: 50%;
+			left: 50%;
+			margin-top: -70px;
+			margin-left: -150px;
+			z-index: 2;
+			background: white;
+			display: none;
+		}
+		.biaoti{
+			border-bottom:  2px solid #ccc;
+		}
+		.biaoti:after{
+			content: '';
+ 			display: block;
+ 			clear: both;
+		}
+		.biaoti>p{
+			margin: 0px;
+			padding: 0px;
+			display: inline-block;
+			float: left;
+		}
+		.biaoti>a{
+			margin: 0px;
+			padding: 0px;
+			display: inline-block;
+			float: right;
+			text-decoration: none;
+			color: black;
+			line-height: 20px;
+		}
+		.neirong{
+			height: 100px;
+		}
+		.neirong>p{
+			margin: 0px;
+			padding: 0px;
+		}
+		.anniu{
+			border-top: 1px solid #ccc;
+		}
+		.anniu:after{
+			content: '';
+ 			display: block;
+ 			clear: both;
+		}
+		.anniu>a{
+			text-decoration: none;
+			line-height: 20px;
+			color: black;
+			float: right;
+			padding-left: 3px;
+		}
+		/* 状态 */
+		.xianshi{
+			display: block;
+		}
+
+	</style>
+	<div class="modai">
+		<button class="initanniu" type="button">点我</button>
+		<div class="beijing">
+		</div>
+		<div class="chuangti">
+			<div class="biaoti">
+				<p>我是标题</p>
+				<a href="#">X</a>
+			</div>
+			<div class="neirong">
+				<p>neirongxxxxx</p>
+				<p>neirongxxxxx2</p>
+			</div>
+			<div class="anniu">
+				<a href="#">取消</a>
+				<a href="#">确定</a>
+			</div>
+		</div>
+	</div>
+	<script>
+	var btn=document.querySelector(".initanniu");
+	var beijing=document.querySelector(".beijing");
+	var chuangti= document.querySelector(".chuangti")
+	var biaoti=document.querySelector(".biaoti");
+	var biaotiX=biaoti.children[1];
+	var anniu=document.querySelector(".anniu");
+	var anniuqueding = anniu.children[1];
+	var anniuquxiao = anniu.children[0];
+	function inityemian(){
+		beijing.className = "beijing";
+		chuangti.className = "chuangti";
+	}
+	function xianshi(){
+		beijing.className = "beijing"+" " + "xianshi";
+		chuangti.className = "chuangti"+ "  "+ "xianshi"; 
+	}
+	btn.addEventListener("click",xianshi);
+	beijing.addEventListener("click", inityemian);
+	biaotiX.addEventListener("click", inityemian);
+	anniuquxiao.addEventListener("click", inityemian);
+	</script>
+</body>
+</html>
