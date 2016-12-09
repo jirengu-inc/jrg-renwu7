@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<style type="text/css" media="screen">
+	.img-preview{
+		width: 200px;
+		height: 120px;
+		border: solid 1px red ;
+	}
+	.img-bg1{
+
+	}
+	.img-bg2{
+		
+	}
+	.img-bg3{
+		
+	}
+
+</style>
+
+	<ul class="ct">
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg">鼠标放置查看图片1</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg">鼠标放置查看图片2</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+<script>
+	var ImgS = document.querySelector(".img-preview");
+    var liArr = document.getElementsByClassName('ct')[0].getElementsByTagName('li');    //这样更安全一些
+  for(var i=0;i<liArr.length;i++){
+    liArr[i].addEventListener('mouseenter', function(){
+      console.log("移动到了"+this.innerText);
+
+       var dataImg = this.getAttribute('data-img');
+       ImgS.innerHTML = '<img src="' + dataImg + '">'
+
+
+    })
+  }
+  for(var i=0;i<liArr.length;i++){
+    liArr[i].addEventListener('mouseleave', function(){
+      console.log("离开了"+this.innerText);
+      
+    })
+  }
+</script>
+</body>
+</html>
