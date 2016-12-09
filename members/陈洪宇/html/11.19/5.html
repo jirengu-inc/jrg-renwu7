@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ct {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            width: 400px;
+            border-radius: 3px;
+            background: #fff;
+            z-index: 100
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .header {
+            border-bottom: 1px solid #ccc;
+            height: 36px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000;
+            opacity: 0.4;
+            z-index: 99;
+        }
+
+        .btn {
+            float: right;
+            margin: 10px;
+        }
+
+        .modal-dialog {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="click">点我</button>
+    <div id="modal-1" class="modal-dialog">
+        <div class="cover"></div>
+        <div class="ct">
+            <div class="header">
+                <h3>123</h3>
+                <a class="close" href="#">×</a>
+            </div>
+            <div class="content">
+                <p>123</p>
+                <p>123</p>
+            </div>
+            <div class="footer">
+                <a class="btn btn-confirm" href="#">确定</a>
+                <a class="btn btn-cancel" href="#">取消</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function hasClass(ele, cls) {
+            return !!ele.className.match(new RegExp('\\b' + cls + '\\b'));
+        }
+
+        function showModal(modal) {
+            modal.style.display = 'block';
+        }
+
+        function hideModal(modal) {
+            modal.style.display = 'none';
+        }
+        var btn = document.querySelector('#click'),
+            modal = document.querySelector('#modal-1');
+
+
+        btn.addEventListener('click', function(e) {
+            showModal(modal)
+        });
+        modal.addEventListener('click', function(e) {
+            if (hasClass(e.target, 'close') || hasClass(e.target, 'btn-cancel') || hasClass(e.target, 'cover')) {
+                hideModal(modal);
+            }
+        });
+    </script>
+</body>
+
+</html>

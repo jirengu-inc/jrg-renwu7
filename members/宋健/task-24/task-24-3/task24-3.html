@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-24-3</title>
+    <style>
+        body{
+            font-size:14px;
+        }
+        .container {
+            margin:30px;
+        }
+        .registerform .registerdl dt{
+            float:left;
+            width:80px;
+            height:22px;
+            line-height:22px;
+        }
+        .registerform .registerdl dd{
+            margin:10px 0 10px 80px;
+            color:#aaa;
+            font-size:12px;
+        }
+        .registerform .registerdl dd input{
+            height:22px;
+            line-height:22px;
+            border:1px solid #ccc;
+            border-radius: 3px;
+            padding-left:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3>注册</h3>
+    <form class="registerform">
+        <dl class="registerdl">
+            <dt>用户名：</dt>
+            <dd>
+                <input id="username" type="text" placeholder="请输入用户名">
+            </dd>
+            <dd class="undertext1">
+                只能是字母、数字、下划线，3-10个字符
+            </dd>
+            <dt>密码：</dt>
+            <dd>
+                <input id="password" type="password" placeholder="请输入密码">
+            </dd>
+            <dd class="undertext2">
+                大写字母、小写、数字、下划线最少两种，6-15个字符
+            </dd>
+            <dt>再输一次：</dt>
+            <dd>
+                <input id="password2" type="password" placeholder="请再输入一次密码">
+            </dd>
+            <dd class="undertext3">
+                <br>
+            </dd>
+            <dd>
+                <button class="registerbtn">注册</button>
+            </dd>
+        </dl>
+    </form>
+</div>
+<script type="text/javascript">
+    function ajax(opts){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState==4&&xmlhttp.status==200){
+                var json = JSON.parse(xmlhttp.responseText);
+                opts.success(json);
+            }
+            if(xmlhttp.status==404){
+                opts.error();
+            }
+        };
+        var dataStr = '';
+        for(var key in opts.data){
+            dataStr += key + '=' + opts.data[key]+'&';
+        }
+        dataStr = dataStr.substr(0,dataStr.length-1);
+
+        if(opts.type.toLowerCase()==='get'){
+            xmlhttp.open('get',opts.url+'?'+dataStr,false);
+            xmlhttp.send();
+        }
+        if(opts.type.toLowerCase()==='post'){
+            xmlhttp.open('post',opts.url,true);
+            xmlhttp.sendRequestHeader('content-type','application/x-www-form-urlencoded');
+            xmlhttp.send(dataStr);
+        }
+    }
+    var usn = document.querySelector('#username'),
+        pwd = document.querySelector('#password'),
+        pwd2 = document.querySelector('#password2'),
+        regbtn = document.querySelector('.registerbtn'),
+        udt1 = document.querySelector('.undertext1'),
+        udt2 = document.querySelector('.undertext2'),
+        udt3 = document.querySelector('.undertext3');
+    var msg={
+        'username_enable':'用户名可用',
+        'username_already_exist':'用户名已经存在',
+        'username_type_error':'用户名格式有误',
+        'password_enable':'密码格式正确',
+        'password_type_error':'密码格式有误',
+        'password2_enable':'两次输入的密码一致',
+        'password2_inconsistent':'两次输入的密码不一致'
+    };
+    function testusn(){
+        var usnreg = /^[A-z0-9_]{3,10}$/g;
+        if(usnreg.test(usn.value)){
+            udt1.innerText=msg.username_enable;
+            udt1.style.color='#74ADE8';
+            usn.style.borderColor='#ccc';
+            return true;
+        }
+        else{
+            udt1.innerText=msg.username_type_error;
+            udt1.style.color='red';
+            usn.style.borderColor='red';
+            return false;
+        }
+    }
+    function testunused(){
+        var flag;
+        ajax({
+            url:'task24-3.php',
+            type:'get',
+            data:{
+                username:usn.value
+            },
+            success:function(ret){
+                if(ret===1){
+                    udt1.innerText=msg.username_already_exist;
+                    udt1.style.color='red';
+                    usn.style.borderColor='red';
+                    flag=false;
+                }
+                else if(ret===0){
+                    udt1.innerText=msg.username_enable;
+                    udt1.style.color='#74ADE8';
+                    usn.style.borderColor='#ccc';
+                    flag=true;
+                }
+            }
+        });
+        return flag;
+    }
+    function testpwd(){
+        var pwdreg = /^[A-z0-9_]{6,15}$/g,
+            pwd_reg =/(^[A-Z]+$)|(^[a-z]+$)|(^[0-9]+$)|(^[_]+$)/;
+        if(pwdreg.test(pwd.value)){
+            if(pwd_reg.test(pwd.value)){
+                udt2.innerText=msg.password_type_error;
+                udt2.style.color='red';
+                pwd.style.borderColor='red';
+                return false;
+            }
+            else{
+                udt2.innerText=msg.password_enable;
+                udt2.style.color='#74ADE8';
+                pwd.style.borderColor='#ccc';
+                return true;
+            }
+        }
+        else{
+            udt2.innerText = msg.password_type_error;
+            udt2.style.color = 'red';
+            pwd.style.borderColor = 'red';
+            return false;
+        }
+    }
+    function testpwd2(){
+        if(pwd2.value===pwd.value){
+            udt3.innerText=msg.password2_enable;
+            udt3.style.color='#74ADE8';
+            pwd2.style.borderColor='#ccc';
+            return true;
+        }
+        else{
+            udt3.innerText = msg.password2_inconsistent;
+            udt3.style.color = 'red';
+            pwd2.style.borderColor = 'red';
+            return false;
+        }
+    }
+    usn.addEventListener('change',function(){
+        testusn()&&testunused();
+    });
+    pwd.addEventListener('change',function(){
+        testpwd();
+    });
+    pwd2.addEventListener('change',function(){
+        testpwd2();
+    });
+    regbtn.addEventListener('click',function(){
+        if(testusn()&&testunused()&&testpwd()&&testpwd2()){
+            alert('注册成功！');
+            console.log('注册成功！');
+        }
+    })
+</script>
+</body>
+</html>

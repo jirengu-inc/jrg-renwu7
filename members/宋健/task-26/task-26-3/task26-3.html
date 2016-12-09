@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task26-3</title>
+    <style>
+        p{
+            padding:10px;
+            margin:10px 0;
+            border:1px solid #ccc;
+        }
+        .btn{
+            width:80px;
+            height:40px;
+            line-height: 40px;
+            border:1px solid #E07374;
+            border-radius: 5px;
+            margin:0 auto;
+            text-align: center;
+            color:#E07374;
+        }
+    </style>
+</head>
+<body>
+<div class="contentbox">
+    <p>内容1</p>
+    <p>内容2</p>
+</div>
+<div class="btn">加载更多</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $('p').on('mouseenter',function(){
+        $(this).css({
+            'background-color':'#0F7F12',
+            'color':'#fff'
+        })
+    });
+    $('p').on('mouseleave',function(){
+        $(this).css({
+            'background-color':'#fff',
+            'color':'#000'
+        })
+    });
+
+    var $btn =$('.btn'),
+        $ct =$('.contentbox');
+    var num = 2;
+    var lock = false;
+    $btn.on('click',function(){
+        $btn.text('加载中');
+        if(!lock){
+            lock = true;
+            $.ajax({
+                url:"task26-3.php",
+                dataType:'json',
+                type:"GET",
+                data:{
+                    start:num,
+                    len:6
+                },
+                success:function(ret){
+                    if(ret.status == 1){
+                        $(ret.data).each(function(e){
+                            $ct.append('<p>'+ret.data[e]+'</p>');
+                        });
+                        num += 6;
+                    }
+                    else{
+                        alert('无法连接');
+                    }
+                },
+                error:function(){
+                    alert('出错了')
+                }
+            });
+            lock = false;
+            $btn.text('加载更多');
+        }
+        else{
+            return;
+        }
+    });
+</script>
+</body>
+</html>

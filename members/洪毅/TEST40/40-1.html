@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expouse</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html body{
+            height: 3000px;
+            position: relative;
+        }
+        .box{
+            width: 600px;
+            height:30px;
+            position: absolute;
+        }
+        .box.target1{
+            top:1000px;
+            left:0;
+            background: yellow;
+        }
+        .box.target2{
+            top:2000px;
+            left:0;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div class="box target1">box1出现时，一直打印target1</div>
+<div class="box target2">box2出现时,只打印一次target2</div>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    var Expouse=(function(){
+        return{
+            bind:function($target,handler){
+                var topH=$target.offset().top;
+                var _handler=function(){
+                    var winH=$(window).height();
+                    var winTop=$(window).scrollTop();
+                    if(topH>winTop&&topH<winTop+winH){
+                        handler.call($target);
+                    }
+                };
+                $(window).on('scroll',_handler);
+            },
+            one:function($target,handler){
+                var topH=$target.offset().top;
+                var close=false;
+                var _handler=function() {
+                    var winH = $(window).height();
+                    var winTop = $(window).scrollTop();
+                    if(!close){
+                        if(topH>winTop&&topH<winTop+winH){
+                            handler.call($target);
+                            close=true;
+                        }
+                    }
+                };
+                $(window).on('scroll',_handler);
+            }
+        }
+    }());
+    Expouse.bind($('.target1'),function(){
+        console.log(this);
+    });
+    Expouse.one($('.target2'),function(){
+        console.log(this);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

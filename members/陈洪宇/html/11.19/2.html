@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端6班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容" />
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+    <script>
+        var ct = document.querySelector('.ct'),
+            ipt = document.querySelector('.ipt-add-content'),
+            start = document.querySelector('#btn-add-start'),
+            end = document.querySelector('#btn-add-end');
+            ct.addEventListener('click',function(e){
+              console.log(e.target.innerText);
+            },false);
+            start.addEventListener('click',function(){
+              var li=document.createElement('li');
+              li.innerText=ipt.value;
+              ct.insertBefore(li,ct.firstChild)
+            });
+            end.addEventListener('click',function(){
+              var li=document.createElement('li');
+              li.innerText=ipt.value;
+              ct.appendChild(li);
+            })
+
+    </script>
+</body>
+
+</html>

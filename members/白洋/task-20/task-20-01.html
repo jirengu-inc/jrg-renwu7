@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>下面的代码输出多少？修改代码让fnArr[i]() 输出 i。使用两种以上的方法</title>
+</head>
+<body>
+<h1>
+    下面的代码输出多少？修改代码让fnArr[i]() 输出 i。使用两种以上的方法
+</h1>
+
+<script>
+    var fnArr = [];
+    for (var i = 0; i < 10; i ++) {
+        (function (a) {
+            fnArr[i]=function () {
+                return a;
+            }
+
+        })(i);
+    }
+    console.log( "第一种方法"+fnArr[3]() );
+
+    var fnArr2=[];
+    for (var i = 0; i < 10; i ++) {
+        (function (b) {
+            var b=i;
+            fnArr2[i]=function(){
+                return b;
+            }
+
+        })(i);
+
+    }
+    console.log( "第二种方法"+fnArr2[5]() );
+</script>
+
+</body>
+</html>

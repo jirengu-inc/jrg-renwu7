@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="./iconfont.css">
+<style>
+  html,body,p,h1,h2,h3,h4,ul,li{
+  padding: 0px;
+  margin: 0px;
+  font-family: Tahoma;
+  font-size: 16px;
+}
+img{
+  border: none;
+  display: block;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+li{
+  list-style: none;
+}
+.clear:after{
+  display: block;
+  content: "";
+  clear: both;
+}
+#header{
+  background: url(img/bg2.gif) repeat-x;
+}
+.layout{
+  width: 1000px;
+  margin: 0 auto;
+}
+#nav .nav-items{
+  padding-top: 7px; 
+}
+#nav li{
+  float: right;
+  padding: 10px;
+}
+#nav img{
+  margin-top: -20px;
+  margin-bottom: -20px;
+  display: inline-block;
+}
+#nav a{
+  color: #ddc058;
+  font-weight: bold;
+}
+#nav li:hover{
+  background: #590c02;
+}
+#nav li a:hover{
+  color: #ecf9df;
+}
+#intro{
+  height: 700px;
+  background: url(img/naxx.jpg);
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+#intro .btn1{
+  display: block;
+    text-align: center;
+    padding-top: 650px;
+    padding-bottom: 21px;
+    color: #c0c0bc;
+    font-size: 24px;
+    font-weight: bold;
+    background: url(img/btn1.gif) no-repeat 415px 631px;
+}
+#main{
+  background: #f5f5f5;
+}
+.main-list li{
+  width: 290px;
+  height: 400px;
+  float: left;
+  margin: 20px;
+} 
+.main-list .list1 div{
+  background:url(img/result.png) no-repeat ; 
+}
+.main-list .list2 div{
+  background:url(img/result.png) no-repeat 0px -77px; 
+}
+.main-list .list3 div{
+  background:url(img/result.png) no-repeat  0px -158px;
+  margin: 48px auto 52px; 
+}
+.main-list div{
+  width: 74px;
+    height: 78px;
+    margin: 50px auto;
+}
+
+.main-list h3{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  display:block;
+  padding-bottom: 20px;
+}
+#content{
+  background: url(img/bg6.jpg) no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+#content .head{
+  margin: 20px auto;
+  margin-top:0px; 
+}
+#content .head h2{
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+#content .head h3{
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+.area{
+  position: relative;
+}
+.area:before{
+    top: 11px;
+    bottom: 162px;
+    left: 50%;
+    position: absolute;
+    content: "";
+    width: 2px;
+    background-color: #f1f1f1;
+    margin-left: 3.5px;
+}
+.spider-image{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    margin-left: -79px;
+    border-radius: 50%;
+    border: 7px solid #fff;
+    margin-top: 10px;
+    background: #fff;
+}
+.spider-image img{
+    border: none;
+    display: block;
+    max-width: 100%;
+    border-radius: 50%;
+    
+}
+.area .spider-panel{
+    float: left;
+    width: 286px;
+    padding: 45px;
+    text-align: right;
+    margin-left: 38px;
+}
+.area .spider-panel h4{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+  padding-bottom: 10px;
+}
+.area-spider{
+  position: relative;
+}
+.kicon{
+  background: url(img/icon5.png) no-repeat -449px -570px;
+    width: 31px;
+    height: 31px;
+    display: inline-block;
+}
+
+.str-hero .hero-image{
+  width: 150px;
+  height: 220px;
+  margin: 0 auto;
+}
+.area-plague{
+  height: 307px;
+}
+.area .plague-panel{
+    float: right;
+    width: 286px;
+    padding: 45px;
+    text-align: left;
+    margin-right: 38px;
+}
+.area .plague-panel h4{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 10px;
+}
+.area-plague{
+  position: relative;
+}
+#strategy{
+  background: url(img/bg5.png) no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+#strategy  h2,h3,p{
+  text-align:center; 
+  font-weight: bold;
+  padding: 10px 0;
+}
+#strategy h2{
+  font-size: 40px;
+  font-weight: bold;
+}
+#strategy h3{
+  font-size: 20px;
+}
+#strategy .str-hero{
+  margin-top: 50px;
+  position: relative;
+}
+
+#strategy .str-hero li{
+  float: left;
+  margin: 12px 12px;
+  width: 300px;
+  height: 370px;
+  position: relative;
+}
+.box{
+  display: block;
+}
+.str-hero .cover{
+    width: 100%;
+    height: 220px;
+    background: rgba(254,209,54,0.8);
+    position: absolute;
+    top: 0;
+    display: none;
+    line-height: 220px;
+    text-align: center;
+    transition:all 0.3s;
+}
+.str-hero li .cover i{
+    font-size: 100px;
+    font-weight: 900;
+}
+.str-hero li:hover .cover{
+  display: block;
+}
+#face{
+  background: url(img/bg7.jpg);
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 100px;
+
+}
+#face .face-list{
+  text-align: center;
+}
+#face h2{
+  font-size: 40px;
+  text-align: center;
+  color: #fff;
+}
+#face h3{
+  font-size: 20px;
+  color: #fff
+}
+#face p{
+  color: #fff
+}
+
+#face .face-list li{
+  float: left;
+  margin: 58px;
+}
+#face .face-list img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 7px solid #fff;
+
+}
+#face .face-list li ul{
+  width: 108px;
+  margin: 0px auto;
+}
+#face .face-list li ul li{
+  border-radius: 100%;
+  margin: 0px auto;
+  float: left;
+  margin: 0px 3px;
+}
+.face-list li ul li a{
+  display: block;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  background-color: #222;
+  border-radius: 100%;
+  line-height: 30px;
+  color: #fff;
+  vertical-align: center;
+  transition: all 0.3s
+}
+.face-list li ul li a:hover{
+  background: #fed136;
+}
+#adver li img{
+  width:300px;
+  height: 200px;
+}
+#adver li{
+  float: left;
+  margin: 20px 16px;
+}
+
+
+
+#contact .form{
+  width: 45%;
+  float: left;
+  margin: 2px 25px;
+}
+#contact .form-group{
+  margin-top: 30px;
+
+}
+#contact .form-ctrl{
+  display: block;
+  width: 100%;
+  padding: 20px 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.form-one{
+  margin-top: 30px;
+}
+.form-area{
+  height: 215px;
+}
+#contact .btn{
+  color: #fff;
+  background: #fed136;
+  border-color:#fed136;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 20px 40px;
+}
+#contact .button{
+  text-align: center;
+  margin: 20px;
+}
+#contact h2{
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+}
+#contact p{
+  color: #fff;
+}
+#contact{
+  background: url(img/bg8.gif);
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 100px;
+}
+#footer .fa a{
+  display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background-color: #222;
+    border-radius: 100%;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    vertical-align: center;
+    transition: all 0.3s;
+}
+#footer .fa a:hover{
+  background: #fed136;
+}
+#footer ul{
+  margin-top: 50px 0px;
+}
+#footer ul li{
+  float: left;
+  width: 30%;
+  margin: 0px 16px;
+  text-align: center;
+}
+#footer ul li:nth-child(3) a:hover{
+  color:#fed136;
+  transition: all 0.3s;
+}
+
+</style>
+</head>
+
+<body>
+<div id="header">
+    <div class="layout">
+        <div id="nav">
+        	<ul class="nav-items clear">
+          <img src="img/bg1.png" alt="#" />
+           <li><a href="#">联系我们</a></li>
+           <li><a href="#">友情出演</a></li>
+           <li><a href="#">英雄模式指南</a></li>
+           <li><a href="#">五大区域</a></li>
+           <li><a href="#">三大模式</a></li>
+          </ul>
+        </div>
+    </div>
+  </div>
+<div id="intro">
+    <div class="layout">
+    <a href="#" class="btn1">开始冒险</a>  
+    </div>
+</div>
+<div id="main">
+      <div class="layout">
+        <ul class="main-list clear">
+          <li class="list1">
+             <div></div>
+             <h3>普通模式</h3>
+             <p>这是《炉石传说》冒险模式的普通难度版本！当你首次击败某个首领后，就可以获得对应的全新卡牌奖励；而如果你击败了一个区中的所有首领，则将获得新的传说级卡牌！</p>
+          </li>
+          <li class="list2">
+            <div></div>
+             <h3>英雄模式</h3>
+             <p>一旦你击败了某个区的所有首领，该区的英雄模式就会对你开放！英雄模式的首领们会比他们的普通模式更为凶残！而如果你能够击败纳克萨玛斯的所有英雄模式的首领，你将获得一款全新的卡牌背面图案！</p>
+          </li>
+          <li class="list3">
+            <div></div>
+             <h3>英雄模式</h3>
+             <p>这一内容将测试玩家对每个职业的掌握程度，因为玩家只有发挥各个职业的特点，才能操控一副特殊的预组套牌击败各自的对手。如果玩家能够做到这一点，他们将获得纳克萨玛斯主题的职业专属卡牌。</p>
+          </li>
+        </ul>
+        </div>
+</div>
+<div id="content">
+      <div class="layout">
+        <div class="head">
+          <h2>五大战斗区域</h2>
+          <h3>每一个boss都具有独特的英雄技能与超乎想象的牌!</h3>
+          <ul class="area clear">
+            <li class="area-spider clear">
+         
+                <img class="spider-image" src="img/img3.gif" alt="#" />
+      
+              <div class="spider-panel">
+              <h4><span class="kicon"></span>蜘蛛区</h4>
+                <p>蛛魔是一种古老而智慧的蛛形生物，而他们的亡灵则聚集于蜘蛛区内，为天灾军团效力。通常来说，隐居的蛛魔对外来者非常警惕。在天灾入侵时，活着的蛛魔曾英勇地与天灾军团作战，但因寡不敌众而败北。虽然蛛魔对亡灵的瘟疫免疫，但没有生物能在死后摆脱被巫妖王复活、继而成为亡灵效忠于他的命运。</p>
+              </div>
+            </li>
+            <li class="area-plague clear" >
+              
+                <img class="spider-image" src="img/img4.png" alt="#" />
+             
+              <div class="plague-panel">
+              <h4>瘟疫区<span class="kicon"></span></h4>
+                <p>瘟疫区充满着被亡灵瘟疫扭曲了的怪物。他们生产并强化瘟疫，将其转化为极其致命的武器，旨在将这个世界上所有生灵变为克尔苏加德亡灵大军的一部分。</p>
+              </div>
+            </li>
+             <li class="area-spider clear">
+              
+                <img class="spider-image" src="img/img5.png" alt="#" />
+            
+              <div class="spider-panel">
+              <h4><span class="kicon"></span>军事区</h4>
+                <p>许多生前在洛丹伦战场上服役的人类骑士和他们忠实的坐骑依然在纳克萨玛斯的军事区中发挥着他们的战斗天赋。在这里侍奉克尔苏加德和巫妖王的过程中，他们磨练出了在生前绝无可能获得的战斗技巧。战场领袖、训练师和军事调遣专家——所有军事区的成员都运用他们的天赋将天灾军团打造成一支强大的正规军队，而非只是无脑的乌合之众，在其强大的军官的指导下，许多死亡骑士正是在这里开始了他们的训练。</p>
+              </div>
+            </li>
+            <li class="area-plague clear" >
+              <img class="spider-image" src="img/img6.png" alt="#" />
+              <div class="plague-panel">
+              <h4>构造区<span class="kicon"></span></h4>
+                <p>在构造区中，你将遇见各种只有在噩梦中才会出现的怪物：由活人肢体缝合起来的憎恶。一条剧毒的泥浆缓缓地流过纳克萨玛斯的构造区；这种泥浆不会对在其中蹒跚逡巡的亡灵生物造成任何伤害，但对于那些还在享受呼吸和心跳的活物而言，诞生于这种泥浆的软泥怪是极其致命的。</p>
+              </div>
+            </li>
+            <li class="area-spider clear">
+              <img class="spider-image" src="img/img7.png" alt="#" />
+              <div class="spider-panel">
+              <h4><span class="kicon"></span>冰龙巢穴</h4>
+                <p>在古老的骷髅冰霜巨龙萨菲隆的守护下，克尔苏加德自己坐镇纳克萨玛斯的顶端，运筹帷幄,期待着即将被冰冻的勇士的表演。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+         </div>
+</div>
+<div id="strategy">
+  <div class="layout">
+    <h2>英雄模式攻略</h2>
+    <p>Boss们被你的套牌激怒了,都拿出了压箱底的随从与升级版的技能,击败他们获得史诗级卡背!
+    </p>
+    <ul class="str-hero clear">
+      <li>
+        <a class="box" href="#">
+        <img src="img/hero-1.gif" alt="#" class="hero-image" />
+        <div class="cover">
+        <i class="iconfont icon-twitter"></i>
+        </div>
+        </a>
+      
+        <h3>英雄模式:麦克纳斯</h3>
+        <p>麦克纳斯就是那只令人胆寒的巨型蜘蛛，它来自诺森德的深渊之中。她以那些胆敢擅闯浮空城的冒险者为食，为克尔苏加德孕育出无数只蜘蛛，使其能够达成最险恶的目的!</p>
+      </li>
+      <li>
+        <img src="img/hero-2.gif" alt="#" class="hero-image" />
+        <div class="cover">
+        <i class="iconfont icon-twitter"></i>
+        </div>
+        <h3>英雄模式:教官拉苏维奥斯</h3>
+        <p>死亡骑士的训练师，为巫妖王培养出最勇猛、最忠诚的仆从。他的攻击精准而致命，传说当他挥舞符文剑施展攻击，除了他的学徒之外，没有人能够招架——哪怕只是一击!</p>
+      </li>
+      <li>
+        <img src="img/hero-3.gif" alt="#" class="hero-image" />
+        <div class="cover">
+        <i class="iconfont icon-twitter"></i>
+        </div>
+        <h3>英雄模式:天启四骑士</h3>
+        <p>克尔苏加德最忠诚的卫士们。他们各自身怀绝技，能够尽情施展他们生前所具有的能力,重新为克尔苏加德效力!</p>
+      </li>
+      <li>
+        <img src="img/hero-4.gif" alt="#" class="hero-image" />
+        <div class="cover">
+        <i class="iconfont icon-twitter"></i>
+        </div>
+        <h3>英雄模式:帕奇维克</h3>
+        <p>克尔苏加德憎恶大军中最强大的一个——任何在战斗中遭遇他的对手都会惊讶于他的力量和速度。在他眼里，你不过是一个随他玩耍的小肉球而已！</p>
+      </li>
+      <li>
+        <img src="img/hero-5.gif" alt="#" class="hero-image" />
+        <div class="cover">
+        <i class="iconfont icon-twitter"></i>
+        </div>
+        <h3>英雄模式:格罗布鲁斯</h3>
+        <p>天灾军团曾为了迅速散播瘟疫而计划创建一支血肉巨人大军，格罗布鲁斯便是第一个实验成功的血肉巨人,用一支注射器传播瘟疫与软泥怪!</p>
+      </li>
+      <li>
+        <img src="img/hero-6.gif" alt="#" class="hero-image" />
+        <div class="cover">
+        <i class="iconfont icon-twitter"></i>
+        </div>
+        <h3>英雄模式:洛欧塞布</h3>
+        <p>至于这种瘟疫对当地的动植物究竟产生了怎样的影响，扭曲的沼泽爬行者洛欧塞布就是最好的实例:小心吧,治疗者!</p>
+      </li>
+    </ul>
+
+  </div>
+</div>
+<div id="face">
+  <div class="layout">
+    <h2>OUR AMAZING TEAM</h2>
+    <p>开荒的勇士们!</p>
+    <ul class="face-list clear">
+      <li>
+        <img src="img/face1.jpg" alt="#" />
+        <h3>Garrosh Hellscream</h3>
+        <p>土豪战</p>
+        <ul class="clear">
+          <li><a href="#"><i class="iconfont icon-weibiaoti1"></i></a></li>
+          <li><a href="#"><i class="iconfont icon-twitter"></i></a></li>
+          <li><a href="#"><i class="iconfont icon-linkedin"></i></a></li>
+        </ul>
+        </li>
+      <li>
+        <img src="img/face2.jpg" alt="#" />
+        <h3>Rexxar Remar</h3>
+        <p>中速猎</p>
+        <ul class="clear">
+          <li><a href="#"><i class="iconfont icon-weibiaoti1"></i></a></li>
+          <li><a href="#"><i class="iconfont icon-twitter"></i></a></li>
+          <li><a href="#"><i class="iconfont icon-linkedin"></i></a></li>
+        </ul>
+        </li>
+      <li>
+        <img src="img/face3.jpg" alt="#" />
+        <h3>Gul’dan</h3>
+        <p>宇宙术</p>
+        <ul class="clear">
+          <li><a href="#"><i class="iconfont icon-weibiaoti1"></i></a></li>
+          <li><a href="#"><i class="iconfont icon-twitter"></i></a></li>
+          <li><a href="#"><i class="iconfont icon-linkedin"></i></a></li>
+        </ul>
+        </li>
+    </ul>
+    <p>英雄模式过不去?你可以联系以上三位同学</p>
+  </div>
+</div> 
+<div id="adver">
+  <div class="layout">
+    <ul class="clear">
+      <li>
+        <a class="adver-image" href="#">
+          <img src="img/adver1.gif" alt="#" />
+        </a>
+      </li>
+      <li>
+        <a class="adver-image" href="#">
+          <img src="img/adver2.gif" alt="#" />
+        </a>
+      </li>
+      <li>
+        <a class="adver-image" href="#">
+          <img src="img/adver3.gif" alt="#" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div id="contact">
+  <div class="layout">
+    <h2>来把!加入我们的冒险队伍!</h2>
+    <p>按如下要求填写资料,我们会经过严格的筛选,纳克萨玛斯的宝藏有你一点!</p>
+    <div class="clear">
+    <div class="form">
+    <div class="form-group">
+      <input type="text" class="form-ctrl" placeholder="You name"/>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-ctrl" placeholder="You Email"/>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-ctrl" placeholder="You phone"/>
+    </div>
+    </div>
+    <div class="form">
+      <div class="form-one">
+        <textarea class="form-ctrl form-area" placeholder="Your Messages" name="message" id=""></textarea>
+      </div>
+    </div>
+   </div>
+   <div class="button">
+     <button type="submit" class="btn">SEND MESSAGE</button>
+   </div>
+
+
+
+  </div>
+</div>  
+<div id="footer">
+    <div class="layout">
+      <ul>
+              <li><p>Copyright © Your Website 2014 </p></li>
+              <li class="fa"><a href="#"><i class="iconfont icon-weibiaoti1"></i></a>
+                  <a href="#"><i class="iconfont icon-twitter"></i></a> 
+                  <a href="#"><i class="iconfont icon-linkedin"></i></a> 
+              </li>
+              <li>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+              </li>
+      </ul>      
+    </div>
+  </div>
+
+</body>
+</html>

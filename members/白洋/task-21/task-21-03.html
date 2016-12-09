@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>写一个函数isEmail(str)，判断用户输入的是不是邮箱</title>
+</head>
+<body>
+<h1>写一个函数isEmail(str)，判断用户输入的是不是邮箱</h1>
+<script>
+function isEmail (str) {
+    var tmp=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+    return tmp.test(str);
+}
+
+</script>
+
+</body>
+</html>

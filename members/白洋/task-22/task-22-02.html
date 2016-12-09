@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input  type="text" value="" class="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+//todo ...
+var btnAs = document.querySelector("#btn-add-start");
+var btnAn = document.querySelector("#btn-add-end");
+var NeiRong = document.querySelector(".ipt-add-content");
+
+// btnAs.addEventListener("click",function(){console.log(NeiRong.value)});
+btnAs.addEventListener("click",function(){
+	if(NeiRong.value === ""){
+	alert("不能为空");
+	}
+	else{
+	// alert("ok");
+    var DiYi=ct.children[0];
+    var newContent = document.createElement("li");
+    var newText= document.createTextNode(NeiRong.value);
+    newContent.appendChild(newText);
+	ct.insertBefore(newContent, DiYi);
+
+
+	}
+}
+);
+
+btnAn.addEventListener("click",function(){
+	if(NeiRong.value === ""){
+	alert("不能为空");
+	}
+	else{
+	alert("ok");
+    var ZuiHou=ct.children[ct.children.length-1];
+    var newContent = document.createElement("li");
+    var newText= document.createTextNode(NeiRong.value);
+    newContent.appendChild(newText);
+	ZuiHou.appendChild(newContent);
+	
+	}
+}
+);
+
+var ct = document.querySelector('.ct');
+  ct.addEventListener('click', function(e){
+    console.log(e.target.innerText);
+  });
+
+
+</script>
+
+
+
+	
+</body>
+</html>

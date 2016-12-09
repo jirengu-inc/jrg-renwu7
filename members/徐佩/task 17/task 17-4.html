@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task 17-4</title>
+  </head>
+  <body>
+    <script>
+    sayName('world');
+    sayAge(10);
+    function sayName(name){
+          console.log('hello ', name);
+}
+   var sayAge = function(age){
+       console.log(age);
+};
+/*
+sayName函数声明前置,所以sayName的函数打印结果为'hello world';
+sayAge为函数表达式只将变量声明前置,函数不会前置,当执行console.log(age)时会报错,sayAge is not a function.
+*/
+    </script>
+  </body>
+</html>

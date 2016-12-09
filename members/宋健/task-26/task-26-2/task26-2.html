@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task26-2</title>
+    <style>
+        fieldset{
+            margin-bottom:10px;
+        }
+        .allinthis{
+            height:2000px;
+        }
+        .btn{
+            margin:10px;
+            width:80px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            border:1px solid #000;
+            background-color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .box{
+            margin:10px;
+            width:100px;
+            height:100px;
+            background-color: yellow;
+            line-height: 3;
+            border:1px solid #000;
+        }
+        .inputbox{
+            margin:10px;
+        }
+        .srollframe{
+            position: fixed;
+            top:160px;
+            left:160px;
+            color:red;
+            display: none;
+        }
+        .sel{
+            margin:10px;
+        }
+        .textblock{
+            display: block;
+            width:200px;
+            height:100px;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="allinthis">
+    <fieldset class="misson1">
+        <legend>1. 当点击$btn时，让$btn的背景色变为红色再变为蓝色</legend>
+        <div class="btn turn">点我</div>
+    </fieldset>
+    <fieldset class="misson2">
+        <legend>2. 当窗口滚动时，获取垂直滚动距离</legend>
+        <div class="srollframe">垂直滚动距离：0</div>
+        <div class="btn topsroll">点我</div>
+    </fieldset>
+    <fieldset class="misson3">
+        <legend>3. 当鼠标放置到$div上，把$div背景色改为红色，移出鼠标背景色变为白色</legend>
+        <div class="box">把鼠标放到这里，再移开</div>
+    </fieldset>
+    <fieldset class="misson4">
+        <legend>4. 当鼠标激活 input 输入框时让输入框边框变为蓝色，<br>当输入框内容改变时把输入框里的文字小写变为大写，<br>当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</legend>
+        <input class="inputbox" value="" placeholder="在这里输入文字"></input>
+    </fieldset>
+    <fieldset class="misson5">
+        <legend>5. 当选择 select 后，获取用户选择的内容</legend>
+        <select class="sel">
+            <option value="JavaScript">选择1</option>
+            <option value="jQuery">选择2</option>
+            <option value="Node.js">选择3</option>
+        </select>
+        <textarea class="textblock"></textarea>
+    </fieldset>
+</div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        //代码2.1
+        $('.turn').on('click',function (){
+            $(this).css('background-color','red');
+            setTimeout(function(){
+                $('.turn').css('background-color','blue')
+            },600)
+        });
+        //代码2.2
+        $('.topsroll').on('click',function(){
+            $('.srollframe').css('display','block');
+            $(window).scroll(function (){
+                var $totop = $(window).scrollTop();
+                $('.srollframe').text('垂直滚动距离：'+$totop);
+            });
+        });
+        //代码2.3
+        $('.box').on('mouseenter',function(){
+            $(this).css('background-color','red')
+        });
+        $('.box').on('mouseleave',function(){
+            $(this).css('background-color','white')
+        });
+        //代码2.4
+        $('.inputbox').on('keyup',function(){
+//            $('.inputbox').css('outline-color','blue');
+            var $ipt = $('.inputbox').val($('.inputbox').val().toUpperCase());
+        });
+        $('.inputbox').on('keydown',function(){
+            console.log($('.inputbox').val());
+        });
+        //代码2.5
+        $('.sel').on('change',function (e){
+            $('.textblock').text(e.target.value);
+        })
+    </script>
+</body>
+</html>

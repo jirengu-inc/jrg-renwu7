@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task28-1</title>
+    <style>
+        #header{
+            background-color:red;
+            text-align:center;
+            height:80px;
+            line-height:80px;
+            margin-bottom:20px;
+        }
+        #nav{
+            background-color:blue;
+            height:40px;
+        }
+        #content{
+            padding:10px;
+            background-color:#ccc;
+        }
+        #content:after{
+            content:"";
+            display:block;
+            clear: both;
+        }
+        .aside{
+            background-color:green;
+            width:100px;
+            min-height:400px;
+            float:left;
+        }
+        .main{
+            overflow:auto;
+            background-color:#fff;
+            min-height:1000px;
+            padding-left:20px;
+        }
+        #footer{
+            background-color:#333;
+        }
+    </style>
+</head>
+<body>
+<div id="header">header</div>
+<div id="nav">nav</div>
+<div id="content">
+    <div class="aside">aside</div>
+    <div class="main">main</div>
+</div>
+<div id="footer">footer</div>
+<script src="../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+$.fn.stickup = function(){
+    var $crt= $(this),
+        crtOffsetT = $crt.offset().top,
+        crtOffsetL = $crt.offset().left,
+        crtH = $crt.height(),
+        crtW = $crt.width();
+    var $clonecrt = $crt.clone()
+                        .css({opacity:'0',display:'none'})
+                        .insertBefore($crt);
+    $(window).on('scroll',function(){
+        var scrollT = $(this).scrollTop();
+        if(scrollT>=crtOffsetT){
+            if(!isFixed()){
+                setFixed();
+            }
+        }
+        else{
+            if(isFixed()){
+                unsetFixed();
+            }
+        }
+    });
+    function isFixed(){
+        return $crt.data('isfixed');
+    }
+    function setFixed(){
+        $crt.css({
+            position:'fixed',
+            top:'0',
+            left:crtOffsetL,
+            width:crtW,
+            height:crtH,
+            'z-index':'99'
+        });
+        $clonecrt.show();
+        $crt.data('isfixed',true);
+    }
+    function unsetFixed(){
+        $crt.removeAttr('style');
+        $clonecrt.hide();
+        $crt.data('isfixed',false);
+    }
+};
+
+$('#nav').stickup();
+
+
+</script>
+</body>
+</html>

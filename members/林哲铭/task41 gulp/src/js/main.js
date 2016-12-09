@@ -1,7 +1,7 @@
 require.config({
-    baseUrl: "JS",
+    baseUrl: "js",
     paths:{
-        "jquery" :"lib/jquery.min"
+        "jquery" :"./lib/jquery.min"
     }
 });
 require(['jquery','app/ajax','app/exposure','app/fullScreenCarousel','app/goTop'],function($,AJAX,Exposure,Carousel,GoTop){

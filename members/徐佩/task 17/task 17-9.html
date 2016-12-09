@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task 17-9</title>
+  </head>
+  <body>
+    <script>
+  fn();
+  var i = 10;
+  var fn = 20;
+  console.log(i);
+  function fn(){
+      console.log(i);
+      var i = 99;
+      fn2();
+      console.log(i);
+      function fn2(){
+          i = 100;
+      }
+  }/*
+先根据函数执行载入顺序对以上代码进行改写
+var i;
+var fn;             //变量i和fn 声明提升,此时未被赋值
+function fn(){      //fn成为一个函数,声明前置
+   var i            //函数fn内部声明局部变量i,未赋值
+   function fn2(){  //函数声明前置
+     i=100;
+ }
+  console.log(i)   //输出结果undefined,局部变量i被声明但是未被赋值
+  i = 99;          //给i赋值99
+  fn2();           //调用函数fn2,此时i被重新赋值为100
+  console.log(i);  //输出结果为100
+}
+ fn()              //执行函数fn
+ i = 10 ;
+ j = 20 ;          //分别为i和j赋值
+ console.log(i)    //输出结果为10
+  */
+    </script>
+  </body>
+</html>

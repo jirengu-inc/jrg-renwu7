@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>写一个函数isValidUsername(str)，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）</title>
+</head>
+<body>
+<h1>
+
+    写一个函数isValidUsername(str)，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）
+</h1>
+<script>
+
+function  isValidUsername(str) {
+    var tmp = /[a-zA-Z0-9_]{6,20}/;
+        return tmp.test(str);
+}
+
+</script>
+
+
+
+</body>
+</html>

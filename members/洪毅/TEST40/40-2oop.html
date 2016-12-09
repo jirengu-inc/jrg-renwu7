@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>carousel oop</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            list-style: none;
+        }
+        img{
+            width:500px;
+            height:320px;
+        }
+        .carousel{
+            width:500px;
+            height:320px;
+            margin-bottom:10px;
+            position:relative;
+            overflow: hidden;
+        }
+        .box{
+            position:absolute;
+        }
+        .box:after{
+            display: block;
+            content:"";
+            clear:both;
+        }
+        .box li{
+            float:left;
+        }
+        .arrow{
+            position:absolute;
+            border-radius: 100%;
+            text-align: center;
+            width:35px;
+            height:35px;
+            color:white;
+            line-height: 35px;
+            top:50%;
+            transform:translateY(-50%);
+            opacity: 0.6;
+            background-color: #44463C;
+            text-decoration: none;
+        }
+        .pre{
+            left:10px;
+        }
+        .next{
+            right:10px;
+        }
+        .arrow:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="box">
+        <li><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+    </ul>
+    <a href="#" class="pre arrow"><</a>
+    <a href="#" class="next arrow">></a>
+</div>
+<div class="carousel">
+    <ul class="box">
+        <li><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+    </ul>
+    <a href="#" class="pre arrow"><</a>
+    <a href="#" class="next arrow">></a>
+</div>
+<div class="carousel">
+    <ul class="box">
+        <li><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+    </ul>
+    <a href="#" class="pre arrow"><</a>
+    <a href="#" class="next arrow">></a>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+    function Carousel($node){
+        this.node = $node;
+        this.init();
+    }
+    Carousel.prototype.init = function(){
+        this.pre = this.node.find(".pre");
+        this.next = this.node.find(".next");
+        this.box = this.node.find("ul");
+        this.img = this.box.find("li");
+        this.count = this.img.length;
+        this.oWidth = this.img.width();
+        this.box.prepend(this.img.last().clone())
+                .append(this.img.first().clone());
+        this.realCount = this.box.find("li").length;
+        this.box.css({
+            "width":this.oWidth*this.realCount,
+            "left":0-this.oWidth
+        });
+        this.curIdx = 0;
+        this.bind();
+        this.autoPlay();
+    };
+    Carousel.prototype.bind = function() {
+        var that = this;
+        that.pre.on("click", function () {
+            that.curIdx -= 1;
+            that.box.animate({
+                "left": "+=" + that.oWidth
+            }, function () {
+                if (that.curIdx < 0) {
+                    that.curIdx += that.count;
+                    that.box.css("left", 0 - that.count * that.oWidth);
+                }
+            });
+        });
+        that.next.on("click", function () {
+            that.curIdx += 1;
+            that.box.animate({
+                "left": "-=" + that.oWidth
+            }, function () {
+                if (that.curIdx === that.count) {
+                    that.curIdx = 0;
+                    that.box.css("left", 0 - that.oWidth);
+                }
+            });
+        });
+        Carousel.prototype.autoPlay = function () {
+            clock = setInterval(function () {
+                that.curIdx += 1;
+                that.box.animate({
+                    "left": "-=" + that.oWidth
+                }, function () {
+                    if (that.curIdx === that.count) {
+                        that.curIdx = 0;
+                        that.box.css("left", 0 - that.oWidth);
+                    }
+                })
+            }, 2000);
+        };
+    };
+    $(".carousel").each(function(){
+        new Carousel($(this));
+    });
+</script>
+</body>
+</html>
