@@ -1,0 +1,527 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html,body{
+    position: relative;
+    height: 100%;
+    font-size: 18px;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+h1{
+    font-size: 68px;
+    color: #f8e300;
+    padding:50px 0;
+}
+h2{
+    font-size: 55px;
+}
+h3{
+    font-size: 32px;
+    padding: 10px 0;
+}
+p{
+    padding: 2px;
+}
+dd{
+     margin:0;
+ }
+.container{
+    z-index: 2;
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+}
+.clear-fix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.decoration{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background: url("../image/2.png") no-repeat;
+    background-size: 180px 180px;
+    left: 70%;
+}
+.close{
+    display: none;
+}
+.active{
+    display: block;
+}
+/***********************************************/
+#nav-bar{
+    background: #3c2b46;
+ }
+#nav-bar a{
+    z-index: 1;
+    color: #fff;
+    font-size: 20px;
+    font-family: "Microsoft YaHei UI",sans-serif;
+}
+#nav-bar a:hover{
+    color: #f8e300;
+}
+.nav-left{
+    float: left;
+}
+.nav-right{
+    float: right;
+}
+.nav-item{
+    display: inline-block;
+    padding: 32px 30px;
+}
+.nav-logo{
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
+/***************************************/
+#header{
+    position: relative;
+    background: #2d1c3b;
+    text-align: center;
+    overflow: hidden;
+}
+#header:after{
+    content: '';
+    display: block;
+    border-top: 200px solid transparent;
+    border-right: 2500px solid #fff;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+#header .container{
+    background:
+            url("../image/1.png") 80px 10px no-repeat,
+            url("../image/5.png") center 150px no-repeat;
+}
+#header .aside-title{
+    color: #fff;
+    padding-top: 130px;
+}
+#header .what{
+    position: absolute;
+    font-size: 30px;
+    color: #aaa;
+    opacity: 0.5;
+}
+#header .what-1{
+     top: 360px;
+ }
+#header .what-2{
+    left: 60%;
+    top: 260px;
+}
+.circle-box{
+    float: left;
+    height: 220px;
+    width: 220px;
+    margin: 50px 50px;
+    border-radius: 50%;
+    background:#f8e300;
+    color:#2d1c3b;
+    font-weight: bold;
+    z-index: 2;
+}
+#header .circle-box-title{
+    padding-top: 35px;
+}
+
+#header .circle-box-btn{
+    display: inline-block;
+    background:#2d1c3b;
+    color: #fff;
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+#header .circle-box-btn:hover{
+    background: #3c2b46;
+    color: #ccc;
+}
+
+#reason{
+    color: #2d1c3b;
+    background: #fff;
+    position: relative;
+    background: url("../image/5_11.png") no-repeat center 10px;
+}
+#reason .container{
+    background: url("../image/3.png") no-repeat 32% 210px,
+        url("../image/3.png") no-repeat 32% 440px,
+        url("../image/4.png") no-repeat 68% 210px,
+        url("../image/4.png") no-repeat 68% 440px;
+    background-size: 60px 60px;
+}
+
+#reason{
+    position: relative;
+    background: #fff;
+}
+#reason .introduction-ct{
+    margin: 20px 0;
+}
+#reason .main-column{
+    float: left;
+    width: 261px;
+    margin: 40px 59px;
+    text-align: center;
+}
+#reason .aside-column{
+    float: left;
+    width: 300px;
+    text-align: center;
+}
+#reason .extra-column{
+    float: left;
+    width: 300px;
+    text-align: center;
+}
+#reason .study-title{
+    text-align: center;
+    letter-spacing: 5px;
+    padding: 50px 0;
+}
+#reason .study-introduction{
+    text-align: left;
+    border: dashed 2px #2d1c3b;
+    width: 280px;
+    font-family: "Microsoft YaHei UI",sans-serif;
+    margin: 0 auto 30px auto;
+}
+#reason .study-introduction-title{
+    color: #2d1c3b;
+    padding: 10px 10px 0 10px;
+    font-size: 20px;
+}
+#reason .study-introduction-content{
+    font-size: 16px;
+    color: #7c6a7e;
+    padding: 10px;
+}
+
+#reason .teacher-image{
+    display: inline-block;
+    background: url("../image/products/teacher.png") 50% 50% no-repeat;
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    border: 5px solid #ccc;
+}
+
+#products{
+    background:#2d1c3b;
+    position: relative;
+}
+#products:before{
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    border-top: 5rem solid #fff;
+    border-right: 20rem solid transparent;
+    position: absolute;
+
+}
+#products .products-title-1{
+    padding: 50px 0 0 0;
+    text-align: center;
+    color: #7c6a7e;
+}
+#products .products-title-2{
+    color: #fff;
+    text-align: center;
+}
+#products .products-title-2:after{
+    position: absolute;
+    content: "!";
+    color: #f8e300;
+    font-size: 180px;
+    top: -50px;
+    transform: rotate(15deg);
+    font-family: "微软雅黑",sans-serif;
+}
+#products .products-list{
+    padding: 50px 0;
+}
+#products .products-items{
+    float: left;
+}
+#products .circle-image{
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    margin: 20px 30px 10px;
+    border: 5px solid #f8e300;
+}
+#products a{
+    color: #fff;
+    text-align: center;
+    display: block;
+}
+
+#course{
+    position: relative;
+    background: #fff;
+}
+#course .course-title{
+    color: #2d1c3b;
+    text-align: center;
+    padding: 30px;
+}
+#course .introduction-title{
+    display: inline-block;
+    color: #2d1c3b;
+    font-size: 40px;
+    margin-top: 140px;
+}
+#course .course-content{
+    font-family: 方正姚体,sans-serif;
+    margin:20px 40px;
+    width: 600px;
+    height: 400px;
+}
+#course .right-float{
+    float: right;
+}
+#course .left-float{
+    float: left;
+}
+#course .left-float:before{
+    display: inline-block;
+    margin: 15px 15px 15px -50px;
+    content: "";
+    border-left: 150px solid #2d1c3b;
+    border-top: 3px solid #2d1c3b;
+}
+#course .right-float:after{
+    display: inline-block;
+    margin: 15px 0 15px 15px;
+    content: "";
+    border-left: 150px solid #2d1c3b;
+    border-top: 3px solid #2d1c3b;
+}
+#course li .float-js:after{
+    border-left: 50px solid #2d1c3b;
+}
+#course dt{
+    font-size: 32px;
+    padding-bottom: 10px;
+}
+#course dd{
+    font-size: 22px;
+    line-height: 1.5em;
+    color: #7c6a7e;
+}
+#course .course-content a{
+    display: block;
+    margin: 10px 0;
+}
+#course .course-html{
+    float: right;
+    background: url("../image/course/1.png") no-repeat;
+    background-size: contain;
+}
+#course .course-css{
+    background: url("../image/course/2.png") no-repeat;
+    float: left;
+}
+#course .course-js{
+    background: url("../image/course/3.png") no-repeat;
+    float: right;
+}
+
+
+#QA{
+    background: #fff;
+    position: relative;
+    font-family: "Microsoft YaHei UI",sans-serif;
+}
+#QA h3,#QA h4{
+    text-align: center;
+}
+#QA h3{
+    color: #2d1c3b;
+}
+#QA h4{
+    color: #3c2b46;
+}
+#QA .QA-question{
+    font-weight: bold;
+    font-size: 28px;
+    color: #2d1c3b;
+    padding: 10px;
+}
+#QA .QA-answer{
+    font-size: 20px;
+    color: #7c6a7e;
+    line-height: 30px;
+    padding-left: 10px;
+}
+#QA .QA-content{
+    margin: 30px 0 100px 0;
+}
+#aside-tip{
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    right: 0;
+    top: 70%;
+    width: 70px;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    z-index: 4;
+}
+#aside-tip a{
+    color: #fff;
+}
+#aside-tip:hover{
+    opacity: 1;
+    background: #666;
+}
+#aside-tip p{
+    font-family: "Microsoft YaHei UI",sans-serif;
+    margin: 15px;
+}
+#aside-tip i{
+    font-size: 35px;
+    cursor: pointer;
+}
+#aside-tip .icon-tel-copy:hover{
+    color: #7cfc00;
+}
+#aside-tip .icon-QQ:hover{
+    color: #36bbfa;
+}
+#aside-tip .tel-box{
+    color: #222222;
+    background: #fff;
+    position: absolute;
+    right: 110%;
+    bottom: 30%;
+    border: 1px solid #b1b1b1;
+}
+#aside-tip .tel-box .tel{
+    font-size: 14px;
+    width: 161px;
+    line-height: 22px;
+}
+#aside-tip .tel-box .triangle{
+    border-style: solid;
+    border-color: transparent transparent transparent #b1b1b1;
+    border-width: 8px 22px 8px 8px;
+    right: -30px;
+    bottom: 35%;
+    position: absolute;
+}
+#aside-tip .tel-box .triangle2{
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+    border-width: 8px 22px 8px 8px;
+    right: -29px;
+    bottom: 35%;
+    position: absolute;
+}
+#aside-tip .tel-box .btn-close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#extra-tip {
+    position: fixed;
+    left: 0;
+    top: 20%;
+    font-family: "Microsoft YaHei UI",sans-serif;
+    font-size: 14px;
+    color: #ffcc33;
+    z-index: 4;
+}
+#extra-tip .tip-btn-open{
+    font-size: 20px;
+    padding: 5px 10px;
+    background: rgba(25,143,209,0.7);
+    border-radius: 0 15px 15px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+#extra-tip .tip-content{
+    position: absolute;
+    top:-5px;
+    background:rgba(25,143,209,0.7);
+    width: 520px;
+}
+#extra-tip .tip-btn-close{
+    text-align: center;
+    font-size: 25px;
+    background:rgba(25,143,209,0.7);
+    position: absolute;
+    top:0;
+    left: 100%;
+    width: 40px;
+    height: 30px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+#extra-tip .tip-introduction{
+    display: inline-block;
+    margin-left:10px;
+}
+#extra-tip .tip-say{
+    display: inline-block;
+    color: black;
+    background:rgba(255,255,255,0.5);
+    padding: 5px;
+    width: 300px;
+    border: 1px dashed black;
+    border-radius: 5px;
+    margin: 20px 10px;
+}
+
+#footer{
+    position: relative;
+    background:transparent;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+#footer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: #2d1c3b;
+    height: 1000px;
+    border-radius: 50%;
+    width: 200%;
+    z-index: -1;
+    margin-left: -50%;
+}
+#footer .method{
+    width: 400px;
+    padding: 50px 0 20px 0;
+    margin: 0 auto ;
+}
+#footer .method li {
+    float: left;
+    margin: 0 20px;
+}
+#footer a{
+    color: #fff;
+    font-size: 20px;
+}

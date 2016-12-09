@@ -1,0 +1,413 @@
+/*********************************init*****************************************/
+/*********************************init****************************************/
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+html, body, #header, #header .carousel, #header .carousel-img-ct{
+    width: 100%;
+    height: 100%;
+}
+h2{
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-family: "Microsoft YaHei UI",sans-serif;
+}
+h3{
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+h4{
+    font-size: 1.2em;
+    margin:10px 0;
+    font-family: "Microsoft YaHei UI",sans-serif;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+p{
+    color: #666;
+    font-family: "Microsoft YaHei UI",sans-serif;
+}
+input,textarea:focus{
+    outline: none;
+}
+/**************************************public class************************************/
+/**************************************public class************************************/
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.table{
+    display: table;
+}
+.table-cell{
+    display: table-cell;
+    vertical-align:middle;
+}
+.text-center{
+    text-align: center;
+}
+.padding-wraps{
+    padding: 120px 0;
+}
+.side-title{
+    font-family: Lucida Calligraphy,Arial,sans-serif;
+    font-size:20px;
+    margin-bottom: 80px;
+}
+.clear:after{
+    content: "";
+    display: block;
+    clear:both;
+}
+.btn{
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #fff;
+    font-size:25px ;
+    display: inline-block;
+    padding: 15px 30px;
+    background: #fed136;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn:hover{
+    background: #fa0;
+    color: #333;
+}
+.circle-image{
+    border-radius: 50%;
+}
+.float-left{
+    float: left;
+    text-align: right;
+}
+.float-right{
+    float: right;
+    text-align: left;
+}
+.go-top{
+    font-family: "Microsoft YaHei UI",sans-serif;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    position: fixed;
+    bottom: 10px;
+    right: 0;
+    border: 1px solid #933;
+    background: #fff;
+    border-radius: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.go-top:hover{
+    background: #933;
+    color: #fff;
+}
+.exposure{
+    opacity: 0;
+}
+/**************************************nav-bar************************************/
+/**************************************nav-bar************************************/
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.2);
+    z-index: 2;
+}
+#nav .logo-a{
+    color: #fed136;
+    font-family:"Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    font-size:30px;
+    line-height: 60px;
+}
+#nav ul{
+    float: right;
+}
+#nav li{
+    float: left;
+}
+#nav li a{
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 22px;
+    font-weight: bold;
+}
+#nav li a:hover{
+    color: #000;
+}
+#nav li:hover{
+    background: #fd0;
+}
+.nav-bar-change{
+    background: rgba(0,0,0,1);
+}
+#nav .nav-bar-active{
+    background: #fd0;
+    color: #000;
+}
+/**************************************header************************************/
+/**************************************header************************************/
+#header .carousel-img-ct:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+#header .carousel{
+    position: relative;
+    overflow: hidden;
+}
+#header .carousel-img-ct{
+    position: absolute;
+}
+#header .carousel-item{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    float: left;
+    background-size: cover;
+}
+#header .carousel-main{
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    top:50%;
+    left: 50%;
+    font-family: "Microsoft YaHei UI";
+    font-size: 32px;
+    transform: translate(-50%,-50%);
+    cursor:default;
+    z-index: 1;
+}
+#header .carousel-bullet{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+#header .carousel-bullet li{
+    display: inline-block;
+    width: 30px;
+    height: 10px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#header .carousel-bullet .active{
+    background: #666;
+}
+#header .carousel-next{
+    right: 10px;
+}
+#header .carousel-pre{
+    left: 10px;
+}
+#header .carousel-arrow{
+    position: absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.5);
+    color: #ccc;
+    cursor: pointer;
+}
+#header .carousel-arrow:hover{
+    background: rgba(0,0,0,0.8);
+    color: #999;
+}
+/**************************************main************************************/
+/**************************************main************************************/
+#service .service-items,#team .team-members{
+    width: 360px;
+    margin-left: 30px;
+    float: left;
+}
+#service i {
+    cursor:default;
+    font-size: 100px;
+    color: #fed000;
+}
+
+
+#protfolio,#team{
+    background-color: #eee;
+}
+#protfolio .projects-wrap{
+    position:relative;
+    margin-left: 50px;
+}
+#protfolio .image-block{
+    box-shadow: 10px 10px 5px 5px #ddd;
+    position: absolute;
+    background: #fff;
+    width: 350px;
+    margin-right:25px;
+    margin-bottom: 25px;
+    transition: all 1s;
+}
+#protfolio .image-block p{
+    font-family: "Lucida Calligraphy","Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-bottom: 30px;
+}
+#protfolio a{
+    display: block;
+    position: relative;
+}
+#protfolio a:hover .protfolio-img-hover{
+    display: block;
+}
+#protfolio .protfolio-img-hover{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:#fed136;
+    opacity: 0.9;
+    display: none;
+}
+#protfolio .protfolio-img-hover i{
+    position: absolute;
+    font-size: 50px;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+#about .timeline{
+    position: relative;
+}
+#about .timeline:before{
+    position: absolute;
+    left: 50%;
+    top:10px;
+    bottom:10px;
+    content: "";
+    border:1px solid #ccc;
+
+}
+#about .timeline>li{
+    position: relative;
+    min-height: 170px;
+    margin-bottom: 120px;
+}
+#about .timeline>li .timeline-image{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+}
+#about .timeline>li .timeline-panel{
+    width: 29%;
+    margin:0 140px;
+    line-height: 1.5em;
+}
+#about img,#about .end-cricle{
+    margin-top:-85px;
+    margin-left: -82px;
+    border: 7px solid #ccc;
+}
+#about .end-cricle{
+    width: 150px;
+    height: 150px;
+    background:#fed136;
+    color: #fff;
+}
+#about .end-cricle-font{
+    width: 100px;
+    height: 100px;
+    margin: 40px 25px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Microsoft YaHei UI", sans-serif;
+}
+
+#team img{
+    margin: 20px auto;
+    display: block;
+    border: 7px solid #fff;
+}
+#team li{
+    display: inline-block;
+    padding: 5px;
+}
+#team li a:hover,#team li a:active{
+    color: #fddb0f;
+}
+#team li i{
+    font-size: 40px;
+}
+#team .team-text{
+    width: 700px;
+    font-size: 16px;
+    margin: 25px auto;
+}
+
+
+
+#brand li{
+    float: left;
+    padding: 60px 45px;
+}
+
+#message{
+    background: url("../image/message-bg.jpg");
+}
+#message h2{
+    color: #fff;
+}
+#message .form-box{
+    float: left;
+    margin: 42px 32px;
+}
+#message .userinput,#message textarea{
+    display: block;
+    border-radius: 5px;
+    width: 500px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+#message textarea{
+    height: 160px;
+}
+/**************************************footer************************************/
+/**************************************footer************************************/
+#footer p{
+    display: inline-block;
+    color: #000;
+    padding: 30px 100px;
+}
+#footer i {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 40px;
+}
+#footer i:hover{
+    color: #fed136;
+}
+#footer .a-decoration{
+    color: #fddb0f;
+}
+#footer .a-decoration:hover{
+    text-decoration: underline;
+}
