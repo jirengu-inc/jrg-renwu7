@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drap drop</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        ul li{
+            list-style-type: none;
+        }
+        ul{
+            min-height: 40px;
+            border: 1px solid #bbb;
+        }
+        li{
+            width: 40px;
+            height:40px;
+            border: 1px dotted #bbb ;
+            float: left;
+            margin:10px 10px;
+            text-align: center;
+            line-height: 40px;
+        }
+        ul::after{
+            content: '';
+            display: block;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <h3>全部</h3>
+    <ul class="all ct">
+        <li class="tag-car" draggable="true">汽车</li>
+        <li class="tag-game" draggable="true">游戏</li>
+        <li class="tag-phone" draggable="true">手机</li>
+        <li class="tag-green" draggable="true">绿色</li>
+        <li class="tag-red" draggable="true">红色</li>
+        <li class="tag-yellow" draggable="true">黄色</li>
+        <li class="tag-blue" draggable="true">蓝色</li>
+        <li class="tag-black" draggable="true">黑色</li>
+    </ul>
+
+<h3>订阅</h3>
+    <ul class="subscribe ct">
+    </ul>
+    <script>
+        var all=document.querySelector('.ct');
+        var sub=document.querySelector('.subscribe');
+        var tag=document.querySelectorAll('.ct li');
+        for(var i=0;i<tag.length;i++){
+            tag[i].ondragstart=function(e){
+                e.dataTransfer.setData("class",e.target.className);
+            }
+        }
+        sub.ondragover=ondragover;
+        all.ondragover=ondragover;
+        sub.ondrop=ondrop;
+        all.ondrop=ondrop;
+        function ondragover(e){
+            e.preventDefault();
+        }
+        function ondrop(e){
+            e.preventDefault();
+            if(e.target.tagName.toLowerCase()==='li')return;
+            var cls=e.dataTransfer.getData('class');
+            e.target.appendChild(document.getElementsByClassName(cls)[0]);
+        }
+    </script>
+</body>
+</html>
