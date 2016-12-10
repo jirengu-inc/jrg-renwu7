@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3</title>
+    <style>
+         *{
+             padding: 0;
+             margin: 0;
+         }
+         body{
+             position: relative;
+         }
+         ul li{
+             list-style-type:none;
+         }
+        .box{
+            width:100px;
+            height:100px;
+            margin:50px 0 50px 100px;
+            display: inline-block;
+        }
+        .box.box1{
+            background: red;
+            border-radius:10px;
+        }
+        .box.box2{
+            border-radius: 50%;
+            background: yellow;
+        }
+        .box.box3{
+            background: blue;
+            box-shadow:7px 6px 10px #bbb;
+        }
+        .box.box4{
+            transform:scale(.5,.5);
+            background: purple;
+        }
+        .box.box5{
+            transform:scale(2,1.5);
+            background: aqua;
+        }
+        .box.box6{
+            transform:rotate(60deg);
+            background: bisque;
+        }
+        .box.box7{
+            transform: skew(-20deg);
+            background: greenyellow;
+        }
+        .box.box8{
+            background: brown;
+            transform:rotateY(120deg);
+        }
+        .box.box9{
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            background: orchid;
+            margin: 50px 0;
+        }
+        .box.box10{
+            background: linear-gradient(to right ,#000,#bbb);
+        }
+        .box.box11{
+            background: red;
+            transition: width 2s;
+        }
+        .box.box11:hover{
+            width: 200px;
+        }
+        .box.box12{
+            position:absolute;
+            background: yellow;
+            left:0;
+            margin: 50px 0;
+        }
+        .box.box12:hover{
+            animation:test 4s;
+        }
+        @keyframes test {
+            from{
+                background: yellow;
+                left:0;
+            }
+            to{
+                background: blue;
+                left:500px;
+            }
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="box box1"></li>
+    <li class="box box2"></li>
+    <hr>
+    <li class="box box3"></li>
+    <hr>
+    <li class="box box4"></li>
+    <li class="box box5"></li>
+    <li class="box box6"></li>
+    <li class="box box7"></li>
+    <hr>
+    <li class="box box8">1233</li>
+    <li class="box box9">1233</li>
+    <hr>
+    <li class="box box10"></li>
+    <hr>
+    <li class="box box11">请把鼠标放上去</li>
+    <hr>
+    <li class="box box12">请把鼠标放上去</li>
+
+</ul>
+</body>
+</html>

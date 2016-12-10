@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+.box{
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background-image:url(1.jpg);
+background-repeat:no-repeat;
+background-size:105%;
+}
+.box::before{
+display:block;
+content:'';
+position:absolute;
+top:0;
+bottom:0;
+left:0;
+width:50%;
+background:linear-gradient(to right, rgba(0,0,255,0.5),rgba(0,0,255,0.1));
+}
+.box::after{
+display:block;
+content:'';
+position:absolute;
+top:0;
+bottom:0;
+right:0;
+width:50%;
+background:linear-gradient(to right, rgba(255,0,0,0.5),rgba(255,0,0,0.1));
+}
+</style>
+</head>
+<body>
+<div class="box">
+</div>
+</body>
+</html>
