@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 100px;
+            border: 2px solid #EEEEEE;
+            margin: 20px auto;
+            position: relative;
+        }
+        .box:before{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border: solid 15px;
+            border-bottom-color:#CCCCCC;
+            border-left-color: transparent;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            top: -30px;
+            left: 5px;
+        }
+        .box1:before{
+            content: '';
+            display: block;
+            position: absolute;
+            border: solid 10px;
+            border-top-color:red;
+            border-right-color: red;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            right: -1px;
+            top: -1px;
+        }
+        .box2:before{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #FFFFFF;
+            border: #EEEEEE solid 2px;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            transform: rotate(-45deg);
+            top: -15px;
+            left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>
