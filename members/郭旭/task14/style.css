@@ -1,0 +1,182 @@
+/*reset*/
+body, div, p, ul, ol, dl, dt, dd, li, form, input, table, img, h1, h2, h3, h4, h5, h6{margin:0;padding:0;}
+html { font-family:Microsoft YaHei ,Helvetica Neue, Helvetica , Roboto ,  Heiti SC, STHeiTi, Arial, sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 14px; line-height:1.5}
+body,html{width: 100%;height:100%;}
+a{color:#000;text-decoration:none;cursor: pointer;}
+a:link, a:visited{}
+a:hover, a:active{text-decoration:none;}
+a.on:hover, a.cur:hover, .on a:hover, .cur a:hover{text-decoration:none;}
+img, a img{border:0 none;}
+ul, ol{list-style-type:none;}
+ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden;}
+.vspace{height:10px;font-size:0px;line-height:0px;width:99%;clear:both;}
+.text-center{ text-align: center;}
+
+/*iconfont*/
+@font-face {font-family: "iconfont";
+    src: url('iconfont.eot?t=1481022169269'); /* IE9*/
+    src: url('iconfont.eot?t=1481022169269#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff?t=1481022169269') format('woff'), /* chrome, firefox */
+    url('iconfont.ttf?t=1481022169269') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg?t=1481022169269#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family:"iconfont" !important;
+    font-size:90px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-xinfengpsd,.icon-tubiao210{
+    font-size: 14px;
+    color: #575757;
+    padding-right:5px;
+}
+.icon-xinfengpsd:before { content: "\e630"; }
+.icon-tubiao210:before { content: "\e61b"; padding-right:5px;}
+.icon-niao:before { content: "\e684";font-size:40px; }
+.icon-shiyanping:before { content: "\e7e2"; }
+.icon-anquan:before { content: "\e609"; }
+.icon-jiuyizhinan:before { content: "\e6d3"; }
+.icon-kaideng:before { content: "\e604"; }
+.icon-lanqiu:before { content: "\e602";font-size: 32px; }
+.icon-f:before { content: "\e650"; font-size: 50px;}
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+.btn-grey{
+    display: inline-block;
+    color: #FFFFFF;
+    padding: 13px 20px;
+    line-height: 24px;
+    text-align: center;
+    background: rgba(0,0,0,.4);
+    font-size: 14px;
+}
+.btn-grey:hover{
+    background: rgba(0,0,0,.7);
+}
+.btn-white{
+    display: inline-block;
+    padding: 6px 20px;
+    line-height: 24px;
+    text-align: center;
+    background: white;
+    font-size: 14px;
+}
+.btn-white:hover{
+    background: #EEEEEE;
+}
+#header{
+    width: 100%;
+    height: 100%;
+    background: url("bg.jpg");
+    background-size: cover;
+}
+.table{
+    display: table;
+    height: 100%;
+}
+.td{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+#header h1{
+    font-size: 50px;
+}
+#header p{
+    line-height: 40px;
+    font-size: 16px;
+}
+.about{
+    padding: 46px 0;
+    text-align: center;
+}
+.about .link{color:#337ab7;}
+.services{
+    background: #337ab7;
+    padding: 50px 0;
+    color: #FFFFFF;
+    text-align: center;
+}
+.services .line{
+    width: 80px;
+    height: 1px;
+    background: #FFFFFF;
+    margin: 10px auto;
+}
+.services ul{
+    margin-left: -40px;
+}
+.services li{
+    float: left;
+    width: 210px;
+    margin: 0 0 10px 40px;
+}
+.vertical-text{
+    padding: 200px 0;
+    background: url("callout.jpg") no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+.vertical-text h1{
+    color: #FFFFFF;
+    font-size: 40px;
+}
+.work{
+    text-align: center;
+}
+.work .line{
+    width: 80px;
+    height: 1px;
+    background: #EEEEEE;
+    margin: 10px auto;
+}
+.work ul{
+    margin: 0 0 20px 0px;
+}
+.work li{
+    float: left;
+    margin: 0 20px 20px 0px;
+}
+.work li img{
+    width: 460px;
+}
+.buttons{
+    padding: 50px 0;
+    background: #337ab7;
+    text-align: center;
+}
+.buttons h1{color:#FFFFFF;margin-bottom: 10px;}
+.buttons .btn-grey{
+    padding: 6px 20px;
+}
+.footerbox{
+    padding-top: 40px;
+}
+.footerbox .inf{
+    margin-top: 10px;
+}
+.footerbox .contact-icon{
+    width: 190px;
+    margin: 0 auto;
+}
+.footerbox .contact-icon li{
+    float: left;
+    color: #337ab7;
+    margin: 0 10px;
+    line-height: 40px;
+}
+.footerbox .contact-icon li a{
+    color: #337ab7;
+}
+.footerbox .line{
+    width: 80px;
+    height: 1px;
+    background: #EEEEEE;
+    margin: 10px auto;
+}
