@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,ul,li,div,p{
+            margin: 0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+        body{
+            background: #FFFFFF;
+            font-family: 'Microsoft YaHei';
+        }
+        .wrap{
+            width: 900px;
+            margin: 0 auto;
+        }
+        .clearfix {*zoom: 1;}
+        .clearfix:before, .clearfix:after { display: table; line-height: 0; content: "";}
+        .clearfix:after {clear: both;}
+        header{
+            background: #333333;
+            height: 50px;
+        }
+        .header-logo img{
+            height: 40px;
+        }
+        .header-nav{
+            float: right;
+        }
+        .header-nav li{
+            float: left;
+            line-height: 50px;
+            margin-right: 20px;
+        }
+        section{
+            padding-top: 10px;
+        }
+        .content-aside,.content-main{background: #EEEEEE;}
+        .content-aside{
+            float: left;
+            width: 200px;
+            min-height: 500px;
+        }
+        .content-main{
+            margin-left: 210px;
+            padding: 20px 10px;
+            color: #656565;
+        }
+        .content-main h1{
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .content-main p{
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        footer{
+            height: 40px;
+            background: #333333;
+        }
+        footer li{
+            float: left;
+            margin: 0 5px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap clearfix">
+            <a href="#" class="header-logo"><img src="http://cdn.jirengu.com/public/logo-tiny.png" alt="logo"></a>
+            <ul class="header-nav clearfix">
+                <li><a href="#">技能</a></li>
+                <li><a href="#">经历</a></li>
+                <li><a href="#">作品</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <div class="wrap clearfix">
+            <div class="content-aside"></div>
+            <div class="content-main">
+                <h1>我的作品</h1>
+                <p>生活很美好</p>
+                <p>心情不错</p>
+                <p>代码写的很漂亮</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="wrap">
+            <ul>
+                <li><a href="#">饥人谷</a></li>
+                <li><a href="#">JSCODE</a></li>
+                <li><a href="#">JSBIN</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

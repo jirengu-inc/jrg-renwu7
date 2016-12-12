@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>27-4 full pages</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /*box-sizing: border-box;*/
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #ct{
+            position: relative;
+            /*border: 1px  solid red;*/
+            overflow: hidden;
+            /*left: 300px;*/
+        }
+        .ct1{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        html, body , #ct ,.ct1 ,.ct1 li,img {
+            width: 100%;
+            height: 100%;
+        }
+        .bg{
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+        }
+        .main{
+            position: absolute;
+            width: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%);
+            z-index: 1;
+            text-align: center;
+            color: greenyellow;
+        }
+        h3{
+            font-size: 60px;
+            opacity: 0.8;
+        }
+        .ct1 p{
+            font-size: 30px;
+            opacity: 0.9;
+        }
+        .ct1 li{
+            position: relative;
+            /*display: none;*/
+            float: left;
+
+        }
+        .clearfix {
+            clear: both;
+        }
+        .arrow{
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            background: #eee;
+            border-radius: 100%;
+            text-align: center;
+            opacity: 0.7;
+        }
+        .before{
+            left: 5px;
+        }
+        .after{
+            right: 5px;
+        }
+        .ct2 {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .ct2 li{
+            background: #ccc;
+            width: 15px;
+            height: 8px;
+            /*border: 1px solid #eee;*/
+            border-radius: 10px;
+            /*margin: 0 3px;*/
+            display: inline-block;
+            cursor: pointer;
+        }
+        .ct2 .active{
+            background: #666;
+        }
+
+    </style>
+</head>
+<body>
+<div id="ct">
+    <ul class="ct1 clearfix">
+        <li>
+            <div class="bg"
+                 style="width: 736px; background-image: url(http://cdn.jirengu.com/book.jirengu.com/img/13.jpg);"
+                 data-bg-img="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" ></div>
+            <div class="main">
+                <h3>关关雎鸠</h3>
+                <p>在河之洲</p>
+            </div>
+        </li>
+        <li>
+            <div class="bg" data-bg-img="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" ></div>
+            <div class="main">
+                <h3>窈窕淑女</h3>
+                <p>君子好逑</p>
+            </div>
+        </li>
+        <li>
+            <div class="bg" data-bg-img="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" ></div>
+            <div class="main">
+                <h3>但为卿故</h3>
+                <p>沉吟至今</p>
+            </div>
+        </li>
+        <li>
+            <div class="bg" data-bg-img="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" ></div>
+            <div class="main">
+                <h3>我心有猛虎 细嗅蔷薇</h3>
+                <p>陪你看星空灿烂 心中江山如画</p>
+            </div>
+        </li>
+    </ul>
+    <a class="before arrow" href="JavaScript:void(0)"> < </a>
+    <a class="after arrow" href="JavaScript:void(0)"> > </a>
+    <ul class="ct2 clearfix">
+        <li class="active" ></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+<script>
+
+    var $ct1 = $('#ct .ct1'),
+        $items = $ct1.children(),
+        $bf = $('.before'),
+        $af = $('.after'),
+        $ct2 = $('#ct .ct2'),
+        imgWidth = $(window).width(),
+        imgNum = $items.length; // 克隆的不算数量
+
+    $ct1.prepend($items.last().clone());
+    $ct1.append($items.first().clone());
+    imgRealNum = $ct1.children().length;
+    $('.ct1 li').css('width',imgWidth);
+    $('.bg').css('width',imgWidth);
+    $ct1.css({
+        left: 0-imgWidth,
+        width: imgRealNum*imgWidth
+    });
+
+
+
+    $bf.on('click',function(){
+        playBefore();
+    });
+    $af.on('click',function(){
+        playAfter();
+    });
+    $ct2.find('li').on('click',function(){
+        var idx = $(this).index();
+        if(idx > curIdx){
+            playAfter(idx - curIdx);
+        }else if (idx < curIdx){
+            playBefore(curIdx - idx);
+        }
+    });
+
+    var curIdx = 0,
+        isAnimate = false ;
+
+    setBg(1);
+    playauto();
+    //    playautoStop();
+
+// 图片实现懒加载
+    function setBg(idx){
+        var idx = idx || 0,
+            $node = $items.eq(idx),
+            $bg = $node.find('.bg'),
+            imgUrl = $bg.attr('data-bg-img');
+        if($node.data('isBgset')) return;
+            $bg.css( {
+                'background-image': 'url(' + imgUrl + ')'
+            } );
+            $node.data('isBgset', true);
+    }
+
+    function setct2(){
+        var idx = curIdx;
+        $ct2.find('li').removeClass('active')
+            .eq(idx).addClass('active');
+    }
+
+
+
+    function playAfter(idx){
+        var idx = idx || 1;
+        if(!isAnimate){
+            isAnimate = true;
+            setBg(curIdx + 2);
+            $ct1.animate( {left: '-='+ (imgWidth*idx) }, function(){
+                curIdx = (curIdx+idx)%imgNum;
+                if(curIdx === 0){
+                    $ct1.css({left: 0-imgWidth});
+                }
+                isAnimate = false;
+                setct2();
+            })
+        }
+    }
+
+    function playBefore(idx){
+        var idx = idx || 1;
+        if(!isAnimate){
+            isAnimate = true;
+            setBg(curIdx - 1);
+            $ct1.animate({left: '+='+(imgWidth*idx)}, function(){
+                curIdx = (imgNum + curIdx - idx)%imgNum;
+                if(curIdx === (imgNum-1)){
+                    $ct1.css({left: 0-imgWidth*imgNum});
+                }
+                isAnimate = false;
+                setct2();
+            })
+        }
+    }
+
+    function playauto(){
+        clock = setInterval(function(){
+            playAfter();
+        },3000)
+    }
+
+    function playautoStop(){
+        clearInterval(clock);
+    }
+</script>
+</body>
+</html>

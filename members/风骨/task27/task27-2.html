@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>27-1 轮播</title>
+    <title>27-2  多个轮播</title>
     <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
     <style>
         *{
@@ -19,17 +19,17 @@
         a{
             text-decoration: none;
         }
-        #ct{
+        .ctt1 ,.ctt2 ,.ctt3{
             position: relative;
             /*border: 1px  solid red;*/
             overflow: hidden;
             left: 200px;
             width: 380px;
-            height: 300px;
+            height: 280px;
         }
         img{
             width: 380px;
-            height: 300px;
+            height: 280px;
         }
         .ct1 li{
             position: absolute;
@@ -81,15 +81,49 @@
     </style>
 </head>
 <body>
-<div id="ct">
+<div class="ctt1">
     <ul class="ct1 clearfix">
         <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
         <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
         <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
         <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
     </ul>
-    <a class="before arrow" href="javascript:void(0)"> < </a>
-    <a class="after arrow" href="javascript:void(0)"> > </a>
+    <a class="before arrow" href="#"> < </a>
+    <a class="after arrow" href="#"> > </a>
+    <ul class="ct2 clearfix">
+        <li class="active" ></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="ctt2">
+    <ul class="ct1 clearfix">
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="before arrow" href="#"> < </a>
+    <a class="after arrow" href="#"> > </a>
+    <ul class="ct2 clearfix">
+        <li class="active" ></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="ctt3">
+    <ul class="ct1 clearfix">
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="before arrow" href="#"> < </a>
+    <a class="after arrow" href="#"> > </a>
     <ul class="ct2 clearfix">
         <li class="active" ></li>
         <li></li>
@@ -100,12 +134,15 @@
 
 
 <script>
+function render(ctt){
 
-    var $ct1 = $('#ct .ct1'),
+
+    var $this = $(ctt),
+        $ct1 = $this.find('.ct1'),
         $items = $ct1.children(),
-        $bf = $('.before'),
-        $af = $('.after'),
-        $ct2 = $('#ct .ct2'),
+        $bf = $this.find('.before'),
+        $af = $this.find('.after'),
+        $ct2 = $this.find('.ct2'),
         imgWidth = $items.width(),
         imgNum = $items.length; // 克隆的不算数量
 
@@ -124,7 +161,7 @@
     var curIdx = 0,
         isAnimate = false ;
 
-   function play(idx){
+    function play(idx){
         if(isAnimate){
             return;
         }
@@ -139,32 +176,37 @@
 
     play(0);
     playauto();
-//    playautoStop();
+    //    playautoStop();
 
     function setct2(){
         var idx = curIdx;
         $ct2.find('li').removeClass('active')
-                        .eq(idx).addClass('active');
+            .eq(idx).addClass('active');
     }
 
 
 
-   function playAfter(){
+    function playAfter(){
         play((curIdx + 1) % imgNum)
-   }
-   function playBefore(){
+    }
+    function playBefore(){
         play( (imgNum + curIdx - 1)% imgNum )
-   }
+    }
 
-   function playauto(){
+    function playauto(){
         clock = setInterval(function(){
             playAfter();
         },3000)
-   }
+    }
 
-   function playautoStop(){
-       clearInterval(clock);
-   }
+    function playautoStop(){
+        clearInterval(clock);
+    }
+}
+
+render('.ctt1');
+render('.ctt2');
+render('.ctt3');
 </script>
 </body>
 </html>
