@@ -375,6 +375,24 @@ a{
     letter-spacing: 2px;
 
 }
+.team-box{
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 35px;
+}
+.team-box>ul{
+    margin-left: -100px;
+    
+
+}
+.team-box>ul>li{
+    float: left;
+    width: 300px;
+    margin-left: 100px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
+}
 
 .team-container {
 	margin-top: 70px;
@@ -387,9 +405,7 @@ a{
     float: left;
 }
 
-.picture {
-    margin-left: 120px;
-}
+
 
 .picture img {
     display: block;
@@ -400,17 +416,17 @@ a{
 }
 
 .member>h3 {
-    margin-left: 160px;
+    /*margin-left: 160px;*/
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .member>p {
-    margin-left: 160px;
+    /*margin-left: 160px;*/
 }
 
 .icon-box {
-    margin-left: 160px;
+    /*margin-left: 160px;*/
 }
 
 .icon-box>a i:hover {
