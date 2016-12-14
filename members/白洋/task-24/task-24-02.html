@@ -42,65 +42,79 @@
 		<li class="neirong">第2行</li>
 		<li class="neirong">第3行</li>
 	</ul>
-	  <a href="#" class="jiazai">加载更多</a>
+	  <a href="javascript:void(0)" class="jiazai">加载更多</a>
 	</div>
 	<script>
 	// 封装过得ajax函数
-		function ajax(opts){
-    //一.设置默认参数
-    var defaults = {    
-            url: '',
-            type: 'GET',
-              data: '',        
-             async: true,
-             cache: true,
-       contentType: 'application/x-www-form-urlencoded',
-           success: function (){},
-             error: function (){}
-        };    
-    //二.用户参数覆盖默认参数    
-    for(var key in opts){
-        defaults[key] = opts[key];
-    }
-    //三.开始编写ajax
-    //1.创建ajax对象
-    var oXhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    //2.和服务器建立联系，告诉服务器你要取什么文件
-    oXhr.open(defaults.type, defaults.url, defaults.async);
-    //3.发送请求
-    if(defaults.type === 'GET')    
-        oXhr.send();
-    else{
-        oXhr.setRequestHeader("Content-type", defaults.contentType);
-        oXhr.send(defaults.data);
-    }    
-    //4.等待服务器回应
-    oXhr.onreadystatechange = function (){
-        if(oXhr.readyState === 4){
-            if(oXhr.status === 200)
-                defaults.success.call(oXhr, oXhr.responseText);
-            else{
-                defaults.error();
-            }
+function ajax(opts) {
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText)
+            console.log(json)
+            opts.success(json)
         }
-    };
+        if (xhr.readyState === 4 && xhr.status === 404) {
+            opts.error()
+        }
+    }
+    var dataStr = ''
+    for (var key in opts.data) {
+        dataStr += key + '=' + opts.data[key] + '&'
+    }
+    dataStr = dataStr.substr(0, dataStr.length - 1)
+    if (opts.type.toLowerCase() === 'get') {
+        xhr.open(opts.type, opts.url + '?' + dataStr, true)
+        xhr.send()
+    }
+    if (opts.type.toLowerCase() === 'post') {
+        xhr.open(opts.type, opts.url, true)
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(dataStr)
+    }
 }
+
 // 结束
+var listdata = document.querySelector('.rongqi');
 var LoadList = document.querySelector('.jiazai');
 LoadList.addEventListener('click',function(shuzi){
 		console.log("aaa");
 		ajax({
-        url: '/list',   //接口地址
+        url: 'return.php',   //接口地址
         type: 'GET',               // 类型，get
-        data: shuzi,
-        success: function(ret){
-            console.log(ret); 
+        data: {
+        	id:2,
+        	list:listdata.children.length,
+        	// list:8,
+        	listadd:5
+        },
+        success: function(json){
+            // console.log(json);
+            loadlist(json);
                   // {status: 0}
         },
         error: function(){
            console.log('出错了')
         }
     		})
+
+		function loadlist(json){
+			console.log(json);
+			for(var key in json){
+				newli(json[key]);
+
+			}
+		}
+
+		function newli(str){
+			var newlis = document.createElement('li');
+			newlis.className="neirong";
+			listdata.append(newlis);
+			listdata.children[listdata.children.length-1].append("第"+str+"行");
+
+		document.body.scrollTop=document.body.scrollHeight;
+		}
+
 
 });
 	</script>

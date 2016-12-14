@@ -7,52 +7,43 @@
 <body>
 <button type="button" id="btn">btn</button>
 	<script>
-	function ajax(opts){
-    //一.设置默认参数
-    var defaults = {    
-            type: 'GET',
-               url: '',
-              data: '',        
-             async: true,
-             cache: true,
-       contentType: 'application/x-www-form-urlencoded',
-           success: function (){},
-             error: function (){}
-        };    
-    //二.用户参数覆盖默认参数    
-    for(var key in opts){
-        defaults[key] = opts[key];
-    }
-    //三.开始编写ajax
-    //1.创建ajax对象
-    var oXhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    //2.和服务器建立联系，告诉服务器你要取什么文件
-    oXhr.open(defaults.type, defaults.url, defaults.async);
-    //3.发送请求
-    if(defaults.type === 'GET')    
-        oXhr.send();
-    else{
-        oXhr.setRequestHeader("Content-type", defaults.contentType);
-        oXhr.send(defaults.data);
-    }    
-    //4.等待服务器回应
-    oXhr.onreadystatechange = function (){
-        if(oXhr.readyState === 4){
-            if(oXhr.status === 200)
-                defaults.success.call(oXhr, oXhr.responseText);
-            else{
-                defaults.error();
-            }
+function ajax(opts) {
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText)
+            console.log(json)
+            opts.success(json)
         }
-    };
+        if (xhr.readyState === 4 && xhr.status === 404) {
+            opts.error()
+        }
+    }
+    var dataStr = ''
+    for (var key in opts.data) {
+        dataStr += key + '=' + opts.data[key] + '&'
+    }
+    dataStr = dataStr.substr(0, dataStr.length - 1)
+    if (opts.type.toLowerCase() === 'get') {
+        xhr.open(opts.type, opts.url + '?' + dataStr, true)
+        xhr.send()
+    }
+    if (opts.type.toLowerCase() === 'post') {
+        xhr.open(opts.type, opts.url, true)
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(dataStr)
+    }
 }
+
+
+
 document.querySelector('#btn').addEventListener('click', function(){
     ajax({
-        url: '/comment/',   //接口地址
-        type: 'post',               // 类型， post 或者 get,
+        url: 'return.php',   //接口地址
+        type: 'get',               // 类型， post 或者 get,
         data: {
+            id:1,
             username: 'xiaoming',
-            password: 'abcd1234'
         },
         success: function(ret){
             console.log(ret);       // {status: 0}
