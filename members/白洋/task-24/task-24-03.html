@@ -141,13 +141,45 @@ function isLegalPassword(str){
 				console.log("userceshi1");
 				msgusername.innerText=""
 				username.className="";
-				
-				//todo
+				//todoajax
+			ajax({
+        		url: 'return.php',   //接口地址
+        		type: 'GET',               // 类型，get
+        		data:{
+        		id:3,
+        		type:'user',
+        		shuju:username.value
+        		},
+        		success: function(json){
+            	// console.log(json);
+            	console.log(json);
+            		tmps(json);
+                  // {status: 0}
+        		},
+        		error: function(){
+           		console.log('出错了')
+        		}
+    			});
+
+				function tmps(json){
+					if (json=='0'){
+						msgusername.innerText=username.value+"已注册";
+					}
+					if(json=='1'){
+						msgusername.innerText="";
+					}
+				}
+
+
+
+
+
+
+				//ajaxend
 			}else {
 				username.className="error";
 				console.log("长度1-22个字符，只能包括字母、数字、下划线");
 				msgusername.innerText="长度1-22个字符，只能包括字母、数字、下划线";
-				//todo
 			}
 		});
 		password1.addEventListener('blur', function(tmp){
@@ -171,7 +203,29 @@ function isLegalPassword(str){
 				}
 			}
 		});
+		button.addEventListener('click', function(tmp){
+			//todoajax
+			ajax({
+        		url: 'return.php',   //接口地址
+        		type: 'GET',               // 类型，get
+        		data:{
+        		id:3,
+        		type:'all',
+        		shuju:password2.value
+        		},
+        		success: function(json){
+            	// console.log(json);
+            	alert(json);
+                  // {status: 0}
+        		},
+        		error: function(){
+           		console.log('出错了')
+        		}
+    			});
 
+			//ajaxend
+			console.log("这是按钮");
+		});
 	</script>
 </body>
 </html>
