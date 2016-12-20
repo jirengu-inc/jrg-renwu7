@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab切换</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        ul,li{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        .switchtab{
+            margin-top:10px;
+        }
+        .switchtab .tabsec li{
+            display:inline-block;
+            border:1px solid #ccc;
+            width:200px;
+            height:50px;
+            line-height:50px;
+            text-align: center;
+            border-right:none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .switchtab .tabsec li:nth-child(3){
+            border-right:1px solid #ccc;
+        }
+        .switchtab .tabsec li:hover{
+            background-color: #ccc;
+        }
+        .switchtab .cont-block{
+            padding:20px;
+            width:600px;
+            height:250px;
+            border:1px solid #ccc;
+            border-top:none;
+            display:none;
+        }
+        .switchtab .cont-block.active{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<div class="switchtab">
+    <ul class="tabsec">
+        <li>tab1</li><li>tab2</li><li>tab3</li>
+    </ul>
+    <div class="cont-block active">内容1</div>
+    <div class="cont-block">内容2</div>
+    <div class="cont-block">内容3</div>
+</div>
+<div class="switchtab">
+    <ul class="tabsec">
+        <li>tab1</li><li>tab2</li><li>tab3</li>
+    </ul>
+    <div class="cont-block active">内容1</div>
+    <div class="cont-block">内容2</div>
+    <div class="cont-block">内容3</div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    function SwitchTab($st){
+        this.$st = $st;
+        this.$tabs = this.$st.children('.tabsec').find('li');
+        this.$cont = this.$st.find('.cont-block');
+        this.bind();
+    }
+    SwitchTab.prototype = {
+        bind:function(){
+            var me =this;
+            this.$tabs.on('mouseenter',function(){
+                        var idx = $(this).index();
+                        me.switch(idx);
+            })
+        },
+        switch:function(idx){
+            this.$cont.removeClass('active');
+            this.$cont.eq(idx).addClass('active');
+        }
+    };
+var st1 = $('.switchtab').eq(0);
+var st2 = $('.switchtab').eq(1);
+var dost1 = new SwitchTab(st1);
+var dost2 = new SwitchTab(st2);
+
+</script>
+</body>
+</html>
