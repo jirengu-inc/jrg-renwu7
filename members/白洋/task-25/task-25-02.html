@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .rongqi {
+            
+            margin: 0px;
+            padding: 0px;
+        }
+        .tabtitle {
+            margin: 0xp;
+            padding: 0px;
+            list-style: none;
+        }
+        .tabtitle:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+        .zititle {
+            float: left;
+            text-align: center;
+            line-height: 35px;
+            width: 60px;
+            border:solid 1px #ccc;
+            border-radius: 5px;
+        }
+        .zititle>a {
+	        text-decoration: none;
+            color: black;
+}
+        .neirong{
+            width: 500px;
+            list-style: none;
+            position: absolute;   
+            border: solid 1px red;
+        }
+        .neirong2{
+            position: absolute;
+            left: 1px;
+            display: none;
+        }
+        
+        .neirong3{
+            display: none;
+            position: absolute;
+            left: 1px;
+        }
+    </style>
+    <div class="rongqi">
+        <ul class="tabtitle">
+            <li class="zititle"><a href="javascript:void(0);">珠宝</a>
+            <ul class="neirong neirong1">
+                <li class="xiangxineirong">text</li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+            </ul>
+            </li>
+            <li class="zititle"><a href="javascript:void(0);">首饰</a>
+            <ul class="neirong neirong2">
+                <li class="xiangxineirong">text2</li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+            </ul>
+            </li>
+            <li class="zititle"><a href="javascript:void(0);">更多</a>
+            <ul class="neirong neirong3">
+                <li class="xiangxineirong">text3</li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+                <li class="xiangxineirong"></li>
+            </ul>
+            </li>
+        </ul>
+        
+    </div>
+    
+
+    
+    
+    
+    <script src="jquery.min.js">
+    </script>
+    <script>
+        $(".zititle").on("click",function(){
+
+        })
+    </script>
+</body>
+
+</html>
