@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task11-1</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        .wrap{
+            width: 960px;
+            margin: 0 auto;
+        }
+        .header{
+            background: #cbcbcb;
+        }
+        .nav:after{
+            content: "";
+            display: block;
+            clear:both;
+        }
+        .nav>li{
+            float: left;
+            line-height: 16px;
+            padding: 10px 20px;
+            position: relative;
+        }
+        .nav>li:hover{
+            background: #666666;
+        }
+        .nav>li:hover .nav-second{
+            display: block;
+        }
+        .nav .nav-second{
+            display: none;
+            position: absolute;
+            left: 0px;
+            top: 100%;
+            border: 1px solid #EEEEEE;
+        }
+        .nav .nav-second li{
+            line-height: 16px;
+            padding: 10px 4px;
+            cursor: pointer;
+        }
+        .nav .nav-second li:hover{
+            background: #cbcbcb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="wrap">
+            <ul class="nav">
+                <li>
+                    <a href="#">前端</a>
+                    <ul class="nav-second">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Javascript</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">服务端</a>
+                    <ul class="nav-second">
+                        <li>Node</li>
+                        <li>PHP</li>
+                        <li>Java</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">前端工具</a>
+                    <ul class="nav-second">
+                        <li>Sublime</li>
+                        <li>Webstorm</li>
+                        <li>Git</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">HTML</a>
+                </li>
+                <li>
+                    <a href="#">NODE</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

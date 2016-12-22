@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个轮播</title>
+    <style>
+        ul,li,a,img{
+            padding:0;
+            margin:0;
+        }
+        ul,li{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+        .carousel{
+            position:relative;
+            width:400px;
+            height:300px;
+            overflow:hidden;
+
+        }
+        .carousel .imglist{
+            position:absolute;
+        }
+        .clearfix:after{
+            content:"";
+            display:block;
+            clear: both;
+        }
+        .carousel .imglist li{
+            float:left;
+        }
+        .carousel .imglist li a img{
+            width:400px;
+            height:300px;
+        }
+        .carousel .btn{
+            position:absolute;
+            top:50%;
+            margin-top:-15px;
+            width:30px;
+            height:30px;
+            line-height:30px;
+            text-align:center;
+            background-color:rgba(0,0,0,0.9);
+            color:#fff;
+            border-radius:50%;
+            opacity:0.5;
+            cursor:pointer;
+        }
+        .btn:hover{
+            opacity:0.9;
+        }
+        .prev{
+            left:10px;
+        }
+        .next{
+            right:10px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <ul class="imglist clearfix">
+            <li><a href="#"><img src="img/1.jpg"></a></li>
+            <li><a href="#"><img src="img/2.jpeg"></a></li>
+            <li><a href="#"><img src="img/3.jpeg"></a></li>
+            <li><a href="#"><img src="img/4.jpeg"></a></li>
+        </ul>
+        <div class="btn prev"><</div>
+        <div class="btn next">></div>
+    </div>
+    <div class="carousel">
+        <ul class="imglist">
+            <li><a href="#"><img src="img/1.jpg"></a></li>
+            <li><a href="#"><img src="img/2.jpeg"></a></li>
+            <li><a href="#"><img src="img/3.jpeg"></a></li>
+            <li><a href="#"><img src="img/4.jpeg"></a></li>
+        </ul>
+        <div class="btn prev"><</div>
+        <div class="btn next">></div>
+    </div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+function Carousel($carousel){
+    this.$imglist = $carousel.find('.imglist');
+    this.$imgitems = $carousel.find('.imglist li');
+    this.$prev = $carousel.find('.prev');
+    this.$next = $carousel.find('.next');
+    this.imgWidth = this.$imgitems.width();
+    this.imgSize = this.$imgitems.size();
+    this.$imglist.css('width',this.imgWidth*this.imgSize);
+    this.bind();
+    console.log(this);
+}
+Carousel.prototype = {
+    bind:function(){
+        var holdThis = this;
+        this.$prev.on('click',function(){
+            holdThis.playPrev();
+        });
+        this.$next.on('click',function(){
+            holdThis.playNext();
+        })
+    },
+    playNext:function(){
+        var $imglist = this.$imglist;
+        $imglist.animate({left:0-this.imgWidth},function(){
+            $imglist.append($imglist.children().first());
+            $imglist.css('left','0');
+        });
+
+
+    },
+    playPrev:function(){
+        var $imglist = this.$imglist;
+        $imglist.prepend($imglist.children().last());
+        $imglist.css({left:0-this.imgWidth});
+        $imglist.animate({'left':'0'});
+    }
+};
+
+var $c1 = $('.carousel').eq(0);
+var $c2 = $('.carousel').eq(1);
+var c1 = new Carousel($c1);
+var c2 = new Carousel($c2);
+
+</script>
+</body>
+</html>

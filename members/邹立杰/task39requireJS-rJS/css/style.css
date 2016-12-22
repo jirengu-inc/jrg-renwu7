@@ -43,6 +43,7 @@ header{
 	width:100%;
 	position: fixed;
 	background:#444;
+	z-index:2;
 }
 .navbar{
 	width:1000px;
@@ -404,4 +405,55 @@ footer{
 }
 .other-item li a:hover{
 	text-decoration:underline;
+}
+.gotop{
+		position: fixed;
+		right:10px;
+		bottom:10px;
+		padding:5px;
+		border-radius:3px;
+		background: #000;
+		color:#fff;
+		cursor:pointer;
+}
+#waterFull{
+		position: relative;
+}
+#waterFull .item{
+	position: absolute;
+	width:272px;
+	padding:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+	border:1px solid #ccc;
+	box-sizing:border-box;
+}
+#waterFull .link img{
+	width:250px;
+	margin-bottom:10px;
+}
+#waterFull .header{
+	height:25px;
+	border-bottom:1px solid #ccc;
+}
+#waterFull .desp{
+	font-size: 12px;
+	color:#666;
+}
+#load{
+	width:70px;
+	margin:0 auto;
+	padding:5px 8px;
+	font-size: 13px;
+	background: #333;
+    border-radius: 3px;
+    color:#fff;
+    cursor: pointer;
+	/*visibility:hidden;*/
+}
+.hide{
+	display: none;
+}
+.about-itemlist li{
+	display: none;
 }
