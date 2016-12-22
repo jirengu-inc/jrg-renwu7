@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>CSS Last Task</title>
+		<title>AMD</title>
 		<link rel="stylesheet" href="css/iconfont.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/carousel.css">
 	</head>
 	<body>
 		<div class="navbar-wrap">
@@ -19,7 +20,7 @@
 				</ul>
 			</nav>
 		</div>
-		<header>
+		<!-- <header>
 			<div class="wrap">
 				<div class="intro-text text-center">
 					<p>Welcome To Our Studio!</p>
@@ -27,7 +28,27 @@
 					<a href="#" class="btn">tell me more</a>
 				</div>
 			</div>
-		</header>
+		</header> -->
+		<div class="carousel">
+			<ol class="ct">
+				<li class="item" data-img="23.jpg">
+					<img src="images/carousel/23.jpg" alt="">
+				</li>
+				<li class="item" data-img="24.jpg">
+					<img src="images/carousel/24.jpg" alt="">
+				</li>
+				<li class="item" data-img="25.jpg">
+					<img src="images/carousel/25.jpg" alt="">
+				</li>
+			</ol>
+			<div class="arrow prev"><</div>
+			<div class="arrow next">></div>
+			<!-- <ol class="bullet">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+			</ol> -->
+		</div>
 		<section id="service">
 			<div class="wrap">
 				<div class="section-title text-center">
@@ -65,7 +86,7 @@
 					<h2>protfolio</h2>
 					<p>Lorem ipsum dolor sit amet consectetur.</p>
 				</div>
-				<ul class="prot-itemlist clearfix">
+				<!-- <ul class="prot-itemlist clearfix">
 					<li class="prot-item text-center">
 						<a href="#" class="prot-link">
 							<div class="prot-hover">
@@ -150,8 +171,20 @@
 							<p class="text-muted">Website Design</p>
 						</div>
 					</li>
-					
+				</ul> -->
+				<ul id="waterFull">
+					<!-- <li class="item">
+						<a href="#" class="link">
+							<img src="http://s.img.mix.sina.com.cn/auto/resize?img=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F5_img%2F2016_09%2F453_75615_657883.jpg&size=250_0" alt="">
+						</a>
+						<h4 class="header">标题</h4>
+						<p class="desp">
+							当地时间2016年3月1日，在东部与亲俄武装作战中受伤的乌克兰士兵接受海豚治疗。
+						</p>
+					</li> -->
+					<li class="item hide"></li>
 				</ul>
+				<div id="load">加载更多</div>
 			</div>
 		</section>
 		<section id="about">
@@ -326,4 +359,10 @@
 			</div>
 		</footer>
 	</body>
+	<script  data-main="dist/merge.min.js" src="require.js"></script>
+	<!--<script  data-main="js/main" src="require.js"></script>-->
+	<!--<script   src="js/lib/jquery/jquery.min.js"></script>
+	<script>
+
+	</script>-->
 </html>
