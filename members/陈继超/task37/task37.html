@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 创建对象的几种方式 </title>
+</head>
+<body>
+
+<script>
+// 1. 工厂模式
+// 缺点: 无法得到对象的类型,两个长得一样,但是不知道谁生产的,不知道品牌
+
+//function makePerson(name,age){
+//    var obj = {
+//        name : name,
+//        sayName : function(){
+//            console.log("我是"+ this.name);
+//        }
+//    };
+//   return obj;
+//}
+//var c1 = makePerson('少年');
+//var c2 = makePerson('青年');
+
+// 2. 构造函数方式
+// 缺点:每个 Person 都有一个 sayName() 函数,而这些函数的功能是一样的,如果有
+// 一万个 Person()函数,就太浪费了;若想公用一个函数就要用原型的方式创建对象;
+
+//    function Person(name){
+//        this.name = name;
+//        this.sayName = function(){
+//            console.log("我是"+ this.name);
+//        }
+//    }
+//
+//    var c1 = new   Person('少年');
+//    var c2 =  new  Person('青年');
+//    console.log(c1 instanceof Person);
+//    console.log(c2 instanceof Person);
+
+//    3. 原型的方式
+//    function Person(name){
+//        this.name = name;
+//    }
+//
+//    Person.prototype = {
+//        other : '壮年',
+//        sayName : function(){
+//            console.log("我是 "+ this.name);
+//            console.log("我还有 "+ this.other);
+//        }
+//    };
+//
+//    var c1 = new Person('青少年');
+//    var c2 = new Person('壮年');
+//
+//    c1.sayName();
+//    c2.sayName();
+//    c1.other = '中年';
+//    console.log( c2.other );
+
+//   4. Object.create 创建对象  和 作用
+
+//    function Person(name,age){
+//        this.name = name;
+//        this.age = age;
+//    }
+//
+//    Person.prototype.sayName = function(){
+//        console.log('我的名字是'+ this.name);
+//    };
+//
+//    function People(name,age,sex){
+//        Person.call(this, name, age);
+//        this.sex = sex;
+//    }
+//
+//    People.prototype = Object.create(Person.prototype);
+//    People.prototype.constructor =  People;
+//
+//    var p1 = new People('小陈', 26, '男');
+
+//    5.hasOwnProperty 测试一个属性的存在;直接与继承属性的区分
+
+//    var a = {name : 'jack'};
+//
+//    a.hasOwnProperty('name');
+//    a.hasOwnProperty('jack');
+//    a.hasOwnProperty('toString');
+
+//    6. 实现Object.create的 polyfill，如：（ps: 写个 函数create，实现 Object.create 的功能)
+
+//    function create(obj){
+//        if (typeof obj != 'function'){
+//            var temp = function(){};
+//                temp.prototype = obj;
+//                return new temp();
+//        }
+//        return  Object.create(obj);
+//    }
+//
+//    var obj = {a: 1, b:2};
+//    var obj2 = create(obj);
+//    console.log(obj2.a); //1
+
+
+
+
+
+
+
+
+//function Person(name, sex){
+//    this.name = name;
+//    this.sex = sex;
+//}
+//function Male(name, sex, age){
+//    Person.call(this, name, sex);    //这里的 call 有什么作用
+//    this.age = age;
+//}
+//
+//p1 = new Male('jack', 'nan', 20);
+
+
+
+//  补全代码,实现继承
+
+    function Person(name, sex){
+        this.name = name;
+        this.sex = sex;
+    }
+
+    Person.prototype.getName = function(){
+//        console.log("我的名字是 " + this.name);
+        return this.name;
+    };
+
+    function Male(name, sex, age){
+        Person.call(this,name,sex);
+        this.age = age;
+    }
+
+    Male.prototype = Object.create(Person.prototype);
+    Male.prototype.constructor = Male;
+
+    Male.prototype.printName = function () {
+        console.log("打印名字 " + this.getName() + "   性别 "+ this.sex + "    年龄 "+ this.getAge() );
+    };
+
+    Male.prototype.getAge = function(){
+//        console.log("我的年龄是 "+ this.age )
+        return this.age;
+    };
+
+    var ruoyu = new Male('若愚', '男', 27);
+    ruoyu.printName();
+
+
+
+</script>
+</body>
+</html>
