@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> dialog </title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        html,body{
+            height: 100%;
+        }
+        .dialog{
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            font-size: 14px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+            background: #eee;
+            width: 400px;
+            margin-left: -200px;
+            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+        .dialog-header{
+            color: #fff;
+            background: #676666;
+        }
+        .dialog-header h3{
+            text-align: center;
+        }
+        .dialog-header .btn-close{
+            position: absolute;
+            right: 10px;
+            top: 3px;
+            cursor:  pointer;
+        }
+        .p1{
+            padding: 10px 0;
+        }
+        .dialog .dialog-content{
+            padding: 10px;
+            margin: 13px;
+            color: #666;
+            font-size: 10px;
+        }
+        .dialog .dialog-footer {
+            text-align: center;
+        }
+        a.btn {
+            background: darkred;
+            text-decoration: none;
+            padding: 8px;
+            color: #fff;
+            border-radius: 5px;
+            text-align: center;
+        }
+        a.btn:hover{
+            background: red;
+        }
+        .draggable {
+            opacity: 0.8;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <button class="open1">打开1</button>
+    <button class="open2">打开2</button>
+    <button class="open3">打开3</button>
+    <button class="open4">打开4</button>
+    <button class="open5">打开5</button>
+    <p class="p1">鼠标在 dialog 上左键按下可拖动 dialog</p>
+    <P class="p1">可创建多个 dialog</P>
+
+    <!--<div class="dialog">-->
+        <!--<div class="dialog-box">-->
+            <!--<div class="dialog-header">-->
+                <!--<h3>欢乐颂</h3>-->
+                <!--<span class="btn-close">x</span>-->
+            <!--</div>-->
+            <!--<div class="dialog-content">-->
+                <!--are u ok ?-->
+                <!--are u ok ?-->
+                <!--are u ok ?-->
+                <!--are u ok ?-->
+                <!--are u ok ?are u ok ?are u ok ?are u ok ?are u ok ?are u ok ?are u ok ?are u ok ?are u ok ?-->
+            <!--</div>-->
+            <!--<div class="dialog-footer">-->
+                <!--<a href="#" class="btn btn-close">取消</a>-->
+                <!--<a href="#" class="btn btn-confirm">确定</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+<script>
+
+    function Dialog(){
+        this.createDialog();
+        this.bindEvent();
+    }
+
+    Dialog.prototype = {
+        defaultOpts: {
+            title : '',
+            message: '',
+            isShowCloseBtn: true,
+            isShowConfirmBtn: false,
+            onClose: function(){},
+            onConfirm: function(){}
+        },
+        open: function(opts){
+            this.setOpts(opts);
+            this.setDialog();
+            this.showDialog();
+        },
+        close: function(){
+            this.hideDialog();
+        },
+        setOpts: function(opts){
+//注意:  $.extend( {}, defaults, options );
+//      合并合并 defaults 和 options 对象，并且不修改 defaults 对象。这是常用的插件开发模式。
+            if(typeof opts === 'string'){
+                this.opts = $.extend({}, this.defaultOpts, {message: opts});
+            } else if(typeof opts === 'object'){
+                this.opts = $.extend({}, this.defaultOpts, opts);
+            }
+        },
+        bindEvent: function(){
+            var the = this;
+            the.$dialog.find('.btn-close').on('click',function(e){
+                e.preventDefault();
+                the.opts.onClose();
+                the.hideDialog();
+            });
+            the.$dialog.find('.btn-confirm').on('click', function(e){
+                e.preventDefault();
+                the.opts.onConfirm();
+                the.hideDialog();
+            });
+            the.$dialog.on('mousedown', function(e){
+                //e.pageX 和 e.pageY : 鼠标相对于文档的左边缘和顶部位置。
+                // $dialog.offset(): dialog的左上角到页面左上边缘的绝对位置
+                var $dialog = $(this),
+                    evtX = e.pageX - $dialog.offset().left, //eX 计算事件的触发点在 dialog 内部到 dialog 的左边缘的距离
+                    evtY = e.pageY - $dialog.offset().top;
+                $dialog.addClass('draggable').data('evtPos', {
+                    x: evtX,
+                    y: evtY
+                }); // 保存事件 dialog 边缘的距离
+            });
+
+            $('body').on('mousemove', function(e){
+                $('.draggable').length && $('.draggable').offset({
+                    top: e.pageY - $('.draggable').data('evtPos').y,
+                    left: e.pageX - $('.draggable').data('evtPos').x
+                });
+
+            $('body').on('mouseup', function(){
+                $('.draggable').length && $('.draggable').removeClass('draggable').removeData('evtPos');
+            })
+
+            });
+
+        },
+        // 创建 Dialog
+        createDialog: function(){
+            var tpl =   '<div class="dialog" sryle="display: none" >' +
+                            '<div class="dialog-box">' +
+                                '<div class="dialog-header"><h3></h3><span class="btn-close">x</span></div>' +
+
+                                '<div class="dialog-content">' + '</div>' +
+
+                                '<div class="dialog-footer">' +
+                                    '  <a href="#" class="btn btn-close">取消</a>' +
+                                    '  <a href="#" class="btn btn-confirm">确定</a>' +
+                                '</div>' +
+
+                            '</div>' +
+                        '</div>';
+
+            this.$dialog = $(tpl);
+            $('body').append(this.$dialog);
+        },
+        //根据参数设置 Dialog 样式和内容
+        setDialog: function(){
+            var $dialog = this.$dialog;
+
+            if(! this.opts.title){
+                $dialog.find('.dialog-header').hide();
+            }else{
+                $dialog.find('.dialog-header').show();
+            }
+
+            if(! this.opts.isShowCloseBtn){
+                $dialog.find('.dialog-footer .btn-close').hide();
+            }else{
+                $dialog.find('.dialog-footer .btn-close').show();
+            }
+
+            if(! this.opts.isShowConfirmBtn){
+                $dialog.find('.btn-confirm').hide();
+            }else{
+                $dialog.find('.btn-confirm').show();
+            }
+
+            $dialog.find('.dialog-header h3').text(this.opts.title);
+            $dialog.find('.dialog-content').html(this.opts.message);
+        },
+        showDialog: function(){
+            this.$dialog.show();
+        },
+        hideDialog: function(){
+            this.$dialog.hide();
+        }
+//        distoryDialog: function(){
+//            this.$dialog.remove();
+//        }
+    };
+
+
+    $('.open1').on('click', function() {
+        var dialog1 = new Dialog();
+        dialog1.open('很高兴遇见你');
+    });
+
+    $('.open2').on('click', function() {
+        var dialog2 = new Dialog();
+        dialog2.open('<a href="https://www.baidu.com/">你叫什么名字</a>');
+    });
+
+    $('.open3').on('click', function() {
+        var dialog3 = new Dialog();
+        dialog3.open({
+            title: '欢迎来到黄云扶日',
+            message: '蹉跎错,消磨过,最是光阴化浮沫',
+            isShowCloseBtn: true,
+            isShowConfirmBtn: true,
+            onClose: function() {
+                alert('关闭')
+            },
+            onConfirm: function() {
+                alert('确定');
+            }
+        });
+    });
+
+    var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+    $('.open4').on('click', function() {
+        var dialog4 = new Dialog();
+        dialog4.open({
+            title: '欢迎来到黄云扶日',
+            message: tpl,
+            isShowCloseBtn: true,
+            isShowConfirmBtn: true,
+            onClose: function() {
+                alert('关闭')
+            },
+            onConfirm: function() {
+                alert('确定');
+            }
+        });
+    });
+
+    $('.open5').on('click', function() {
+        var dialog5 = new Dialog();
+        dialog5.open({
+            title: '欢迎来到黄云扶日',
+            message: '陪你看星空灿烂,心中江山如画',
+            isShowCloseBtn: false,
+            isShowConfirmBtn: false
+        });
+    });
+
+//    拖拽 封装
+
+</script>
+
+</body>
+</html>

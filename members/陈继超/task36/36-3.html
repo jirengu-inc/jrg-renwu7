@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> instenceof </title>
+</head>
+<body>
+
+
+<script>
+
+function isObjInstanceOfFunc(obj,Func){
+    var __proto__ = obj.__proto__;
+    do{
+        if(__proto__ === Func.prototype ) return true;
+        if (! __proto__) return false;
+    } while (__proto__=__proto__.__proto__);
+    return false;
+}
+
+
+function a(){};
+function b(){};
+
+var p = new a();
+</script>
+</body>
+</html>
