@@ -24,7 +24,7 @@ define(['jquery'],function(){
             var secnum = $('#content').children().length;
             var offsetArr = [];
             for(var i=0;i<secnum;i++){
-                var isShow = $('#content').children().eq(i).offset().top;
+                var isShow = $('#content').children().eq(i).offset().top-20;
                 offsetArr.push(isShow);
             }
             return offsetArr;
