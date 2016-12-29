@@ -17,6 +17,7 @@
         font-size: 14px;
         font-weight: bold;
         border: none;
+        cursor: pointer;
     }
     .cansee{
         /*background: red;*/

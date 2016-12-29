@@ -46,13 +46,16 @@ ul,li{
     background: red;
 }
 #portfolio .layout .load-more{
-    width: 300px;
-    height: 100px;
+    width: 100px;
+    height: 50px;
     border-radius: 3px;
     background-color: yellow;
-    font-size: 30px;
-    color: rgba(0,0,0,0.5);
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
     outline: none;
     border: none;
     cursor: pointer;
+    font-weight: bold;
+    margin-top: 0;
+    padding-top: 0;
 }

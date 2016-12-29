@@ -1,4 +1,7 @@
-var $ct1 = $('#ct .ct1'),
+define(['jquery'], function($){
+
+var Carousel = (function(){
+     var $ct1 = $('#ct .ct1'),
         $items = $ct1.children(),
         $bf = $('.before'),
         $af = $('.after'),
@@ -15,8 +18,6 @@ var $ct1 = $('#ct .ct1'),
         left: 0-imgWidth,
         width: imgRealNum*imgWidth
     });
-
-
 
     $bf.on('click',function(){
         playBefore();
@@ -102,3 +103,6 @@ var $ct1 = $('#ct .ct1'),
     function playautoStop(){
         clearInterval(clock);
     }
+})()
+       return {Carousel}
+});

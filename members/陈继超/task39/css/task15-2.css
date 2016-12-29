@@ -233,10 +233,10 @@ display:none;
     margin-right: auto;
     margin-top: 100px;
 }
-/*#about .layout .vertical-line li{*/
-    /*margin-bottom: 100px;*/
-    /*border: 1px solid red;*/
-/*}*/
+#about .vertical-line .exposure{
+    opacity: 0;
+    /*display: none;*/
+}
 .img-circle {
     display: inline-block;
     width: 170px;
@@ -247,7 +247,7 @@ display:none;
     left: -88px;
     top: -175px;
     border: 6px solid  #f1f1f1;
-    /*margin-bottom：100px;*/
+    margin-bottom：100px;
 }
 .img-circle img{
     width: 100%;
