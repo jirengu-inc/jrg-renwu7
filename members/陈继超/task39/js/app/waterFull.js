@@ -1,122 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> 瀑布流 jsonp 懒加载</title>
-    <style>
-        html,body,ul,li,p,div{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        ul,li{
-            list-style: none;
-        }
-        .ct{
-            width: 900px;
-            margin: 0 auto;
-        }
-        .clearfix:after{
-            content: '';
-            display: block;
-            clear: both;
-        }
-        #pic-ct{
-            position: relative;
-        }
-        #pic-ct .item{
-            position: absolute;
-            width: 280px;
-            margin: 10px;
-            border: 1px solid #DFDFDF;
-            transition: all 0.8s;
-        }
-        #pic-ct .item img{
-            width: 260px;
-            margin: 10px;
-        }
-        #pic-ct .item .header{
-            margin: 12px;
-            padding-bottom: 10px;
-            border-bottom:  1px solid #BDBDBD;
-        }
-        #pic-ct .item .list-p{
-            margin: 10px 15px;
-            color: #777371;
-        }
-        .hide{
-            display: none;
-        }
-        #load{
-            visibility: hidden;
-            background: red;
-        }
-    </style>
-</head>
-<body>
-    <div class="ct">
-        <div class="ct-waterfall">
-            <ul id="pic-ct" class="clearfix">
-                <!--<li class="item">-->
-                    <!--<a href="javascript:void(0)">-->
-                        <!--<img src="http://s.img.mix.sina.com.cn/auto/resize?img=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F5_img%2F2016_09%2F453_75615_657883.jpg&size=250_0" alt="">-->
-                    <!--</a>-->
-                    <!--<h4 class="header">心机大蛇遇见人类竟装死</h4>-->
-                    <!--<p class="list-p">一条狡猾的蛇为了躲过捕食者的进攻，竟然会玩装死的把戏。</p>-->
-                <!--</li>-->
-                <li class="item hide"></li>  <!--//用来计算item 的列数和高度的,是隐藏的-->
-            </ul>
-            <div id="load">我是看不见的</div>
-        </div>
-    </div>
-
-
-
-<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
-<script>
-
-/*    思路
-    1.获取数据
-        {
-           page: 1,
-           len: 10
-        }  // 1,  1-10 数据  2的时候  11-20数据 与后端约定
-    2.把数据拼装成 DOM 放在页面上
-    3.使用瀑布流去摆放 DOM 位置
-
-
-    1.获取 page = 1 的 10条数据
-    2.把10条数据拼装成 DOM 放到页面
-    3,使用瀑布流去摆放 DOM 位置
-    4, page++
-
-    当 #load 出现在眼前的时候
-
-    1,获取 page 的 10条数据
-    2,把10条数据拼装成DOM放在页面上
-    3,用瀑布流去摆放DOM位置
-    4,page++
-
-*/
-
-    var clock;
+define(['jquery'],function($){
+	var clock;
     var $target = $('#load');
     var curPage = 1,
         lenPageCount = 10;
 
     var colSumHeight = [];
 
-    $(window).on('scroll',function(){
+    $('.load-more').on('click',function(){
         // 滚动会产生多次事件响应, setTimeout 主要在最后一次响应时候执行 checkShow
         if(clock){
             clearTimeout(clock);
         }
 
         clock = setTimeout(function(){
-            checkShow();
+            // checkShow();
+            doSome();
         },200);
 
     });
@@ -157,7 +55,7 @@
                 if(ret.status.code == 0){
                     var dataArr = ret.data;
                     var $nodes = renderData(dataArr);
-                    render($nodes);
+                    renderWaterFull($nodes);
                     curPage++;
                 }
             }
@@ -185,7 +83,7 @@
 
 
 //  瀑布流
-    function render($nodes){
+    function renderWaterFull($nodes){
 
         var nodeWidth = $nodes.outerWidth(true),
             cloNum = parseInt($('#pic-ct').width()/nodeWidth);
@@ -228,10 +126,15 @@
     }
 
 
+});
 
 
 
 
-</script>
-</body>
-</html>
+
+
+
+
+
+
+

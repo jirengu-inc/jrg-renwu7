@@ -2,30 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>任务15-2 </title>
+    <title>任务39 </title>
     <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="./css/fullScreen.css">
+    <link rel="stylesheet" href="./css/goTop.css">
     <link rel="stylesheet" href="./css/task15-2.css">
+    <link rel="stylesheet" href="./css/waterfull.css">
+    <script src="js/lib/jquery.min.js" ></script>
 </head>
 <body>
+
 <div id="header">
     <div class="layout clear" >
         <div class="navbar-top">
             <div class="layout">
-                <a href="" class="logo">Start Bootstrap</a>
+                <a href="#header" class="logo">Start Bootstrap</a>
                 <ul class="navbar">
-                    <li><a href="">CONTACT</a></li>
-                    <li><a href="">TEAM</a></li>
-                    <li><a href="">ABOUT</a></li>
-                    <li><a href="">PORTFOLIO</a></li>
-                    <li><a href="">SERVICES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="#team">TEAM</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#portfolio">PORTFOLIO</a></li>
+                    <li><a href="#services">SERVICES</a></li>
                 </ul>
             </div>
         </div>
-        <p>Welcome To Our Studio!</p>
-        <h2>IT'S NICE TO MEET YOU</h2>
-        <a href="" class="btn">TELL ME MORE</a>
+        <!--<p>Welcome To Our Studio!</p>-->
+        <!--<h2>IT'S NICE TO MEET YOU</h2>-->
+        <!--<a href="" class="btn">TELL ME MORE</a>-->
     </div>
 
+</div>
+
+
+
+<div id="ct">
+    <ul class="ct1 clearfix">
+        <li>
+            <div class="bg"
+                 style="width: 736px; background-image: url(img/11.jpg);"
+                 data-bg-img="img/11.jpg" ></div>
+            <div class="main">
+                <h3>关关雎鸠</h3>
+                <p>在河之洲</p>
+            </div>
+        </li>
+        <li>
+            <div class="bg" data-bg-img="img/13.jpg" ></div>
+            <div class="main">
+                <h3>窈窕淑女</h3>
+                <p>君子好逑</p>
+            </div>
+        </li>
+        <li>
+            <div class="bg" data-bg-img="img/14.jpg" ></div>
+            <div class="main">
+                <h3>但为卿故</h3>
+                <p>沉吟至今</p>
+            </div>
+        </li>
+        <li>
+            <div class="bg" data-bg-img="img/18.jpg" ></div>
+            <div class="main">
+                <h3>我心有猛虎 细嗅蔷薇</h3>
+                <p>陪你看星空灿烂 心中江山如画</p>
+            </div>
+        </li>
+    </ul>
+    <a class="before arrow" href="JavaScript:void(0)"> < </a>
+    <a class="after arrow" href="JavaScript:void(0)"> > </a>
+    <ul class="ct2 clearfix">
+        <li class="active" ></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </div>
 
 <div id="services">
@@ -56,68 +106,89 @@
     <div class="layout">
         <h2>PORTFOLIO</h2>
         <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-        <ul class="portfolio-list clear">
-            <li>
-                <a href="">
-                    <div class="portfolio-img-hover-color">
-                        <div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>
-                    </div>
-                    <img src="./img/roundicons-160906.png" alt="">
-                </a>
-                <h4>图形图标</h4>
-                <p>平面设计</p>
-            </li>
-            <li>
-                <a class="fffff" href="">
-                    <div class="portfolio-img-hover-color">
-                        <div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>
-                    </div>
-                    <img src="./img/startup-framework-160906.png" alt="">
-                </a>
-                <h4>启动框架</h4>
-                <p>网站设计</p>
-            </li>
-            <li>
-                <a href="">
-                    <div class="portfolio-img-hover-color">
-                        <div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>
-                    </div>
-                    <img src="./img/treehouse-160906.png" alt="">
-                </a>
-                <h4>树屋</h4>
-                <p>网站设计</p>
-            </li>
-            <li>
-                <a href="">
-                    <div class="portfolio-img-hover-color">
-                        <div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>
-                    </div>
-                    <img src="./img/golden-160906.png" alt="">
-                </a>
-                <h4>金色的</h4>
-                <p>网站设计</p>
-            </li>
-            <li>
-                <a href="">
-                    <div class="portfolio-img-hover-color">
-                        <div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>
-                    </div>
-                    <img src="./img/escape-160906.png" alt="">
-                </a>
-                <h4>逃逸</h4>
-                <p>网站设计</p>
-            </li>
-            <li>
-                <a href="">
-                    <div class="portfolio-img-hover-color">
-                        <div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>
-                    </div>
-                    <img src="./img/dreams-160906.png" alt="">
-                </a>
-                <h4>梦</h4>
-                <p>网站设计</p>
-            </li>
-        </ul>
+        <div class="ct-waterfall">
+            <ul id="pic-ct" class="clearfix">
+                <!--<li class="item">-->
+                <!--<a href="javascript:void(0)">-->
+                <!--<img src="http://s.img.mix.sina.com.cn/auto/resize?img=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F5_img%2F2016_09%2F453_75615_657883.jpg&size=250_0" alt="">-->
+                <!--</a>-->
+                <!--<h4 class="header">心机大蛇遇见人类竟装死</h4>-->
+                <!--<p class="list-p">一条狡猾的蛇为了躲过捕食者的进攻，竟然会玩装死的把戏。</p>-->
+                <!--</li>-->
+                <li class="item hide"></li>  <!--//用来计算item 的列数和高度的,是隐藏的-->
+            </ul>
+            <div id="load">我是看不见的</div>
+            <button class="load-more">点我加载更多</button>
+        </div>
+
+
+
+
+
+        <!--<h2>PORTFOLIO</h2>-->
+        <!--<h4>Lorem ipsum dolor sit amet consectetur.</h4>-->
+        <!--<ul class="portfolio-list clear">-->
+            <!--<li>-->
+                <!--<a href="">-->
+                    <!--<div class="portfolio-img-hover-color">-->
+                        <!--<div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>-->
+                    <!--</div>-->
+                    <!--<img src="./img/roundicons-160906.png" alt="">-->
+                <!--</a>-->
+                <!--<h4>图形图标</h4>-->
+                <!--<p>平面设计</p>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a class="fffff" href="">-->
+                    <!--<div class="portfolio-img-hover-color">-->
+                        <!--<div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>-->
+                    <!--</div>-->
+                    <!--<img src="./img/startup-framework-160906.png" alt="">-->
+                <!--</a>-->
+                <!--<h4>启动框架</h4>-->
+                <!--<p>网站设计</p>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="">-->
+                    <!--<div class="portfolio-img-hover-color">-->
+                        <!--<div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>-->
+                    <!--</div>-->
+                    <!--<img src="./img/treehouse-160906.png" alt="">-->
+                <!--</a>-->
+                <!--<h4>树屋</h4>-->
+                <!--<p>网站设计</p>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="">-->
+                    <!--<div class="portfolio-img-hover-color">-->
+                        <!--<div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>-->
+                    <!--</div>-->
+                    <!--<img src="./img/golden-160906.png" alt="">-->
+                <!--</a>-->
+                <!--<h4>金色的</h4>-->
+                <!--<p>网站设计</p>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="">-->
+                    <!--<div class="portfolio-img-hover-color">-->
+                        <!--<div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>-->
+                    <!--</div>-->
+                    <!--<img src="./img/escape-160906.png" alt="">-->
+                <!--</a>-->
+                <!--<h4>逃逸</h4>-->
+                <!--<p>网站设计</p>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="">-->
+                    <!--<div class="portfolio-img-hover-color">-->
+                        <!--<div class="portfolio-img-hover-icon"><i class="fa fa-arrows" aria-hidden="true"></i></div>-->
+                    <!--</div>-->
+                    <!--<img src="./img/dreams-160906.png" alt="">-->
+                <!--</a>-->
+                <!--<h4>梦</h4>-->
+                <!--<p>网站设计</p>-->
+            <!--</li>-->
+        <!--</ul>-->
     </div>
 </div>
 
@@ -181,15 +252,15 @@
         <h4>Lorem ipsum dolor sit amet consectetur.</h4>
         <ul class="team-list clear">
             <li>
-            <img src="./img/5.jpg" alt="">
-            <!--</div><div class="team-img-circle">-->
-            <h4>Kay Garland</h4>
-            <p>Lead Designer</p>
-            <div class="team-icon">
-                <a href=""><i class="fa fa-weibo" aria-hidden="true"></i></a>
-                <a href=""><i class="fa fa-qq" aria-hidden="true"></i></a>
-                <a href=""><i class="fa fa-weixin" aria-hidden="true"></i></a>
-            </div>
+                <img src="./img/5.jpg" alt="">
+                <!--</div><div class="team-img-circle">-->
+                <h4>Kay Garland</h4>
+                <p>Lead Designer</p>
+                <div class="team-icon">
+                    <a href=""><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-qq" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-weixin" aria-hidden="true"></i></a>
+                </div>
             </li>
             <li>
                 <img src="./img/6.jpg" alt="">
@@ -221,10 +292,10 @@
 
 <div id="aside">
     <div class="layout">
-            <img src="./img/envato.jpg" alt=""
-            ><img src="./img/designmodo.jpg" alt=""
-            ><img src="./img/themeforest.jpg" alt=""
-            ><img src="./img/creative-market.jpg" alt="">
+        <img src="./img/envato.jpg" alt=""
+        ><img src="./img/designmodo.jpg" alt=""
+    ><img src="./img/themeforest.jpg" alt=""
+    ><img src="./img/creative-market.jpg" alt="">
     </div>
 </div>
 
@@ -266,5 +337,12 @@
         </div>
     </div>
 </div>
+
+<button id="go-top">回到顶部</button>
+
+
+
+<script src="js/require.js" data-main="js/main"></script> 
+<!-- data-main="js/main" 是个坑,后缀不能带 .js 否则无法引入 -->
 </body>
 </html>
