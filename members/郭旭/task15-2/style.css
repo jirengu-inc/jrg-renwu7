@@ -31,6 +31,23 @@ ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;lin
     text-align: center;
     border-radius: 5px;
 }
+.content-box{
+    padding: 150px 0;
+    text-align: center;
+    background: #FFFFFF;
+}
+.content-box h1.title{
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.content-box p.brief{
+    color: #777;
+    margin-bottom: 75px;
+    font-style: italic;
+}
+.grey-background{
+    background: #f7f7f7;
+}
 .banner{
     background-image: url("header-bg.jpg");
     background-size: cover;
@@ -47,4 +64,95 @@ ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;lin
 }
 .banner .content h1{
     font-size: 75px;
+}
+.services{
+    text-align: center;
+    background: #FFFFFF;
+    padding: 150px 0;
+}
+.services .services-list::after{
+    content:'';
+    display:block;
+    clear: both;
+}
+.services .services-list > li{
+    float: left;
+    width: 360px;
+    padding:  0 15px;
+}
+.services .services-list > li > .icon-box{
+    color: #fed136;
+}
+.services .services-list > li > h3{
+    margin: 15px 0;
+}
+.portfolio .portfolio-list:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.portfolio .portfolio-list > li{
+    float: left;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+.portfolio .portfolio-list > li > img{
+    width: 360px;
+}
+.portfolio .portfolio-list > li > .white-box{
+    padding: 28px 10px;
+    background: #FFFFFF;
+}
+.portfolio .portfolio-list > li > .white-box h4{
+    font-size: 18px;
+}
+.portfolio .portfolio-list > li > .white-box p{
+    font-size: 16px;
+}
+.team .team-list:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.team .team-list > li{
+    float: left;
+    width: 360px;
+    padding: 0 15px;
+}
+.team .team-list > li > img{
+    border: 10px solid #fff;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.team .team-list > li > h4{
+    font-size: 18px;
+}
+.team .team-list > li > p{
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.team .team-list > li > .share{
+    width: 100%;
+    text-align: center;
+}
+.team .team-list > li > .share .link{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 40px;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: all .3s;
+}
+.team .team-list > li > .share .link:hover{
+    background: #fed136;
+}
+.team .long-brief{
+    width: 750px;
+    margin: 0 auto;
+    color: #777;
 }
