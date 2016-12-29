@@ -1,0 +1,50 @@
+/*reset*/
+body, div, p, ul, ol, dl, dt, dd, li, form, input, table, img, h1, h2, h3, h4, h5, h6{margin:0;padding:0;}
+html { font-family:Microsoft YaHei ,Helvetica Neue, Helvetica , Roboto ,  Heiti SC, STHeiTi, Arial, sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 14px; line-height:1.5}
+body,html{width: 100%;height:100%;}
+a{color:#000;text-decoration:none;cursor: pointer;}
+a:link, a:visited{}
+a:hover, a:active{text-decoration:none;}
+a.on:hover, a.cur:hover, .on a:hover, .cur a:hover{text-decoration:none;}
+img, a img{border:0 none;}
+ul, ol{list-style-type:none;}
+ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden;}
+.vspace{height:10px;font-size:0px;line-height:0px;width:99%;clear:both;}
+.text-center{ text-align: center;}
+
+.container{
+    width: 1170px;
+    margin: 0 auto;
+}
+.container:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.btn{
+    padding: 20px 40px;
+    background: #fed136;
+    font-size: 18px;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 5px;
+}
+.banner{
+    background-image: url("header-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+}
+.banner .content{
+    padding-top: 300px;
+    padding-bottom: 200px;
+    color: #ffffff;
+}
+.banner .content p{
+    font-size: 40px;
+}
+.banner .content h1{
+    font-size: 75px;
+}
