@@ -104,5 +104,5 @@ var Carousel = (function(){
         clearInterval(clock);
     }
 })()
-       return {Carousel}
+       return Carousel;
 });
