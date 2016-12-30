@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>27-1 轮播</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #ct{
+            position: relative;
+            /*border: 1px  solid red;*/
+            overflow: hidden;
+            left: 200px;
+            width: 380px;
+            height: 300px;
+        }
+        img{
+            width: 380px;
+            height: 300px;
+        }
+        .ct1 li{
+            position: absolute;
+            display: none;
+        }
+        .clearfix {
+            clear: both;
+        }
+        .ct1{
+            position: relative;
+        }
+        .arrow{
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            background: #eee;
+            border-radius: 100%;
+            text-align: center;
+            opacity: 0.7;
+        }
+        .before{
+            left: 5px;
+        }
+        .after{
+            right: 5px;
+        }
+        .ct2 {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .ct2 li{
+            background: #ccc;
+            width: 15px;
+            height: 8px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            /*margin: 0 3px;*/
+            display: inline-block;
+            cursor: pointer;
+        }
+        .ct2 .active{
+            background: #666;
+        }
+
+    </style>
+</head>
+<body>
+<div id="ct">
+    <ul class="ct1 clearfix">
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="before arrow" href="javascript:void(0)"> < </a>
+    <a class="after arrow" href="javascript:void(0)"> > </a>
+    <ul class="ct2 clearfix">
+        <li class="active" ></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+<script>
+
+    var $ct1 = $('#ct .ct1'),
+        $items = $ct1.children(),
+        $bf = $('.before'),
+        $af = $('.after'),
+        $ct2 = $('#ct .ct2'),
+        imgWidth = $items.width(),
+        imgNum = $items.length; // 克隆的不算数量
+
+
+    $bf.on('click',function(){
+        playBefore();
+    });
+    $af.on('click',function(){
+        playAfter();
+    });
+    $ct2.find('li').on('click',function(){
+        var idx = $(this).index();
+        play(idx);
+    });
+
+    var curIdx = 0,
+        isAnimate = false ;
+
+   function play(idx){
+        if(isAnimate){
+            return;
+        }
+        isAnimate = true;
+        $items.eq(curIdx).fadeOut(500);
+        $items.eq(idx).fadeIn(500,function(){
+            isAnimate = false;
+        });
+        curIdx = idx;
+        setct2();
+    }
+
+    play(0);
+    playauto();
+//    playautoStop();
+
+    function setct2(){
+        var idx = curIdx;
+        $ct2.find('li').removeClass('active')
+                        .eq(idx).addClass('active');
+    }
+
+
+
+   function playAfter(){
+        play((curIdx + 1) % imgNum)
+   }
+   function playBefore(){
+        play( (imgNum + curIdx - 1)% imgNum )
+   }
+
+   function playauto(){
+        clock = setInterval(function(){
+            playAfter();
+        },3000)
+   }
+
+   function playautoStop(){
+       clearInterval(clock);
+   }
+</script>
+</body>
+</html>

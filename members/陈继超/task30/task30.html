@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 瀑布流 原理练习</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .content{
+            position: relative;
+            margin-left: 10px;
+            /*padding-left: 10px;*/
+        }
+        .content .iterm {
+            width: 200px;
+            position: absolute;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 1s; /*css3属性 渐变效果,连续的效果*/
+        }
+        .h1{
+            background: greenyellow;
+            height: 180px;
+        }
+        .h2{
+            background: deeppink;
+            height: 300px;
+        }
+        .h3{
+            background: red;
+            height: 450px;
+        }
+        .h4{
+            background: blue;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content">
+
+    <div class="iterm h1">1</div>
+    <div class="iterm h2">2</div>
+    <div class="iterm h3">3</div>
+    <div class="iterm h4">4</div>
+    <div class="iterm h1">5</div>
+    <div class="iterm h2">6</div>
+    <div class="iterm h3">7</div>
+    <div class="iterm h4">8</div>
+    <div class="iterm h1">9</div>
+    <div class="iterm h4">10</div>
+    <div class="iterm h2">11</div>
+    <div class="iterm h3">12</div>
+    <div class="iterm h1">13</div>
+    <div class="iterm h2">14</div>
+    <div class="iterm h3">15</div>
+    <div class="iterm h4">16</div>
+    <div class="iterm h1">17</div>
+    <div class="iterm h2">18</div>
+    <div class="iterm h3">19</div>
+    <div class="iterm h4">20</div>
+    <div class="iterm h1">21</div>
+    <div class="iterm h4">22</div>
+    <div class="iterm h2">23</div>
+    <div class="iterm h3">24</div>
+
+</div>
+
+<script>
+function render(){
+
+    var nodeWidth = $('.iterm').outerWidth(true),
+        cloNum = parseInt($('.content').width()/nodeWidth);
+    var colSumHeight = [];
+    for (i=0;i<cloNum;i++){
+        colSumHeight.push(0);
+    }
+
+    $('.iterm').each(function(){
+        var $cur = $(this);
+
+        // colSumHeight = [100,150,170,80]
+        var idx = 0 ,
+            minSumHeight = colSumHeight[0];
+
+        for(var i = 0; i < colSumHeight.length;i++ ){
+            if(colSumHeight[i]< minSumHeight ){
+                idx = i;
+                minSumHeight =  colSumHeight[i];
+            }
+        }
+
+        $cur.css({
+            left: nodeWidth*idx,
+            top: minSumHeight
+        });
+        colSumHeight[idx] = colSumHeight[idx] + $cur.outerHeight(true) ;
+    })
+}
+
+render();
+// 窗口有变化的时候,再执行下上面的函数,重新计算宽度数组
+$(window).on('resize',function(){
+    render();
+})
+
+
+</script>
+</body>
+</html>

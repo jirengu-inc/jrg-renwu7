@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 关于 this </title>
+</head>
+<body>
+
+
+<script>
+// ------------------- 函数调用的时候  window --------------------
+//    console.log(this);
+
+//    function fn(){
+//        console.log(this);
+//        this.aaa = 123;
+//
+//        var b = 123;
+//        function fnInner(){
+//            console.log(this);  //依然是window
+//            console.log(b);  //内部函数的变量 仍然是全局变量
+//        }
+//
+//        fnInner(); // 调用的话 依然是全局变量在执行函数
+//    }
+//
+//    fn();
+
+
+
+
+// 事件处理中  this 代表事物源DOM对象   (低版本IE bug 指向的是window )
+//    document.addEventListener('click',function(e){
+//        console.log(this); // #document
+//        var _document = this;
+//        setTimeout(function(){  // 插队的,所以不是document  是window
+//            console.log(this); //window
+//            console.log(_document); //#document
+//        },200)
+//    },false)
+
+// ----------------核心: setTimeout 和 setInterval 的this 是window -------------
+
+
+
+
+// ---------- 对象方法的调用   哪个对象调用它,this 就代表谁------------
+//    var obj1 = {
+//        name: 'jack',
+//        fn: function(){
+//            this.age = 27;
+//            console.log(this)
+//            }
+//        };
+//
+////    obj1.fn();
+//
+//    var fn2 = obj1.fn;
+//    fn2(); // window去调用和执行函数 fn2()  所以上面的this 就是 window
+//
+//// *********************** 为了精确的控制 this 用 bind *************************
+//    var fn3 = obj1.fn.bind(obj1);
+//    fn3();
+//    var fn4 = obj1.fn.bind({sex: 'nan' });
+//    fn4();
+
+
+
+
+
+//    ------------------------
+//    new 运算符 函数F及参数: new F(arguments...) 过程分为三步
+//    1.创建分类实例. 把一个空对象的 __proto__  属性设置为 F.prototype.
+//    2.初始化实例子. 函数 F 传入参数并调用, 关键字 this 被设定为该实例
+//    3. 返回实例
+
+//    function Person(abc){
+//        this.name = abc;
+//    }
+//    Person.prototype.printName = function(){
+//        console.log(this.name);
+//    };
+//
+//    var p1 = new Person('jack'),
+//        p2 = new Person('rose'),
+//        p3 = new Person('Vivan');
+//
+//    p1.printName();
+//    p2.printName();
+//    p3.printName();
+
+
+
+//    function Person(abc){
+//        this.name = abc;
+//        console.log(this.name);
+//    }
+//
+//    var p1 = new Person('Steven');
+
+
+
+//---------------- 关于call 就是调用函数的意思 ---------------
+//    var obj1 = {
+//        name: 'jack',
+//        fn: function(name, age){
+//    //        console.log(this); // 打印放这里的时候 fn3 是obj1 调用的,所以name 是 jack
+//            this.name = name;
+//            this.age = age;
+//            console.log(this);
+//
+//        }
+//    };
+//
+//    // *********************** 为了精确的控制 this 用 bind 和call直接调用*************************
+////    var fn3 = obj1.fn.bind(obj1);
+////    fn3('rose', 22);
+//    var fn4 = obj1.fn;
+//    fn4.call(obj1,'rose', 22);
+//
+//    //*************** apply(把参数写成一个数组了) 和call的参数不同********************
+//    var arrPro = ['rose',24];
+//    fn4.apply(obj1,arrPro);
+
+
+
+//*********************************************************************
+//  arguments 类数组,代表实参的列表 只有在函数执行的时候才能拿到,执行完就是null
+// *********************************************************************
+//    function join(){
+//        var s = '';
+//        for ( var i=0; i<arguments.length;i++){
+//            s += ','+ arguments[i];
+//        }
+//        return s.substr(1);
+//    }
+//    console.log(join(1,2,3,4,5));
+
+//    function join(){
+//        return Array.prototype.join.apply(arguments);
+//    }
+//
+//    join(1,2,3,4,5);
+
+
+
+
+
+</script>
+
+</body>
+</html>

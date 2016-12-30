@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> str.getMostOften()</title>
+</head>
+<body>
+
+
+<script>
+
+
+    String.prototype.getMostOften = function (){
+        var str = this,
+            len = str.length,
+            obj = {};
+
+        for ( var i=0;i<len;i++ ){
+            //charAt() 方法可返回指定位置的字符。
+            var ct = str.charAt(i);
+
+            if( obj[ct] ){
+                obj[ct]++;
+            }else{
+                obj[ct] = 1;
+            }
+        }
+
+        var max = 0,
+            maxCt = null;
+        for(var key in obj){
+            if( max < obj[key] ){
+                max = obj[key];
+                maxCt = key;
+            }
+        }
+
+        return maxCt;
+    }
+
+
+    var str = 'ahbbccdeddddfg';
+    var ch = str.getMostOften();
+    console.log(ch); //d , 因为d 出现了5次
+
+
+</script>
+</body>
+</html>

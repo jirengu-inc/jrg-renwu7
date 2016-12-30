@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22-4</title>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        .cttabs{
+            border: 1px solid #ccc;
+        }
+        .cttabs * {
+            box-sizing: border-box;
+        }
+        .tabs li{
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            width: 33.3%;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            list-style: none;
+        }
+        .tabs li:last-child{
+            border-right: none;
+        }
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .ctcontent li{
+            height: 150px;
+            border-bottom:1px solid #ccc;
+            padding: 20px;
+        }
+        .ctcontent li{
+            display: none;
+        }
+        .cttabs .tabs .active{
+            background-color: #eee;
+        }
+        .cttabs .ctcontent .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!--4. tab切换到对应内容-->
+    <div class="cttabs">
+        <ul class="tabs clearfix">
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <ul class="ctcontent">
+            <li>内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+        </ul>
+    </div>
+
+
+
+
+<script>
+
+    var tab = document.querySelector('.tabs'),
+            ct = document.querySelector('.ctcontent'),
+            ctchild = ct.children,
+            tabchild = tab.children;
+    var utils = {
+        index : function(e){
+            var siblings = e.parentElement.children;
+            for (var i=0; i < siblings.length; i++){
+                if(e === siblings[i]){
+                    return i;
+                }
+            }
+        }
+    };
+
+    tab.addEventListener('click', function(e){
+        var num = utils.index(e.target);
+        for (var k=0;k < tabchild.length; k++){
+            tabchild[k].setAttribute("class", "");
+            ctchild[k].setAttribute("class", "");
+        }
+        e.target.setAttribute("class", "active");
+        ctchild[num].setAttribute("class", "active");
+    });
+
+
+
+</script>
+</body>
+</html>

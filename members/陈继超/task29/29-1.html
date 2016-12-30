@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 回到顶部 </title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <style>
+        p{
+            padding: 20px 0;
+        }
+        .go-top{
+            padding: 10px;
+            color: #181818;
+            font-weight: bold;
+            background: yellow;
+            border-style: none;
+            color: blue;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: none;
+        }
+        .cansee{
+            /*background: red;*/
+        }
+    </style>
+</head>
+<body>
+<p>亢龙有悔</p>
+<p>飞龙在天</p>
+<p>鸿渐于陆</p>
+<p>潜龙勿用</p>
+<p>突如其来</p>
+<p>利涉大川</p>
+<p>亢龙有悔</p>
+<p>飞龙在天</p>
+<p>鸿渐于陆</p>
+<p>潜龙勿用</p>
+<p>突如其来</p>
+<p>利涉大川</p>
+<p>亢龙有悔</p>
+<p>飞龙在天</p>
+<p>鸿渐于陆</p>
+<p>潜龙勿用</p>
+<p>突如其来</p>
+<p>利涉大川</p>
+<p class="cansee">见龙在田</p>
+<button class="go-top">回到顶部</button>
+<p>亢龙有悔</p>
+<p>飞龙在天</p>
+<p>鸿渐于陆</p>
+<p>潜龙勿用</p>
+<p>突如其来</p>
+<p>利涉大川</p>
+
+
+<script>
+    var $goTop = $('.go-top');
+    $(window).on('scroll',function(){
+        if(isShow()){
+            return true;
+        }
+    });
+
+    $goTop.on('click',function(){
+        $('body').scrollTop('0');
+    });
+
+
+    function isShow(){
+        var v_top = $('body').scrollTop();
+        if(v_top > 600){
+            $goTop.css({'display' : 'block'});
+        } else {
+            $goTop.hide();
+        }
+    }
+</script>
+</body>
+</html>
