@@ -9,7 +9,7 @@ define(['jquery'],function($){
             $(window).on('scroll',function(){
                 _this.$ele.each(function(){
                     if(_this.isShow($(this))){
-                        $(this).css({'animation': 'moveUp 0.5s ease forwards', '-webkit-animation': 'moveUp 0.5s ease forwards'});
+                        $(this).css({'animation': 'moveUp 0.8s ease forwards', '-webkit-animation': 'moveUp 0.8s ease forwards'});
                     }
                 });
             })
