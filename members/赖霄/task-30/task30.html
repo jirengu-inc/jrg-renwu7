@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>task30瀑布流</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        .ct{
+            position: relative;
+            margin: 50px;
+        }
+        .item{
+            position: absolute;
+            width: 200px;
+            margin: 5px;
+            transition: all 1s;
+        }
+        .h1{
+            height: 150px;
+            background-color: pink;
+        }
+        .h2{
+            height: 200px;
+            background-color: aqua;
+        }
+        .h3{
+            height: 250px;
+            background-color: coral;
+        }
+        .h4{
+            height: 180px;
+            background-color: darkmagenta;
+        }
+        .h5{
+            height: 120px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <div class="item h1">1</div>
+        <div class="item h1">2</div>
+        <div class="item h3">3</div>
+        <div class="item h4">4</div>
+        <div class="item h2">5</div>
+        <div class="item h5">6</div>
+        <div class="item h1">7</div>
+        <div class="item h2">8</div>
+        <div class="item h3">9</div>
+        <div class="item h1">10</div>
+        <div class="item h4">11</div>
+        <div class="item h2">12</div>
+        <div class="item h3">13</div>
+        <div class="item h5">14</div>
+        <div class="item h4">15</div>
+        <div class="item h1">16</div>
+        <div class="item h5">17</div>
+        <div class="item h2">18</div>
+        <div class="item h1">19</div>
+        <div class="item h3">20</div>
+        <div class="item h5">21</div>
+    </div>
+    <script>
+        $.fn.waterFall = function () {
+            var $me = $(this),
+                $item = $me.find('.item');//需要瀑布流的节点class必须等于item
+
+            var render = function () {
+                var oneWidth = $item.outerWidth(true),
+                    colNum = Math.floor($me.width()/oneWidth),
+                    colSumHeight = [];
+
+                for( var i = 0; i<colNum; i++) colSumHeight.push(0);
+
+                $item.each(function () {
+                    var $cur = $(this),
+                        idx = 0,
+                        minHeight = colSumHeight[0];
+
+                    for( var i = 0; i<colNum; i++){
+                        if(minHeight>colSumHeight[i]){
+                            minHeight = colSumHeight[i];
+                            idx = i;//如果前面不声明赋值idx,这里才var idx = i,idx永远undefined
+                        }
+                    }
+                    $cur.css({
+                        left: oneWidth*idx,
+                        top: minHeight
+                    });
+                    colSumHeight[idx] += $cur.outerHeight(true);//idx如果undefined，该赋值永远无效（undefined）
+                })
+            };
+
+            render();
+            $(window).on('resize', function () {
+                render();
+            })
+        }
+        $('.ct').waterFall();
+
+
+    </script>
+</body>
+</html>
