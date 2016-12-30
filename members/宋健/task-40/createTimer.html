@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>createTimer</title>
+</head>
+<body>
+<script>
+function createTimer() {
+    var startTime,
+            endTime;
+    function start(){
+        startTime = Date.now();
+        return startTime;
+    }
+    function end(){
+        endTime = Date.now();
+        return endTime;
+    }
+    function get(){
+        return 'cost'+(endTime-startTime)+'ms';
+    }
+    return {
+        start:start,
+        end:end,
+        get:get
+    }
+}
+var timer1 = createTimer();
+var timer2 = createTimer();
+timer1.start();
+for (var i = 0; i < 100; i++) {
+    console.log(i);
+}
+timer2.start();
+for (var i = 0; i < 100; i++) {
+    console.log(i);
+}
+timer1.end();
+timer2.end();
+console.log(timer1.get());
+console.log(timer2.get());
+</script>
+</body>
+</html>
