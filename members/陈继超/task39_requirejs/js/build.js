@@ -1,5 +1,5 @@
 ({
-	baseUrl:".",
+	baseUrl:'.',
 	paths:{
 		"jquery":"lib/jquery.min"
 	},
