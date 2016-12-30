@@ -1,6 +1,6 @@
 
 require.config({
-	baseUrl: './task39/js',
+	baseUrl: './task39_requirejs/js',
 	paths: {
 		'jquery': 'lib/jquery.min'
 	}
