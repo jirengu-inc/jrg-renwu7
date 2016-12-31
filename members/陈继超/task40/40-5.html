@@ -1,0 +1,223 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          carousel="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" carousel="ie=edge">
+    <title>35-3 构造函数创建对象完成轮播</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel {
+            position: relative;
+            /*border: 1px  solid red;*/
+            overflow: hidden;
+            left: 200px;
+            width: 380px;
+            height: 280px;
+        }
+        img{
+            width: 380px;
+            height: 280px;
+        }
+        .carousel .img-ct li{
+            /*position: absolute;*/
+            /*display: none;*/
+            float: left;
+        }
+        .clearfix {
+            clear: both;
+        }
+        .img-ct{
+            position: relative;
+        }
+        .arrow{
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            background: #eee;
+            border-radius: 100%;
+            text-align: center;
+            opacity: 0.7;
+        }
+        .before{
+            left: 5px;
+        }
+        .after{
+            right: 5px;
+        }
+        .ct2 {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .ct2 li{
+            background: #ccc;
+            width: 15px;
+            height: 8px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin: 0 3px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .ct2 .active{
+            background: #666;
+        }
+
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="before arrow" href="javascript:void(0)"> < </a>
+    <a class="after arrow" href="javascript:void(0)"> > </a>
+    <ul class="ct2">
+    <!--<li class="active" ></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    </ul>
+</div>
+
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="before arrow" href="javascript:void(0)"> < </a>
+    <a class="after arrow" href="javascript:void(0)"> > </a>
+    <ul class="ct2">
+    <!--<li class="active" ></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    <!--<li></li>-->
+    </ul>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+
+    (function($){
+        $.fn.Carousel = function(){
+            var $this = $(this),
+                $ct = $this.find('.img-ct'),
+                $items = $ct.children(),
+                imgWidth = $items.width(),
+                imgNum = $items.length,
+                $bullet = $ct.siblings('.ct2'),
+                $before = $ct.siblings('.before'),
+                $after = $ct.siblings('.after');
+
+            var clock,
+                curIdx = 0,
+                isAnimate = false;
+
+            autoPlay();
+            bullet();
+
+            $ct.prepend( $items.last().clone() );
+            $ct.append( $items.first().clone() );
+            imgRealNum = $ct.children().length; // .size()
+            $ct.css({
+                left: 0 -imgWidth,
+                width: imgRealNum * imgWidth
+            });
+
+            $after.on('click',function(){
+                playAfter();
+            });
+
+            $before.on('click', function(){
+                playBefore();
+            });
+
+            $bullet.on('click','li', function () {
+                var idx = $(this).index();
+                if(idx > curIdx){
+                    playAfter(idx - curIdx);
+                }else if(idx < curIdx){
+                    playBefore(curIdx - idx);
+                }
+            });
+
+            function playAfter(skip){
+                var skip = skip || 1;
+                if( ! isAnimate){
+                    isAnimate = true;
+                    $ct.animate({left: '-='+ (imgWidth*skip)}, function(){
+                        curIdx = (curIdx + skip) % imgNum;
+                        if(curIdx == 0){
+                            $ct.css({left: 0-imgWidth});
+                        }
+                        isAnimate = false;
+                        setBullet();
+                    })
+                }
+            };
+
+            function playBefore(skip){
+                var skip = skip || 1;
+                if(! isAnimate){
+                    isAnimate = true;
+                    $ct.animate({left: '+=' + (imgWidth * skip)},function(){
+                        curIdx = (imgNum + curIdx - skip) % imgNum;
+                        if( curIdx == (imgNum -1 )){
+                            $ct.css({left: 0-imgWidth*imgNum});
+                        }
+                        isAnimate = false;
+                        setBullet();
+                    })
+                }
+            };
+
+            function bullet(){
+                for (var i=0;i<imgNum;i++){
+                    $bullet.append('<li></li>');
+                }
+                $bullet.children().first().addClass('active');
+            };
+
+            function setBullet() {
+                $bullet.children().removeClass('active').eq(curIdx).addClass('active');
+            };
+
+            function autoPlay(){
+                clock = setInterval(function(){
+                    playAfter();
+                },3000);
+            }
+
+        }
+    })(jQuery)
+
+    $('.carousel').each(function(){
+        $(this).Carousel();
+    })
+
+
+</script>
+</body>
+</html>

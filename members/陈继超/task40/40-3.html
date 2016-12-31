@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> createTimer </title>
+</head>
+<body>
+
+
+<script>
+
+    function createTimer(){
+        var openTime,
+            offTime,
+            getTime;
+
+        function start(){
+            openTime = Date.now();
+            return openTime;
+        }
+
+        function end(){
+            offTime = Date.now();
+            return offTime;
+        }
+
+        function get(){
+            getTime = offTime - openTime;
+//            console.log('getTime: '+ getTime);
+            return getTime;
+        }
+        return {
+            start: start,
+            end: end,
+            get: get
+        }
+    }
+
+
+    var timer1 = createTimer();
+    var timer2 = createTimer();
+
+    timer1.start();
+    for(var i=0;i<100;i++){
+        console.log(i);
+    }
+
+    timer2.start();
+    for(var i=0;i<100;i++){
+        console.log(i);
+    }
+
+    timer1.end();
+    timer2.end();
+    console.log('timer1的时差: '+ timer1.get());
+    console.log('timer2的时差: '+ timer2.get());
+</script>
+</body>
+</html>
