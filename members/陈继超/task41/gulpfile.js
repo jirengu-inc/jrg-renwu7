@@ -36,6 +36,9 @@ var minifycss = require('gulp-minify-css'), //压缩CSS
         .pipe(gulp.dest('dist/img'))
     });
 
-gulp.task('default', ['html','css','js']);
 
-// gulp.task('build',['html']);
+	gulp.task('watch', function () {
+	    gulp.watch('src/*.html', ['minhtml','minifycss','imagemin','js']);
+	});
+
+	gulp.task('default', ['html','css','img', 'js','watch']);
