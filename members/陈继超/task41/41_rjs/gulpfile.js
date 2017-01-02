@@ -9,7 +9,7 @@ var minifycss = require('gulp-minify-css'), //压缩CSS
 	concat = require('gulp-concat'), //合并文件
 	rename = require('gulp-rename'), //重命名
 	// clean = require('gulp-clean'); //清空文件夹
-	requirejsOptimize = require('gulp-requirejs-optimize'); //优化requirejs
+	amdOptimize = require('amd-optimize'); //优化requirejs
 
 	gulp.task('html', function(){
 		return gulp.src('src/*.html')
@@ -19,16 +19,17 @@ var minifycss = require('gulp-minify-css'), //压缩CSS
 
 	gulp.task('css', function(argument){
 		gulp.src('src/css/*.css')
-			.pipe(concat('merg.css'))
+			.pipe(concat('merge.css'))
 			.pipe(minifycss())
 			.pipe(gulp.dest('dist/css/'))
 	});
 
-	gulp.task('js',function(argument){
-		gulp.src('src/js/*.js')
-			.pipe(concat('merge.js'))
+	gulp.task('js',function(){
+		gulp.src('src/js/**/*.js')
+			.pipe(amdOptimize('main',{paths:{'jquery': 'lib/jquery.min'}}))
+			.pipe(concat('index.js'))
 			.pipe(uglify())
-			.pipe(gulp.dest('dist/js/'))
+			.pipe(gulp.dest('dist/js'))
 	});
 
     gulp.task('img',function(argument){
