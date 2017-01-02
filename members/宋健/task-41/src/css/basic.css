@@ -1,0 +1,60 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    color:#333;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ul,li{
+    list-style: none;
+}
+p{
+    color:#777;
+}
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.text-center{
+    text-align:center;
+}
+.section-title{
+    font-size: 2.5rem;
+}
+.section-intro{
+    margin:20px 0 70px 0;
+    color:#777;
+    font-family:"Droid Serif";
+    font-style:italic;
+    font-weight:400;
+    font-size:16px;
+}
+.layout{
+    width:1170px;
+    margin:0 auto;
+}
+#gotop{
+    position:fixed;
+    right:5px;
+    bottom:5px;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    text-align: center;
+    display:none;
+    cursor:pointer;
+    background-color:#fff;
+    box-shadow:0 1px 5px #bbb;
+}
+#gotop i{
+    font-size:3rem;
+    color:#bbb;
+}
+#gotop i:hover{
+    transition:all 0.3s;
+    color:#333;
+}
