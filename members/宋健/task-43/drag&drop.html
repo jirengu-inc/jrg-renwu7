@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag&drop</title>
+    <style>
+        .tag-list{
+            min-height:50px;
+            border:1px solid #ccc;
+            padding:0;
+        }
+        .tag-list li{
+            list-style:none;
+            display: inline-block;
+            background-color: #eee;
+            padding:10px;
+            margin:10px 0 10px 10px;
+            border:1px dashed #ccc;
+        }
+    </style>
+
+</head>
+<body>
+    <h3>全部主题</h3>
+    <ul class="tag-list all">
+        <li class="tag-focus" draggable="true">焦点</li>
+        <li class="tag-sz" draggable="true">深圳</li>
+        <li class="tag-finance" draggable="true">财经</li>
+        <li class="tag-tech" draggable="true">科技</li>
+        <li class="tag-sports" draggable="true">体育</li>
+        <li class="tag-society" draggable="true">社会</li>
+        <li class="tag-entertaiment" draggable="true">娱乐</li>
+        <li class="tag-creative" draggable="true">创意</li>
+        <li class="tag-military" draggable="true">军事</li>
+    </ul>
+    <h3>订阅主题</h3>
+    <ul class="tag-list rss"></ul>
+<script type="text/javascript">
+    var all = document.querySelector('.all'),
+        rss = document.querySelector('.rss'),
+        items = document.querySelectorAll('.tag-list li');
+
+    for(var i=0;i<items.length;i++){
+        items[i].ondragstart = function(e){
+            e.dataTransfer.setData('class',e.target.className);
+        }
+    }
+
+    function allowDrop(e){
+        e.preventDefault();
+    }
+
+    function drop(e){
+        e.preventDefault();
+        if(e.target.tagName.toLowerCase() === 'li') return;
+        var cls=e.dataTransfer.getData('class');
+        e.target.appendChild(document.getElementsByClassName(cls)[0]);
+    }
+
+    rss.ondragover = allowDrop;
+    all.ondragover = allowDrop;
+
+    rss.ondrop = drop;
+    all.ondrop = drop;
+
+</script>
+</body>
+</html>
