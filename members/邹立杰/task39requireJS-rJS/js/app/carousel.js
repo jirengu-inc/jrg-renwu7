@@ -6,6 +6,7 @@ define(['jquery'],function($){
 				new _Carousel($(this));
 			});
 		}
+		
 		function _Carousel($node){
 			var winWidth = this.winWidth = $(window).width();
 			var $node = this.$node = $node;

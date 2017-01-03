@@ -6,9 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> 瀑布流 jsonp 懒加载</title>
-    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
     <style>
-        *{
+        html,body,ul,li,p,div{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -28,23 +27,23 @@
         #pic-ct{
             position: relative;
         }
-        .item{
+        #pic-ct .item{
             position: absolute;
             width: 280px;
             margin: 10px;
             border: 1px solid #DFDFDF;
-            transition: all 1s;
+            transition: all 0.8s;
         }
-        .item img{
+        #pic-ct .item img{
             width: 260px;
             margin: 10px;
         }
-        .item .header{
+        #pic-ct .item .header{
             margin: 12px;
             padding-bottom: 10px;
             border-bottom:  1px solid #BDBDBD;
         }
-        .item .list-p{
+        #pic-ct .item .list-p{
             margin: 10px 15px;
             color: #777371;
         }
@@ -53,6 +52,7 @@
         }
         #load{
             visibility: hidden;
+            background: red;
         }
     </style>
 </head>
@@ -67,7 +67,7 @@
                     <!--<h4 class="header">心机大蛇遇见人类竟装死</h4>-->
                     <!--<p class="list-p">一条狡猾的蛇为了躲过捕食者的进攻，竟然会玩装死的把戏。</p>-->
                 <!--</li>-->
-                <li class="item hide"></li>   <!--//用来计算item 的列数和高度的,是隐藏的-->
+                <li class="item hide"></li>  <!--//用来计算item 的列数和高度的,是隐藏的-->
             </ul>
             <div id="load">我是看不见的</div>
         </div>
@@ -75,7 +75,7 @@
 
 
 
-
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
 <script>
 
 /*    思路
@@ -105,7 +105,7 @@
     var clock;
     var $target = $('#load');
     var curPage = 1,
-        lenPageCount = 30;
+        lenPageCount = 10;
 
     var colSumHeight = [];
 
@@ -148,8 +148,8 @@
             jsonp: "jsoncallback",
             data : {
                 app_key: '1271687855',
-                format: 'json',
-                size: 'img',
+//                format: 'json',
+//                size: 'img',
                 num: lenPageCount,
                 page: curPage
             },
@@ -170,7 +170,7 @@
         var tpl = '',
             $nodes;
         for(var i = 0;i<items.length;i++){
-            tpl += '<li class="item">';
+            tpl += '<li class="item" style="display: none;">';
             tpl += ' <a href="'+ items[i].url +'" class="link"><img src="' + items[i].img_url + '" alt=""></a>';
             tpl += ' <h4 class="header">'+ items[i].short_name +'</h4>';
             tpl += '<p class="list-p">'+items[i].short_intro+'</p>';
@@ -216,9 +216,11 @@
 
                 $cur.css({
                     left: nodeWidth*idx,
-                    top: minSumHeight
+                    top: minSumHeight,
+                    display: 'block'
                 });
                 colSumHeight[idx] = colSumHeight[idx] + $cur.outerHeight(true) ;
+                $('#pic-ct').height(Math.max.apply(null,colSumHeight));// 这是一个坑, 只有设置UL 的高度,才能让 load 紧跟在UL 之后
             })
 
 

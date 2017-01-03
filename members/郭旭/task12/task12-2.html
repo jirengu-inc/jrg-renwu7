@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .header, .footer{height: 30px; width: 100%; background-color: #EEEEEE;}
+        .content{
+            padding: 0 200px;
+        }
+        .content:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .content .main{
+            width: 100%;
+            background: green;
+            min-height: 200px;
+            float: left;
+        }
+        .content .l-aside{
+            width: 200px;
+            background: red;
+            min-height: 200px;
+            float: left;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+        .content .r-aside{
+            width: 200px;
+            background: yellow;
+            min-height: 200px;
+            float: left;
+            margin-left: -200px;
+            position: relative;
+            left: 200px;
+        }
+        .content-two{
+            padding: 0 0 0 200px;
+        }
+        .content-three{
+            padding: 0;
+        }
+        .content-four{
+            padding: 0;
+        }
+        .wrap{
+            margin-left: 200px;
+            margin-right: 200px;
+            background: pink;
+            min-height: 200px;
+        }
+        .content .l-aside-three{
+            left:0;
+        }
+        .content .r-aside-three{
+            left:0;
+        }
+        .wrap-four{
+            margin-left:0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>圣杯三栏</h1>
+    <div class="header">头部</div>
+    <div class="content">
+        <div class="main">中间内容区域</div>
+        <div class="l-aside">左侧边栏</div>
+        <div class="r-aside">右侧边栏</div>
+    </div>
+    <div class="footer">尾部</div>
+    <div style="height: 20px;"></div>
+    <h1>圣杯两栏</h1>
+    <div class="header">头部</div>
+    <div class="content content-two">
+        <div class="main">中间内容区域</div>
+        <div class="l-aside">左侧边栏</div>
+    </div>
+    <div class="footer">尾部</div>
+    <div style="height: 20px;"></div>
+    <h1>双飞翼三栏</h1>
+    <div class="header">头部</div>
+    <div class="content content-three">
+        <div class="main">
+            <div class="wrap">中间内容区域</div>
+        </div>
+        <div class="l-aside l-aside-three">左侧边栏</div>
+        <div class="r-aside r-aside-three">右侧边栏</div>
+    </div>
+    <div class="footer">尾部</div>
+    <div style="height: 20px;"></div>
+    <h1>双飞翼两栏</h1>
+    <div class="header">头部</div>
+    <div class="content content-four">
+        <div class="main">
+            <div class="wrap wrap-four">中间内容区域</div>
+        </div>
+        <div class="r-aside r-aside-three">右侧边栏</div>
+    </div>
+    <div class="footer">尾部</div>
+    <div style="height: 20px;"></div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+$("#header .btn").on("click",function(a){a.preventDefault(),alert("我来测试gulp的")}),$("#header .navbar-top").on("mouseenter",function(a){var e=$("#header .navbar-top");e.css({background:"red"})}),$("#header .navbar-top").on("mouseout",function(a){var e=$("#header .navbar-top");e.css({background:"#000"})});

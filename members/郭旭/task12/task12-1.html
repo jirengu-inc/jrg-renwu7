@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        .wrap{
+            width: 940px;
+            margin: 0 auto;
+            background: grey;
+        }
+        .list{
+            padding: 20px 0;
+            margin-right: -20px;
+        }
+        .list:after{
+            content:"";
+            display:block;
+            clear: both;
+        }
+        .list li{
+            float: left;
+            width: 300px;
+            height: 100px;
+            margin-right: 20px;
+            background: green;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</body>
+</html>

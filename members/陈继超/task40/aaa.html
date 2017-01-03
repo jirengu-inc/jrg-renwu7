@@ -1,0 +1,223 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          carousel="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" carousel="ie=edge">
+    <title>35-3 构造函数创建对象完成轮播</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel {
+            position: relative;
+            /*border: 1px  solid red;*/
+            overflow: hidden;
+            left: 200px;
+            width: 380px;
+            height: 280px;
+        }
+        img{
+            width: 380px;
+            height: 280px;
+        }
+        .carousel .img-ct li{
+            /*position: absolute;*/
+            /*display: none;*/
+            float: left;
+        }
+        .clearfix {
+            clear: both;
+        }
+        .img-ct{
+            position: relative;
+        }
+        .arrow{
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            background: #eee;
+            border-radius: 100%;
+            text-align: center;
+            opacity: 0.7;
+        }
+        .before{
+            left: 5px;
+        }
+        .after{
+            right: 5px;
+        }
+        .ct2 {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .ct2 li{
+            background: #ccc;
+            width: 15px;
+            height: 8px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin: 0 3px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .ct2 .active{
+            background: #666;
+        }
+
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="before arrow" href="javascript:void(0)"> < </a>
+    <a class="after arrow" href="javascript:void(0)"> > </a>
+    <ul class="ct2">
+        <li class="active" ></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="carousel">
+    <ul class="img-ct clearfix">
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="javascript:void(0)"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="before arrow" href="javascript:void(0)"> < </a>
+    <a class="after arrow" href="javascript:void(0)"> > </a>
+    <ul class="ct2">
+        <li class="active" ></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+
+    (function($){
+        $.fn.Carousel = function() {
+
+            function Carousel($el) {
+                this.$el = $el;
+                this.$ct = this.$el.find('.img-ct');
+                this.$items = this.$ct.children();
+                this.$before = this.$el.find('.before');
+                this.$after = this.$el.find('.after');
+                this.$bullet = this.$el.find('.ct2');
+                this.$ct.prepend(this.$items.last().clone()).append(this.$items.first().clone());
+                this.init();
+                this.autoPlay();
+            }
+
+            Carousel.prototype = {
+                init: function () {
+                    this.imgWidth = this.$items.width();
+                    this.imgNum = this.$items.length;
+                    imgRealNum = this.$ct.children().length;
+                    this.$ct.css({
+                        left: 0 - this.imgWidth,
+                        width: imgRealNum * this.imgWidth
+                    });
+                    this.curIdx = 0;
+                    this.isAnimate = false;
+                    this.bind();
+                },
+                bind:function(){
+                    var the = this;
+                    this.$before.on('click',function(){
+                        the.playbefore();
+                    });
+                    this.$after.on('click',function(){
+                        the.playAfter();
+                    });
+                    this.$bullet.find('li').on('click',function(){
+                        var idx = $(this).index();
+                        if(idx>the.curIdx){
+                            the.playAfter(idx-the.curIdx);
+                        }
+                        if(idx<the.curIdx){
+                            the.playbefore(the.curIdx-idx);
+                        }
+                    });
+//                    $(window).on('resize',function(){
+//                        the.init();
+//                    })
+                },
+                playbefore:function(idx){
+                    var idx = idx ||1,
+                        the= this;
+                    if(!this.isAnimate){
+                        this.isAnimate = true;
+                        this.$ct.animate({left:'+='+(the.imgWidth*idx)},function(){
+                            the.curIdx = (the.imgNum+the.curIdx-idx)%the.imgNum;
+                            if(the.curIdx === (the.imgNum-1)){
+                                the.$ct.css({left:0-the.imgWidth*the.imgNum});
+                            }
+                            the.isAnimate = false;
+                            the.setBullet();
+                        })
+                    }
+                },
+                playAfter:function(idx){
+                    var idx = idx ||1,
+                        the= this;
+                    if(!this.isAnimate){
+                        this.isAnimate = true;
+                        this.$ct.animate({left:'-='+(the.imgWidth*idx)},function(){
+                            the.curIdx = (the.imgNum+the.curIdx+idx)%the.imgNum;
+                            if(the.curIdx === 0){
+                                the.$ct.css({left:0-the.imgWidth});
+                            }
+                            the.isAnimate = false;
+                            the.setBullet();
+                        })
+                    }
+                },
+                setBullet:function(){
+                    this.$bullet.find('li').removeClass('active').eq(this.curIdx).addClass('active');
+                },
+                autoPlay:function(){
+                    var the = this;
+                    this.clock = setInterval(function(){
+                        the.playAfter();
+                    },3000)
+                }
+            };
+
+            this.each(function() {
+                new Carousel($(this));
+            });
+        }
+    })(jQuery)
+
+    $('.carousel').Carousel();
+
+</script>
+</body>
+</html>

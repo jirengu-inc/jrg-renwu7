@@ -28,4 +28,9 @@ var imagemin=require('gulp-imagemin')
             .pipe(imagemin())
             .pipe(gulp.dest('dist/img'))
     });
+
+gulp.task('watch', function () {
+    gulp.watch('src/*.html', ['minhtml','mincss','minimage','rjs']);
+});
+
 gulp.task('default',['html','css']);
