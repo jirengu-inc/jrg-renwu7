@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-2</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+            font: 12px/100% 'microsoft yahei';
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel{
+            width: 310px;
+            height: 206px;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel>.wrapper{
+            position: relative;
+        }
+        .carousel>.wrapper>li{
+            position: absolute;
+            display: none;
+        }
+        .carousel>.wrapper img{
+            width: 310px;
+            height: 206px;
+        }
+        .carousel>.arrow{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0,0,0,.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .carousel .arrow.left{
+            left: 10px;
+        }
+        .carousel .arrow.right{
+            right: 10px;
+        }
+        .arrow:hover{
+            background-color: rgba(0,0,0,.6);
+        }
+        .carousel>.bullet {
+            position: absolute;
+            left: 50%;
+            bottom: 12px;
+            transform: translateX(-50%);
+        }
+        .carousel>.bullet >li{
+            float: left;
+            margin: 2px;
+            width: 20px;
+            height: 4px;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .carousel>.bullet >li.active{
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel carousel1">
+    <ul class="wrapper">
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="arrow left" href="javascript:void(0)"><</a>
+    <a class="arrow right" href="javascript:void(0)">></a>
+    <ul class="ct-btn">
+        <li class="btn1 active"></li>
+        <li class="btn2"></li>
+        <li class="btn3"></li>
+        <li class="btn4"></li>
+    </ul>
+</div>
+<div class="carousel carousel2">
+    <ul class="wrapper">
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="arrow left" href="javascript:void(0)"><</a>
+    <a class="arrow right" href="javascript:void(0)">></a>
+    <ul class="ct-btn">
+        <li class="btn1 active"></li>
+        <li class="btn2"></li>
+        <li class="btn3"></li>
+        <li class="btn4"></li>
+    </ul>
+</div>
+<div class="carousel carousel3">
+    <ul class="wrapper">
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="arrow left" href="javascript:void(0)"><</a>
+    <a class="arrow right" href="javascript:void(0)">></a>
+    <ul class="ct-btn">
+        <li class="btn1 active"></li>
+        <li class="btn2"></li>
+        <li class="btn3"></li>
+        <li class="btn4"></li>
+    </ul>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $.fn.carousel = function (time) {
+        var $this = $(this),
+            $img = $this.find('.wrapper').children(),
+            $al = $this.find('.arrow.left'),
+            $ar = $this.find('.arrow.right'),
+            $btn = $this.find('.ct-btn').children(),
+            $imgCount = $img.size(),
+            curIdx = 0,
+            isAnimate = false,
+            clock;
+//        console.log($imgCount);
+        play(0);
+        autoPlay(time);
+        $al.on('click', function () {
+            playPre();
+        })
+        $ar.on('click', function () {
+            playNext();
+        })
+        $btn.on('click', function () {
+            var $index = $(this).index();
+            play($index);
+        })
+        $img.parent().on('mouseenter', 'li', function () {
+            stopPlay();
+        })
+        $img.parent().on('mouseleave', 'li', function () {
+            autoPlay(time);
+        })
+        function play(idx) {
+            if(isAnimate) return;
+            isAnimate = true;
+            $img.eq(curIdx).fadeOut(500);
+            $img.eq(idx).fadeIn(500,function () {
+                isAnimate = false;
+            });
+            curIdx = idx;
+            setBtn();
+        }
+        function setBtn() {
+            $btn.removeClass('active')
+                .eq(curIdx).addClass('active');
+        }
+        function playNext() {
+            play((curIdx+1)%$imgCount);
+        }
+        function playPre() {
+            play(($imgCount+curIdx-1)%$imgCount);
+        }
+        function autoPlay(time) {
+            clock = setInterval(function () {
+                playNext();
+            },time||2000);
+        }
+        function stopPlay() {
+            clearInterval(clock);
+        }
+    }
+    $('.carousel1').carousel(1000);
+    $('.carousel2').carousel(1000);
+    $('.carousel3').carousel(1000);
+
+</script>
+</body>
+</html>
