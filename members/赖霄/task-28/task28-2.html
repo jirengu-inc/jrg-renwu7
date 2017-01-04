@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>task28-2</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        #header,#content,#footer{
+            width: 960px;
+            margin: 0 auto;
+        }
+        #header{
+            height: 50px;
+            background-color: red;
+        }
+        #content>.mod{
+            margin-top: 20px;
+        }
+        #content .nav{
+            height: 30px;
+            border: 1px solid;
+            background-color: yellow;
+        }
+        #content .ct{
+            overflow: hidden;
+        }
+        #content .aside{
+            float: left;
+            width: 200px;
+            height: 500px;
+        }
+        #content .main{
+            float: right;
+            width: 730px;
+            height: 500px;
+            background-color: blue;
+        }
+        #content .aside1{
+            background-color: pink;
+        }
+        #content .aside2{
+            background-color: aqua;
+        }
+        #content .aside3{
+            background-color: coral;
+        }
+        #content .aside4{
+            background-color: orchid;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="header">header</div>
+<div id="content">
+    <div class="mod mod1">
+        <div class="nav nav1">nav1</div>
+        <div class="ct">
+            <div class="aside aside1">aside1</div>
+            <div class="main main1">main1</div>
+        </div>
+    </div>
+    <div class="mod mod2">
+        <div class="nav nav2">nav2</div>
+        <div class="ct">
+            <div class="aside aside2">aside2</div>
+            <div class="main main2">main2</div>
+        </div>
+    </div>
+    <div class="mod mod3">
+        <div class="nav nav3">nav3</div>
+        <div class="ct">
+            <div class="aside aside3">aside3</div>
+            <div class="main main3">main3</div>
+        </div>
+    </div>
+    <div class="mod mod4">
+        <div class="nav nav4">nav4</div>
+        <div class="ct">
+            <div class="aside aside4">aside4</div>
+            <div class="main main4">main4</div>
+        </div>
+    </div>
+</div>
+<div id="footer">footer</div>
+<script>
+    $.fn.stickup = function () {
+        var $ele = $(this),
+            eleW = $ele.width(),
+            offsetTop = $ele.offset().top,
+            offsetLeft = $ele.offset().left,
+//拷贝需要stickup的节点放到原节点前占位用
+            $eleClone = $ele.clone()
+                    .css({visibility: 'hidden', display: 'none'})
+                    .insertBefore($ele);
+//监听滚动条，当满足条件时操作原节点固定在顶端位置，拷贝节点占位（添加isFixed状态锁——只是在临界值才执行setFixed、unsetFixed函数，优化性能。
+        $(window).on('scroll', function () {
+            var scrollTop = $(window).scrollTop();
+            if(scrollTop >= offsetTop){
+                if(isFixed()) return;
+                $ele.data('isFixed', true);
+                setFixed();
+            }else{
+                if(!isFixed()) return;
+                $ele.data('isFixed', false);
+                unsetFixed();
+            }
+        })
+        function isFixed() {
+            return $ele.data('isFixed');
+        }
+        function setFixed() {
+            $eleClone.show();
+            $ele.css({
+                position: 'fixed',
+                top: 0,
+                left: offsetLeft,
+                width: eleW,
+                margin: 0,
+                'z-index': 9999
+            });
+        }
+        function unsetFixed() {
+            $eleClone.hide();
+            $ele.removeAttr('style');
+        }
+    }
+    $('#content .nav1').stickup();
+    $('#content .nav2').stickup();
+    $('#content .nav3').stickup();
+    $('#content .nav4').stickup();
+</script>
+</body>
+</html>
