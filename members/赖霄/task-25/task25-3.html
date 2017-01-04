@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>task25-3</title>
+    <style>
+        *{box-sizing: border-box;}
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font: 12px/150% 'Arial','verdana','microsoft yahei','helvetica','sans-serif';
+            color: #666;
+        }
+
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #666;
+        }
+        .clearfix:after{
+            content: "";
+            height: 0;
+            display: block;
+            clear: both;
+            zoom: 1;
+        }
+        .products-jewel{
+            width: 700px;
+            margin: 10px auto;
+        }
+        .products-jewel .jewel{
+            margin: -10px -10px;
+        }
+        .products-jewel .jewel-show{
+            position: relative;
+            float: left;
+            width: 220px;
+            margin: 10px;
+            padding: 10px 20px;
+            border: 1px solid rgba(222,222,222,.3);
+            text-align: center;
+        }
+        .jewel-name{
+            height: 36px;
+            text-align: left;
+        }
+        .jewel-price{
+            text-align: left;
+            color: #f00;
+        }
+        .jewel-show.deactive .cover{
+            display: none;
+        }
+        .jewel-show .cover{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.3);
+        }
+        .jewel-show .btn-buy{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            height: 40px;
+            width: 80px;
+            line-height: 40px;
+            background-color: #fff;
+            border: 1px solid #f00;
+            border-radius: 3px;
+            color: #f00;
+        }
+        .products-jewel>.btn-add{
+            float: left;
+            margin-top: 20px;/*为何去掉后文字不靠右对齐*/
+            padding: 10px 15px;
+            border: 1px solid #f00;
+            border-radius: 3px;
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+<div class="products-jewel">
+    <h1>珠宝首饰</h1>
+    <div class="wrapper">
+        <ul class="jewel clearfix">
+            <li class="jewel-show deactive">
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <div class="jewel-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                    <div class="jewel-price">￥1699.00</div>
+                </a>
+                <div class="cover">
+                    <a class="btn-buy" href=" ">立即购买</a>
+                </div>
+            </li>
+            <li class="jewel-show deactive">
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <div class="jewel-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                    <div class="jewel-price">￥1699.00</div>
+                </a>
+                <div class="cover">
+                    <a class="btn-buy" href=" ">立即购买</a>
+                </div>
+            </li>
+            <li class="jewel-show deactive">
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <div class="jewel-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                    <div class="jewel-price">￥1699.00</div>
+                </a>
+                <div class="cover">
+                    <a class="btn-buy" href=" ">立即购买</a>
+                </div>
+            </li>
+            <li class="jewel-show deactive">
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <div class="jewel-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                    <div class="jewel-price">￥1699.00</div>
+                </a>
+                <div class="cover">
+                    <a class="btn-buy" href=" ">立即购买</a>
+                </div>
+            </li>
+            <li class="jewel-show deactive">
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <div class="jewel-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                    <div class="jewel-price">￥1699.00</div>
+                </a>
+                <div class="cover">
+                    <a class="btn-buy" href=" ">立即购买</a>
+                </div>
+            </li>
+            <li class="jewel-show deactive">
+                <a href="#">
+                    <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    <div class="jewel-name">藏美千足金和田玉金镶玉路路通吊坠</div>
+                    <div class="jewel-price">￥1699.00</div>
+                </a>
+                <div class="cover">
+                    <a class="btn-buy" href=" ">立即购买</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <a class="btn-add" href="#">添加</a>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $('.jewel').on('mouseenter', '.jewel-show', function () {
+        $(this).removeClass('deactive');
+    })
+    $('.jewel').on('mouseleave', '.jewel-show', function () {
+        $(this).addClass('deactive');
+    })
+    var products = [
+        {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }
+    ];
+    function setProdHtml(prod) {
+        var html = '';
+        html += '<li class="jewel-show deactive">';
+        html +=     '<a href="#">';
+        html +=         '<img src="' + prod.img + '" alt="">';
+        html +=         '<div class="jewel-name">' + prod.name + '</div>';
+        html +=         '<div class="jewel-price">' + prod.price + '</div>';
+        html +=     '</a>';
+        html +=     '<div class="cover">';
+        html +=         '<a class="btn-buy" href=" ">立即购买</a>';
+        html +=     '</div>';
+        html += '</li>';
+        return html;
+    }
+    $('.btn-add').on('click', function (e) {
+        e.preventDefault();
+        $(products).each(function (idx,prod) {
+            $('.jewel').append(setProdHtml(prod));
+        });
+    })
+</script>
+</body>
+</html>
