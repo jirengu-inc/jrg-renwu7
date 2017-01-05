@@ -66,12 +66,32 @@
         //获取窗口滚动条垂直滚动距离
           $(window).on("scroll",function(){
         var $scrollTop=$(window).scrollTop();
-        var $scrollLeft=$(window).scrollLeft();
-        console.log($scrollLeft);
         console.log($scrollTop);
     });
-    
-    
+        //获取$node 到根节点水平、垂直偏移距离
+        var $nodexy=$node.offset();
+        // 修改$node 的样式，字体颜色设置红色，字体大小设置14px
+        $node.css({'color': 'red', 'font-size': '14px'});
+        // 遍历节点，把每个节点里面的文本内容重复一遍
+        $node.each(function(){
+            $(this).text();
+        });
+        // 从$ct 里查找 class 为 .item的子元素
+        $ct.find('.item');
+        // 获取$ct 里面的所有孩子
+        $ct.children();
+        // 对于$node，向上找到 class 为’.ct’的父亲，在从该父亲找到’.panel’的孩子
+        $node.parents('.ct').find('.panel');
+        // 获取选择元素的数量
+        $node.length();
+        // 获取当前元素在兄弟中的排行
+        $node.index();
+
+
+
+
+
+
     </script>
     
 </body>
