@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>task28-1</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        #header{
+            padding: 30px;
+            background-color: #f00;
+            text-align: center;
+        }
+        #nav{
+            margin-top: 20px;
+            height: 40px;
+            background-color: #00f;
+        }
+        #content{
+            background-color: #ccc;
+            border: 10px solid #ccc;
+            overflow: hidden;
+        }
+        #content>.aside{
+            float: left;
+            width: 100px;
+            height: 500px;
+            background-color: #080;
+        }
+        #content>.main{
+            height: 800px;
+            padding: 0 20px;
+            background-color: #fff;
+        }
+        #footer{
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+<div id="header">header</div>
+<div id="nav">nav</div>
+<div id="content">
+    <div class="aside">aside</div>
+    <div class="main">main</div>
+</div>
+<div id="footer">footer</div>
+<script>
+    $.fn.stickup = function () {
+        var $ele = $(this),
+            eleW = $ele.width(),
+            offsetTop = $ele.offset().top,
+            offsetLeft = $ele.offset().left,
+//拷贝需要stickup的节点放到原节点前占位用
+            $eleClone = $ele.clone()
+                    .css({visibility: 'hidden', display: 'none'})
+                    .insertBefore($ele);
+//监听滚动条，当满足条件时操作原节点固定在顶端位置，拷贝节点占位（添加isFixed状态锁——只是在临界值才执行setFixed、unsetFixed函数，优化性能。
+        $(window).on('scroll', function () {
+            var scrollTop = $(window).scrollTop();
+            if(scrollTop >= offsetTop){
+                if(isFixed()) return;
+                $ele.data('isFixed', true);
+                setFixed();
+            }else{
+                if(!isFixed()) return;
+                $ele.data('isFixed', false);
+                unsetFixed();
+            }
+        })
+        function isFixed() {
+            return $ele.data('isFixed');
+        }
+        function setFixed() {
+            $eleClone.show();
+            $ele.css({
+                position: 'fixed',
+                top: 0,
+                left: offsetLeft,
+                width: eleW,
+                margin: 0,
+                'z-index': 9999
+            });
+        }
+        function unsetFixed() {
+            $eleClone.hide();
+            $ele.removeAttr('style');
+        }
+    }
+    $('#nav').stickup();
+</script>
+</body>
+</html>

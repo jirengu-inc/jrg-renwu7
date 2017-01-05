@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-3</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+            font: 12px/100% 'microsoft yahei';
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .clearfix:after{
+            content: " ";
+            display: block;
+            clear: both;
+        }
+        .carousel{
+            width: 310px;
+            height: 206px;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel>.image-ct{
+            position: absolute;
+        }
+        .carousel>.image-ct>li{
+            float: left;
+        }
+        .carousel>.image-ct img{
+            width: 310px;
+            height: 206px;
+        }
+        .carousel>.arrow{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0,0,0,.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .carousel .arrow.pre{
+            left: 10px;
+        }
+        .carousel .arrow.next{
+            right: 10px;
+        }
+        .arrow:hover{
+            background-color: rgba(0,0,0,.6);
+        }
+        .carousel>.bullet {
+            position: absolute;
+            left: 50%;
+            bottom: 12px;
+            transform: translateX(-50%);
+        }
+        .carousel>.bullet >li{
+            float: left;
+            margin: 2px;
+            width: 20px;
+            height: 4px;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .carousel>.bullet >li.active{
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="image-ct clearfix">
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+        <li><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+    </ul>
+    <a class="arrow pre" href="javascript:void(0)"><</a>
+    <a class="arrow next" href="javascript:void(0)">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    var $pre = $('.arrow.pre'),
+        $next = $('.arrow.next'),
+        $bullet = $('.bullet'),
+        $ct = $('.carousel>.image-ct'),
+        $items = $ct.children(),
+        imgWidth = $items.width(),
+        imgCount = $items.length,
+        clock,
+        curIdx = 0,
+        isAnimate = false;
+    $ct.prepend($items.last().clone());
+    $ct.append($items.first().clone());
+    imgCurrentCount = $ct.children().length;
+    $ct.css({left: 0 - imgWidth, width: imgCurrentCount*imgWidth});
+
+    autoPlay();
+    $pre.on('click', function(){
+        playPre();
+    })
+    $next.on('click', function(){
+        playNext();
+    })
+    $bullet.on('click', 'li', function(){
+        var idx = $(this).index();
+        if(idx>curIdx) playNext(idx-curIdx);
+        else if(idx<curIdx) playPre(curIdx-idx);
+    })
+    $ct.on('mouseenter', 'li', function () {
+        stopPlay();
+    })
+    $ct.on('mouseleave', 'li', function () {
+        autoPlay();
+    })
+    function autoPlay() {
+        clock = setInterval(function () {
+            playNext();
+        },3000);
+    }
+    function stopPlay() {
+        clearInterval(clock);
+    }
+    function playNext(idx) {
+        var idx = idx || 1;
+        if(isAnimate) return;
+        isAnimate = true;
+        $ct.animate({left: '-='+(idx*imgWidth)}, 1000, function () {
+            if(idx === 1) curIdx++;
+            else curIdx = curIdx+idx;
+            if(curIdx === imgCount){
+                curIdx = 0;
+                $ct.css({left: 0-imgWidth});
+            }
+            isAnimate = false;
+            setBullet();
+        });
+    }
+    function playPre(idx) {
+        var idx = idx || 1;
+        if(isAnimate) return;
+        isAnimate = true;
+        $ct.animate({left: '+='+(idx*imgWidth)}, 1000, function () {
+            curIdx = (imgCount+curIdx - idx)%imgCount;
+            if(curIdx === (imgCount-1)) $ct.css({left: 0-imgWidth*imgCount});
+            isAnimate = false;
+            setBullet();
+        });
+    }
+    function setBullet() {
+        $bullet.children().removeClass('active')
+                          .eq(curIdx).addClass('active');
+    }
+</script>
+</body>
+</html>
