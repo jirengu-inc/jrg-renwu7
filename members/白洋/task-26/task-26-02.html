@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>task-26-02</title>
+</head>
+<body>
+<style>
+    .btn{
+        height: 100px;
+        width: 100px;
+        border: 2px black solid;
+    }
+    .div{
+        height: 100px;
+        width: 100px;
+        border: 2px black solid;
+    }
+    .inputs{
+        padding: 10px;
+        margin: 10px;
+    }
+    .jd{
+        border:blue solid 1px;
+    }
+
+</style>
+<div class="rongqi">
+    <div class="btn">点击变色</div>
+    <div class="div">我是$div</div>
+    <input class="inputs" type="input"></input>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    //当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+    var $btn = $('.btn');
+    $btn.on('click',function () {
+        $btn.css('background','red');
+        setTimeout(function () {
+        $btn.css('background','blue');
+        },1000);
+    });
+    //当窗口滚动时，获取垂直滚动距离
+    $(window).on("scroll",function(){
+        var $scrollTop=$(window).scrollTop();
+        console.log("获取垂直滚动距离"+$scrollTop);
+    });
+    //当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色
+    var $div=$('.div');
+        $div.on('mouseover',function () {
+            $div.css('background','red');
+        });
+        $div.on('mouseout',function () {
+            $div.css('background','white');
+        });
+    //当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+        var $inputs=$('.inputs');
+            $inputs.on('focus',function () {
+                $inputs.addClass('jd');
+            });
+            $inputs.on('blur',function () {
+                $inputs.removeClass('jd');
+                console.log($inputs[0].value);
+            });
+
+</script>
+</body>
+</html>
