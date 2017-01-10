@@ -11,3 +11,4 @@ ul, ol{list-style-type:none;}
 ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden;}
 .vspace{height:10px;font-size:0px;line-height:0px;width:99%;clear:both;}
 .text-center{ text-align: center;}
+.clearfix:after{ content: ""; display: block; clear: both;}
