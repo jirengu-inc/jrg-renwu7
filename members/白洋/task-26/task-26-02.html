@@ -23,12 +23,23 @@
     .jd{
         border:blue solid 1px;
     }
+    .lists{
+        width: 100px;
+        height: 40px;
+    }
 
 </style>
 <div class="rongqi">
     <div class="btn">点击变色</div>
     <div class="div">我是$div</div>
     <input class="inputs" type="input"></input>
+    <select class="lists" name="selects">
+        <option value="a1">a1</option>
+        <option value="a4">a4</option>
+        <option value="a3">a3</option>
+        <option value="a2">a2</option>
+    </select>
+
 </div>
 <script src="jquery.min.js"></script>
 <script>
@@ -62,6 +73,14 @@
                 $inputs.removeClass('jd');
                 console.log($inputs[0].value);
             });
+            $inputs.on('change',function () {
+                 $(this).val($(this).val().toUpperCase());
+            });
+    //当选择 select 后，获取用户选择的内容
+    var $lists = $('.lists');
+    $lists.on('change',function(){
+        console.log($(this).val()); 
+    });
 
 </script>
 </body>

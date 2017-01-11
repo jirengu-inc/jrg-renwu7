@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>loading</title>
+</head>
+<body>
+	<style>
+		.liebiao{
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+			border: 1px solid #ccc;
+		}
+		.libiao{
+			padding: 15px;
+			border: 1px solid green;
+			border-radius: 10%;
+			text-align: center;
+			font-size: 20px;
+		}
+		.buff{
+			background-color: red;
+		}
+		.load{
+			border: 1px solid #ccc;
+			width: 100px;
+			margin: 10px auto;
+			padding: 10px 15px;
+			border-radius: 5%;
+		}
+	</style>
+	<div class="rongqi">
+		<ul class="liebiao">
+			<li class="libiao">第1行</li>
+			<li class="libiao">第2行</li>
+			<li class="libiao">第3行</li>
+		</ul>
+		<div class="load">
+			点击加载更多
+		</div>
+	</div>
+	<script src="jquery.min.js"></script>
+	<script>
+		var $liebiao = $('.liebiao');
+		var $libiao = $('.libiao');
+		var $load = $('.load');
+		$liebiao.on('mouseover', '.libiao', function() {
+			console.log($(this).index());
+			var idxs = $(this).index();
+			console.log($('.libiao').parents('.liebiao').find('li').eq(idxs).addClass('buff'));
+		});
+		$liebiao.on('mouseleave', '.libiao', function() {
+			console.log($(this).index());
+			var idxs = $(this).index();
+			console.log($('.libiao').parents('.liebiao').find('li').eq(idxs).removeClass('buff'));
+		});
+		$load.on('click', function() {
+			var $suozi = $load.attr("suo");
+			
+			if ($suozi === "loading") {
+				alert("请勿重复点击")
+			} else {
+				$.ajax({
+					url: 'data.php',
+					dataType: 'json',
+					type: 'get',
+					data: {
+						start: $('.libiao').length + 1,
+						len: 6
+					},
+					success: function(jsons) {
+						// console.log(jsons);
+						chulijson(jsons);
+						$load.attr("suo", "loadok");
+						$load.text("点击加载更多");
+					},
+					error: function() {
+						alert("网络gg啦");
+					}
+				});
+			};
+			$load.attr("suo", "loading");
+			$load.text("loading...");
+			console.log($(this).text());
+			function chulijson (tmp){
+				var tmp;
+				// console.log(tmp);
+				for (tmp1=0;tmp1<tmp.data.length;tmp1++){
+					
+					// console.log(tmp.data[tmp1]);
+					$liebiao.append('<li '+'class="libiao" >'+tmp.data[tmp1]+'</li>')
+				};
+			};
+
+
+		});
+
+	</script>
+</body>
+</html>
