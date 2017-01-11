@@ -1,0 +1,124 @@
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+#header .person{
+    float: left;
+}
+#header .person .photo{
+    width: 150px;
+    height: 150px;
+    background: #000000;
+    color: #FFFFFF;
+    border-radius: 50%;
+    line-height: 150px;
+    text-align: center;
+    font-size: 66px;
+    float: left;
+}
+#header .person .name{
+    float: left;
+    padding: 30px;
+}
+#header .person .name > h2{
+    font-size: 46px;
+    font-weight: lighter;
+    line-height: 1.2;
+}
+#header .person .name > p{
+    font-size: 24px;
+    margin-left: 2px;
+}
+#header .info{
+    float: right;
+}
+#header .info .info-header{
+    border-bottom: 4px solid #000000;
+    line-height: 28px;
+    font-size: 28px;
+    width: 350px;
+    padding: 6px 0;
+    margin-bottom: 10px;
+}
+#header .info > p{
+    margin-bottom: 6px;
+}
+#header .info > p > i{
+    font-weight: bold;
+    margin-right: 14px;
+}
+.md-header{
+    text-transform: uppercase;
+    border-bottom: 1px solid #CCCCCC;
+    width: 400px;
+    line-height: 24px;
+    padding: 10px 0;
+    font-size: 22px;
+}
+.md-content{
+    margin-top: 38px;
+}
+.md-content ul{
+    position: relative;
+    border-left: 2px solid #999999;
+}
+.md-content ul li{
+    padding: 0 0 0 100px;
+    position: relative;
+    margin-bottom: 10px;
+    top: -10px;
+}
+.md-content ul li:last-child{
+    margin-bottom: 0px;
+}
+.md-content ul li:before{
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #000000;
+    border-radius: 50%;
+    position: absolute;
+    left: -6px;
+    top: 10px;
+}
+.md-content ul li .title{
+    line-height: 24px;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.md-content ul li .title .sub{
+    color: #CCCCCC;
+}
+.education .md-content ul li .title{
+    margin-bottom: 0px;
+}
+.education .md-content ul li .subtitle{
+    color: #CCCCCC;
+}
+.extra .activities{
+    float: left;
+}
+.activities .md-content ul, .skills .md-content ul{
+    width: 406px;
+    border-left: 0;
+}
+.activities .md-content ul li:before, .skills .md-content ul li:before{
+    content: '+';
+    border: 1px solid #333333;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background: none;
+    text-align: center;
+    top: 4px;
+}
+.extra .skills{
+    float: right;
+}
+.skills .md-content ul li{
+    float: left;
+    width: 153px;
+    padding: 0px 0 0 50px;
+    margin-bottom: 26px;
+}

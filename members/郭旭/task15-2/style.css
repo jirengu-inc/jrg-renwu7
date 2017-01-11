@@ -99,6 +99,9 @@ ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;lin
 .portfolio .portfolio-list > li > img{
     width: 360px;
 }
+.portfolio .portfolio-list > li > img:hover{
+    background: rgba(254,209,54,.9);
+}
 .portfolio .portfolio-list > li > .white-box{
     padding: 28px 10px;
     background: #FFFFFF;
@@ -153,6 +156,6 @@ ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;lin
 }
 .team .long-brief{
     width: 750px;
-    margin: 0 auto;
+    margin: 42px auto 0;
     color: #777;
 }
