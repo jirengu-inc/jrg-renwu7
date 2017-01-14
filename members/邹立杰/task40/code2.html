@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设计模式作业</title>
+</head>
+<style>
+	div{
+		height:1000px;
+	}
+	.target{
+		/*width:300px;*/
+		height:50px;
+		background: #000;
+	}
+</style>
+
+<body>
+	<div></div>
+	<div class="target"></div>
+	<div></div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" ></script>
+<script>
+	var Exposure = (function(){
+		var clock = true;
+		function isShow($ele){
+			var winH = $(window).height();
+			var top = $(document).scrollTop();
+			var targetH =  $ele.offset().top;
+			if(targetH < winH+top){
+				return true;
+			}else{
+				return false;
+			}
+			return targetH >( winH+top )? false:true;
+
+		}
+
+		function bind($ele,callback){
+			$(document).on("scroll",function(){
+				if(isShow($ele)){
+					callback.call($ele);
+				}
+			});
+		}
+
+
+		function one($ele,callback){
+			$(document).on("scroll",function(){
+				if(isShow($ele) && clock === true){
+					callback.call($ele);
+					clock = false;
+				}
+			});
+		}
+
+		return {
+			bind:bind,
+			one:one
+		}
+	})()
+
+	var $target = $(".target");
+	Exposure.bind($target,function(){
+		console.log("bind"+$(this));
+	})
+	Exposure.one($target,function(){
+		console.log("one"+$(this));
+	})
+</script>
+</html>
