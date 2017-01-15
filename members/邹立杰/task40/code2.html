@@ -14,12 +14,6 @@
 		background: #000;
 	}
 </style>
-
-<body>
-	<div></div>
-	<div class="target"></div>
-	<div></div>
-</body>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" ></script>
 <script>
 	var Exposure = (function(){
@@ -60,13 +54,24 @@
 			one:one
 		}
 	})()
+	$(function(){
 
-	var $target = $(".target");
-	Exposure.bind($target,function(){
-		console.log("bind"+$(this));
+		var $target = $(".target");
+		Exposure.bind($target,function(){
+			console.log("bind"+$(this));
+		})
+		Exposure.one($target,function(){
+			console.log("one"+$(this));
+		})
+
 	})
-	Exposure.one($target,function(){
-		console.log("one"+$(this));
-	})
-</script>
+	
+	</script>
+<body>
+	<div></div>
+	<div class="target"></div>
+	<div></div>
+</body>
+
+
 </html>
