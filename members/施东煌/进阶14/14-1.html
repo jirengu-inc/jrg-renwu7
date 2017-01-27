@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14-1</title>
+    <style>
+        ul,li,body,div,html{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            width:200px;
+            height:175px;
+        }
+        .list li{
+            list-style: none;
+            height:35px;
+            background-color: #E31E1C;
+            border-bottom: 1px dashed white;
+            position: relative;
+        }
+        .list li:last-child {
+            border-bottom: none;
+        }
+        .list li>a{
+            text-decoration: none;
+            color: #fff;
+            line-height: 35px;
+            font-size:14px;
+            padding-left: 10px;
+            width:160px;
+            display: inline-block;
+        }
+        span{
+            color: white;
+        }
+        .showItem {
+            position: absolute;
+            left: 200px;
+            top: 0px;
+        }
+        .showItem {
+            display: none;
+        }
+        .showItem table {
+            width: 200px;
+            border: 1px solid #ccc;
+        }
+        .showItem table tr td a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 12px;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="list">
+        <li>
+            <a href="#">珠宝玉器 </a>
+            <span> > </span>
+            <div class="showItem">
+                <table>
+                    <tr>
+                        <td><a href="#">翡翠</a></td>
+                        <td><a href="#">玉石</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">宝石</a></td>
+                        <td><a href="#">水晶</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">玛瑙</a></td>
+                        <td><a href="#">珍珠</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">钻石</a></td>
+                        <td><a href="#">琥珀</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">和田</a></td>
+                        <td><a href="#">琥珀</a></td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+        <li>
+            <a href="#">珠宝玉器 </a>
+            <span> > </span>
+            <div class="showItem">
+                <table>
+                    <tr>
+                        <td><a href="#">翡翠</a></td>
+                        <td><a href="#">玉石</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">宝石</a></td>
+                        <td><a href="#">水晶</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">玛瑙</a></td>
+                        <td><a href="#">珍珠</a></td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+        <li>
+            <a href="#">珠宝玉器 </a>
+            <span> > </span>
+            <div class="showItem">
+                <table>
+                    <tr>
+                        <td><a href="#">翡翠</a></td>
+                        <td><a href="#">玉石</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">宝石</a></td>
+                        <td><a href="#">水晶</a></td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+        <li>
+            <a href="#">珠宝玉器 </a>
+            <span> > </span>
+            <div class="showItem">
+                <table>
+                    <tr>
+                        <td><a href="#">翡翠</a></td>
+                        <td><a href="#">玉石</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">宝石</a></td>
+                        <td><a href="#">水晶</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">玛瑙</a></td>
+                        <td><a href="#">珍珠</a></td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+        <li>
+            <a href="#">珠宝玉器 </a>
+            <span> > </span>
+            <div class="showItem">
+                <table>
+                    <tr>
+                        <td><a href="#">翡翠</a></td>
+                        <td><a href="#">玉石</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">宝石</a></td>
+                        <td><a href="#">水晶</a></td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".list > li").on("mouseover", function () {
+            $(this).find(".showItem").show();
+        }).on("mouseout", function () {
+            $(this).find(".showItem").hide();
+        });
+    });
+</script>
+</body>
+</html>
