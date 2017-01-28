@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14-2</title>
+    <style>
+        ul, li, div {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 702px;
+        }
+
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .tab-list li {
+            float: left;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+        }
+
+        .tab-list li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tab-list .active {
+            background: #ccc;
+        }
+
+        .tab-list .active a {
+            color: red;
+        }
+
+        .container .content {
+            width: 702px;
+            border: 1px solid #ccc;
+        }
+
+        .content .item-list .item {
+            width: 220px;
+            height: 210px;
+            border: 1px solid #ccc;
+        }
+
+        .content .item-list .buy-div {
+            width: 220px;
+            height: 210px;
+            position: absolute;
+            background: #333;
+            opacity: 0;
+            top: 0px;
+            transition: all 0.5s;
+        }
+
+        .content .buy-div.buy-active {
+            opacity: 0.9;
+        }
+
+        .content .item-list {
+            margin-left: -20px;
+            margin-top: -15px;
+        }
+
+        .content .item-list .buy {
+            width: 80px;
+            height: 40px;
+            border: 1px solid red;
+            border-radius: 4px;
+            background: white;
+            text-align: center;
+            line-height: 35px;
+            margin: 90px auto;
+        }
+
+        .content .item-list .buy a {
+            font-size: 13px;
+            color: red;
+        }
+
+        .content .item-list li {
+            float: left;
+            margin-left: 20px;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .content .item-list li a {
+            text-decoration: none;
+        }
+
+        .content .item-list .item-img,
+        .content .item-list .item-title {
+            text-align: center;
+        }
+
+        .content .item-list .item-title {
+            font-size: 13px;
+            color: #ccc;
+            margin-top: 15px;
+        }
+
+        .content .item-list .item-price {
+            font-size: 13px;
+            margin-top: 15px;
+            color: red;
+            text-align: center;
+        }
+
+        .container .content {
+            display: none;
+        }
+
+        .content.content-active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <ul class="tab-list  clear">
+        <li class="active">
+            <a href="javascript:">热门</a>
+        </li>
+        <li>
+            <a href="javascript:">珠宝首饰</a>
+        </li>
+        <li>
+            <a href="javascript:">奢侈品</a>
+        </li>
+    </ul>
+    <div class="content content-active">
+        <ul class="item-list clear">
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <ul class="item-list clear">
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <ul class="item-list clear">
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<br> <br> <br>
+<div class="container">
+    <ul class="tab-list  clear">
+        <li class="active">
+            <a href="javascript:">热门</a>
+        </li>
+        <li>
+            <a href="javascript:">珠宝首饰</a>
+        </li>
+        <li>
+            <a href="javascript:">奢侈品2</a>
+        </li>
+    </ul>
+    <div class="content content-active">
+        <ul class="item-list clear">
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <ul class="item-list clear">
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手链 3D猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥100.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <ul class="item-list clear">
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                                 alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥45.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".tab-list li").on("click", function () {
+            var $index = $(this).index();
+            $(this).addClass("active").siblings().removeClass("active");
+            $(this).parents('.container').find(".content").eq($index).addClass("content-active").siblings().removeClass("content-active");
+        });
+        $(".content .buy-div").on('mouseover', function () {
+            $(this).addClass('buy-active');
+        }).on('mouseout', function () {
+            $(this).removeClass('buy-active');
+        });
+    });
+</script>
+</body>
+</html>

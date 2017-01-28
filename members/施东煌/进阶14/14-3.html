@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul, li, div {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 702px;
+        }
+        .clear:after {
+
+            content: '';
+            display: block;
+            clear: both;
+        }
+        li {
+            list-style: none;
+        }
+        .container .content {
+            width: 702px;
+            border: 1px solid #ccc;
+        }
+        .content .item-list .item {
+            width: 220px;
+            height: 210px;
+            border: 1px solid #ccc;
+        }
+        .content .item-list .buy-div {
+            width: 220px;
+            height: 210px;
+            position: absolute;
+            background: #333;
+            opacity: 0;
+            top: 0px;
+            transition:  all 0.5s;
+        }
+        .content .buy-div.buy-active {
+            opacity: 0.9;
+        }
+        .content .item-list {
+            margin-left: -20px;
+            margin-top: -15px;
+        }
+        .content .item-list .buy {
+            width: 80px;
+            height: 40px;
+            border: 1px solid red;
+            border-radius: 4px;
+            background: white;
+            text-align: center;
+            line-height: 35px;
+            margin: 90px auto;
+        }
+        .content .item-list .buy a {
+            font-size: 13px;
+            color: red;
+        }
+        .content .item-list li {
+            float: left;
+            margin-left: 20px;
+            margin-top: 15px;
+            position: relative;
+        }
+        .content .item-list li a {
+            text-decoration: none;
+        }
+        .content .item-list .item-img,
+        .content .item-list .item-title{
+            text-align: center;
+        }
+        .content .item-list .item-title {
+            font-size: 13px;
+            color: #ccc;
+            margin-top: 15px;
+        }
+        .content .item-list .item-price {
+            font-size: 13px;
+            margin-top: 15px;
+            color: red;
+            text-align: center;
+        }
+        .container .content {
+            display: none;
+        }
+        .content.content-active {
+            display: block;
+        }
+        .container .click-add {
+            width: 60px;
+            height: 30px;
+            border: 1px solid red;
+            border-radius: 4px;
+            background: white;
+            text-align: center;
+            line-height: 25px;
+            margin-top: 20px;
+        }
+        .container .click-add a {
+            font-size: 13px;
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>珠宝首饰</h2>
+    <div class="content content-active">
+        <ul class="item-list clear">
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">
+                        <div class="item-img">
+                            <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+                        </div>
+                        <div class="item-title">
+                            珂兰 黄金手 猴哥款
+                        </div>
+                        <div class="item-price">
+                            ￥405.00
+                        </div>
+                    </div>
+                    <div class="buy-div">
+                        <div class="buy">
+                            <a href="">点击购买</a>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="click-add">
+        <a href="javascript:">添加</a>
+    </div>
+
+    <ul class="aaa">
+
+    </ul>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        var products = [
+            {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥405.00'
+            },{
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金转运珠 猴哥款',
+                price: '￥100.00'
+            },{
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手链 3D猴哥款',
+                price: '￥45.00'
+            }
+        ];
+        function createHTML(src, title, price) {
+            var html = "";
+            html += "<li>";
+            html += "<a href='javascript:'>";
+            html += "<div class='item'>";
+            html += "<div class='item-img'>";
+            html += "<img src='" + src + "' alt=''>";
+            html += "</div>";
+            html += "<div class='item-title'>" + title + "</div>";
+            html += "<div class='item-price'>" + price + "</div>";
+            html += "</div>";
+            html += "<div class='buy-div'>";
+            html += "<div class='buy'>";
+            html += "<a href='javascript:'>点击购买</a>";
+            html += "</div></div></a></li>";
+            return html;
+        }
+        $('.click-add').on('click', function () {
+            var li1 = createHTML(products[0]['img'], products[0]['name'], products[0]['price']);
+            var li2 = createHTML(products[1]['img'], products[1]['name'], products[1]['price']);
+            var li3 = createHTML(products[2]['img'], products[2]['name'], products[2]['price']);
+            $(".item-list").append($(li1));
+            $(".item-list").append($(li2));
+            $(".item-list").append($(li3));
+        });
+        $(".content").on('mouseover', ".buy-div", function () {
+            $(this).addClass('buy-active');
+        }).on('mouseout', ".buy-div", function () {
+            $(this).removeClass('buy-active');
+        });
+    });
+</script>
+</body>
+</html>
