@@ -144,7 +144,62 @@
 	</div>
 <script src="js/jquery.min.js"></script>
 <script>
-	
+	function Carousel($ele){
+		// this.$ele = $ele;
+		this.$ct = $ele.find(".ct");
+		this.$items = this.$ct.children();
+		this.$prev = $ele.find(".prev");
+		this.$next = $ele.find(".next");
+		this.$bullet = $ele.find(".bullet");
+
+		var imgCount = this.$items.length;
+		var imgWidth = this.$items.width();
+
+		this.curIdx = 0;
+		this.clock=false
+
+		this.$ct.css({width:imgWidth*imgCount});
+		this.init();
+	}
+
+	Carousel.prototype = {
+		init:function(){
+			this.$ct.append(this.item.first().clone()).prepend(this.item.last().clone());
+						this.$ct.css({left: 0 - this.itemWidth,width: this.itemWidth * this.itemRealCount});
+			this.playAuto();
+			this.bind();
+		},
+		bind:function(){
+			var $cur = this;
+			this.$prev.on("click",function(){
+				$cur.playPrev()
+			})
+			this.$next.on("click",function(){
+				$cur.playNext();
+			})
+			this.$bullet.find("li").on("click",function(){
+				var idx = $(this).index();
+				if(idx > $cur.curIdx){
+					$cur.playNext(idx - $cur.curIdx)
+				}
+				if(idx < $cur.curIdx){
+					$cur.playPre($cur.curIdx - idx)
+				}
+			})
+		},
+		playPrev:function(idx){
+			var $cur = this;
+			var idx = idx || 1;
+			if(!$cur.clock){
+				$cur.clock = true;
+
+				$cur.$ct.animate({"left":"-="+idx*imgWidth},function(){
+
+				})
+			}
+		}
+	}
 </script>
+
 </body>
 </html>
