@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <ul class="news">
+        <li>NBA-8:00视频直播勇士vs热火 9:00火箭出战</li>
+        <li>鲁媒评CBA本土一哥之争：易帝退位 丁神登基</li>
+        <li>四人梅开二度上港热身10-0	辽足签两澳洲国脚</li>
+    </ul>
+
+    <button class="change">换一组</button>
+
+</div>
+
+<script>
+
+    $('.change').addEventListener('click', function(){
+        var script = document.createElement('script');
+        script.src = 'http://b.kuayu.com:8080/getNews?callback=appendHtml';
+        document.head.appendChild(script);
+        document.head.removeChild(script);
+    })
+    function appendHtml(news){
+        var html = '';
+        for( var i=0; i<news.length; i++){
+            html += '<li>' + news[i] + '</li>';
+        }
+        $('.news').innerHTML = html;
+    }
+    function $(id){
+        return document.querySelector(id);
+    }
+</script>
+
+</body>
+</html>

@@ -1,10 +1,9 @@
 <?php
-
-	$start = $_GET['start'];
-	$len = $_GET['len'];
-	$items = array();
-	for($i = 0; $i < $len; $i++){
-	array_push($items, '内容' . ($start+$i+1));
-	}
-	echo json_encode($items);
+    $startNum = $_GET['start'];
+    $addNum = $_GET['length'];
+    $newLi = array();
+    for ($i=0; $i <$addNum; $i++) {
+    array_push($newLi,($startNum + $i+1));
+    }
+    echo json_encode($newLi);
 ?>

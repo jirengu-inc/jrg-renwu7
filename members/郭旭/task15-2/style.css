@@ -11,7 +11,7 @@ ul, ol{list-style-type:none;}
 ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden;}
 .vspace{height:10px;font-size:0px;line-height:0px;width:99%;clear:both;}
 .text-center{ text-align: center;}
-
+.clear-fix:after{content: ""; display: block; clear: both;}
 .container{
     width: 1170px;
     margin: 0 auto;
@@ -29,6 +29,39 @@ ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;lin
     display: inline-block;
     line-height: 1.5;
     text-align: center;
+    border-radius: 5px;
+}
+nav{
+    background: #222222;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+nav .logo{
+    float:left;
+}
+nav .logo a{
+    padding: 10px;
+    color: #fed136;
+    font-size: 24px;
+    display: inline-block;
+}
+nav ul{
+    float: right;
+}
+nav ul li{
+    float: left;
+}
+nav ul li a{
+    display: inline-block;
+    padding: 16px;
+    font-size: 18px;
+    color: #fff;
+}
+nav ul li a:hover{
+    background: #fed136;
     border-radius: 5px;
 }
 .content-box{
@@ -96,11 +129,40 @@ ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;lin
     padding: 0 15px;
     margin-bottom: 30px;
 }
-.portfolio .portfolio-list > li > img{
+.portfolio .portfolio-list > li .img{
     width: 360px;
+    display: inline-block;
+    position: relative;
 }
-.portfolio .portfolio-list > li > img:hover{
-    background: rgba(254,209,54,.9);
+.portfolio .portfolio-list > li .img .img-shadow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    background: #fed136;
+    height: 260px;
+    opacity: 0;
+    transition: ease 1s;
+}
+.portfolio .portfolio-list > li .img .img-shadow i{
+    font-size: 4em;
+    color: #FFFFFF;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: -22px;
+}
+.portfolio .portfolio-list > li .img:hover .img-shadow{
+    opacity: .9;
+    text-align: center;
+}
+.portfolio .portfolio-list > li .img:hover .img-shadow i{
+
+}
+.portfolio .portfolio-list > li img{
+    width: 100%;
 }
 .portfolio .portfolio-list > li > .white-box{
     padding: 28px 10px;
@@ -158,4 +220,136 @@ ul:after, ol:after{clear:both;content:".";display:block;font-size:0;height:0;lin
     width: 750px;
     margin: 42px auto 0;
     color: #777;
+}
+.about .about-list > li{
+    min-height: 170px;
+    margin-bottom: 90px;
+}
+.about .about-list .time-line-img{
+    background: #fed136;
+    color: #fff;
+    border-radius: 100%;
+    border: 7px solid #f1f1f1;
+    width: 156px;
+    height: 156px;
+    position: absolute;
+    left: 50%;
+    margin-left: -78px;
+}
+.about .about-list .time-line-img>img{
+    width: 100%;
+    border-radius: 50%;
+}
+.about .about-list .time-line-text{
+    float: left;
+    width: 30%;
+    text-align: right;
+    padding: 0 20px 0 110px;
+}
+.about .about-list .right .time-line-text{
+    float: right;
+    width: 30%;
+    text-align: left;
+    padding: 0 90px 0 20px;
+}
+.about .about-list .time-line-text h3{
+    line-height: 32px;
+}
+.about .about-list .time-line-img h4
+{
+    margin-top: 32px;
+    font-size: 20px;
+}
+.about .about-list li:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+.about .verticalline{
+    width: 2px;
+    background-color: #F1F1F1;
+    height: 1200px;
+    position: absolute;
+    left: 50%;
+    margin-left: 9px;
+}
+.message{
+    background-color: #222;
+    background-image: url(map-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 150px;
+}
+.message h2{
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.message > p{
+    color: #777;
+    font-size: 16px;
+}
+.message .form-box{
+    float: left;
+    margin: 42px 20px;
+}
+.message .userinput,.message textarea{
+    display: block;
+    border-radius: 5px;
+    width: 500px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border:none;
+}
+.message textarea{
+    height: 160px;
+}
+.message .message-btn{
+    width: 200px;
+    margin: 0 auto;
+}
+.message .message-btn .btn{
+    border: none;
+}
+.footer p{
+    display: inline-block;
+    color: #000;
+    padding: 30px 100px;
+}
+.footer i {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 40px;
+}
+.footer i:hover{
+    color: #fed136;
+}
+.footer .a-decoration{
+    color: #fddb0f;
+}
+.footer .a-decoration:hover{
+    text-decoration: underline;
+}
+.footer .share{
+    text-align: center;
+}
+.footer .share .link{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 40px;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: all .3s;
+}
+.footer .share .link:hover{
+    background: #fed136;
+}
+.footer .share i{
+    font-size: 20px;
+    color: #fff;
+    margin-left: 0;
 }
