@@ -80,7 +80,7 @@
             }
         }
         var btn = document.querySelector('.btn'),
-            ct = document.querySelector('.content'),
+            cb = document.querySelector('.content'),
             lock = false,
             num = 2;
         btn.addEventListener('click', function() {
@@ -108,9 +108,9 @@
             for (var i = 0; i < json.length; i++) {
                 var newli = document.createElement('li');
                 newli.innerText = '内容' + json[i];
-                ct.appendChild(newli);
+                cb.appendChild(newli);
             }
-            num += 6;
+            num += 3;
             lock = false;
             btn.innerText = '加载更多';
         }
