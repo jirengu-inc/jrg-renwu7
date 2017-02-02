@@ -105,7 +105,42 @@
     </ul>
 </div>
 <script>
+        //计数器 
+        var jishuqi = 0;
+        //点击右边
+        function youjianbian(tmp) {
+            $(".rongqi").find(".ziyuansu").eq(tmp).hide('slow',
+                function() {
 
+                    if (jishuqi >= 5) {
+                        jishuqi = 0;
+                        $(".rongqi").find(".ziyuansu").show('fast');
+                    } else {
+                        jishuqi = jishuqi + 1;
+                    }
+                });
+            console.log('右行' + "计数器：" + jishuqi + "图片名称:" + $(".rongqi").find(".ziyuansu").eq(tmp).find('img').eq(0).attr('src'));
+        };
+        //点击左边
+        function zuojianbian(tmp) {
+            if (tmp === 0) {
+                $('.rongqi').find('.ziyuansu').eq(1).hide('fast');
+                $('.rongqi').find('.ziyuansu').eq(2).hide('fast');
+                $('.rongqi').find('.ziyuansu').eq(3).hide('fast');
+                $('.rongqi').find('.ziyuansu').eq(4).hide('fast');
+                $('.rongqi').find('.ziyuansu').eq(0).hide('slow');
+                jishuqi = 5;
+
+            } else {
+                tmp = tmp - 1;
+                $(".rongqi").find(".ziyuansu").eq(tmp).show('slow', function() {
+                    console.log('左行' + jishuqi);
+                    jishuqi = jishuqi - 1;
+                })
+            }
+
+            console.log('左行' + "计数器：" + jishuqi + "图片名称:" + $(".rongqi").find(".ziyuansu").eq(tmp).find('img').eq(0).attr('src'));
+        };
 </script>
 </body>
 </html>
