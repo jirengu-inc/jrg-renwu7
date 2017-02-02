@@ -7,93 +7,117 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style media="screen">
-     html body ul li a{
-       margin: 0;
-       padding: 0;
-     }
-     a{
-       text-decoration: none;
-     }
-     ul li {
-       list-style: none;
-     }
-      #content li{
-        border: 1px solid black;
-        margin: 20px;
-        padding: 20px;
-      }
-      #content li:hover{
-        background: green;
-      }
-      #btn{
-        text-align: center;
-        line-height: 40px;
-        display: block;
-        border: 1px solid black;
-        width: 80px;
-        height: 40px;
-        margin: 0 auto;
-        background: yellow;
-      }
+        html body ul li a {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .content li {
+            border: 1px solid black;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .content li:hover {
+            background: green;
+        }
+
+        .btn {
+            text-align: center;
+            line-height: 40px;
+            display: block;
+            border: 1px solid black;
+            width: 80px;
+            height: 40px;
+            margin: 0 auto;
+            background: yellow;
+        }
     </style>
 </head>
 
 <body>
-    <ul id="content">
-      <li>内容1</li>
-      <li>内容2</li>
+    <ul class="content">
+        <li>内容1</li>
+        <li>内容2</li>
     </ul>
-    <a href="#" id="btn">more</a>
+    <a href="#" class="btn">more</a>
     <script type="text/javascript">
         function ajax(opts) {
+            //http请求
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    var json = JSON.parse(xmlhttp.responseText);
+                    var json = JSON.parse(xmlhttp.responseText)
                     opts.success(json);
                 }
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 404) {
-                    opts.error()
+                if (xmlhttp.status == 404) {
+                    opts.error();
                 }
-            }
+            };
+            //转化字符串格式
             var dataStr = '';
             for (var key in opts.data) {
-                dataStr += key + '=' + opts.data[key] + '&'
+                dataStr += key + '=' + opts.data[key] + '&';
             }
             dataStr = dataStr.substr(0, dataStr.length - 1);
-            if (opts.type.toLowerCase() === 'post') {
-                xmlhttp.open(opts.type, opts.url, true);
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send(dataStr);
-            }
+            //判断提交方式
             if (opts.type.toLowerCase() === 'get') {
-                xmlhttp.open(opts.type, opts.url + '?' + dataStr, true);
+                xmlhttp.open('get', opts.url + '?' + dataStr, true);
                 xmlhttp.send();
             }
+            if (opts.type.toLowerCase() === 'post') {
+                xmlhttp.open('post', opts.url, true);
+                xmlhttp.sendRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xmlhttp.send(dataStr);
+            }
         }
-        var ct = document.querySelector('#ct');
-            num=2;
-        document.querySelector('#btn').addEventListener('click', function() {
-            ajax({
-                url: '1.php', //接口地址
-                type: 'get', // 类型， post 或者 get,
-                data: {
-                  start: num,
-                  len: 6
-                },
-                success: function(ret) {
-                  for (var k = 0; k < ret.length; k++){
-                  var newLi = document.createElement('li');
-                  newLi.innerText = ret[k];
-                  ct.appendChild(newLi);
-                  num += 1;
-              }
-                },
-                error: function() {
-                    console.log('出错了')
-                }
-            })
+        var btn = document.querySelector('.btn'),
+            cb = document.querySelector('.content'),
+            lock = false,
+            num = 2;
+        btn.addEventListener('click', function() {
+            btn.innerText = '加载中';
+            if (!lock) {
+                lock = true;
+                ajax({
+                    url: '1.php',
+                    type: 'get',
+                    data: {
+                        start: num,
+                        length: 6
+                    },
+                    success: function(json) {
+                        dealwith(json);
+                    },
+                    error: function() {
+                        toError();
+                    }
+                });
+            }
         });
+
+        function dealwith(json) {
+            for (var i = 0; i < json.length; i++) {
+                var newli = document.createElement('li');
+                newli.innerText = '内容' + json[i];
+                cb.appendChild(newli);
+            }
+            num += 3;
+            lock = false;
+            btn.innerText = '加载更多';
+        }
+
+        function toError() {
+            alert('出错了');
+        }
     </script>
 </body>
 
