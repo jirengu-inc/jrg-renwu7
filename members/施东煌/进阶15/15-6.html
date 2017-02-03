@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://kejian.jirengu.com/static/js/jquery-1.11.1.min.js"></script>
+    <style>
+        #node1-1, #node2-1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+
+        .active {
+            background: red;
+        }
+    </style>
+
+</head>
+<body>
+
+<fieldset>
+    <legend>1.给元素 $node 添加 class active，给元素 $noed 删除 class active</legend>
+    <div id="node1-1"></div>
+    <button class="btn1">添加active</button>
+    <button class="btn2">删除active</button>
+    <script type="text/javascript">
+
+        $('.btn1').on('click', function () {
+            $('#node1-1').addClass('active');
+        })
+        $('.btn2').on('click', function () {
+            $('#node1-1').removeClass('active');
+        })
+
+
+    </script>
+</fieldset>
+
+<fieldset>
+
+    <legend>2.展示元素$node, 隐藏元素$node</legend>
+    <div id="node2-1"></div>
+    <button class="btn2-1">显示</button>
+    <button class="btn2-2">隐藏</button>
+    <script type="text/javascript">
+
+        $('.btn2-1').on('click', function () {
+            $('#node2-1').show('slow', function () {
+            })
+        })
+
+        $(".btn2-2").on("click", function () {
+            $("#node2-1").hide("slow", function () {
+            })
+        })
+    </script>
+</fieldset>
+
+<fieldset>
+    <legend>3.取元素$node 的 属性: id、src、title， 修改以上属性</legend>
+    <img id="node3" src="http://home.jscode.me/uploads/default/original/1X/270d05f57fc86712517c9a6d58dc282505365271.png"
+         title="jrg-img">
+    <div>
+        <button class="btn3-1">获取属性</button>
+        <button class="btn3-2">修改属性</button>
+    </div>
+    <p class="node3-content">获取属性内容</p>
+    <script type="text/javascript">
+
+
+        $(".btn3-1").on("click", function () {
+            var $id = $("img").attr("id"),
+                $src = $("img").attr("src"),
+                $title = $("img").attr("title")
+            $(".node3-content").text("id:" + $id + " " + "src:" + $src + " " + "title:" + $title)
+        })
+        $(".btn3-2").on("click", function () {
+            $("img").attr("id", "idnew");
+            $("#idnew").attr("src", "http://www.jirengu.com/data/upload/2016/0613/15/575e67b7308d0_419_250.jpg");
+            $("#idnew").attr("title", "newtitle")
+        })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>4.给$node 添加自定义属性data-src</legend>
+    <img id="node4" src="http://www.jirengu.com/addons/theme/stv1/_static/app/index-new/imgs/weekly.png"
+         title="jrg-img">
+    <div>
+        <button class="ck4">添加自定义属性</button>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $(".ck4").on("click", function () {
+                $("#node4").attr("data-src", "http://www.jirengu.com/data/upload/2016/0613/15/575e67b7308d0_419_250.jpg")
+                console.log($('#node4').attr('data-src'));
+            })
+        })
+    </script>
+</fieldset>
+
+<fieldset>
+    <legend>5.在$ct 内部最开头添加元素$node</legend>
+    <div id="node5">
+        <p>吃饭</p>
+        <p>睡觉</p>
+        <p>看电影</p>
+    </div>
+    <div>
+        <button class="ck5">开头添加</button>
+    </div>
+    <script type="text/javascript">
+
+        $(".ck5").on("click", function () {
+
+            $("#node5").prepend('<p>添加' + new Date() + '</p>');
+        })
+    </script>
+</fieldset>
+
+
+<fieldset>
+    <legend>6.在$ct 内部最末尾添加元素$node</legend>
+    <div id="node6">
+        <p>吃饭</p>
+        <p>睡觉</p>
+        <p>看电影</p>
+    </div>
+    <div>
+        <button class="ck6">结尾添加</button>
+    </div>
+    <script type="text/javascript">
+        $(".ck6").on("click", function () {
+
+            $("#node6").append('<p>添加' + new Date() + '</p>')
+        })
+    </script>
+</fieldset>
+
+<fieldset>
+    <legend>7.删除$node</legend>
+    <div id="node7">
+        <p>吃饭</p>
+        <p>睡觉</p>
+        <p>看电影</p>
+    </div>
+    <button class="ck7">删除元素</button>
+    <script type="text/javascript">
+
+        $(".ck7").on("click", function () {
+            $("#node7").remove()
+        })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>8.把$ct里内容清空</legend>
+    <div id="node8">
+        <p>吃饭</p>
+        <p>睡觉</p>
+        <p>看电影</p>
+    </div>
+    <button class="ck8">清空元素</button>
+    <script type="text/javascript">
+
+        $(".ck8").on("click", function () {
+            $("#node8").empty()
+        })
+    </script>
+</fieldset>
+
+<fieldset>
+    <legend>9.在$ct 里设置 html
+        <div class="btn"></div>
+    </legend>
+    <span id="node9">text...text....text...text....</span>
+    <button class="ck9">点击设置html</button>
+    <script type="text/javascript">
+        $(".ck9").on("click", function () {
+            $("#node9").html("<div class='btn'>btn</div>")
+        })
+    </script>
+</fieldset>
+
+<fieldset>
+    <legend>10.获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)</legend>
+    <div id="node10" style="height:100px;width:100px;background:green;border:1px solid yellow;margin:10px;padding:10px">
+    </div>
+    <p class="content10"></p>
+    <button class="ck10">点击获取</button>
+    <button class="ck10-1">点击设置</button>
+    <script type="text/javascript">
+        $(".ck10").on("click", function () {
+            var $width = $("#node10").width(),
+                $innerwidth = $("#node10").innerWidth(),
+                $outerwidth = $("#node10").outerWidth(),
+                $outerwidthtr = $("#node10").outerWidth(true);
+            $(".content10").text("内容宽度:" + $width + " " + "px" + " " + "包含内边距宽度:" + $innerwidth + "px" + " " + "包含边框宽度:" +
+                $outerwidth + "px" + " " + "包含外边距:" + $outerwidthtr + "px")
+        })
+        $(".ck10-1").on("click", function () {
+            $("#node10").width(50).height(50)
+        })
+    </script>
+</fieldset>
+
+<fieldset>
+    <legend>11.获取窗口滚动条垂直滚动距离</legend>
+    <div id="node11" style="width:200px;height:100px;background:green;position:fixed;right:10px;top:200px;display:none">
+        <p></p>
+    </div>
+    <button class="ck11">点击滚动</button>
+    <script type="text/javascript">
+        $(".ck11").on("click", function () {
+            $("#node11").show()
+        })
+        $(window).on("scroll", function () {
+            var $scroll = $(window).scrollTop(),
+                $scrollleft = $(window).scrollLeft()
+            $("#node11").text('窗口垂直滚动:' + $scroll + 'px' + " " + "水平滚动" + $scrollleft + "px")
+        })
+
+    </script>
+</fieldset>
+
+<fieldset>
+    <legend>12.获取$node 到根节点水平、垂直偏移距离</legend>
+    <div id="node12" style="width:200px;height:100px;background:green">
+    </div>
+    <p></p>
+    <button class="ck12">点击滚动</button>
+    <script type="text/javascript">
+        $(".ck12").on("click", function () {
+
+            console.log($("#node12").offset().top)
+            $("#node12+p").text("与根节点垂直距离" + $("#node12").offset().top + "px" + " " + "与跟节点水平距离" +
+                $("#node12").offset().left + "px")
+        })
+    </script>
+
+</fieldset>
+
+<fieldset>
+    <legend>13.修改$node 的样式，字体颜色设置红色，字体大小设置14px</legend>
+    <span id="node13">修改字体颜色</span>
+    <button class="ck13">修改</button>
+    <script type="text/javascript">
+        $(".ck13").on("click", function () {
+            $("#node13").css({"color": "red", "font-size": "14px"})
+        })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>14.遍历节点，把每个节点里面的文本内容重复一遍</legend>
+    <div id="node14">
+        <p>吃饭</p>
+        <p>睡觉</p>
+        <p>看电影</p>
+    </div>
+    <span class="node14-cont"></span>
+    <button class="ck14">点击遍历</button>
+    <script type="text/javascript">
+        $(".ck14").on("click", function () {
+            $("#node14 p").each(function (idx, el) {
+                console.log(idx + ":" + $(el).text())
+                $(".node14-cont").append(idx + ":" + $(el).text() + "<br >")
+            })
+        })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>15.从$ct 里查找 class 为 .item的子元素</legend>
+    <div id="node15">
+        <p class="ccc">吃饭</p>
+        <p class="item">睡觉</p>
+        <p class="item">看电影</p>
+        <p class="ccc">唱歌</p>
+    </div>
+    <button class="ck15">查找</button>
+    <p class="node15-cont"></p>
+    <script type="text/javascript">
+
+        $(".ck15").on("click",function () {
+            $("#node15").find(".item").css('background-color', 'red');
+
+        })
+
+
+    </script>
+</fieldset>
+<fieldset>
+    <legend>16.获取$ct 里面的所有孩子</legend>
+    <div id="node16">
+        <p class="ccc">吃饭</p>
+        <p class="item">睡觉</p>
+        <p class="item">看电影</p>
+        <p class="ccc">唱歌</p>
+    </div>
+    <p class="ccc">吃饭</p>
+    <p class="item">睡觉</p>
+    <p class="item">看电影</p>
+    <p class="ccc">唱歌</p>
+    <button class="ck16">获取子元素</button>
+    <script type="text/javascript">
+            $(".ck16").on("click",function(){
+                $("#node16").children().css({"color":"red"})
+            })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>17.对于$node，向上找到 class 为'.ct'的父亲，在从该父亲找到'.panel'的孩子</legend>
+    <div id="node17">
+        <p class="item1">吃饭</p>
+        <p class="item2">睡觉</p>
+        <p class="item3">唱歌</p>
+        <p class="pannel">看电影</p>
+    </div>
+    <p class="item1">吃饭</p>
+    <p class="item2">睡觉</p>
+    <p class="item3">唱歌</p>
+    <p class="pannel">看电影</p>
+    <button class="ck17">向上查找</button>
+    <script type="text/javascript">
+            $(".ck17").on("click",function(){
+                $(".item2").parent("#node17").find(".pannel").css({"color":"red"})
+            })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>18.获取选择元素的数量</legend>
+    <div id="node18">
+        <p class="item">吃饭</p>
+        <p class="item">睡觉</p>
+        <p class="item">唱歌</p>
+        <p class="item">看电影</p>
+    </div>
+    <p class="node18-cont"></p>
+    <button class="ck18">获取元素数量</button>
+    <script type="text/javascript">
+            $(".ck18").on("click",function(){
+                $(".node18-cont").text("获取元素的数量："+$("#node18").find(".item").length)
+                console.log($("#node18").find(".item").length)
+            })
+    </script>
+</fieldset>
+<fieldset>
+    <legend>19.获取当前元素在兄弟中的排行</legend>
+    <div id="node19">
+        <p class="item1">吃饭</p>
+        <p class="item2">睡觉</p>
+        <p class="itm3">唱歌</p>
+        <p class="it4">看电影</p>
+    </div>
+    <p class="node19-cont"></p>
+    <button class="ck19">获取元素序号</button>
+    <script type="text/javascript">
+            $(".ck19").on("click",function(){
+                $(".node19-cont").text("唱歌在兄弟中的序号："+($(".itm3").index()+1))
+            })
+    </script>
+</fieldset>
+
+</body>
+</html>
