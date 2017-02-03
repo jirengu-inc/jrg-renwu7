@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>三个</title>
+	<title>面向对象jq插件</title>
 </head>
 <style>
 	body,ul,li{
@@ -20,6 +20,7 @@
 		position:relative;
 		width:480px;
 		height:360px;
+		/*height:380px;*/
 		margin:10px auto;
 		overflow: hidden;
 	}
@@ -84,21 +85,25 @@
 				<a href="#">
 					<img src="images/23.jpg" alt="">
 				</a>
+				1
 			</li>
 			<li data-index="1">
 				<a href="#">
 					<img src="images/24.jpg" alt="">
 				</a>
+				2
 			</li>
 			<li data-index="2">
 				<a href="#">
 					<img src="images/25.jpg" alt="">
 				</a>
+				3
 			</li>
 			<li data-index="3">
 				<a href="#">
 					<img src="images/26.jpg" alt="">
 				</a>
+				4
 			</li>
 		</ul>
 		<a href="#" class="arrow prev"><</a>
@@ -110,7 +115,7 @@
 			<li></li>
 		</ul>
 	</div>
-	<div class="carousel2">
+<!-- 	<div class="carousel2">
 		<ul class="ct">
 			<li data-index="0">
 				<a href="#">
@@ -141,64 +146,95 @@
 			<li></li>
 			<li></li>
 		</ul>
-	</div>
+	</div> -->
 <script src="js/jquery.min.js"></script>
 <script>
 	function Carousel($ele){
-		// this.$ele = $ele;
-		this.$ct = $ele.find(".ct");
+		this.$ele = $ele;
+		//准备好要操作的元素
+		this.$ct = this.$ele.find(".ct");
 		this.$items = this.$ct.children();
-		this.$prev = $ele.find(".prev");
-		this.$next = $ele.find(".next");
-		this.$bullet = $ele.find(".bullet");
+		// 左右键
+		this.$pre = this.$ele.find(".prev")
+		this.$next = this.$ele.find(".next")
+		// 小图标
+		this.$bullet = this.$ele.find(".bullet")
 
-		var imgCount = this.$items.length;
-		var imgWidth = this.$items.width();
+		this.current = 0;
 
-		this.curIdx = 0;
-		this.clock=false
-
-		this.$ct.css({width:imgWidth*imgCount});
 		this.init();
 	}
 
-	Carousel.prototype = {
-		init:function(){
-			this.$ct.append(this.item.first().clone()).prepend(this.item.last().clone());
-						this.$ct.css({left: 0 - this.itemWidth,width: this.itemWidth * this.itemRealCount});
-			this.playAuto();
-			this.bind();
-		},
-		bind:function(){
-			var $cur = this;
-			this.$prev.on("click",function(){
-				$cur.playPrev()
-			})
-			this.$next.on("click",function(){
-				$cur.playNext();
-			})
-			this.$bullet.find("li").on("click",function(){
-				var idx = $(this).index();
-				if(idx > $cur.curIdx){
-					$cur.playNext(idx - $cur.curIdx)
-				}
-				if(idx < $cur.curIdx){
-					$cur.playPre($cur.curIdx - idx)
-				}
-			})
-		},
-		playPrev:function(idx){
-			var $cur = this;
-			var idx = idx || 1;
-			if(!$cur.clock){
-				$cur.clock = true;
+	// 初始化
+	Carousel.prototype.init = function(){
+		// 设置样式
+		var num = this.picNum =this.$items.length;
+		var picWidth= this.picWidth = this.$items.width()
+		this.$ct.css({"width":(num+2)*picWidth});
 
-				$cur.$ct.animate({"left":"-="+idx*imgWidth},function(){
+		//start and end
+		this.$ct.append(this.$items.first().clone());
+		this.$ct.prepend(this.$items.last().clone());
 
-				})
-			}
-		}
+		// position
+		this.$ct.css({"left":0-picWidth})
+
+		// bind event
+		this.bindEvent();
 	}
+
+	Carousel.prototype.bindEvent = function(){
+		var self = this;
+		this.$pre.on("click",function(){
+			self.playPre();
+		})
+
+		this.$next.on("click",function(){
+			self.playNext();
+		})
+
+		this.$bullet.find("li").on("click",function(){
+			var index = $(this).index();
+			if(index > self.current){
+				self.playNext( index - self.current )
+			}else if(index < self.current){
+				self.playPre( self.current - index )
+			}
+		})
+	}
+
+	Carousel.prototype.playPre = function(idx){
+		var self = this;
+		var idx = idx || 1;
+		this.$ct.stop(true,true).animate({left:"+="+this.picWidth*idx},function(){
+			self.current = (self.current + self.picNum - idx) % self.picNum
+			if(self.current === (self.picNum -1)){
+				self.$ct.css({left:0-self.picNum*self.picWidth})
+			}
+			self.setBullet();
+		})
+		
+	}
+
+	Carousel.prototype.playNext = function(idx){
+		var self = this;
+		var idx = idx || 1;
+		this.$ct.stop(true,true).animate({left:"-="+this.picWidth*idx},function(){
+			self.current = (self.current + idx )%self.picNum
+			if(self.current === 0){
+				self.$ct.css({left:0-self.picWidth})
+			}
+			self.setBullet();
+		})
+		
+	}
+
+	Carousel.prototype.setBullet = function(){
+		this.$bullet.children().removeClass("active").eq(this.current).addClass("active")
+	}
+
+	var e = new Carousel($(".carousel1"))
+
 </script>
 
 </body>
