@@ -105,7 +105,7 @@
 </div>
 <script>
         
-            
+                
             var $ct = $('.zu'),
                 $items = $ct.children(),
                 $pre = $('.leftaction'),
@@ -130,8 +130,11 @@
                 play(idx);
             });
 
+
             play(0);
             autoPlay();
+
+
             function playNext(){
                 play((curIdx+1)%imgCount)
             }
@@ -139,6 +142,8 @@
             function playPre(){
                 play((imgCount+curIdx-1)%imgCount)
             }
+
+
             function play(idx){
                 if(isAnimate) return;
                 isAnimate = true;
@@ -146,7 +151,6 @@
                 $items.eq(idx).fadeIn(500, function(){
                     isAnimate = false;
                 });
-                
                 curIdx = idx;
                 setBullet();
             }
@@ -155,6 +159,7 @@
                 $bullet.children().removeClass('active')
                                   .eq(curIdx).addClass('active');
             }
+
             function stopAuto(){
                 clearInterval(clock);
             }

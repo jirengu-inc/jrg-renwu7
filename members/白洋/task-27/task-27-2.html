@@ -83,7 +83,47 @@
         opacity: 1;
     }
 </style>
-<div class="rongqi">
+<div class="rongqi lb1">
+    <lu class="zu">
+        <li class="ziyuansu" data-id=0><img src="img/1.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=1><img src="img/2.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=2><img src="img/3.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=3><img src="img/4.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=4><img src="img/5.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=5><img src="img/6.jpg" alt=""></li>
+    </lu>
+    <a href="#" class="leftaction"> < </a>
+    <a href="#" class="rightaction"> > </a>
+    <ul class="biaoji">
+        <li class="ibiaoji active"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+    </ul>
+</div>
+<div class="rongqi lb2">
+    <lu class="zu">
+        <li class="ziyuansu" data-id=0><img src="img/1.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=1><img src="img/2.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=2><img src="img/3.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=3><img src="img/4.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=4><img src="img/5.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=5><img src="img/6.jpg" alt=""></li>
+    </lu>
+    <a href="#" class="leftaction"> < </a>
+    <a href="#" class="rightaction"> > </a>
+    <ul class="biaoji">
+        <li class="ibiaoji active"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+    </ul>
+</div>
+<div class="rongqi lb3">
     <lu class="zu">
         <li class="ziyuansu" data-id=0><img src="img/1.jpg" alt=""></li>
         <li class="ziyuansu" data-id=1><img src="img/2.jpg" alt=""></li>
@@ -106,64 +146,7 @@
 <script>
         
             
-            var $ct = $('.zu'),
-                $items = $ct.children(),
-                $pre = $('.leftaction'),
-                $next = $('.rightaction'),
-                $bullet = $('.biaoji'),
-                imgWidth = $items.width(),
-                imgCount = $('.zu').children().length;
-
-
-
-            var curIdx = 0;
-            var isAnimate = false;
-
-            $next.on('click', function(){
-                playNext();
-            });
-            $pre.on('click', function(){
-                playPre();
-            });
-            $bullet.find('li').on('click', function(){
-                var idx = $(this).index();
-                play(idx);
-            });
-
-            play(0);
-            autoPlay();
-            function playNext(){
-                play((curIdx+1)%imgCount)
-            }
-
-            function playPre(){
-                play((imgCount+curIdx-1)%imgCount)
-            }
-            function play(idx){
-                if(isAnimate) return;
-                isAnimate = true;
-                $items.eq(curIdx).fadeOut(500);
-                $items.eq(idx).fadeIn(500, function(){
-                    isAnimate = false;
-                });
-                
-                curIdx = idx;
-                setBullet();
-            }
-
-            function setBullet(){
-                $bullet.children().removeClass('active')
-                                  .eq(curIdx).addClass('active');
-            }
-            function stopAuto(){
-                clearInterval(clock);
-            }
-
-            function autoPlay(){
-                clock = setInterval(function(){
-                    playNext();
-                }, 4000);   
-            }
+     
 
 </script>
 </body>
