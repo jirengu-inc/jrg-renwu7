@@ -144,9 +144,79 @@
     </ul>
 </div>
 <script>
-        
-            
-     
+         function playCarousel(carousel) {
+             var $slides = $('.' + carousel + ' .zu'),
+                 $slide = $slides.children(),
+                 $bullet = $slides.siblings('.biaoji'),
+                 $previous = $slides.siblings('.leftaction'),
+                 $next = $slides.siblings('.rightaction'),
+                 imgCount = $slide.length;
+
+             var currentIndex = 0,
+                 isAnimate = false,
+                 fadeTime = 500,
+                 frameTime = 8000,
+                 clock;
+
+             play(0);
+             autoPlay();
+
+             $previous.on('click', function() {
+                 playPrevious();
+             });
+             $next.on('click', function() {
+                 playNext();
+             });
+             $bullet.find('li').on('click', function() {
+                 var index = $(this).index();
+                 play(index);
+                 setBullet(index);
+             });
+             $slides.on('mouseover', function() {
+                 stopPlay();
+             });
+             $slides.on('mouseout', function() {
+                 autoPlay();
+             });
+
+             function play(newIndex) {
+                 if (!isAnimate) {
+                     isAnimate = true;
+                     $slide.eq(currentIndex).fadeOut(fadeTime);
+                     $slide.eq(newIndex).fadeIn(fadeTime);
+                     currentIndex = newIndex;
+                     setBullet(currentIndex);
+                     isAnimate = false;
+                 }
+             }
+
+             function playNext() {
+                 play((currentIndex + 1) % imgCount);
+             }
+
+             function playPrevious() {
+                 play((currentIndex - 1 + imgCount) % imgCount);
+             }
+
+             function autoPlay() {
+                 clock = setInterval(function() {
+                     playNext();
+                 }, frameTime);
+             }
+
+             function stopPlay() {
+                 clearInterval(clock);
+             }
+
+             function setBullet(index) {
+                 $bullet.children().removeClass('active')
+                     .eq(index).addClass('active');
+             }
+         }
+
+         playCarousel('lb1');
+         playCarousel('lb2');
+         playCarousel('lb3');
 
 </script>
 </body>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript" src="jquery.min.js"></script>
+<style>
+    .rongqi{
+        height:200px;
+        width:400px;
+        overflow: hidden;
+        position: relative;
+        /*border: 1px red solid;*/
+    }
+
+    .zu{
+        position: absolute;
+        display: block;
+        list-style:none;
+        height:200px;
+    }
+    .zu:after{
+        content: "";
+        clear: both;
+        display: block;
+
+    }
+    .ziyuansu{
+        float: left;
+    }
+    .ziyuansu>img{
+        width:400px;
+        height:200px;
+    }
+    .action:hover {
+            opacity: 1;
+        }
+    .leftaction{
+            text-decoration: none;
+            left: 10px;
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4E443C;
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8
+
+    }
+    .rightaction{
+            text-decoration: none;
+            right:10px; 
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4E443C;
+            color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8
+
+    }
+    .biaoji{
+        list-style: none;
+       position: absolute;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
+        display: flex;
+          }
+
+    .ibiaoji{
+        margin: auto 5px;
+        width: 20px;
+        height: 5px;
+        background-color: black;
+        opacity: 0.9;
+        border-radius: 20%;
+    }
+    .active{
+        background-color: azure;
+        opacity: 1;
+    }
+</style>
+<div class="rongqi">
+    <lu class="zu">
+        <li class="ziyuansu" data-id=0><img src="img/1.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=1><img src="img/2.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=2><img src="img/3.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=3><img src="img/4.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=4><img src="img/5.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=5><img src="img/6.jpg" alt=""></li>
+    </lu>
+    <a href="#" class="leftaction action"> < </a>
+    <a href="#" class="rightaction action"> > </a>
+    <ul class="biaoji">
+        <li class="ibiaoji active"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+    </ul>
+</div>
+<script>
+                var $ct = $('.zu'),
+                    $items = $('.zu').children(),
+                    $pre = $('.leftaction'),
+                    $next = $('.rightaction'),
+                    $bullet = $('.biaoji'),
+                    imgWidth = $('.zu').children().width(),
+                    imgCount = $('.zu').children().length;
+
+                $ct.prepend($items.last().clone());
+                $ct.append($items.first().clone());
+                imgRealCount = $ct.children().length;
+                $ct.css({
+                    left: 0 - imgWidth,
+                    width: imgRealCount * imgWidth
+                })
+
+
+
+                var curIdx = 0;
+                var isAnimate = false;
+
+                $next.on('click', function() {
+                    playNext();
+                });
+                $pre.on('click', function() {
+                    playPre();
+                });
+                $bullet.find('li').on('click', function() {
+                    var idx = $(this).index();
+                    if (idx > curIdx) {
+                        playNext(idx - curIdx);
+                    } else if (idx < curIdx) {
+                        playPre(curIdx - idx);
+                    }
+                });
+
+                // autoPlay();
+
+                function stopAuto() {
+                    clearInterval(clock);
+                }
+
+                function autoPlay() {
+                    clock = setInterval(function() {
+                        playPre();
+                    }, 3000);
+                }
+
+
+                function playNext(idx) {
+                    var idx = idx || 1;
+                    if (!isAnimate) {
+                        isAnimate = true;
+                        $ct.animate({
+                            left: '-=' + (imgWidth * idx)
+                        }, function() {
+                            curIdx++;
+                            if (curIdx === imgCount) {
+                                $ct.css({
+                                    left: 0 - imgWidth
+                                });;
+                                curIdx = 0;
+                            }
+                            isAnimate = false;
+                            setBullet();
+                        });
+                    }
+                }
+
+
+
+                function playPre(idx) {
+                    var idx = idx || 1;
+                    if (!isAnimate) {
+                        isAnimate = true;
+                        $ct.animate({
+                            left: '+=' + (imgWidth * idx)
+                        }, function() {
+                            console.log(curIdx);
+                            curIdx = (imgCount + curIdx - idx) % imgCount;
+                             console.log(curIdx);
+                            if (curIdx === (imgCount - 1)) {
+                                $ct.css({
+                                    left: 0 - imgWidth * imgCount
+                                });;
+                            }
+                            isAnimate = false;
+                            setBullet();
+                        });
+                    }
+                }
+
+                function setBullet() {
+                    $bullet.find('li').removeClass('active')
+                        .eq(curIdx).addClass('active');
+                }
+</script>
+</body>
+</html>
