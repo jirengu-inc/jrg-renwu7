@@ -40,9 +40,4 @@ gulp.task('img', function(argument){
         .pipe(gulp.dest('dist/img'));
 });
 
-
-
-
-
-
 gulp.task('build', ['html', 'css', 'js', 'img']);
