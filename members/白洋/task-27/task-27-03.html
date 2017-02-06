@@ -16,10 +16,10 @@
     }
 
     .zu{
+        position: absolute;
         display: block;
         list-style:none;
         height:200px;
-        width:2401px;
     }
     .zu:after{
         content: "";
@@ -28,8 +28,6 @@
 
     }
     .ziyuansu{
-        height:200px;
-        width:400px;
         float: left;
     }
     .ziyuansu>img{
@@ -75,18 +73,15 @@
     }
     .biaoji{
         list-style: none;
-        /*border: solid 1px blueviolet;*/
-        position: relative;
-        bottom: 30px;
+       position: absolute;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
         display: flex;
-        justify-content: space-around;
-    }
-    .biaoji:after{
-        content: "";
-        clear: both;
-        display: block;
-    }
+          }
+
     .ibiaoji{
+        margin: auto 5px;
         width: 20px;
         height: 5px;
         background-color: black;
@@ -119,7 +114,6 @@
     </ul>
 </div>
 <script>
-        
                 var $ct = $('.zu'),
                     $items = $('.zu').children(),
                     $pre = $('.leftaction'),
@@ -134,7 +128,9 @@
                 $ct.css({
                     left: 0 - imgWidth,
                     width: imgRealCount * imgWidth
-                });
+                })
+
+
 
                 var curIdx = 0;
                 var isAnimate = false;
@@ -154,23 +150,60 @@
                     }
                 });
 
+                // autoPlay();
+
                 function stopAuto() {
                     clearInterval(clock);
-                };
+                }
 
                 function autoPlay() {
                     clock = setInterval(function() {
                         playPre();
                     }, 3000);
-                };
-
+                }
 
 
                 function playNext(idx) {
-                   console.log(idx);
+                    var idx = idx || 1;
+                    if (!isAnimate) {
+                        isAnimate = true;
+                        $ct.animate({
+                            left: '-=' + (imgWidth * idx)
+                        }, function() {
+                            curIdx++;
+                            if (curIdx === imgCount) {
+                                $ct.css({
+                                    left: 0 - imgWidth
+                                });;
+                                curIdx = 0;
+                            }
+                            isAnimate = false;
+                            setBullet();
+                        });
+                    }
                 }
+
+
+
                 function playPre(idx) {
-                    console.log(idx);
+                    var idx = idx || 1;
+                    if (!isAnimate) {
+                        isAnimate = true;
+                        $ct.animate({
+                            left: '+=' + (imgWidth * idx)
+                        }, function() {
+                            console.log(curIdx);
+                            curIdx = (imgCount + curIdx - idx) % imgCount;
+                             console.log(curIdx);
+                            if (curIdx === (imgCount - 1)) {
+                                $ct.css({
+                                    left: 0 - imgWidth * imgCount
+                                });;
+                            }
+                            isAnimate = false;
+                            setBullet();
+                        });
+                    }
                 }
 
                 function setBullet() {
