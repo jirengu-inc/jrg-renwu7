@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,li{
+            list-style: none;
+        }
+        li{
+            float: left;
+            width: 40px;
+            background-color: #aaa;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        ul:after{
+            clear: both;
+            display: block;
+            content: "";
+
+        }
+        ul{
+            min-height: 40px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+    <script>
+       function drag (ev) {
+           ev.dataTransfer.setData("Text",ev.target.id);
+
+       }
+       function drop(ev) {
+           ev.preventDefault();
+           if (ev.target.tagName.toLocaleLowerCase()==="li"){return}
+          var  data=ev.dataTransfer.getData("Text");
+           ev.target.appendChild(document.getElementById(data));
+
+       }
+       function allowDrop(ev) {
+           ev.preventDefault();
+
+       }
+
+    </script>
+    <script>
+
+    </script>
+</head>
+<body>
+ <h1>全部</h1>
+<ul id="all" ondragover="allowDrop(event)" ondrop="drop(event)" >
+    <li draggable="true" ondragstart="drag(event)" id="drag0">军事</li>
+    <li draggable="true" ondragstart="drag(event)" id="drag1">浙江</li>
+    <li draggable="true" ondragstart="drag(event)" id="drag2">手机</li>
+    <li draggable="true" ondragstart="drag(event)" id="drag3">宇宙</li>
+    <li draggable="true" ondragstart="drag(event)" id="drag4">娱乐</li>
+    <li draggable="true" ondragstart="drag(event)" id="drag5">美妆</li>
+    <li draggable="true" ondragstart="drag(event)" id="drag6">汽车</li>
+    <li draggable="true" ondragstart="drag(event)" id="drag7">科技</li>
+</ul>
+<h1>订阅</h1>
+<ul id="take" ondragover="allowDrop(event)" ondrop="drop(event)">
+
+</ul>
+
+</body>
+</html>
