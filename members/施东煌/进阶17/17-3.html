@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body, ul, li, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .carousel {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .carousel .img-ct {
+            position: absolute;
+        }
+
+        .carousel .img-ct img {
+            width: 300px;
+            height: 200px;
+        }
+
+        .carousel .img-ct:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .carousel .img-ct li {
+            float: left;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            background-color: #4E443C;
+            color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8;
+        }
+
+        .arrow:hover {
+            opacity: 1;
+        }
+
+        .pre {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        ul.bullet {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        ul.bullet li {
+            display: inline-block;
+            width: 15px;
+            height: 5px;
+            border-radius: 2px;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        ul.bullet li.active {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="img-ct">
+        <li data-id=0><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+        <li data-id=1><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg"></a></li>
+        <li data-id=2><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+        <li data-id=3><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+    </ul>
+    <a href="#" class="pre arrow"><</a>
+    <a href="#" class="next arrow">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script src=https://code.jquery.com/jquery-3.1.1.min.js></script>
+<script>
+    var $ct=$('.img-ct'),
+        $items=$ct.children(),
+        $pre=$('.pre'),
+        $next=$('.next'),
+        imgCount=$items.length;
+
+    var picIdx=0;
+    var isRight=false;
+    function play(idx){
+        if(isRight) return;
+        isRight=true;
+        $items.eq(idx).fadeIn(500);
+        $items.eq(idx).siblings().fadeOut(500,function(){
+            isRight=false;
+        });
+        picIdx=idx;
+        setBullet();
+    }
+    function playNextOne(){
+        play((picIdx+1)%imgCount);
+    }
+    function playLastOne(){
+        play((imgCount+picIdx-1)%imgCount);
+    }
+    function setBullet(){
+        $('.bullet').children().removeClass('active').eq(picIdx).addClass('active');
+    }
+    function autoPlay(){
+        clock=setInterval(function(){
+            playNextOne();
+        },2000);
+    }
+    play(0);
+    autoPlay();
+    $('.bullet li').on('click',function(){
+        var idx=$(this).index();
+        play(idx);
+    });
+    $pre.on('click',function(){
+        playLastOne();
+    });
+    $next.on('click',function(){
+        playNextOne();
+    });
+
+</script>
+
+</body>
+</html>
