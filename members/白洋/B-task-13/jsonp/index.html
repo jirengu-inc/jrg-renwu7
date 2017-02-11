@@ -10,29 +10,26 @@
 </style>
 
 <div class="rongqi">
+<input type="input" name="" class="inputd">
     <button class="hq">huoqushuju</button>
 </div>
 <script src="jquery.min.js"></script>
 <script>
+
     function news(srcs) {
         console.log(srcs);
     }
-    $(".hq").on('click', function () {
+    $(".hq").on('click', function() {
         $.ajax({
-
-                datatype: 'jsonp',
-                jsonp: 'news',
             url: 'http://127.0.0.1:9999/?',
-                jsonpCallback:"?",
-                data: {
-                    news: "aaaaaaaaa"
-                },
-                success: function (response) {
-                    console.log(response);
-                }
+            jsonp: 'news',
+            dataType: "script",
+            data: {
+                news: $('.inputd').val()
             }
-        );
-    });
+        });
+    }
+    );
 
 </script>
 </body>
