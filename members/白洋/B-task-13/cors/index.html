@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+
+</style>
+
+<div class="rongqi">
+<input type="input" name="" class="inputd">
+    <button class="hq">huoqushuju</button>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+
+    function news(srcs) {
+        console.log(srcs);
+    }
+    $(".hq").on('click', function() {
+        $.ajax({
+            url: 'http://127.0.0.1:9999/?',
+            // jsonp: 'news',
+            // dataType: "script",
+            data: {
+                news: $('.inputd').val()
+            }
+            ,success:function(srcss){
+                console.log(srcss);
+            }
+        });
+    }
+    );
+
+</script>
+</body>
+</html>
