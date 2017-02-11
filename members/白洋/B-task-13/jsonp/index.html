@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+
+</style>
+
+<div class="rongqi">
+    <button class="hq">huoqushuju</button>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    function news(srcs) {
+        console.log(srcs);
+    }
+    $(".hq").on('click', function () {
+        $.ajax({
+
+                datatype: 'jsonp',
+                jsonp: 'news',
+            url: 'http://127.0.0.1:9999/?',
+                jsonpCallback:"?",
+                data: {
+                    news: "aaaaaaaaa"
+                },
+                success: function (response) {
+                    console.log(response);
+                }
+            }
+        );
+    });
+
+</script>
+</body>
+</html>
