@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>test01</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+body,ul,li{margin:0;padding:0;}
+li{
+	list-style: none;
+}
+.list{width: 120px;background: #c00;margin: 20px 0 0 20px;}
+	.list>li{
+		font:  18px arial;
+		color: #fff;
+		padding: 6px 12px;
+		margin:0 6px;
+		border-bottom: 1px solid #e00;
+		position: relative;
+		cursor: pointer;
+	}
+	.list span{
+		position: absolute;
+		right: 5px;
+		font-size: 10px;
+		line-height: 20px;
+	}
+	.list .hover{
+		background: #e00;
+	}
+	.tips{
+		border:1px solid #bbb;
+		background: #eee;
+		width: 100px;
+		padding: 10px;
+		position: absolute;
+		left:114px;
+		top:0;
+		display: none;
+	}
+		.tips>li{
+			float: left;
+			padding: 6px;
+		}
+		.tips>li a{
+			text-decoration: none;
+			color: #000;
+		}
+			.tips>li a:hover{
+				color: #ccc;
+			}
+		.clearfix:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+</style>
+</head>
+<body>
+<script src='jquery-3.1.1.min.js'></script>
+    <ul class='list'>
+    	<li>休闲男装<span>&gt</span></li>
+    	<li>运动女装<span>&gt</span></li>
+    	<li>配饰<span>&gt</span>
+    	</li>
+    	<li>生活方式<span>&gt</span></li>
+    	<li style='border-bottom: 1px solid #c00'>其他商品<span>&gt</span></li>
+    </ul>
+	<ul class='tips clearfix'>
+		   		<li><a href='#'>上衣</a></li>
+		   		<li><a href='#'>短裤</a></li>
+		   		<li><a href='#'>帽子</a></li>
+		   		<li><a href='#'>皮鞋</a></li>
+   			</ul> 
+   	<script>
+   		var $list=$('.list>li');
+   		var $tips=$('.tips');
+   		var $addHtml=$('.tips').get(0);
+   		$list.on('mouseover',function(){
+   			$list.removeClass('hover');
+   			$(this).addClass('hover');
+   			// var index=$(this).index();
+   			// console.log($(this));
+   			$tips.css('display','block');
+   			$(this).append($addHtml);
+   		})
+   		 $list.on('mouseout',function(){
+   			$list.removeClass('hover');
+   			$tips.css('display','none');
+   		})
+   	</script>
+</body>
+</html>
