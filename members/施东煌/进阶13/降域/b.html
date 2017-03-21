@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    html,
+    body {
+        margin: 0;
+    }
+    
+    input {
+        margin: 20px;
+        width: 200px;
+    }
+    </style>
+</head>
+
+<body>
+    <input id="input" type="text" placeholder="http://b.kuayu.com:8080/b.html">
+    <script>
+    document.querySelector('#input').addEventListener('input', function() {
+    	console.log(this.value);
+        window.parent.document.querySelector('input').value = this.value;
+    })
+    document.domain = 'kuayu.com';
+    </script>
+</body>
+
+</html>

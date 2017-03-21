@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 响应式 demo</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: boder-box ;
+        }
+        #header {
+            background: #eee;
+            padding: 20px;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .clearfix{
+            clear: both;
+        }
+        .logo{
+            background: #ccc;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        .keywords{
+            /* width: 100%; */
+            /* background: #999; */
+            text-align: center;
+            padding: 10px;
+        }
+
+        #ct{
+            text-align: center;
+            /* height: 200px; */
+            background-color: #bbb;
+            padding: 10% 0;
+        }
+        #ct p {
+            margin: 10px 0;
+        }
+        #ct .L2{
+            display: none;
+        }
+        #main .cards{
+            overflow: hidden;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        #main .cards li{
+            width: 33.3%;
+            /* height: 100px; */
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        @media (max-width: 640px){
+            #main .cards li{
+                width: 50%;
+            }
+        }
+        @media (max-width: 320px){
+            #main .cards li{
+                width: 100%;
+            }
+            #ct .L1{
+                display: none;
+            }
+            #ct .L2{
+                display: block;
+            }
+        }
+        .cards .img{
+            width: 100%;
+            height: 100px;
+            background-color: #666;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="page">
+    <div id="header">
+        <div class="logo">
+            <a href=""><img src="" alt=""></a>
+        </div>
+        <div class="keywords">
+            <span>作品1</span>
+            <span>作品2</span>
+            <span>作品3</span>
+            <span>作品4</span>
+        </div>
+    </div>
+
+    <div id="ct">
+        <h2 class="L1">做一个有灵魂の码字诗人</h2>
+        <h2 class="L2">做一个有灵魂<br>の码字诗人</h2>
+
+        <p>天若有情天亦老</p>
+        <p>人间正道是沧桑</p>
+    </div>
+
+    <div id="main">
+        <ul class="cards clearfix">
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+            <li>
+                <div class="img"></div>
+                <h3>标题</h3>
+                <p>描述</p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

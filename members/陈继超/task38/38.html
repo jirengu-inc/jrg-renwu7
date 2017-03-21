@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>  CMD AMD CommonJS规范 </title>
+</head>
+<body>
+
+
+<script>
+
+/*
+    //AMD
+
+    // 定义模块  myModule.js
+   // AMD 即Asynchronous Module Definition，中文名是异步模块定义的意思。
+    // 它是一个在浏览器端模块化开发的规范
+
+    define(['dependency'], function(){
+        var name = 'jack';
+        function printName(){
+            console.log(name);
+        }
+
+        return {
+            printName: printName
+        }
+    });
+
+    // 加载模块
+    require([myMosule], function(me){
+        me.printName();
+    });
+
+
+
+//    CMD
+    // 定义模块  myModule.js
+    define(function(require, exports, module){
+        var $ = require('jquery.js');
+        $('div').addClass('active');
+    });
+
+    // 加载模块
+
+    seajs.use([myModule.js], function(my){
+
+    });
+
+
+//CommonJS
+
+    var name = 'jack';
+    function printName(){
+        console.log(name);
+    }
+
+    function printFullName(firstname){
+        console.log(firstname + name);
+    }
+
+    module.exports = {
+        printName : printName,
+        printFullName: printFullName
+    };
+
+    // 加载模块
+
+    var nameModule = require('./myModule.js');
+
+    nameModule.printName();
+
+
+
+    */
+</script>
+</body>
+</html>

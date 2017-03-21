@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 封装一个曝光加载 组件 </title>
+    <style>
+        .div1{
+            background-color: #ccc;
+            height: 1000px;
+        }
+        .div2{
+            background-color: red;
+            height: 100px;
+        }
+        .div3{
+            background-color: blue;
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+<div class="div2"></div>
+<div class="div3"></div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+    var Expouse = (function(){
+
+        function bind($el,fn){
+            $(document).on('scroll',function () {
+                if(isShow($el)){
+                    fn.call($el);
+                }
+            });
+        }
+
+        function one($el,fn){
+            var flag = true;
+            $(document).on('scroll', function(){
+
+                if( isShow($el) && flag == true){
+                    fn.call($el);
+                    flag = false;
+                }
+            });
+
+        }
+
+        function isShow($el){
+            var scrollTop = $(window).scrollTop(),
+                winH = $(window).height(),
+                offH = $el.offset().top,
+                v_H = $el.height();
+            if( offH < winH + scrollTop && scrollTop < offH + v_H ){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        return {
+            bind: bind,
+            one: one
+        }
+    })()
+
+
+    var $target = $('.div2');
+
+
+
+//$target 是 jquery 对象
+// 当窗口滚动时，如果$target 出现在可见区域，执行回调函数里面的代码，且在回调函数内，$(this)代表$target
+//        Expouse.bind($target, function(){
+//        console.log($(this));    // $target
+//    });
+
+// 当窗口滚动时，如果$target 出现在可见区域，执行回调函数里面的代码，且在回调函数内，$(this)代表$target。 仅执行一次回调函数，下次$target 曝光不再执行
+    Expouse.one($target, function(){
+        console.log($(this));    // $target
+    })
+
+</script>
+</body>
+</html>

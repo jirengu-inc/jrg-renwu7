@@ -1,0 +1,38 @@
+    <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>task24</title>
+</head>
+<body>
+
+<script>
+    if(window.XMLHttpRequest){
+        var request = new XMLHttpRequest();
+    }else{
+        var request = new ActiveXObject("microsoft,XMLHTTP");
+    }
+    request.onreadystatechange = function(){
+        if(request.readyState === 4 ||request.status === 200){
+        //to do
+        }else if(request.readyState === 4 ||request.status === 404){
+            console.log('error');
+        }else{
+            console.log('please wait...')
+        }
+    }
+
+//    get
+    request.open(get,url,true);
+    request.send();
+
+//    post
+    request.open(post,url,true);
+    request.setRequestHeader('content-type','application/x-www-form-urlencode');
+    request.send("string");
+
+
+
+</script>
+</body>
+</html>

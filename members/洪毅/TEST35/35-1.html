@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>35-1</title>
+    <style>
+        li{
+            list-style-type: none;
+            width: 900px;
+            height:100px;
+            color: green;
+            border: 1px solid #000;
+            text-align: center;
+        }
+        .got_top{
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 150px;
+            height: 50px;
+            background: red;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <ul>
+        <li>内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+        <li>内容5</li>
+        <li>内容6</li>
+        <li>内容7</li>
+        <li>内容8</li>
+        <li>内容9</li>
+        <li>内容10</li>
+        <li>内容11</li>
+        <li>内容12</li>
+    </ul>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+function Car($ct,$target){
+    this.$ct=$ct;
+    this.$target=$target;
+    this.bindEvent=function(){
+        $target.on('click',function() {
+            $(window).scrollTop(0);
+        });
+    }
+    this.createNode=function(){
+        $ct.append($target);
+    }
+}
+    var c1=new Car($('.ct'),$("<div class='got_top'>回到顶部</div>"));
+    c1.bindEvent();
+    c1.createNode();
+
+</script>
+</body>
+</html>

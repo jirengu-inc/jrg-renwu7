@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var str="aaa aaa aaa"
+    var tempa;
+    var tempb;
+    function truncate(str,temp){
+        console.log(str);
+        console.log(temp);
+        tempb=str.split("");
+        if(temp>str.length){
+            return console.log(str);
+        }
+        if(temp<str.length){
+            tempb.splice(temp,str.length-temp);
+            return console.log(tempb.join("")+"...")
+        }
+        
+    }
+        truncate(str,5);
+    </script>
+</body>
+</html>

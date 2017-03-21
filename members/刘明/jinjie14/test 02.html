@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>items</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	body,div,ul,li,img,span,a{margin: 0;padding: 0}
+	a{
+		text-decoration: none;
+		color: #333;
+		padding: 0 14px;
+		border-left: 1px solid #ddd;
+	}
+	.title>li:first-child a{border:none;}
+	a:hover{color: #d00}
+	.clearfix:after{
+		content: '';
+		display: block;
+		clear:both;
+	}
+	li{list-style: none;float: left;}
+	#ct{
+		width: 600px;
+		margin:0 auto;
+		border:1px solid #ccc;
+		padding:10px;
+	}
+	.title{
+		float: left;
+		border-top:1px solid #ccc;
+		border-right:1px solid #ccc;
+		border-left
+		:1px solid #ccc;
+	}
+		.title>li{
+			padding: 8px 0;
+		}
+			 .hover{
+				background: #eee;
+			}
+	.pics{
+		float: left;
+		width: 600px;
+		border:1px solid #ccc;
+		margin-bottom: 10px;
+	}	
+	.pics>li{
+		display: none;
+	}
+		.pics .active{
+			display: block;
+		}
+		.pics>li .img01{
+			position: relative;
+			width: 152px;
+			height: 182px;
+			padding: 10px;
+			margin: 10px;
+			border:1px solid #ddd;
+		/*	box-sizing: border-box;*/
+		}
+		.pics p{
+			font:12px arial;
+			color:#aaa;
+		}
+		.pics em{
+			color: #e00;
+			font:10px arial;
+		}
+	.img-hover{
+	    display: none;
+	}
+		.img-hover .cover{
+			width: 172px;
+			height: 202px;
+			background: #000;
+			opacity: 0.2;
+			position: absolute;
+			top:0;
+			left: 0;
+			z-index: 99;
+			}
+			.img-hover .getit{
+				color: #e00;
+				background: #fff;
+				border-radius: 4px;
+				border:1px solid #e00;
+				padding: 5px 10px;
+				position: absolute;
+				top:50%;
+				left:50%;
+				margin-left: -48px;
+				margin-top: -20px;
+				cursor: pointer;
+				z-index:100;
+			}
+			.top{
+				padding: 5px 10px;
+				background: #e00;
+				border-radius: 4px;
+				color: #fff;
+				display: none;
+				position: fixed;
+				bottom: 10px;
+				right:10px;
+				cursor: pointer;
+			}
+			.imglist{display: none;}
+</style>
+</head>
+<body>
+<script src='jquery-3.1.1.min.js'></script>
+    <div id="ct" class='clearfix'>
+    <div class="up-list">
+    	<ul class="title clearfix">
+    		<li><a href="javascript:void(0)">热门</a></li>
+    		<li><a href="javascript:void(0)">珠宝首饰</a></li>
+    		<li><a href="javascript:void(0)">奢侈品</a></li>
+    	</ul>
+    	<ul class="pics clearfix">
+    		<li class='active lists'>
+    			<ul class='clearfix'>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>    					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    			</ul>
+    		</li>
+    		<li class='lists'>
+    			<ul class='clearfix'>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>     	    					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    			</ul>    			
+    		</li>
+    		<li class='lists'>
+    			<ul class='clearfix'>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	    					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	      					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	      					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	        					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	     					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	      					
+    				</li>
+    			</ul>    			    			
+    		</li>
+    	</ul>
+    	</div>
+	<div class="up-list">
+    	<ul class="title clearfix">
+    		<li><a href="javascript:void(0)" >热门</a></li>
+    		<li><a href="javascript:void(0)">珠宝首饰</a></li>
+    		<li><a href="javascript:void(0)">奢侈品2</a></li>
+    	</ul>
+    	<ul class="pics clearfix">
+    		<li class='active lists'>
+    			<ul class='clearfix'>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>    					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    				<li class='img01'>
+						<img src="img/001.png" alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥1699.00</em>     					
+    				</li>
+    			</ul>
+    		</li>
+    		<li class='lists'>
+    			<ul class='clearfix'>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>     	    					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img10.360buyimg.com/N3/jfs/t2242/92/
+						1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥699.00</em>       					
+    				</li>
+    			</ul>    			
+    		</li>
+    		<li class='lists'>
+    			<ul class='clearfix'>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	    					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	      					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	      					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	        					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	     					
+    				</li>
+    				<li class='img01'>
+						<img src="http://img13.360buyimg.com/N3/jfs/t2461/336/
+						2166939566/101221/3af27699/56c426a5N9b6673f4.jpg"
+						 alt="000">
+					    <p>藏美千足金和田玉路路通</p>
+						<em>￥999.00</em>     	      					
+    				</li>
+    			</ul>    			    			
+    		</li>
+    	</ul>
+    </div>
+    	<!-- cover 立即抢购-->
+		        <div class="img-hover">
+		    		<div class="cover"></div>
+		    		<h4 class='getit'>立即抢购</h4>
+		    	</div>  		
+    </div>
+	<!-- 回到顶部	 -->	
+	<p class='top'>回到顶部</p>
+    <script>
+    	var $title=$('.title>li'),
+    		$pics=$('.pics .img01'),
+    		$Img=$('.img-hover'),
+    		$imgHover=$('.img-hover').get(0),
+    		$top=$('.top'),
+    		$imglist=$('.imglist').html();
+    		$imglist2=$('.imglist2').html();
+    	$title.on('click',function(){
+    		var index=$(this).index();
+    		$title.removeClass('hover');
+    		$(this).addClass('hover');
+    		var $tab=$(this).parents('.up-list').find('.lists');
+    		$tab.removeClass('active');
+    		$tab.eq(index).addClass('active');
+    	})
+    	$pics.on('mouseover',function(){
+    		$(this).append($imgHover);
+    		$Img.css('display','block');
+    	})
+    	    $pics.on('mouseout',function(){
+	    		$Img.css('display','none');
+	    	})
+        $(window).on('scroll',function(){
+        	var distance=$(window).scrollTop();
+        	// console.log(distance);
+        	if(distance>300){
+        		$top.css('display','block');
+        	}
+        	else{
+        		$top.css('display','none');
+        	}
+        })
+        $top.on('click',function(){
+        	$(window).scrollTop(0);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>carousel2</title>
+    <style>
+        ul,li,a,img{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel{
+            position: relative;
+            width:400px;
+            height:300px;
+            overflow:hidden;
+
+        }
+        .carousel .imglist{
+            position:absolute;
+        }
+        .carousel .imglist:after{
+            content:"";
+            display:block;
+            clear: both;
+        }
+        .carousel .imglist li{
+            float:left;
+        }
+        .carousel .imglist li a img{
+            width:400px;
+            height:300px;
+        }
+        .carousel .btn{
+            position: absolute;
+            width:30px;
+            height:30px;
+            line-height:30px;
+            background-color:rgba(0,0,0,0.8);
+            border-radius:50%;
+            top:50%;
+            margin-top:-15px;
+            color:#fff;
+            text-align:center;
+            opacity: 0.6;
+            cursor:pointer;
+        }
+        .carousel .btn:hover{
+            opacity:1;
+        }
+        .carousel .prev{
+            left:10px;
+        }
+        .carousel .next{
+            right:10px;
+        }
+        .carousel .jumpto{
+            position:absolute;
+            bottom:10px;
+            left:50%;
+            transform:translate(-50%);
+        }
+        .carousel .jumpto li{
+            width:20px;
+            height:5px;
+            background-color:rgba(0,0,0,0.5);
+            display:inline-block;
+            border-radius:8px;
+            cursor:pointer;
+        }
+        .carousel .jumpto li.active{
+            background-color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="imglist">
+        <li><a href="#"><img src="img/1.jpeg"></a></li>
+        <li><a href="#"><img src="img/2.jpeg"></a></li>
+        <li><a href="#"><img src="img/3.jpg"></a></li>
+        <li><a href="#"><img src="img/4.jpeg"></a></li>
+    </ul>
+    <a href="#" class="btn prev"><</a>
+    <a href="#" class="btn next">></a>
+    <ul class="jumpto">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="carousel">
+    <ul class="imglist">
+        <li><a href="#"><img src="img/1.jpeg"></a></li>
+        <li><a href="#"><img src="img/2.jpeg"></a></li>
+        <li><a href="#"><img src="img/3.jpg"></a></li>
+        <li><a href="#"><img src="img/4.jpeg"></a></li>
+    </ul>
+    <a href="#" class="btn prev"><</a>
+    <a href="#" class="btn next">></a>
+    <ul class="jumpto">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+function Carousel($ele){
+    this.$ele = $ele;
+    this.$imgList = this.$ele.find('.imglist');
+    this.$items = this.$imgList.children();
+    this.$prev = this.$ele.find('.prev');
+    this.$next = this.$ele.find('.next');
+    this.$jumpSec = this.$ele.find('.jumpto');
+    $lastimg = this.$items.last().clone();
+    $firstimg = this.$items.first().clone();
+    this.$imgList.prepend($lastimg).append($firstimg);
+    this.init();
+    this.autoPlay();
+}
+Carousel.prototype = {
+    init:function(){
+        this.imgWidth = this.$items.width();
+        this.imgCount = this.$items.length;
+        imgRealCount = this.$imgList.children().length;
+        this.$imgList.css({
+            left:0-this.imgWidth,
+            width:imgRealCount*this.imgWidth});
+        this.curIdx = 0;
+        this.inProcess = false;
+        this.bind();
+    },
+    bind:function(){
+        var _this = this;
+        this.$prev.on('click',function(){
+            _this.playPrev();
+        });
+        this.$next.on('click',function(){
+            _this.playNext();
+        });
+        this.$jumpSec.find('li').on('click',function(){
+            var idx = $(this).index();
+            if(idx>_this.curIdx){
+                _this.playNext(idx-_this.curIdx);
+            }
+            if(idx<_this.curIdx){
+                _this.playPrev(_this.curIdx-idx);
+            }
+        });
+        $(window).on('resize',function(){
+            _this.init();
+        })
+    },
+    playPrev:function(idx){
+        var idx = idx ||1,
+                _this= this;
+        if(!this.inProcess){
+            this.inProcess = true;
+            this.$imgList.animate({left:'+='+(_this.imgWidth*idx)},function(){
+                _this.curIdx = (_this.imgCount+_this.curIdx-idx)%_this.imgCount;
+                if(_this.curIdx === (_this.imgCount-1)){
+                    _this.$imgList.css({left:0-_this.imgWidth*_this.imgCount});
+                }
+                _this.inProcess = false;
+                _this.jumpTo();
+            })
+        }
+    },
+    playNext:function(idx){
+        var idx = idx ||1,
+                _this= this;
+        if(!this.inProcess){
+            this.inProcess = true;
+            this.$imgList.animate({left:'-='+(_this.imgWidth*idx)},function(){
+                _this.curIdx = (_this.imgCount+_this.curIdx+idx)%_this.imgCount;
+                if(_this.curIdx === 0){
+                    _this.$imgList.css({left:0-_this.imgWidth});
+                }
+                _this.inProcess = false;
+                _this.jumpTo();
+            })
+        }
+    },
+    jumpTo:function(){
+        this.$jumpSec.find('li').removeClass('active').eq(this.curIdx).addClass('active');
+    },
+    autoPlay:function(){
+        var _this = this;
+        this.clock = setInterval(function(){
+            _this.playNext();
+        },5000)
+    },
+    stopPlay:function(){
+        var _this = this;
+        clearInterval(_this.clock);
+    }
+};
+$('.carousel').each(function() {
+        new Carousel($(this));
+});
+</script>
+</body>
+</html>

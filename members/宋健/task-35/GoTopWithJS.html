@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>回到顶部JS原生</title>
+  <style>
+    li{
+      height:200px;
+    }
+    .totop{
+      position:fixed;
+      bottom:10px;
+      right:10px;
+      width:100px;
+      height:30px;
+      line-height:30px;
+      text-align: center;
+      background:#ccc;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+  </ul>
+<script>
+function GoTop(ct){
+    this.ct = document.querySelector(ct);
+    this.createNode();
+}
+GoTop.prototype = {
+    bindEvent:function(){
+    	var me = this.target;
+      	window.onscroll=function(){
+	        var scrollT = document.body.scrollTop;
+	        if(scrollT>30){
+	          me.style.display = 'block';
+	        }
+	        else{
+	          me.style.display = 'none';
+	        }
+        };
+      	this.target.onclick=function(){
+          	document.body.scrollTop = 0;
+        }
+    },
+    createNode:function(){
+	    this.target = document.createElement('div');
+	    this.target.setAttribute('class','totop');
+	    this.target.innerText='回到顶部';
+	    this.ct.appendChild(this.target);
+	    this.bindEvent();
+    }
+};
+var toTop = new GoTop('body');
+</script>
+</body>
+</html>

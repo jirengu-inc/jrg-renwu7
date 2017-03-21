@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript" src="jquery.min.js"></script>
+<style>
+    .rongqi{
+        height:200px;
+        width:400px;
+        overflow: hidden;
+        /*border: 1px red solid;*/
+    }
+
+    .zu{
+        display: block;
+        list-style:none;
+        height:200px;
+        width:2401px;
+    }
+    .zu:after{
+        content: "";
+        clear: both;
+        display: block;
+
+    }
+    .ziyuansu{
+        height:200px;
+        width:400px;
+        float: left;
+    }
+    .ziyuansu>img{
+        width:400px;
+        height:200px;
+    }
+    .leftaction{
+        position: relative;
+        bottom: 110px;
+        left: 10px;
+        text-decoration: none;
+        color: azure;
+        background-color: black;
+        border-radius: 50%;
+        padding: 10px;
+        text-align: center;
+        opacity: 0.4;
+    }
+    .rightaction{
+        position: relative;
+        bottom: 110px;
+        left: 320px;
+        text-decoration: none;
+        color: azure;
+        background-color: black;
+        border-radius: 50%;
+        padding: 10px 11px;
+        opacity: 0.4;
+    }
+    .biaoji{
+        list-style: none;
+        /*border: solid 1px blueviolet;*/
+        position: relative;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .biaoji:after{
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .ibiaoji{
+        width: 20px;
+        height: 5px;
+        background-color: black;
+        opacity: 0.9;
+        border-radius: 20%;
+    }
+    .active{
+        background-color: azure;
+        opacity: 1;
+    }
+</style>
+<div class="rongqi">
+    <lu class="zu">
+        <li class="ziyuansu" data-id=0><img src="img/1.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=1><img src="img/2.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=2><img src="img/3.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=3><img src="img/4.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=4><img src="img/5.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=5><img src="img/6.jpg" alt=""></li>
+    </lu>
+    <a href="#" class="leftaction"> < </a>
+    <a href="#" class="rightaction"> > </a>
+    <ul class="biaoji">
+        <li class="ibiaoji active"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+    </ul>
+</div>
+<script>
+        
+                
+            var $ct = $('.zu'),
+                $items = $ct.children(),
+                $pre = $('.leftaction'),
+                $next = $('.rightaction'),
+                $bullet = $('.biaoji'),
+                imgWidth = $items.width(),
+                imgCount = $('.zu').children().length;
+
+
+
+            var curIdx = 0;
+            var isAnimate = false;
+
+            $next.on('click', function(){
+                playNext();
+            });
+            $pre.on('click', function(){
+                playPre();
+            });
+            $bullet.find('li').on('click', function(){
+                var idx = $(this).index();
+                play(idx);
+            });
+
+
+            play(0);
+            autoPlay();
+
+
+            function playNext(){
+                play((curIdx+1)%imgCount)
+            }
+
+            function playPre(){
+                play((imgCount+curIdx-1)%imgCount)
+            }
+
+
+            function play(idx){
+                if(isAnimate) return;
+                isAnimate = true;
+                $items.eq(curIdx).fadeOut(500);
+                $items.eq(idx).fadeIn(500, function(){
+                    isAnimate = false;
+                });
+                curIdx = idx;
+                setBullet();
+            }
+
+            function setBullet(){
+                $bullet.children().removeClass('active')
+                                  .eq(curIdx).addClass('active');
+            }
+
+            function stopAuto(){
+                clearInterval(clock);
+            }
+
+            function autoPlay(){
+                clock = setInterval(function(){
+                    playNext();
+                }, 4000);   
+            }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        arr = ["a", "b"];
+        arr.push(
+            function() {
+            alert(console.log('hello hunger valley'))
+        }
+        );
+        arr[arr.length - 1]() // 执行了函数 返回值为undefined,执行显示hello hunger valley
+
+    </script>
+</body>
+
+</html>

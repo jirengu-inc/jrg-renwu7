@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="ct">
+        <li data-img="http://am.zdmimg.com/201608/28/57c2e59f3536c.jpg_e600.jpg">鼠标放置查看图片1</li>
+        <li data-img="http://am.zdmimg.com/201608/28/57c2e6a03830f.jpg_e600.jpg">鼠标放置查看图片2</li>
+        <li data-img="http://am.zdmimg.com/201608/28/57c2e6d9bc055.jpg_e600.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+</body>
+<script>
+var ct = document.querySelector(".ct");
+var div = document.querySelector(".img-preview");
+var img = document.createElement("img");
+ct.addEventListener("mouseover",
+    function(e) {
+        img.setAttribute("src", e.target.getAttribute("data-img"));
+        div.appendChild(img);
+    }, false)
+</script>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    .rongqi{
+        width: 550px;
+        /*border: 1px solid red;*/
+    }
+    .WaiKuang{
+        margin: 0px;
+    	list-style: none;
+    	/*border: solid 1px #ccc;*/
+    	padding: 0px;
+    }
+    .WaiKuang:after{
+
+    	content: "";
+    	clear:both;
+    	display:block;
+    }
+    .DanXiang{
+        margin: 10px;
+        width: 150px;
+    	border: 1px solid #ccc;
+        float: left;
+        text-align: center;
+        height: 210px;
+    }
+    .WenZi{
+        color: #969696;
+        font-size: 10px;
+    }
+    .JinE{
+        color: red;
+    }
+    .HuiCeng{
+        display: none;
+        background-color: black;
+        opacity: 0.7;
+        width: 152px;
+        height: 212px;
+        margin-bottom: -212px;
+        position: relative;
+        bottom: 212px;
+    }
+    .AnNiu{
+        text-decoration: none;
+        color: #c91213;
+        border: 2px solid red;
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        position: relative;
+        top: 100px;
+    }
+    .active{
+        display: block;
+    }
+    .TianJia{
+        text-decoration: none;
+        color: #c91213;
+        border: 2px solid red;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
+<div class="rongqi">
+
+    <ul class="WaiKuang">
+
+        <li class="DanXiang">
+            <img class="tu" src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+            <p class="WenZi">千足金</p>
+            <p class="JinE">￥1699</p>
+            <div class="HuiCeng">
+                <a class="AnNiu" href="javascript:void(0);">
+                    立即抢购
+                </a>
+            </div>
+        </li>
+        <li class="DanXiang">
+            <img class="tu" src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+            <p class="WenZi">千足金</p>
+            <p class="JinE">￥1699</p>
+            <div class="HuiCeng">
+                <a class="AnNiu" href="javascript:void(0);">
+                    立即抢购
+                </a>
+            </div>
+        </li>
+        <li class="DanXiang">
+            <img class="tu" src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg" alt="">
+            <p class="WenZi">千足金</p>
+            <p class="JinE">￥1699</p>
+            <div class="HuiCeng">
+                <a class="AnNiu" href="javascript:void(0);">
+                    立即抢购
+                </a>
+            </div>
+        </li>
+
+
+    </ul>
+</div>
+<a class="TianJia" href="javascript:void(0)">添加</a>
+<script src="jquery.min.js"></script>
+<script>
+    //数据
+
+    var Data = [
+        {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }
+    ];
+
+
+    //事件代理
+    $(".WaiKuang").on("mouseenter",".DanXiang",function () {
+        var $TheThis=$(this);
+        var idx = $TheThis.index();
+//        console.log(idx);
+        var DanXiangZu = $TheThis.parents('.WaiKuang').find(".DanXiang");
+        var HuiCeng = DanXiangZu.eq(idx).find(".HuiCeng");
+        HuiCeng.eq(0).addClass("active");
+
+    });
+    $(".WaiKuang").on("mouseleave",".DanXiang",function () {
+        var $TheThis=$(this);
+        var idx = $TheThis.index();
+//        console.log(idx);
+        var DanXiangZu = $TheThis.parents('.WaiKuang').find(".DanXiang");
+        var HuiCeng = DanXiangZu.eq(idx).find(".HuiCeng");
+        HuiCeng.eq(0).removeClass("active");
+
+    });
+    //数据处理
+    /**
+     * @return {string}
+     */
+    function AddHtml (Data,tmp) {
+        var htmls="";
+
+        htmls +=    '<li class="DanXiang">';
+        htmls +=    '<img class="tu" src="'+ Data[tmp].img+'" alt="">';
+        htmls +=    '<p class="WenZi">'+Data[tmp].name+'</p>';
+        htmls +=    '<p class="JinE">'+Data[tmp].price+'</p>';
+        htmls +=    '<div class="HuiCeng">';
+        htmls +=             '<a class="AnNiu" href="javascript:void(0);">';
+        htmls +=             '立即抢购';
+        htmls +=             '</a>';
+        htmls +=             '</div>';
+        htmls +=             '</li>';
+        return htmls;
+    }
+$(".TianJia").on("click",function () {
+    $(".WaiKuang").append(AddHtml(Data,0));
+    $(".WaiKuang").append(AddHtml(Data,1));
+    $(".WaiKuang").append(AddHtml(Data,2));
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <style type="text/css">
+        .ct {
+            border: solid 1px red;
+        }
+    </style>
+    <div class="rongqi">
+        <div class="node" id="nodes">test</div>
+        <ul class="ct">
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+            <li>d</li>
+            <li>e</li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        //给元素 $node 添加 class active，给元素 $noed 删除 class active
+        $(".node").addClass("active");
+        $(".node").removeClass("active");
+        //展示元素$node, 隐藏元素$node
+        $('.node').hide();
+        $('.node').show();
+        //获取元素$node 的 属性: id、src、title， 修改以上属性
+        var nodeid = $('.node').attr('id');
+        var nodesrc = $('.node').attr('src');
+        var nodetitle = $('.node').attr('title');
+        $('.node').attr('id', "aaa");
+        $('.node').attr('src', 'xxxx');
+        $('.node').attr('title', 'xxxxxxx');
+        //给$node 添加自定义属性data-src
+        $('.node').attr('data-src', '2xxxxxxx');
+        //在$ct 内部最开头添加元素$node
+        var $node = $('.node');
+        var $ct = $('.ct');
+        $ct.prepend($node);
+        //在$ct 内部最末尾添加元素$node
+        $ct.append($node);
+        //删除$node
+        $node.remove();
+        //把$ct里内容清空
+        $ct.find('li').remove();
+        //在$ct 里设置 html <div class="btn"></div>
+        $ct.html('<div class="btn"></div>');
+        //获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)
+        var height =$node.height();//不包括内边距、边框或外边距
+        var width =$node.width();//不包括内边距、边框或外边距
+        var height1 = $node.innerHeight();//方法返回元素的高度（包括内边距）。
+        var width1 =$node.innerWidth();//方法返回元素的宽度（包括内边距）。
+        var height2 =$node.outerHeight();//方法返回元素的高度（包括内边距和边框）
+        var width2 =$node.outerWidth();//方法返回元素的宽度（包括内边距和边框）
+        var height3 =$node.outerHeight(true);//方法返回元素的高度（包括内边距、边框和外边距）
+        var width3 =$node.outerWidth(true);//方法返回元素的宽度（包括内边距、边框和外边距）
+        // 括号内加入数值就是设置宽高;
+        
+        //获取窗口滚动条垂直滚动距离
+          $(window).on("scroll",function(){
+        var $scrollTop=$(window).scrollTop();
+        console.log($scrollTop);
+    });
+        //获取$node 到根节点水平、垂直偏移距离
+        var $nodexy=$node.offset();
+        // 修改$node 的样式，字体颜色设置红色，字体大小设置14px
+        $node.css({'color': 'red', 'font-size': '14px'});
+        // 遍历节点，把每个节点里面的文本内容重复一遍
+        $node.each(function(){
+            $(this).text();
+        });
+        // 从$ct 里查找 class 为 .item的子元素
+        $ct.find('.item');
+        // 获取$ct 里面的所有孩子
+        $ct.children();
+        // 对于$node，向上找到 class 为’.ct’的父亲，在从该父亲找到’.panel’的孩子
+        $node.parents('.ct').find('.panel');
+        // 获取选择元素的数量
+        $node.length();
+        // 获取当前元素在兄弟中的排行
+        $node.index();
+
+
+
+
+
+
+    </script>
+    
+</body>
+
+</html>

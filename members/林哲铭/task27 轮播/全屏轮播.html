@@ -38,7 +38,7 @@
             float: left;
             background-size: cover;
         }
-        .carousel .item .main{
+        #header .carousel .item .main{
             color: #fff;
             position: absolute;
             text-align: center;
@@ -47,19 +47,19 @@
             transform: translate(-50%,-50%);
             z-index: 1;
         }
-        .carousel .item .main h1{
+        #header .carousel .item .main h1{
             margin-bottom: 20px;
         }
-        .carousel .item .main p{
+        #header .carousel .item .main p{
             font-size: 1.2em;
         }
-        .bullet{
+        #header .bullet{
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             bottom: 20px;
         }
-        .bullet li{
+        #header .bullet li{
             display: inline-block;
             width: 30px;
             height: 10px;
@@ -68,7 +68,7 @@
             border-radius: 3px;
             cursor: pointer;
         }
-        .bullet .active{
+        #header .bullet .active{
             background: #666;
         }
     </style>
@@ -116,77 +116,96 @@
     </div>
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script>
-    var $ct = $(".img-ct"),
-        $items = $ct.children(),
-        $next = $(".next"),
-        $pre = $(".pre"),
-        $bullet = $(".bullet");
-        imgWidth = $(window).width();
-        imgCount = $items.length+2;
-
-        var isAnimate = false;
-        var curIdx =1;
-
-        setImg(0);
-        setImg(1);
-        $items.width(imgWidth);
-        $ct.width(imgCount*imgWidth);
-        $ct.prepend($items.last().clone());
-        $ct.append($items.first().clone());
-        $ct.css({left: -imgWidth});
-
-        $(window).on("resize",function () {
-            $items = $ct.children();
-            imgWidth = $(window).width();
-            $items.width(imgWidth);
-            $ct.width(imgCount*imgWidth);
-            $ct.css({left: -imgWidth});
-        });
-
-        $bullet.on("click","li",function () {
-           var idx = $(this).index();
-           play(idx+1);
-        });
-
-        autoPlay();
-        
-        function setBullet() {
-            $bullet.children().removeClass("active")
-                              .eq(curIdx-1).addClass("active");
-        }
-        function play(index) {
-            if(isAnimate) return;
-            isAnimate = true;
-            setImg(curIdx+1);
-            if( index == 0){
-                curIdx = imgCount-2;
-            }else if(index == imgCount-1){
-                curIdx = 1;
-            }else{
-                curIdx = index;
-            }
-            $ct.animate({left:-imgWidth*index},function () {
-                isAnimate = false;
-                $ct.css("left",-imgWidth*curIdx);
-            });
-            setBullet();
-        }
-        function autoPlay() {
-            clock = setInterval(function () {
-                playNext();
-            },4000)
-        }
-        function playNext() {
-            play((curIdx + 1)% imgCount);
-        }
-        function setImg(idx) {    //懒加载
-            var $node = $items.eq(idx),
-                $cover = $node.find(".cover"),
-                $imgUrl =$cover.attr('data-bg-img');
+        var FullScreenCarousel = function ($node) {
+            var $ct =this.$ct = $node.find(".img-ct");
+            this.$items = $ct.children();
+            this.$next = $ct.find(".next");
+            this.$pre = $ct.find(".pre");
+            this.$bullet = $node.find(".bullet");
+            this.imgWidth = $(window).width();
+            this.imgCount = this.$items.length + 2;
+            this.isAnimate = false;
+            this.clone = false;
+            this.curIdx = 1;
+            this.init();
+        };
+        FullScreenCarousel.prototype = {
+            init: function () {
+                var that = this;
+                this.firstSet();
+                this.prepare();
+                this.autoPlay();
+                $(window).on("resize",function () {
+                    that.prepare(that);
+                });
+                this.$bullet.on("click","li",function () {
+                    var idx = $(this).index();
+                    that.play(idx+1);
+                    that.setImg(idx-1);
+                });
+            },
+            firstSet:function () {
+                this.setImg(0);
+                this.setImg(1);
+            },
+            prepare: function (_this) {
+                var that = _this||this;
+                var $ct = that.$ct,
+                        $items = $ct.children();
+                that.imgWidth = $(window).width();
+                $items.width(that.imgWidth);
+                if(!that.clone){
+                    $ct.append($items.first().clone());
+                    $ct.prepend($items.last().clone());
+                    that.clone = true;
+                }
+                $ct.width(that.imgCount*that.imgWidth);
+                $ct.css({left: -that.imgWidth*that.curIdx});
+            },
+            setBullet: function() {
+                this.$bullet.children().removeClass("active")
+                        .eq(this.curIdx-1).addClass("active");
+            },
+            play:function (idx) {
+                var that = this;
+                if(this.isAnimate) return;
+                this.isAnimate = true;
+                this.setImg(this.curIdx+1);
+                if( idx == 0){
+                    this.curIdx = this.imgCount-2;
+                }else if(idx == this.imgCount-1){
+                    this.curIdx = 1;
+                }else{
+                    this.curIdx = idx;
+                }
+                this.$ct.animate({left:-this.imgWidth*idx},400,function () {
+                    that.isAnimate = false;
+                    that.$ct.css("left",-that.imgWidth*that.curIdx);
+                });
+                this.setBullet();
+            },
+            autoPlay: function () {
+                var that = this;
+                clock = setInterval(function () {
+                    that.playNext();
+                },4000);
+            },
+            playNext: function () {
+                this.play((this.curIdx + 1)% this.imgCount);
+            },
+            setImg: function(idx) {    //懒加载
+            var $node = this.$items.eq(idx),
+                    $cover = $node.find(".cover"),
+                    $imgUrl =$cover.attr('data-bg-img');
             if ($node.data("isSet")) return;
             $node.css("background-image",'url(' + $imgUrl + ')');
             $node.data('isBgSet',true);
-        }
+             }
+        };
+
+
+        var fullCarousel_1 = new FullScreenCarousel($(".carousel"))
+
     </script>
 </body>
 </html>

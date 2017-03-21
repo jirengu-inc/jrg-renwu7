@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function hasClass(el, cls) {
+            var reg = new RegExp('(^|\\s)' + cls + '($|\\s)', 'g');
+            return reg.test(el.className);
+        }
+
+        function addClass(el, cls) {
+            if (hasClass(el, cls)) {
+                return 'exist'
+            } else {
+                return el.className + ' ' + cls
+            }
+        }
+
+        function removeClass(el, cls) {
+            if (hasClass(el, cls)) {
+                return el.className = el.className.replace(cls, '');
+            } else {
+                return 'no exist'
+            }
+        }
+        var el={className:'hunger-valley'};
+console.log(hasClass(el, 'hunger'))//false
+console.log(addClass(el, 'hunger'))//hunger-valley hunger
+console.log(removeClass(el, 'valley'))//h
+    </script>
+</body>
+
+</html>

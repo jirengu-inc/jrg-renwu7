@@ -1,0 +1,20 @@
+<html>
+<style>
+	html,body{
+		margin: 0;
+	}
+	input{
+		margin: 20px;
+		width: 200px;
+	}
+</style>
+
+	<input id="input" type="text"  placeholder="http://test.com/a.html">
+<script>
+ 
+document.querySelector('#input').addEventListener('input', function(){
+	window.parent.document.querySelector('input').value = this.value;
+})
+document.domain = 'test.com';
+</script>
+</html>

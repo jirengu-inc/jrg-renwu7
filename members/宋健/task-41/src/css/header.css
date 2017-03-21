@@ -1,0 +1,152 @@
+#header .header-nav{
+    height:70px;
+    line-height:70px;
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    z-index:999;
+}
+#header .header-nav.bg{
+    background-color:#222;
+}
+#header .header-nav .navbar-toggle{
+    cursor:pointer;
+    height:70px;
+    line-height:70px;
+    position:absolute;
+    right:0;
+    top:0;
+    display:none;
+    font-size:2.5rem;
+}
+#header .header-nav .navbar-toggle span{
+    padding:15px;
+    border-radius:4px;
+    text-align: center;
+}
+#header .header-nav .navbar-toggle i{
+    color:#fed136;
+}
+#header .header-nav .sitelogo{
+    color:#fed136;
+    font-size: 2rem;
+    letter-spacing:1px;
+    font-family: "Kaushan Script";
+}
+#header .header-nav .navlist{
+    float:right;
+    margin-right:-15px;
+}
+#header .header-nav .navlist li{
+    display: inline-block;
+    font-family: Montserrat;
+    text-transform:uppercase;
+}
+#header .header-nav .navlist li.active a{
+    border-radius:4px;
+    background-color: #fed136;
+    color:#fff;
+}
+#header .header-nav .navlist li a{
+    font-size:14px;
+    padding:10px 15px;
+    color:#fff;
+}
+#header .header-nav .navlist li a:hover{
+    transition:all 0.3s;
+    color:#fed136;
+}
+#header .carousel{
+    width:100%;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+#header .carousel:after{
+    content:"";
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    display: block;
+    background-color: rgba(0,0,0,0.2);
+    overflow:hidden;
+}
+#header .carousel .imglist{
+    position:absolute;
+}
+#header .carousel .imglist .imgitems{
+    position:relative;
+    float:left;
+}
+#header .carousel .imglist .imgitems a img{
+    width:100vw;
+    height:100vh;
+}
+#header .carousel .imglist .imgitems .intro{
+    cursor:pointer;
+    z-index: 99;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+#header .carousel .imglist .imgitems .intro h1{
+    z-index: 99;
+    color:#fff;
+}
+#header .carousel .imglist .imgitems .intro p{
+    margin-top:10px;
+    z-index: 99;
+    color:#fff;
+}
+#header .carousel .c-btn{
+    position:absolute;
+    top:50%;
+    height:70px;
+    line-height:70px;
+    margin-top:-35px;
+    font-size:4rem;
+    opacity:0.6;
+    z-index: 99;
+    cursor:pointer;
+}
+#header .carousel .c-btn:hover{
+    opacity:1;
+}
+#header .carousel .c-btn i{
+    transition:all 0.3s;
+    padding:5px 10px;
+    color:#fff;
+    z-index: 999;
+}
+#header .carousel .c-btn i:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+#header .carousel .c-btn.prev{
+    left:0;
+}
+#header .carousel .c-btn.next{
+    right:0;
+}
+#header .carousel .jumpto{
+    z-index: 99;
+    left:50%;
+    transform: translateX(-50%);
+    position:absolute;
+    bottom:20px;
+}
+#header .carousel .jumpto li{
+    cursor:pointer;
+    display:inline-block;
+    width:30px;
+    height:8px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 8px;
+}
+#header .carousel .jumpto li.active{
+    background-color:#fff;
+    opacity: 0.6;
+}

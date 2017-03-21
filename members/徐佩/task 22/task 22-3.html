@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task 22-3</title>
+  </head>
+  <body>
+    <ul class="ct">
+    <li data-img="http://ww1.sinaimg.cn/bmiddle/6c7cbd31jw1favze8ch1kj20sg0sgq74.jpg">鼠标放置查看图片1</li>
+    <li data-img="http://ww2.sinaimg.cn/bmiddle/6c7cbd31jw1favxk32bgnj20sg16owln.jpg">鼠标放置查看图片2</li>
+    <li data-img="http://ww4.sinaimg.cn/bmiddle/6c7cbd31jw1favxk3pm00j20sg16oq7v.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+<script>
+  var ul=document.getElementsByClassName("ct")[0];
+  var container=document.getElementsByClassName("img-preview")[0];
+  ul.addEventListener("mouseover",function(e){
+        var dataImg=e.target.getAttribute("data-img");
+        container.innerHTML="<img src='"+dataImg+"'>";
+    })
+</script>
+  </body>
+</html>

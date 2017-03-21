@@ -1,0 +1,165 @@
+@charset "utf-8";
+html,
+body,
+ul,
+li,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Microsoft YaHei";
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+}
+li {
+  list-style: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+.text-center {
+  text-align: center;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#header {
+  height: 50px;
+}
+.wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+#header a.logo {
+  color: #666;
+  float: left;
+  line-height: 50px;
+}
+#header a.logo:hover {
+  color: #333;
+}
+.huojian {
+  font-size: 30px;
+}
+.nav {
+  margin-left: 30px;
+  line-height: 50px;
+  float: left;
+}
+.nav > li {
+  position: relative;
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+}
+.nav > li:hover > .droplist {
+  display: block;
+}
+.droplist {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  display: none;
+  border: 1px solid #333;
+}
+.droplist li {
+  padding: 10px;
+  border-bottom: 1px dashed #333;
+  line-height: 15px;
+}
+.droplist li:hover {
+  background-color: #eee;
+}
+.droplist li:last-child {
+  border: 0;
+}
+.intro,
+.about {
+  padding: 30px 0;
+  background: #b84d45;
+  color: #fff;
+}
+.intro h1 {
+  margin-bottom: 10px;
+}
+.breadcrumb {
+  margin-top: 40px;
+  background: #eee;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.breadcrumb > ul {
+  padding: 10px;
+}
+.breadcrumb > ul li {
+  float: left;
+  margin-right: 5px;
+  color: #999;
+}
+.breadcrumb a {
+  color: #b84d45;
+}
+.breadcrumb .line {
+  color: #333;
+}
+.works {
+  margin-top: 10px;
+}
+.works > ul {
+  margin-left: -31px;
+}
+.works > ul > li {
+  float: left;
+  margin-left: 31px;
+  margin-bottom: 30px;
+  padding: 5px;
+  padding-bottom: 20px;
+  border: 1px solid #e2e2e2;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+.works li > a > img {
+  width: 300px;
+}
+.works li > p {
+  margin-bottom: 15px;
+}
+a.btn {
+  color: #666;
+  padding: 3px 5px;
+  border: 1px solid #d6d6d6;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+a.btn:hover {
+  color: #fff;
+  background: #d6d6d6;
+}
+.about p {
+  margin-bottom: 15px;
+}
+.about a.btn {
+  color: #fff;
+}
+.about a.btn:hover {
+  color: #000;
+}
+#footer {
+  padding: 30px 0;
+}
+#footer p {
+  padding-top: 30px;
+  text-align: center;
+  border-top: 1px solid #333;
+}

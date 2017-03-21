@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 构造函数模式/ 混合模式/ 模块模式/ 工厂模式/ 单例模式/ 发布订阅模式 范例  </title>
+</head>
+<body>
+
+<script>
+
+    //*********************** 单例模式范例 *************************************
+    var  Car = (function(){
+        var instance;
+        function init() {
+            //私有的变量和函数
+            var speed = 0;
+            return {
+                //定义公共的属性和方法
+                getSpeed: function(){
+                    return speed;
+                },
+                setSpeed: function( s ){
+                    speed = s;
+                }
+            };
+        };
+        return {
+            getInstance: function() {
+                if (!instance) {
+                    instance = init();
+                }
+                return instance;
+            }
+        };
+    }());
+    var car = Car.getInstance();
+    var car2 = Car.getInstance();
+    car === car2; // true
+
+
+    //********************* 构造函数模式 ***********************
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype = {
+        sayName: function(){
+            return this.name;
+        }
+    }
+    var student = new Person("继超", 30);
+    console.log(student); // Person {name:"继超", age: 30 }
+
+
+    //********************* 混合模式 ***********************
+    function Person_HunHe(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Person_HunHe.prototype = {
+        sayName: function(){
+            return this.name;
+        }
+    }
+    var Student_HH = function(name, age, sex){
+        Person_HunHe.call(this, name, age);
+        this.sex = sex;
+    }
+    Student_HH.prototype = Person_HunHe.prototype;
+
+    Student_HH.prototype.saySex = function(){
+        return this.sex;
+    }
+
+    var student_hh = new Student_HH("继超",30, "男");
+    console.log(student_hh); // Student_HH {name: "继超", age: 30, sex: "男"}
+
+
+    //********************* 模块模式 ***********************
+    var Person_MoKuai = (function(){
+        var name = "继超"; // 函数Person_MoKuai 内的作用域变量
+
+        return { // 暴露的借口才能被外面使用,没有return 出来的 不能被访问
+            changeName: function(newName){
+                name = newName;
+                return name;
+            },
+            sayName: function(){
+                return name;
+            }
+        }
+    })();
+
+    var p1 = Person_MoKuai.sayName(), // 继超
+        p2 = Person_MoKuai.changeName("jack"), // jack
+        p3 = Person_MoKuai.sayName(); // jack
+
+
+//    另一种方式:
+    var People = (function(){
+        var Tab = {
+            init: function($ct){
+                this.$ct = $ct;
+            },
+            bind: function(){
+                this.$ct.addEventListener('click',function () {
+                    console.log('ct click');
+                })
+            }
+        };
+
+        return {
+            goTop: Tab.init
+        }
+
+    })()
+
+    People // Obiect{}
+    People.goTop // function ($ct){
+//                      this.$ct = $ct;
+//                  }
+
+
+
+    //********************* 工厂模式 ***********************
+//    通过一个函数 创建一个对象 新对象return出来
+    function createPerson(opts){
+        var person = {
+            name: opts.name || 'jack'
+        };
+
+        person.sayName=function(){
+            return this.name;
+        };
+
+        return person;
+
+    }
+
+    var pe1 = createPerson({name: 'jack'}); // jack
+    var pe2 = createPerson({name: '继超'}); // 继超
+
+//    新思路,一个 tab 组件可以有多重功能调用 demo 如下:
+    function ctPerson(type,opts){
+        function person(name, age) {
+            this.name = name;
+            this.age = age;
+        };
+        person.prototype.sayName = function(){
+            return this.name;
+        };
+
+        if(type == 'tab' ){
+            return new Tab();
+        }else if (type == 'carousel'){
+            return new Carousel();
+        }else if(type == 'gotop'){
+            return new goTop();
+        }
+
+        return new person(opts.name , opts.age);
+    }
+
+    var Tab = ctPerson('tab', {}),
+        Carousel = ctPerson('carousel', {}),
+        goTop = ctPerson('gotop', {});
+
+
+
+    //********************* 发布订阅模式 ***********************
+// 提高代码质量 用的很多  模块和模块之间进行交互
+
+    var EventCenter = (function(){
+
+        var events = {};
+
+        function on(evt, handler){ // on 相当于绑定事件,添加东西,把东西放进去
+            events[evt] = events[evt] || [];
+            events[evt].push(handler);
+        }
+
+        function fire(evt){ //fire 相当于调用触发事件
+            if(!events[evt]){
+                return;
+            }
+            for (var i=0;i<events[evt].length;i++){
+                events[evt][i]( [].slice.call(arguments, 1) ); // 执行事件里面的函数,和传入参数执行  此处 evt 相当于 gundong
+                // arguments 代表EventCenter.fire('gundong', 'hello2', 'world'); 里的3个参数, 只需后两个参数
+            }
+        }
+
+
+        return {
+            on: on,
+            fire: fire
+        }
+    })()
+
+// 轮播等功能
+//    events = {
+//        "gundong": [fun1, fun2], // "gundong": [{handler: fun1}, {handler: fun2}]
+//        "huadong": [fun3, fun4]
+//    }
+
+// 特效
+    EventCenter.on('gundong', function(data){
+        console.log('gundong: ', data);
+    });
+    EventCenter.on('huadong', function(data){
+        console.log('huadong: ', data);
+    });
+
+    EventCenter.fire('gundong', 'hello');
+    EventCenter.fire('gundong', 'hello2', 'world');
+    EventCenter.fire('huadong', {name: '继超'},{age: '10'});
+</script>
+</body>
+</html>

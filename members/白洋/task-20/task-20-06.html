@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>下面这段代码输出结果是? 为什么?</title>
+</head>
+<body>
+<script>
+
+    var flag = true;
+    setTimeout(function(){
+        flag = false;
+    },0)
+    while(flag){}
+    console.log(flag);
+
+</script>
+//卡住了，setTimeout为0,里面的函数被放到最后执行,while循环一直在进行
+</body>
+</html>

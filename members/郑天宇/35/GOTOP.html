@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        .bl{
+            width: 500px;
+            height: 200px;
+            background: #337ab7;
+            margin: 30px;
+        }
+        .content{
+            position: relative;
+        }
+        .bt{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 100px;
+            height: 30px;
+            background: #c14d21;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="bl"></div>
+        <div class="bl"></div>
+        <div class="bl"></div>
+        <div class="bl"></div>
+        <div class="bl"></div>
+        <div class="bl"></div>
+        <div class="bl"></div>
+        <div class="bl"></div>
+        <div class="bl"></div>
+
+
+
+    </div>
+
+
+
+<script>
+    function GoTop($ct) {
+        this.$ct = $ct;
+        this.$target = $('<button class="bt">GoTop</button>');
+
+    }
+    GoTop.prototype.createNode = function () {
+        this.$ct.append(this.$target);
+        this.$target.hide();
+    };
+
+    GoTop.prototype.bindEvent = function () {
+        var $this = this;
+        $(window).on('scroll',function () {
+            var sctop = $(window).scrollTop();
+
+            if(sctop>=200){
+                $this.$target.show();
+            }else {
+                $this.$target.hide();
+
+            }
+        });
+        this.$target.on('click',function () {
+            $(window).scrollTop(0);
+        })
+
+    };
+    var gotop = new GoTop($('.content'));
+    gotop.createNode();
+    gotop.bindEvent();
+</script>
+
+</body>
+</html>

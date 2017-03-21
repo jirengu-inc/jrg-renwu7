@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+			// 封装过得ajax函数
+function ajax(opts) {
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText)
+            console.log(json)
+            opts.success(json)
+        }
+        if (xhr.readyState === 4 && xhr.status === 404) {
+            opts.error()
+        }
+    }
+    var dataStr = ''
+    for (var key in opts.data) {
+        dataStr += key + '=' + opts.data[key] + '&'
+    }
+    dataStr = dataStr.substr(0, dataStr.length - 1)
+    if (opts.type.toLowerCase() === 'get') {
+        xhr.open(opts.type, opts.url + '?' + dataStr, true)
+        xhr.send()
+    }
+    if (opts.type.toLowerCase() === 'post') {
+        xhr.open(opts.type, opts.url, true)
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(dataStr)
+    }
+}
+
+// 结束
+// 引入前几个任务的正则表达式
+// 判断用户输入的是不是合法的用户名（长度1-12个字符，只能包括字母、数字、下划线）
+function isValidUsername(str) {
+            var exp = /^\w{2,12}$/;
+            return exp.test(str);
+        }
+//    判断用户输入的是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）
+function isLegalPassword(str){
+    if(str.length < 6 || str.length > 16){
+        return false;
+    }
+    //如果包含上述四种以外的字符，false
+    if(/[^A-Za-z_0-9]/.test(str)){
+        return false;
+    }
+
+    //如果全为大写、小写、下划线、数字, false
+    if( /(^[a-z]+$)|(^[A-Z]+$)|(^_+$)|(^\d+$)/g.test(str) ){
+        return false;
+    }
+    return true;
+}
+
+// 结束
+	</script>
+	<style>
+		body{
+			margin: 0px;
+			padding: 0px;
+			font-size: 14px;
+		}
+		* {
+    box-sizing: border-box;
+}
+
+.register{
+	margin: 30px;
+}
+.register-ct dd {
+    margin-left: 86px;
+}
+.register-ct dt {
+    width: 86px;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+}
+.register-ct input {
+    height: 24px;
+    line-height: 24px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.register-ct input.error{
+	border-color: red;
+}
+.register-ct .msg{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #aaa;
+	height: 12px;
+    font-size: 12px;
+}
+	</style>
+		<h3>注册</h3>
+		<form id="register-form" action="">
+			<dl class="register-ct">
+				<dt>用户名</dt>
+				<dd>
+					<input id="username" placeholder="用户名(test被注册过)" class="  " type="text">
+				</dd>
+				<dd class="msg msg-un">用户名格式不正确</dd>
+
+				<dt>密码:</dt>
+				<dd>
+					<input id="password1" placehoder="密码" type="password">
+				</dd>
+				<dd class="msg msg-pwd1">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+
+				<dt> 在输一次:</dt>
+				<dd>
+					<input id="password2" placeholder="在输入一次密码" type="password"> 
+				</dd>
+				<dd class="msg msg-pwd2"></dd>
+				<dd>
+				<button class="btn-register">注册</button></dd>
+			</dl>		
+		</form>
+
+
+	<script>
+		var username = document.querySelector('#username');
+		var password1=document.querySelector('#password1');
+		var password2=document.querySelector('#password2');
+		var msgusername = document.querySelector('.msg-un');
+		var msgpassword1= document.querySelector('.msg-pwd1');
+		var msgpassword2= document.querySelector('.msg-pwd2');
+		var button = document.querySelector('.btn-register');
+		username.addEventListener('blur',function(tmp){
+			console.log("帐号："+username.value);
+			if(isValidUsername(username.value)){
+				console.log("userceshi1");
+				msgusername.innerText=""
+				username.className="";
+				//todoajax
+			ajax({
+        		url: 'return.php',   //接口地址
+        		type: 'GET',               // 类型，get
+        		data:{
+        		id:3,
+        		type:'user',
+        		shuju:username.value
+        		},
+        		success: function(json){
+            	// console.log(json);
+            	console.log(json);
+            		tmps(json);
+                  // {status: 0}
+        		},
+        		error: function(){
+           		console.log('出错了')
+        		}
+    			});
+
+				function tmps(json){
+					if (json=='0'){
+						msgusername.innerText=username.value+"已注册";
+					}
+					if(json=='1'){
+						msgusername.innerText="";
+					}
+				}
+
+
+
+
+
+
+				//ajaxend
+			}else {
+				username.className="error";
+				console.log("长度1-22个字符，只能包括字母、数字、下划线");
+				msgusername.innerText="长度1-22个字符，只能包括字母、数字、下划线";
+			}
+		});
+		password1.addEventListener('blur', function(tmp){
+			console.log("密码1:"+password1.value);
+
+		});
+		password2.addEventListener('blur', function(tmp){
+			console.log("密码2："+password2.value);
+			if(password1.value===password2.value){
+				password2.className="";
+				msgpassword2.innerHTML="";
+				console.log("password-ok");
+			}
+			if(password1.value!=password2.value){
+				if(password2.className==="error"){
+
+				}
+				if(password2.className!="error"){
+					msgpassword2.innerHTML="";					password2.className="error";
+					msgpassword2.append("输入错误，请重新输入");
+				}
+			}
+		});
+		button.addEventListener('click', function(tmp){
+			//todoajax
+			ajax({
+        		url: 'return.php',   //接口地址
+        		type: 'GET',               // 类型，get
+        		data:{
+        		id:3,
+        		type:'all',
+        		shuju:password2.value
+        		},
+        		success: function(json){
+            	// console.log(json);
+            	alert(json);
+                  // {status: 0}
+        		},
+        		error: function(){
+           		console.log('出错了')
+        		}
+    			});
+
+			//ajaxend
+			console.log("这是按钮");
+		});
+	</script>
+</body>
+</html>

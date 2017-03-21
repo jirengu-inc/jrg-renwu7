@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 2 </title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body,html,li,ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .course{
+            position: relative;
+            width: 1000px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .img-ct{
+            position: absolute;
+            width: 1800px;
+            left: -300px;
+
+        }
+        .img-ct li{
+
+            float: left;
+
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .img-ct img{
+            width: 300px;
+            height: 200px;
+        }
+        .palypre{
+            left: 10px;
+
+
+        }
+        .playnext{
+            right: 10px;
+
+        }
+        .playbg{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            background: #3D3E42;
+            text-align: center;
+            margin-top:100px;
+
+        }
+        .bullet{
+            position: absolute;
+            bottom:10px;
+            margin-left: 111px;
+        }
+        .bullet ul li{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #eeeeee;
+            border-radius: 10px;
+        }
+
+        .bullet ul li.active{
+            background: #3f3f3f;
+        }
+    </style>
+
+</head>
+<body>
+<div class="course">
+    <ul class="img-ct clearfix">
+        <li data-id="0"><a href="#"><img src="http://img.sootuu.com/vector/2006-4/2006420114643989.jpg" alt=""></a></li>
+        <li data-id="1"><a href="#"><img src="http://img.sootuu.com/vector/2007-07-01/066/1/572.gif" alt=""></a></li>
+        <li data-id="2"><a href="#"><img src="http://www.1tong.com/uploads/wallpaper/anime/209-3-1920x1200.jpg" alt=""></a></li>
+        <li data-id="3"><a href="#"><img src="http://attach.bbs.miui.com/forum/201203/20/170226n5qcwdpusnjdsswy.jpg" alt=""></a></li>
+    </ul>
+    <a class="playnext playbg" href="#"> > </a>
+    <a class="playpre playbg" href="#"> < </a>
+    <!--<div class="bullet">-->
+        <!--<ul>-->
+            <!--<li class="active"></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+</div>
+<script>
+    function Carousel($course) {
+        this.$course = $course ;
+        var $ct = this.$ct = $course.find('.img-ct');
+        this.$pre = $course.find(".playpre");
+        this.$next = $course.find('.playnext');
+        this.imgWidth = $ct.find('li').width();
+        this.imgSize =  $ct.find('li').size();
+        $('.img-ct').css('width' , this.imgWidth*this.imgSize);
+        //this.bind();
+    }
+        var animate = false;
+
+    Carousel.prototype = {
+        bind : function () {
+            var $this = this;
+            this.$pre.on('click',function () {
+                $this.showpre();
+            });
+            this.$next.on('click', function(){
+                $this.showNext();
+            });
+        },
+
+        showpre: function () {
+            if (!animate) {
+                    animate = true;
+                    this.$ct.prepend(this.$ct.children().last());
+                    this.$ct.css('left', 0 - this.imgWidth); //向前移动其实就是整体向右移动,
+                    this.$ct.animate({'left': 0},function () {
+                        animate = false;
+                    });//使用css操作移动，animate只给一个动画效果
+
+            }
+
+        },
+        showNext: function(){
+            if (!animate) {
+                animate = true;
+                console.log('11');
+                var $ct = this.$ct;
+
+                $ct.animate({'left': 0-this.imgWidth},function(){  //看到的永远是最后一张
+                    $ct.append($ct.children().first());
+                    $ct.css('left', 0); //移动完成后本身是变成 left: 0-imgwidth ，但是设置为O,使其保持有动画的效果
+                    animate = false;
+                });
+
+            }
+        }
+    };
+
+    //    $('.course').each(function(){
+    //        new Carousel($(this));
+    //    });
+
+        var a = new Carousel($('.course'));
+
+        a.bind();
+
+
+
+
+
+</script>
+</body>
+</html>

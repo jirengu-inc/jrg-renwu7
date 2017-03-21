@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .row::after {
+            content: '';
+            visibility: hidden;
+            display: block;
+            clear: both;
+        }
+
+        .buckets-ct {
+            margin: 0 auto;
+            width: 1000px;
+        }
+
+        .row {
+            margin-bottom: 10px;
+        }
+
+        .img-ct {
+            float: left;
+        }
+    </style>
+
+</head>
+<body>
+<div class="buckets-ct"></div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+
+    var buckets = {
+        imgNum: 0,
+        ctWidth: 0,
+        baseHeight: 0,
+        rowList: [],
+        init: function ($container, imgNum, baseHeight) {
+            this.$ct = $container;
+            this.imgNum = imgNum;
+            this.baseHeight = baseHeight;
+            this.ctWidth = this.$ct.width();
+            this.loadImg();
+        },
+        render: function (imgInfo) {
+            let This = this,
+                rowlist = this.rowList,
+                ctWidth = this.ctWidth,
+                rowWidth = 0,
+                newRowHeight = 0,
+                lastImgInfo = imgInfo;
+            this.rowList.push(imgInfo);
+            $.each(This.rowList, function (index, imgInfo) {
+                console.log(`old : ${rowWidth}`);
+                rowWidth += imgInfo.width;
+                console.log(`now : ${rowWidth}, rowWidth>ctWidth: ${rowWidth > ctWidth}`);
+                if (rowWidth > ctWidth) {
+                    This.rowList.pop();
+                    rowWidth -= lastImgInfo.width;
+                    newRowHeight = This.baseHeight * ctWidth / rowWidth;
+                    This.appendNewRow(newRowHeight);
+                    This.rowList = [];
+                    This.rowList.push(lastImgInfo);
+                }
+            })
+        },
+        appendNewRow: function (newRowHeight) {
+            let $newRow = $('<div class="row"><div>');
+            $.each(this.rowList, function (index, imgInfo) {
+                let $newImgCt = $('<div class="img-ct"></div>'),
+                    $newImg = imgInfo.newImg;
+                $newImg.height(newRowHeight);
+                $newImgCt.append($newImg);
+                $newRow.append($newImgCt);
+            });
+            this.$ct.append($newRow);
+        },
+        loadImg: function () {
+            let This = this;
+            let arrImg = this.getImgUrl(this.imgNum);
+            $.each(arrImg, function (index, url) {
+                let newImg = new Image();
+                newImg.src = url;
+                newImg.onload = function () {
+                    let originWidth = newImg.width,
+                        originHeight = newImg.height,
+                        WHratio = originWidth / originHeight;
+                    let imgInfo = {
+                        newImg: $(newImg),
+                        width: This.baseHeight * WHratio,
+                        height: This.baseHeight,
+                        WHratio: WHratio
+                    };
+                    This.render(imgInfo);
+                };
+            });
+        },
+        getImgUrl: function (num) {
+            let width, height, color, urls = [];
+            for (let i = 0; i < num; i++) {
+                width = Math.floor(Math.random() * 101 + 50);
+                height = Math.floor(Math.random() * 31 + 50);
+                color = Math.random().toString(16).substring(2, 8);
+                urls.push("http://placehold.it/" + width + "x" + height + "/" + color + "/fff");
+            }
+            return urls;
+        }
+    };
+    buckets.init($('.buckets-ct').eq(0), 100, 100);
+
+</script>
+</body>
+</html>

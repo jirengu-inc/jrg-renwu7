@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设计模式</title>
+</head>
+<body>
+	<script>
+		function createTimer(){
+			var a,b;
+			var time = {
+				start:function(){
+					a = new Date();
+				},
+				end:function(){
+					b = new Date();
+				},
+				get:function(){
+					return b-a;
+				}
+			}
+
+			return time;
+		}
+		var timer1 = createTimer();
+		var timer2 = createTimer();
+		timer1.start();
+		for(var i=0;i<100;i++){
+		    console.log(i);
+		}
+		timer2.start();
+		for(var i=0;i<100;i++){
+		    console.log(i);
+		}
+		timer1.end();
+		timer2.end();
+		console.log(timer1.get());
+		console.log(timer2.get());
+	</script>
+</body>
+</html>

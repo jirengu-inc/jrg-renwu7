@@ -1,0 +1,10 @@
+require.config({
+	baseUrl:'./js',
+	paths:{
+		'jquery':'lib/jquery/jquery.min',
+	}
+});
+require(['jquery','app/exposure'],function($,Exposure){
+	console.log(Exposure);
+	Exposure.init($('.btn'));
+})

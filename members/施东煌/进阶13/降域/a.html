@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .ct {
+        width: 910px;
+        margin: auto;
+    }
+    
+    .main {
+        float: left;
+        width: 450px;
+        height: 300px;
+        border: 1px solid #ccc;
+    }
+    
+    .main input {
+        margin: 20px;
+        width: 200px;
+    }
+    
+    .iframe {
+        float: right;
+    }
+    
+    iframe {
+        width: 450px;
+        height: 300px;
+        border: 1px dashed #ccc;
+    }
+    </style>
+</head>
+
+<body>
+ <div class="ct">
+        <h1>使用降域实现跨域</h1>
+        <div class="main">
+            <input type="text" placeholder="http://a.kuayu.com:8080/a.html">
+        </div>
+        <iframe src="http://b.kuayu.com:8080/b.html" frameborder="0"></iframe>
+    </div>
+    <script>
+    document.querySelector('.main input').addEventListener('input', function() {
+        console.log(this.value);
+        window.frames[0].document.querySelector('input').value = this.value;
+    })
+    document.domain = "kuayu.com"
+    </script>
+
+</body>
+</html>
+<!-- 备份 -->
+<!-- <body>
+    <div class="ct">
+        <h1>使用降域实现跨域</h1>
+        <div class="main">
+            <input type="text" placeholder="http://a.kuayu.com:8080/a.html">
+        </div>
+        <iframe src="http://b.kuayu.com:8080/b.html" frameborder="0"></iframe>
+    </div>
+    <script>
+    document.querySelector('.main input').addEventListener('input', function() {
+        console.log(this.value);
+        window.frames[0].document.querySelectaor('input').value = this.value;
+    })
+    document.domain = "kuayu.com"
+    </script>
+</body> -->

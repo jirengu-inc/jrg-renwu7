@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=['aaaa',1,2,3,4,5,'test']
+        function find (arr,finddata){
+            var tempd;
+            console.log(finddata);
+            console.log(arr);
+            if(arr.indexOf(finddata)===-1){
+                return tempd=-1; 
+            }else{
+                var tempa;
+                for(tempa=0;tempa<arr.length;tempa++){
+                    if(arr[tempa]===finddata){
+                        return tempa;
+                    }
+                }
+            }
+        }
+        find(arr,1);
+    </script>
+</body>
+</html>

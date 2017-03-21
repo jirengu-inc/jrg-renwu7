@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task28-2</title>
+    <style>
+        .layout{
+            width:900px;
+            margin:0 auto;
+        }
+        #header{
+            background-color:red;
+            min-height:50px;
+        }
+        .contentblock{
+            margin-top:20px;
+        }
+        .contentblock:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .nav{
+            border:1px solid #000;
+            background-color: yellow;
+            min-height:30px;
+        }
+        .aside{
+            width:200px;
+            min-height:400px;
+            float:left;
+            background-color: pink;
+        }
+        .main{
+            width:680px;
+            min-height:400px;
+            float:right;
+            background-color: blue;
+        }
+        #footer{
+            background-color: #333;
+        }
+        .type2{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="header" class="layout">header</div>
+<div class="contentblock layout">
+    <div class="nav type1">nav1</div>
+    <div class="aside type1">aside1</div>
+    <div class="main">main1</div>
+</div>
+<div class="contentblock layout">
+    <div class="nav type2">nav2</div>
+    <div class="aside type2">aside2</div>
+    <div class="main">main2</div>
+</div>
+<div class="contentblock layout">
+    <div class="nav type3">nav3</div>
+    <div class="aside type3">aside3</div>
+    <div class="main">main3</div>
+</div>
+<div class="contentblock layout">
+    <div class="nav type4">nav4</div>
+    <div class="aside type4">aside4</div>
+    <div class="main">main4</div>
+</div>
+<div id="footer" class="layout">footer</div>
+<script src="../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $.fn.stickup = function(){
+        var $crt = $(this),
+            offsetT = $crt.offset().top,
+                offsetL = $crt.offset().left,
+                crtW = $crt.width(),
+                crtH = $crt.height();
+        $clonecrt = $crt.clone()
+                        .css({
+                            opacity:'0',
+                            display:'none'
+                        })
+                        .insertBefore($crt);
+        $(window).on('scroll',function(){
+            var scrollT = $(this).scrollTop();
+            if(scrollT>=offsetT){
+                if(!isFixed()){
+                    setFixed();
+                }
+            }
+            else{
+                if(isFixed()){
+                    unsetFixed();
+                }
+            }
+        });
+        function isFixed(){
+            return $crt.data('isfixed');
+        }
+        function setFixed(){
+            $crt.css({
+                    position:'fixed',
+                    left:offsetL,
+                    top:'0',
+                    width:crtW,
+                    height:crtH
+            });
+            $clonecrt.show();
+            $crt.data('isfixed',true)
+        }
+        function unsetFixed(){
+            $crt.removeAttr('style');
+            $clonecrt.hide();
+            $crt.data('isfixed',false);
+        }
+    };
+    $('.nav').each(function(){
+        $(this).stickup();
+    })
+</script>
+</body>
+</html>

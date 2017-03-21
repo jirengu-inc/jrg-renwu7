@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现如下图Tab切换的功能</title>
+</head>
+<body>
+<style>
+	/* 初始 */
+	.rongqi{
+		border: solid 1px #ccc;
+		width: 300px;
+		height: 200px;
+		border-collapse:collapse;
+}
+	.tables{
+		width: 300px;
+		margin: 0px;
+		padding: 0px;
+		border: solid 1px #ccc;
+		list-style: none;
+	}
+	.tablesli{
+		width: 98px;
+		height: 40px;
+		/* border: solid 1px red; */
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		text-align: center;
+		line-height: 40px;
+	}
+	.tablesli>p{
+		display: inline;
+	}
+	.tables:after{
+			content: '';
+ 			display: block;
+ 			clear: both;
+	}
+	.neirong{
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+	}
+	.wenzi{
+		display: none;
+		margin: 0px;
+		padding: 0px;
+		height: 150px;
+		/* border: solid 1px red; */
+	}
+
+	/* 状态 */
+	.bghuise{
+		background: #ccc;
+	}
+	.xianshi{
+		display: block;
+	}
+</style>
+<div class="rongqi">
+	<ul class="tables">
+		<li class="tablesli"><p>tab1</p></li>
+		<li class="tablesli"><p>tab2</p></li>
+		<li class="tablesli"><p>tab3</p></li>
+	</ul>
+	<ul class="neirong">
+		<li class="wenzi">neirong1</li>
+		<li class="wenzi">neirong2</li>
+		<li class="wenzi">neirong3</li>
+	</ul>
+</div>
+<script>
+    function tabinit(){
+    	tab.children[0].className = "tablesli";
+    	tab.children[1].className = "tablesli";
+    	tab.children[2].className = "tablesli";
+    	neirong.children[0].className = "wenzi";
+    	neirong.children[1].className =	"wenzi";
+    	neirong.children[2].className = "wenzi";
+    }
+	var tab = document.querySelector(".tables");
+	var neirong = document.querySelector(".neirong");
+	tab.addEventListener("click", function(e){
+		console.log(e.target.innerText);
+		tabinit();
+		if(e.target.innerText==="tab1"){
+			tab.children[0].className= tab.children[0].className+" "+"bghuise";
+			neirong.children[0].className = neirong.children[0].className + "  "+ "xianshi";
+		}
+		if(e.target.innerText==="tab2"){
+			tab.children[1].className= tab.children[1].className+" "+"bghuise";
+			neirong.children[1].className = neirong.children[1].className + "  "+ "xianshi";
+
+		}
+		if(e.target.innerText==="tab3"){
+			tab.children[2].className= tab.children[2].className+" "+"bghuise";
+			neirong.children[2].className = neirong.children[2].className + "  "+ "xianshi";
+		}
+	},false);
+</script>
+</body>
+</html>

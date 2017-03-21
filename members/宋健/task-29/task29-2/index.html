@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片懒加载</title>
+    <style>
+        ul,li{
+            list-style: none;
+        }
+        li{
+            float:left;
+            margin:10px;
+        }
+        img{
+
+            width:220px;
+            height:400px;
+
+        }
+        .imglist{
+            width:800px;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+<ul class="imglist">
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+    <li><a href="#"><img src="http://www.joycesong.com/wp-content/uploads/2016/12/blank.png" data-src="http://www.joycesong.com/wp-content/uploads/2016/12/girl.jpg"></a></li>
+</ul>
+<script src="../jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    checkShow();
+    var clock;
+    $(window).on('scroll',function(){
+        if(clock){
+            clearTimeout(clock);
+        }
+        clock = setTimeout(function(){
+            console.log(1);
+            checkShow();
+        },300)
+    });
+    function checkShow(){
+        $('img').each(function(){
+            var $crt = $(this);
+            if(!$crt.data('loaded')&&isShow($crt)){
+                imgShow($crt);
+            }
+        })
+    }
+    function isShow($ele){
+        var winH = $(window).height(),
+            offsetT = $ele.offset().top,
+            scrollT = $(window).scrollTop();
+        if(offsetT<=winH+scrollT){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    function imgShow($ele){
+        $ele.attr('src',$ele.attr('data-src'));
+        $ele.data('loaded',true);
+    }
+</script>
+</body>
+</html>

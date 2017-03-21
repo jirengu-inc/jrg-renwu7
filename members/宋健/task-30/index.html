@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流布局</title>
+    <style>
+        .waterfall{
+            position: relative;
+        }
+        .item{
+            margin:10px;
+            width:200px;
+            position:absolute;
+            transition:all 0.5s;
+        }
+        .h1{
+            height:200px;
+            background-color: yellow;
+        }
+        .h2{
+            height:400px;
+            background-color:blue;
+        }
+        .h3{
+            height:250px;
+            background-color:green;
+        }
+        .h4{
+            height:300px;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+<div class="waterfall">
+    <div class="item h1">1</div>
+    <div class="item h3">2</div>
+    <div class="item h2">3</div>
+    <div class="item h4">4</div>
+    <div class="item h2">5</div>
+    <div class="item h4">6</div>
+    <div class="item h1">7</div>
+    <div class="item h3">8</div>
+    <div class="item h1">9</div>
+    <div class="item h4">10</div>
+    <div class="item h2">11</div>
+    <div class="item h3">12</div>
+    <div class="item h1">13</div>
+    <div class="item h4">14</div>
+    <div class="item h2">15</div>
+    <div class="item h3">16</div>
+    <div class="item h1">17</div>
+    <div class="item h4">18</div>
+</div>
+<script src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    function waterFall(){
+        var winW = $(window).width(),
+            itemW = $('.item').outerWidth(true),
+            colNum = parseInt(winW/itemW),
+            colArray = [];
+        for(var i=0;i<colNum;i++){
+            colArray.push(0);
+        }
+        $('.item').each(function(){
+            var $crt = $(this),
+                idx = 0,
+                mincolH = colArray[0];
+            for(var i =0;i<colArray.length;i++){
+                if(colArray[i]<mincolH){
+                    idx = i;
+                    mincolH=colArray[i];
+                }
+            }
+            $crt.css({
+                top:mincolH,
+                left:itemW*idx
+            });
+            colArray[idx] += $crt.outerHeight(true);
+        })
+    }
+    waterFall();
+    $(window).on('resize',function(){
+        waterFall();
+    })
+</script>
+</body>
+</html>

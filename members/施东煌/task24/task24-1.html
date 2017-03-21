@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function ajax(opts) {
+        // todo ...
+
+        var xhr = XMLHttpRequest();
+        var data = '';
+        for (vl in opts.data) {
+            data += vl + '=' + opts.data[vl] + '&';
+        }
+        data = data.substring(0, data.length - 1);
+        xhr.onreadystatechange = function() {
+            if (readyState == 200 && status == 4) {
+                opts.success(xhr.responseText);
+            }
+
+            if (xhr.redyState === 4 && xhr.status === 404) {
+                opts.error();
+            }
+        }
+
+        if (opts.type.toUpperCase() === 'GET') { //判断使用哪种方式请求
+            xhr.open('GET', opts.url + '?' + data, true);
+            xhr.send();
+        }
+        if (opts.type.toUpperCase() === 'POST') {
+            xhr.open('POST', opts.url, true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+        }
+
+
+
+
+
+    }
+    document.querySelector('#btn').addEventListener('click', function() {
+        ajax({
+            url: 'getData.php', //接口地址
+            type: 'get', // 类型， post 或者 get,
+            data: {
+                username: 'xiaoming',
+                password: 'abcd1234'
+            },
+            success: function(ret) {
+                console.log(ret); // {status: 0}
+            },
+            error: function() {
+                console.log('出错了')
+            }
+        })
+    });
+    </script>
+</body>
+
+</html>

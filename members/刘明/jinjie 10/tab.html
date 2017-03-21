@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>TAB</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    ul,li{margin: 0;padding: 0}
+    li{list-style: none;}
+    #tab{
+        padding: 10px;
+        border:1px solid #ccc;
+        width: 400px;
+        margin:0 auto;
+    }
+    #tab *{box-sizing: border-box;}
+    .clearfix:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .tab-head{border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;}
+    .tab-head>li{
+        float: left;
+        width: 33.33%;
+        padding: 5px 0;
+        text-align: center;
+        cursor: pointer;
+        border-top:1px solid #ddd;
+        border-right:1px solid #ddd;
+        font:bold 14px arial;
+    }
+        .tab-head .active{
+            background: #ccc;
+            color: #fff;
+        }
+    .tab-content{border:1px solid #ccc;border-top:1px solid #fff;padding: 6px 12px;}
+    .tab-content>li{display: none;}
+    .tab-content .active{display: block;}
+</style>
+</head>
+<body>     
+<div id='tab'>
+    <ul class="tab-head clearfix">
+        <li class='active'>选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+    </ul>
+    <ul class="tab-content">
+        <li class='active'>内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+<script>
+var header=document.querySelector('.tab-head')
+    content=document.querySelector('.tab-content')
+    conts=document.querySelectorAll('.tab-content>li')
+    header.addEventListener('click',function(e){
+        var op = e.target;
+        if(op.tagName ==='LI'){
+            for(var i=0;i<header.children.length;i++){
+                header.children[i].classList.remove('active');
+            }
+            op.classList.add('active');
+            var index=[].indexOf.call(header.children,op);
+             for(var i=0;i<conts.length;i++){
+                conts[i].classList.remove('active');
+            }
+            conts[index].classList.add('active');
+        }
+    })
+
+</script>
+</body>
+</html>

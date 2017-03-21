@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>写一个函数getIntv，获取从当前时间到指定日期的间隔时间</h1>
+   <script>
+    function getIntv(datetmp){
+//        console.log(datetmp);
+        var OneNm = Date.parse(datetmp);
+//        console.log("这个是传入参数转换的毫秒数"+OneNm);
+        var NowNm = Date.now();
+//        console.log(" 这个是即时"+NowNm);
+        var ChaZhi=Math.abs(OneNm-NowNm);
+//        console.log("这是差值"+ChaZhi);
+        var YearZhi=ChaZhi/(365*24*60*60*1000);
+        if (YearZhi<1) {
+            YearZhi = 0;
+        }
+        if (YearZhi>1){
+            YearZhi=parseInt(YearZhi);
+            ChaZhi=ChaZhi-YearZhi*365*24*60*60*1000;
+        }
+//        console.log("理论上这是年"+parseInt(YearZhi));
+        var YueZhi=ChaZhi/(30*24*60*60*1000);
+        YueZhi=parseInt(YueZhi);
+        if (YueZhi<1){
+            YueZhi=0;
+        }
+        if (YueZhi>1){
+            YueZhi=parseInt(YueZhi);
+            ChaZhi=ChaZhi-YueZhi*30*24*60*60*1000;
+        }
+//        console.log("理论是月数"+YueZhi);
+        var TianShu=ChaZhi/(24*60*60*1000);
+        TianShu=parseInt(TianShu);
+        if (TianShu<1){
+            TianShu=0;
+        }
+        if (TianShu>1){
+            ChaZhi=ChaZhi-TianShu*24*60*60*1000;
+        }
+//        console.log("理论是天数"+TianShu);
+        var XiaoShi=ChaZhi/(60*60*1000);
+        XiaoShi=parseInt(XiaoShi);
+        if (XiaoShi<1){
+            XiaoShi=0;
+        }
+        if (XiaoShi>1){
+            ChaZhi=ChaZhi-XiaoShi*60*60*1000;
+        }
+//        console.log("理论是小时数"+XiaoShi);
+        var FenZhong=ChaZhi/(60*1000);
+        FenZhong=parseInt(FenZhong);
+        if (FenZhong<1){
+            FenZhong=0;
+        }
+        if (FenZhong>1){
+            ChaZhi=ChaZhi-FenZhong*60*1000;
+        }
+//        console.log("理论是分钟数"+FenZhong);
+        var MiaoShu=ChaZhi/1000;
+        MiaoShu=parseInt(MiaoShu);
+        if (MiaoShu<1){
+            MiaoShu=0;
+        }
+        if (MiaoShu>1){
+            ChaZhi=ChaZhi-MiaoShu*1000;
+        }
+//        console.log("理论是秒数"+MiaoShu);
+
+
+        console.log("我一脸尴尬的说距离"+datetmp+"还有"+YearZhi+"年"+YueZhi+"月"+TianShu+"天"+XiaoShi+"个小时"+FenZhong+"分钟"+MiaoShu+"秒就到了");
+        document.write("我一脸尴尬的说距离"+datetmp+"还有"+YearZhi+"年"+YueZhi+"月"+TianShu+"天"+XiaoShi+"个小时"+FenZhong+"分钟"+MiaoShu+"秒就到了");
+    }
+
+       var str = getIntv("2080-03-29");
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            padding: 0px;
+            margin: 0px;
+            font-size: 12px;
+        }
+
+        fieldset {
+
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+    </style>
+    <script src="http://kejian.jirengu.com/static/js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <fieldset>
+        <legend>1.当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</legend>
+        <button id="btn">点我变色</button>
+        <script type="text/javascript">
+            $("#btn").on("click", function (mousev) {
+                $(mousev.currentTarget).css({"background": "red"})
+                // $("#btn").css({"background":"red"})
+                setTimeout(function () {
+                    $(mousev.currentTarget).css({"background": "blue"})
+                }, 1000)
+            })
+        </script>
+    </fieldset>
+
+    <fieldset>
+        <legend>2.当窗口滚动时，获取垂直滚动距离</legend>
+        <div id="node2"
+             style="width:200px;height:120px;background:green;position:fixed;top:20px;right:20px;display:none"></div>
+        <button class="ck2">获取窗口滚动</button>
+        <script type="text/javascript">
+            $(function () {
+                $(".ck2").on("click", function () {
+                    $(window).scrollTop(100).on("scroll", function () {
+                        $("#node2").show("slow", function () {
+                        }).text("窗口垂直滚动的距离：" + $(window).scrollTop() + "px")
+                    })
+                })
+            })
+        </script>
+    </fieldset>
+    <fieldset>
+        <legend>3.当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</legend>
+        <div id="node3" style="width:100px;height:100px;border:1px solid #ccc"></div>
+        <script type="text/javascript">
+
+
+            $("#node3").on("mouseenter", function () {
+                console.log(this)
+                $(this).css({"background": "red"})
+            })
+            $("#node3").on("mouseleave", function () {
+                $(this).css({"background": "white"})
+            })
+        </script>
+    </fieldset>
+    <fieldset>
+        <legend>4.当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</legend>
+        <form>
+            <input id="node4" type="text" name="inputname" style="outline-style:#ccc" >
+        </form>
+        <script type="text/javascript">
+            $("#node4").on("focusin",function(){
+                $(this).css({"outlineColor":"blue"})
+                $(this).on("keyup",function(){
+                    $(this).val(function(idx,val){
+                        console.log(idx+"----"+val)
+                        return val.toUpperCase();
+                    })
+                })
+            })
+            $("#node4").on("focusout",function(){
+                console.log($(this).val())
+
+            })
+        </script>
+    </fieldset>
+
+
+    <fieldset>
+        <legend>5.当选择 select 后，获取用户选择的内容</legend>
+        <form>
+            <select id="node5" multiple="multiple">
+                <option>iphone</option>
+                <option>ipad</option>
+                <option>ipod</option>
+                <option>macbook</option>
+            </select>
+        </form>
+        <p class="node5-cont"></p>
+        <script type="text/javascript">
+                $("#node5").on("change",function(){
+                    console.log($("#node5").val())
+                    $(".node5-cont").text("用户选择的内容是:"+$("#node5").val())
+                })
+        </script>
+    </fieldset>
+    <div class="footer" style="height:600px"></div>
+
+</div>
+
+
+</body>
+</html>

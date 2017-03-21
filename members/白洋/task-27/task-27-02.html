@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript" src="jquery.min.js"></script>
+<style>
+    .rongqi{
+        height:200px;
+        width:400px;
+        overflow: hidden;
+        /*border: 1px red solid;*/
+    }
+
+    .zu{
+        display: block;
+        list-style:none;
+        height:200px;
+        width:2401px;
+    }
+    .zu:after{
+        content: "";
+        clear: both;
+        display: block;
+
+    }
+    .ziyuansu{
+        height:200px;
+        width:400px;
+        float: left;
+    }
+    .ziyuansu>img{
+        width:400px;
+        height:200px;
+    }
+    .leftaction{
+        position: relative;
+        bottom: 110px;
+        left: 10px;
+        text-decoration: none;
+        color: azure;
+        background-color: black;
+        border-radius: 50%;
+        padding: 10px;
+        text-align: center;
+        opacity: 0.4;
+    }
+    .rightaction{
+        position: relative;
+        bottom: 110px;
+        left: 320px;
+        text-decoration: none;
+        color: azure;
+        background-color: black;
+        border-radius: 50%;
+        padding: 10px 11px;
+        opacity: 0.4;
+    }
+    .biaoji{
+        list-style: none;
+        /*border: solid 1px blueviolet;*/
+        position: relative;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .biaoji:after{
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .ibiaoji{
+        width: 20px;
+        height: 5px;
+        background-color: black;
+        opacity: 0.9;
+        border-radius: 20%;
+    }
+    .active{
+        background-color: azure;
+        opacity: 1;
+    }
+</style>
+<div class="rongqi lb1">
+    <lu class="zu">
+        <li class="ziyuansu" data-id=0><img src="img/1.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=1><img src="img/2.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=2><img src="img/3.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=3><img src="img/4.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=4><img src="img/5.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=5><img src="img/6.jpg" alt=""></li>
+    </lu>
+    <a href="#" class="leftaction"> < </a>
+    <a href="#" class="rightaction"> > </a>
+    <ul class="biaoji">
+        <li class="ibiaoji active"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+    </ul>
+</div>
+<div class="rongqi lb2">
+    <lu class="zu">
+        <li class="ziyuansu" data-id=0><img src="img/1.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=1><img src="img/2.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=2><img src="img/3.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=3><img src="img/4.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=4><img src="img/5.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=5><img src="img/6.jpg" alt=""></li>
+    </lu>
+    <a href="#" class="leftaction"> < </a>
+    <a href="#" class="rightaction"> > </a>
+    <ul class="biaoji">
+        <li class="ibiaoji active"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+    </ul>
+</div>
+<div class="rongqi lb3">
+    <lu class="zu">
+        <li class="ziyuansu" data-id=0><img src="img/1.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=1><img src="img/2.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=2><img src="img/3.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=3><img src="img/4.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=4><img src="img/5.jpg" alt=""></li>
+        <li class="ziyuansu" data-id=5><img src="img/6.jpg" alt=""></li>
+    </lu>
+    <a href="#" class="leftaction"> < </a>
+    <a href="#" class="rightaction"> > </a>
+    <ul class="biaoji">
+        <li class="ibiaoji active"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+        <li class="ibiaoji"></li>
+    </ul>
+</div>
+<script>
+         function playCarousel(carousel) {
+             var $slides = $('.' + carousel + ' .zu'),
+                 $slide = $slides.children(),
+                 $bullet = $slides.siblings('.biaoji'),
+                 $previous = $slides.siblings('.leftaction'),
+                 $next = $slides.siblings('.rightaction'),
+                 imgCount = $slide.length;
+
+             var currentIndex = 0,
+                 isAnimate = false,
+                 fadeTime = 500,
+                 frameTime = 8000,
+                 clock;
+
+             play(0);
+             autoPlay();
+
+             $previous.on('click', function() {
+                 playPrevious();
+             });
+             $next.on('click', function() {
+                 playNext();
+             });
+             $bullet.find('li').on('click', function() {
+                 var index = $(this).index();
+                 play(index);
+                 setBullet(index);
+             });
+             $slides.on('mouseover', function() {
+                 stopPlay();
+             });
+             $slides.on('mouseout', function() {
+                 autoPlay();
+             });
+
+             function play(newIndex) {
+                 if (!isAnimate) {
+                     isAnimate = true;
+                     $slide.eq(currentIndex).fadeOut(fadeTime);
+                     $slide.eq(newIndex).fadeIn(fadeTime);
+                     currentIndex = newIndex;
+                     setBullet(currentIndex);
+                     isAnimate = false;
+                 }
+             }
+
+             function playNext() {
+                 play((currentIndex + 1) % imgCount);
+             }
+
+             function playPrevious() {
+                 play((currentIndex - 1 + imgCount) % imgCount);
+             }
+
+             function autoPlay() {
+                 clock = setInterval(function() {
+                     playNext();
+                 }, frameTime);
+             }
+
+             function stopPlay() {
+                 clearInterval(clock);
+             }
+
+             function setBullet(index) {
+                 $bullet.children().removeClass('active')
+                     .eq(index).addClass('active');
+             }
+         }
+
+         playCarousel('lb1');
+         playCarousel('lb2');
+         playCarousel('lb3');
+
+</script>
+</body>
+</html>

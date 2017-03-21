@@ -1,0 +1,53 @@
+<html>
+<style>
+	.ct{
+		width: 910px;
+		margin: auto;
+	}
+	.main{
+		float: left;
+		width: 400px;
+		height: 120px;
+		border: 1px solid #ccc;
+	}
+	.main input{
+		margin: 20px;
+		width: 200px;
+	}
+	.iframe{
+		float: right;
+	}
+	iframe{
+		width: 400px;
+		height: 120px;
+		border: 1px dashed #ccc;
+	}
+</style>
+
+<div class="ct">
+	<h1>postMessage</h1>
+	<div class="main">
+		<input type="text" placeholder="http://localhost:9990/a.html">
+	</div>
+
+	<iframe src="http://localhost:9991/b.html" frameborder="0" ></iframe>
+
+</div>
+
+
+<script>
+//http://localhost:9990/a.html
+$('.main input').addEventListener('input', function() {
+	console.log(this.value);
+	window.frames[0].postMessage(this.value, '*');
+})
+window.addEventListener('message', function(e) {
+	$('.main input').value = e.data
+	console.log(e.data);
+});
+
+function $(id) {
+	return document.querySelector(id);
+}
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var john = {
+            name: "John Smith",
+            age: 23
+        }
+        var mary = {
+            name: "Mary Key",
+            age: 18
+        }
+        var bob = {
+            name: "Bob-small",
+            age: 6
+        }
+        var people = [john, mary, bob]
+
+
+        function ageSort(temp){
+            temp.sort(
+                function(tempa, tempb){
+                return tempa.age > tempb.age
+                            }
+            )
+        }
+
+
+        ageSort(people); // [ bob, mary, john ]
+
+    </script>
+</body>
+
+</html>

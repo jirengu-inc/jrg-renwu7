@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 发布订阅模式的事件管理器 </title>
+</head>
+<body>
+
+<script>
+    var EventManager = (function(){
+
+        var ct = {};
+
+        function on(evt,val){
+            ct[evt] = ct[evt] || [];
+            ct[evt].push(val);
+        }
+
+        function fire(evt){
+            if(! ct[evt] ){
+                return;
+            };
+            for (var i=0;i<ct[evt].length;i++){
+                ct[evt][i]( [].slice.call(arguments, 1) );
+            }
+        }
+
+        function off(evt){
+            delete ct[evt];
+        }
+
+        return {
+            on: on,
+            fire: fire,
+            off: off
+        }
+    })()
+
+    EventManager.on('text:change', function(val){
+        console.log('text:change...  now val is ' + val);
+    });
+    EventManager.fire('text:change', '已经成功');
+    EventManager.off('text:change');
+    EventManager.fire('text:change', '再绑定');
+
+
+</script>
+</body>
+</html>

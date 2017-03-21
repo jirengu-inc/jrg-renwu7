@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-1</title>
+    <style>
+        ul,li,a{
+            margin:0;
+            padding:0;
+        }
+        a{
+            text-align: none;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .carousel{
+            width:400px;
+            height:300px;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgsection li a img{
+            width:400px;
+            height:300px;
+        }
+        .btn{
+            text-align: center;
+            color:#fff;
+            width:30px;
+            height:30px;
+            line-height: 30px;
+            background-color: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .btn:hover{
+            opacity: 1;
+        }
+        .prevbtn{
+            position:absolute;
+            left:10px;
+            top:50%;
+            margin-top:-15px;
+        }
+        .nextbtn{
+            position:absolute;
+            right:10px;
+            top:50%;
+            margin-top:-15px;
+        }
+        .jumpsection{
+            position: absolute;
+            bottom:10px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        .jumpsection li{
+            width:20px;
+            height:5px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .jumpsection li.active{
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="imgsection">
+        <li><a href="#"><img src="../img/apple-iphone-books-desk.jpg"></a></li>
+        <li><a href="#"><img src="../img/books-magazines-building-school.jpg"></a></li>
+        <li><a href="#"><img src="../img/startup-photos.jpg"></a></li>
+        <li><a href="#"><img src="../img/knowledge-book-library-glasses.jpg"></a></li>
+    </ul>
+    <a hreg="#" class="prevbtn btn"><</a>
+    <a hreg="#" class="nextbtn btn">></a>
+    <ul class="jumpsection">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="../jquery-3.1.1.min.js"></script>
+<script>
+    var $imgitems = $('.imgsection').children(),
+        $prevbtn = $('.prevbtn'),
+        $nextbtn = $('.nextbtn'),
+        $jumpsection = $('.jumpsection'),
+        imgCount = $imgitems.length,
+        crtIdx = 0,
+        inprocess = false;
+
+    $nextbtn.on('click',function (){
+        playNext();
+    });
+    $prevbtn.on('click',function (){
+        playPrev();
+    });
+    $jumpsection.find('li').on('click',function (){
+        var idx = $(this).index();
+        play(idx);
+    });
+
+    function play(idx){
+        if(inprocess){
+            return;
+        }
+        inprocess = true;
+        $imgitems.eq(crtIdx).fadeOut(500);
+        $imgitems.eq(idx).fadeIn(500,function (){
+            inprocess = false;
+        });
+        crtIdx = idx;
+        jumpTo();
+    }
+    function jumpTo(){
+        $jumpsection.children().removeClass('active').eq(crtIdx).addClass('active');
+    }
+    function playPrev(){
+        play((crtIdx-1)%imgCount);
+    }
+    function playNext(){
+        play((crtIdx+1)%imgCount);
+    }
+    function autoPlay(){
+       clock = setInterval(function(){
+            playNext();
+        },2500);
+    }
+
+    play(0);
+    autoPlay();
+
+    //调试用函数
+    function stopPlay() {
+        clearInterval(clock);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户名和密码校验</title>
+    <style>
+        form,dt,dl,dd,input{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        h3{
+            margin-left: 20px;
+        }
+        dt{
+            float: left;
+            margin-left: 20px;
+        }
+        .msg{
+            margin: 10px 0 10px 120px;
+        }
+        .username + dd input{
+            border: 1px solid red;
+        }
+        input {
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 12px;
+            color: #ccc;
+        }
+        .error{
+            outline-color: red;
+        }
+    </style>
+</head>
+<body>
+<!--**************表单样式*************-->
+<h3>注册</h3>
+<form id="ct" action="">
+    <dl class="ct1 clearfix">
+
+        <dt>用户名:</dt>
+        <dd class="msg">
+            <input class="username" type="text" placeholder="jack被注册过">
+        </dd>
+        <dd class="msg hidetext1">
+            用户名格式不正确
+        </dd>
+
+
+        <dt>密码:</dt>
+        <dd class="msg">
+            <input class="pwd1" type="text" placeholder="至少6位">
+        </dd>
+        <dd class="msg hidetext2">
+            大写字母、小写、数字、下划线最少两种，6-15个字符
+        </dd>
+
+
+        <dt>再输一次:</dt>
+        <dd class="msg">
+            <input class="pwd2" type="text" placeholder="再输入一遍密码">
+        </dd>
+        <dd class="msg hidetext3"><br> </dd>
+        <dd class="btn msg">
+            <button class="btnn">注册</button>
+        </dd>
+
+
+
+    </dl>
+</form>
+<script>
+    var usn = document.querySelector('.username'),
+        t1 = document.querySelector('.hidetext1'),
+        t2 = document.querySelector('.hidetext2'),
+        t3 = document.querySelector('.hidetext3'),
+        pd1 = document.querySelector('.pwd1'),
+        pd2 = document.querySelector('.pwd2'),
+        obtn = document.querySelector('.btnn');
+
+
+    //-------------------------------------  封 装  -----------------------------------------
+    function ajax(opts) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var json = JSON.parse(xmlhttp.responseText);
+                opts.success(json);
+            }
+            if (xmlhttp.status == 404) {
+                opts.error();
+            }
+        };
+
+        var dataStr = '';
+        for (var key in opts.data) {
+            dataStr += key + '=' + opts.data[key] + '&';
+        }
+        dataStr = dataStr.substr(0, dataStr.length - 1);
+
+        if (opts.type.toLowerCase() === 'post') {
+            xmlhttp.open(opts.type, opts.url, true);
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xmlhttp.send(dataStr);
+        }
+        if (opts.type.toLowerCase() === 'get') {
+            xmlhttp.open(opts.type, opts.url + '?' + dataStr, true);
+            xmlhttp.send();
+        }
+
+
+    }
+
+//-------------------------------------- 封装 class 的添加与删除 -------------------------------------
+
+    function hasClass(el,cls){
+        var reg = new RegExp('(^|\\s)'+cls+'($|\\s)');
+        return reg.test(el.className);
+    }
+    function addClass(el,cls){
+        if(!hasClass(el,cls)){
+            el.className += ' '+cls;
+        }
+    }
+    function removeClass(el,cls){
+        var reg = new RegExp('(^|\\s)'+cls+'($|\\s)');
+        tmp = el.className.replace(reg,'').replace(/\s{2,}/g,' ');
+        el.className = tmp;
+    }
+
+//-------------------------------------     验证 用户名    -----------------------------------------
+
+    usn.addEventListener('change', function(){
+        testUsername();
+    });
+
+    function testUsername(){
+        var reg = /^\w{3,10}$/;
+        if(!reg.test(usn.value)){
+            t1.innerText = "用户名格式不正确";
+            removeClass(usn,'error');
+            addClass(usn,'error');
+        }else{
+            ajax({
+                url: '24-3.php',
+                type: 'get',
+                data: {
+                    username: usn.value
+                },
+                success: function(ret){
+                    if (ret["status"]==false){
+                        t1.innerText ="用户名已经存在";
+                        removeClass(usn,'error');
+                        addClass(usn,'error');
+                    }else{
+                        t1.innerText = "用户名可用";
+                        removeClass(usn,'error');
+                    }
+                },
+                error: function(){
+                    console.log('后台数据出错啦')
+                }
+            })
+        }
+    }
+
+//----------------------------     第一次 验证 密码     -----------------------------------
+    pd1.addEventListener('change',function(){
+        testPassword();
+    })
+
+    function testPassword(){
+        if(pd1.value.match(/(^[A-z]+$)|(^[\d]+$)|(^[_]+$)/)){
+            t2.innerText = '密码格式不正确';
+            removeClass(pd1,'error');
+            addClass(pd1,'error');
+        }else if(pd1.value.length<6 || pd1.value.length>15){
+            t2.innerText = '密码格式不正确';
+            removeClass(pd1,'error');
+            addClass(pd1,'error');
+        }else if(pd1.value.match(/[^A-z0-9_]/g)){
+            t2.innerText = '密码格式不正确';
+            removeClass(pd1,'error');
+            addClass(pd1,'error');
+        }else{
+            t2.innerText = '密码可用';
+            removeClass(pd1,'error');
+        }
+    }
+//----------------------------     第2次 验证 密码     -----------------------------------
+    pd2.addEventListener('change',function(){
+        testPassword2();
+    })
+
+    function testPassword2(){
+        if(pd2.value == pd1.value){
+            t3.innerText = '两次密码输入一致';
+            removeClass(pd2,'error');
+        }else{
+            t3.innerText = '两次密码输入不一致';
+            removeClass(pd2,'error');
+            addClass(pd2,'error');
+        }
+    }
+//----------------------------      验证注册      ---------------------------------------
+    obtn.addEventListener('click',function(){
+        onRight();
+    })
+
+    function onRight(){
+        if(t1.innerText=="用户名可用" && t2.innerText=="密码可用" && t3.innerText=="两次密码输入一致"){
+            console.log('注册成功');
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

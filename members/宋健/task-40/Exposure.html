@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exposure</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div {
+            height: 1000px;
+            background-color: #ccc;
+        }
+        .secB{
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="secA"></div>
+<div class="secB"></div>
+<div class="secC"></div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    var Exposure = (function() {
+        var firstSight = true;
+        function isShow($ele) {
+            var nodeH = $ele.height();
+            var top = $(document).scrollTop();
+            var tall = $ele.offset().top;
+            var winH = $(window).height();
+            if (winH+top>tall&&top<tall+nodeH) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function bind($ele, handler) {
+            $(document).on('scroll', function() {
+                if (isShow($ele)) {
+                    handler.call($ele);
+                }
+            });
+        }
+        function one($ele, handler) {
+            $(document).on('scroll', function() {
+                if (isShow($ele) &&firstSight == true) {
+                    handler.call($ele);
+                    firstSight = false;
+                }
+            });
+        }
+        return {
+            one: one,
+            bind: bind
+        }
+    })();
+    var $target = $('.secB');
+    Exposure.one($target, function() {
+        console.log($(this));
+    })
+</script>
+</body>
+</html>
