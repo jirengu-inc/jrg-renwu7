@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="never">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="dist/css/iconfont.css">
+    <link rel="stylesheet" href="dist/css/index.css">
+</head>
+
+<body>
+    <div class="music-container">
+        <audio src=""></audio>
+        <div class="music-pic">
+            <img src="https://pic4.zhimg.com/757769c931cff70c3c1abc8fdf760303_b.jpg" alt="">
+        </div>
+        <div class="music-controllers">
+            <div class="switch">
+                <span class="iconfont icon-playerplay playOrPause"></span>
+            </div>
+            <div class="show-timer">
+                <div class="progress">
+                    <div class="current-time"></div>
+                </div>
+            </div>
+            <div class="volume">
+                <span class="iconfont icon-platefrom_notice"></span>
+            </div>
+        </div>
+        <ul class="music-buttons">
+            <li>
+                <a href="#">
+                    <span class="iconfont icon-download"></span>
+                </a>
+            </li>
+            <li class="active"><span class="iconfont geci"></span></li>
+            <li>
+               <a href="http://service.weibo.com/share/share.php?title=#_loginLayer_1466697157538" target="new">
+                 <span class="iconfont icon-share"></span>
+               </a>
+            </li>
+            <li class="love"><span class="iconfont icon-love"></span></li>
+        </ul>
+        <div class="music-lyr">
+            <ul class="lyric">加载歌词中ing</ul>
+        </div>
+    </div>
+</body>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="js/music.js"></script>
+</html>

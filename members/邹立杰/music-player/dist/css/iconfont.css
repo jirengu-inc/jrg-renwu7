@@ -1,0 +1,31 @@
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_oph510pz6ddholxr.eot?t=1491122256183'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_oph510pz6ddholxr.eot?t=1491122256183#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_oph510pz6ddholxr.woff?t=1491122256183') format('woff'), /* chrome, firefox */
+  url('//at.alicdn.com/t/font_oph510pz6ddholxr.ttf?t=1491122256183') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_oph510pz6ddholxr.svg?t=1491122256183#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-share:before { content: "\e6ce"; }
+
+.geci:before { content: "\e82d"; }
+
+.icon-playerplay:before { content: "\e806"; }
+
+.icon-playervolumeoff:before { content: "\e809"; }
+
+.icon-playerpause-copy:before { content: "\e80c"; }
+
+.icon-platefrom_notice:before { content: "\e883"; }
+
+.icon-love:before { content: "\e665"; }
+
+.icon-download:before { content: "\e601"; }

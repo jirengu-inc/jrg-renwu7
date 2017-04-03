@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row-center {
+  display: flex;
+  justify-content: center;
+}
+.column-center {
+  display: flex;
+  align-items: center;
+}
+body {
+  height: 100vh;
+  background: #525766;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.music-container {
+  width: 376px;
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.music-container .music-pic {
+  height: 218px;
+  overflow: hidden;
+}
+.music-container .music-pic img {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+}
+.music-container .music-container {
+  height: 50px;
+  background: #383e4b;
+}
+.music-container .music-controllers {
+  height: 50px;
+  background: #383e4b;
+  display: flex;
+}
+.music-container .music-controllers .switch,
+.music-container .music-controllers .volume {
+  width: 50px;
+  cursor: pointer;
+}
+.music-container .music-controllers .switch {
+  background: #202325;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.music-container .music-controllers .switch .iconfont {
+  font-size: 2.5em;
+}
+.music-container .music-controllers .show-timer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.music-container .music-controllers .show-timer .progress {
+  width: 80%;
+  height: 8px;
+  border-radius: 10px;
+  background: #545a6b;
+  cursor: pointer;
+  overflow: hidden;
+}
+.music-container .music-controllers .show-timer .progress .current-time {
+  width: 0%;
+  height: 100%;
+  border-radius: 10px;
+  background: #fff;
+}
+.music-container .music-controllers .volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.music-container .music-controllers .volume .iconfont {
+  font-size: 2.2em;
+}
+.music-container .music-controllers .iconfont {
+  color: #fff;
+}
+.music-container .music-buttons {
+  height: 53px;
+  background: #f8fbfb;
+  display: flex;
+  border-bottom: 1px solid #f0f3f5;
+}
+.music-container .music-buttons li {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #f0f3f5;
+  cursor: pointer;
+}
+.music-container .music-buttons li:last-child {
+  border: none;
+}
+.music-container .music-buttons li.active {
+  background: #f06249;
+}
+.music-container .music-buttons li.active .iconfont {
+  color: #fff;
+}
+.music-container .music-buttons li .iconfont {
+  color: #d0d6df;
+  font-size: 1.8em;
+}
+.music-container .music-buttons li .iconfont.active {
+  color: #f06249;
+}
+.music-container .music-lyr {
+  height: 194px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.music-container .music-lyr .lyric {
+  position: relative;
+  transition: all 1s;
+}
+.music-container .music-lyr .lyric li {
+  padding: 5px 0 2px 0;
+  position: relative;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  transition: all 1s;
+}
+.music-container .music-lyr .lyric li.active {
+  font-size: 13px;
+  color: #000;
+}
