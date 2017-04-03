@@ -24,13 +24,13 @@ var myAudio = $("audio")[0],
 
     function play() {
         myAudio.play()
-        $(".playOrPause").removeClass("icon-playerpause-copy").addClass("icon-playerplay")
+        $(".playOrPause").removeClass("icon-playerplay").addClass("icon-playerpause-copy")
 
     }
 
     function pause() {
         myAudio.pause()
-        $(".playOrPause").removeClass("icon-playerplay").addClass("icon-playerpause-copy")
+        $(".playOrPause").removeClass("icon-playerpause-copy").addClass("icon-playerplay")
     }
 
     $(".love").on("click",function(){
