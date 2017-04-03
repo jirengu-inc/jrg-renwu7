@@ -170,3 +170,7 @@ var myAudio = $("audio")[0],
         }
     }
     getMusic()
+
+    $(document).on("dblclick",function(){
+        getMusic();
+    })

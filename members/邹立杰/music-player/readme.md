@@ -1,5 +1,8 @@
 ## audio 属性
 
+[预览](http://book.jirengu.com/jirengu-inc/jrg-renwu7/members/%E9%82%B9%E7%AB%8B%E6%9D%B0/music-player/index.html)
+双击页面切歌
+
 1. 创建audio对象
 
 ```JavaScript
